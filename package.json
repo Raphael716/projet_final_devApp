@@ -1,0 +1,24 @@
+{
+  "name": "projet_final_devapp",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Raphael716/projet_final_devApp#readme",
+  "bugs": {
+    "url": "https://github.com/Raphael716/projet_final_devApp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raphael716/projet_final_devApp.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "concurrently -n \"BACKEND,SPL\" -c \"green,blue\" \"cd backend && npm run dev\" \"cd SPL && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
