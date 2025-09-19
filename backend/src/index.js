@@ -3,8 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 // ----------------- Import Prisma -----------------
-const { PrismaClient } = require("./generated/prisma"); // <-- chemin correct vers ton client généré
-const prisma = new PrismaClient();
+const prisma = require("./config/db");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -28,10 +27,20 @@ app.get("/", (req, res) => {
 app.get("/test-db", async (req, res) => {
   try {
     const result = await prisma.user.findFirst(); // essaie de récupérer un utilisateur
-    res.json({ success: true, message: "Connexion à la DB OK", sampleUser: result });
+    res.json({
+      success: true,
+      message: "Connexion à la DB OK",
+      sampleUser: result,
+    });
   } catch (error) {
     console.error("Erreur DB :", error);
-    res.status(500).json({ success: false, message: "Impossible de se connecter à la DB", error: error.message });
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Impossible de se connecter à la DB",
+        error: error.message,
+      });
   }
 });
 
@@ -39,3 +48,8 @@ app.get("/test-db", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Serveur démarré sur http://localhost:${PORT}`);
 });
+
+prisma
+  .$connect()
+  .then(() => console.log("✅ Prisma connecté à la base"))
+  .catch((err) => console.error("❌ Prisma erreur connexion:", err));
