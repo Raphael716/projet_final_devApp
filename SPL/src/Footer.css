@@ -1,0 +1,22 @@
+/* Footer global */
+.footer {
+  background: rgba(26, 26, 26, 0.95);
+  color: #bbb;
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin-top: auto; /* colle le footer en bas si la page est courte */
+}
+
+/* Texte */
+.footer p {
+  margin: 0;
+  color: #aaa;
+  letter-spacing: 0.3px;
+  font-size: 0.95rem;
+}
+
+.footer p strong {
+  color: #fff;
+}
