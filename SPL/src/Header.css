@@ -79,3 +79,45 @@
   background: #5563d6;
   transform: translateY(-2px);
 }
+
+.user-label {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f0f0f0;
+  letter-spacing: 0.3px;
+  display: inline-block;
+}
+.logout-btn {
+  padding: 0.5rem 1.1rem;
+  background: #667eea;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.logout-btn:hover {
+  background: #5563d6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.admin-badge {
+  margin-left: 8px;
+  background: #667eea;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+}

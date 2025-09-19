@@ -36,7 +36,7 @@ export default function Login() {
           id: data.user.id,
           email: data.user.email,
           username: data.user.username,
-          isAdmin: data.user.isAdmin ?? data.user.admin ?? 0, // <= clé
+          isAdmin: Number(data.user.isAdmin ?? data.user.admin ?? 0) === 1,
         },
         data.token
       );
