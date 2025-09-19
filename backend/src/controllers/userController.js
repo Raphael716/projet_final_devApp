@@ -101,7 +101,7 @@ const registerUser = async (req, res) => {
       data: { username, email, password: hashedPassword, admin: 0 },
     });
 
-    const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: newUser.id, admin: user.admin }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
     const { password: _pw, ...safe } = newUser;
@@ -123,7 +123,7 @@ const loginUser = async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ error: "Email ou mot de passe incorrect" });
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user.id, admin: user.admin }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
     const { password: _pw, ...safe } = user;

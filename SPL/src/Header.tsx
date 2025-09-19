@@ -4,7 +4,7 @@ import { AuthContext } from "./AuthContext";
 import "./Header.css";
 export default function Header() {
   const { user, token, logout } = useContext(AuthContext);
-  const isAdmin = (user?.isAdmin ?? 0) === 1;
+  const isAdmin = user?.isAdmin ?? false;
 
   return (
     <header className="header">
@@ -25,8 +25,9 @@ export default function Header() {
               )}
               <span className="user-label">
                 {user?.username ?? user?.email}
+                {isAdmin && <span className="admin-badge">Admin</span>}
               </span>
-              <button onClick={logout}>Déconnexion</button>
+              <button className="logout-btn" onClick={logout}>Déconnexion</button>
             </>
           ) : (
             <>

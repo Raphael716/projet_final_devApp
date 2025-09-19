@@ -4,7 +4,12 @@ const router = express.Router();
 
 const userController = require("../controllers/userController");
 const protect = require("../middleware/authMiddleware");
-const adminOnly = require("../middleware/adminMiddleware");
+const adminOnly = (req, res, next) => {
+  if (!req.user || req.user.admin !== 1) {
+    return res.status(403).json({ error: "Réservé aux admins" });
+  }
+  next();
+};
 
 // Admin requis pour LIRE / ÉDITER / SUPPRIMER
 router.get("/", protect, adminOnly, userController.getAllUsers); // GET /api/users

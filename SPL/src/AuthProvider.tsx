@@ -11,19 +11,18 @@ function toString(v: unknown, fb = ""): string {
   return typeof v === "string" ? v : String(v ?? fb);
 }
 
-/** Accepte un user qui peut contenir `admin` (DB) ou `isAdmin`, et normalise vers `isAdmin` */
 function toAppUser(u: unknown): AppUser {
-  const o = (
-    typeof u === "object" && u !== null ? (u as Record<string, unknown>) : {}
-  ) as Record<string, unknown>;
+  const o =
+    typeof u === "object" && u !== null ? (u as Record<string, unknown>) : {};
 
-  const id = toNumber(o.id, 0);
-  const email = toString(o.email, "");
-  const username = typeof o.username === "string" ? o.username : undefined;
-  const isAdmin = toNumber(o.isAdmin ?? o.admin, 0); // <= clé : supporte les deux
+  const id = Number(o.id ?? 0);
+  const username = String(o.username ?? "");
+  const email = String(o.email ?? "");
+  const isAdmin = Number(o.admin ?? 0) === 1; // ✅ booléen direct
 
-  return { id, email, username, isAdmin };
+  return { id, username, email, isAdmin };
 }
+
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AppUser | null>(null);
