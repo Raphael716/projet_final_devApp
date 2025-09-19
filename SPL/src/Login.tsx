@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
+import "./Login.css";
 
 export default function Login() {
   const nav = useNavigate();
@@ -41,42 +42,44 @@ export default function Login() {
   };
 
   return (
-    <main className="login-container">
-      <h2>Connexion</h2>
+    <main className="auth-container">
+      <div className="auth-card">
+        <h2>Connexion</h2>
 
-      <form onSubmit={submit} className="login-form">
-        <label>
-          <span>Email</span>
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
-          />
-        </label>
+        <form onSubmit={submit} className="auth-form">
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+            />
+          </label>
 
-        <label>
-          <span>Mot de passe</span>
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-          />
-        </label>
+          <label>
+            <span>Mot de passe</span>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
+          </label>
 
-        {error && <div className="error">{error}</div>}
+          {error && <div className="auth-error">{error}</div>}
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Connexion..." : "Se connecter"}
-        </button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Connexion..." : "Se connecter"}
+          </button>
 
-        <p className="login-alt">
-          Pas encore de compte ? <Link to="/signup">S’inscrire</Link>
-        </p>
-      </form>
+          <p className="auth-alt">
+            Pas encore de compte ? <Link to="/signup">S'inscrire</Link>
+          </p>
+        </form>
+      </div>
     </main>
   );
 }
