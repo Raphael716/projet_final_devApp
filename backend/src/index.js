@@ -3,7 +3,9 @@ const cors = require("cors");
 require("dotenv").config();
 
 // ----------------- Import Prisma -----------------
-const prisma = require("./config/db");
+//const prisma = require("./config/db");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -34,13 +36,11 @@ app.get("/test-db", async (req, res) => {
     });
   } catch (error) {
     console.error("Erreur DB :", error);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Impossible de se connecter à la DB",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Impossible de se connecter à la DB",
+      error: error.message,
+    });
   }
 });
 
