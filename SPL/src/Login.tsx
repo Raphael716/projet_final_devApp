@@ -23,7 +23,6 @@ export default function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await res.json();
 
       if (!res.ok) {
@@ -32,7 +31,15 @@ export default function Login() {
         return;
       }
 
-      login(data.user, data.token);
+      login(
+        {
+          id: data.user.id,
+          email: data.user.email,
+          username: data.user.username,
+          isAdmin: data.user.isAdmin ?? data.user.admin ?? 0, // <= clé
+        },
+        data.token
+      );
       nav("/", { replace: true });
     } catch {
       setError("Erreur réseau");

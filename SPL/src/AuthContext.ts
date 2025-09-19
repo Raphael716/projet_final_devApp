@@ -1,11 +1,17 @@
 import { createContext } from "react";
 
-export type User = { id: number; email: string; username?: string } | null;
+export type AppUser = {
+  id: number;
+  email: string;
+  username?: string;
+  /** 0 ou 1 — toujours normalisé côté front */
+  isAdmin?: number;
+};
 
 export type AuthContextType = {
-  user: User;
+  user: AppUser | null;
   token: string | null;
-  login: (u: User, t: string) => void;
+  login: (u: AppUser, t: string) => void;
   logout: () => void;
 };
 
