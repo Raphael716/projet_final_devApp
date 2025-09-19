@@ -1,126 +1,182 @@
-/* App.css */
-
 /* Root / conteneur principal */
 #root {
-  margin: 0; /* pas de centrage forcé du root */
+  margin: 0;
   padding: 0;
   text-align: initial;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header pleine largeur */
+/* Header */
 .header {
   width: 100%;
   box-sizing: border-box;
-  background: #222;
+  background: rgba(34, 34, 34, 0.95);
+  backdrop-filter: blur(6px);
   color: #fff;
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  position: sticky; /* reste en haut au scroll */
+  position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 .logo {
   font-weight: 700;
-  font-size: 1.5rem;
-  color: inherit;
+  font-size: 1.6rem;
+  color: #fff;
   text-decoration: none;
   white-space: nowrap;
+  letter-spacing: 1px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  flex-wrap: wrap; /* passe à la ligne si manque d’espace */
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .nav a {
-  color: inherit;
+  color: #ddd;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  transition: color 0.2s, transform 0.2s;
 }
 .nav a:hover {
-  text-decoration: underline;
-}
-
-/* Mise en page du contenu */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-/* Hero & sections (très simple) */
-.hero {
-  text-align: center;
-  margin: 2rem 0 1rem;
-}
-.subtitle {
-  opacity: 0.9;
-  max-width: 800px;
-  margin: 0.5rem auto 1rem;
-}
-.cta {
-  display: inline-flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-.btn {
-  padding: 0.6rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid #444;
-}
-.btn.primary {
-  background: #646cff;
   color: #fff;
-  border-color: #646cff;
+  transform: translateY(-2px);
 }
+
+/* Contenu */
+.container {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.container p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.3rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: #667eea;
+  border-color: #667eea;
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #5563d6;
+  border-color: #5563d6;
+  transform: translateY(-2px);
+}
+
 .btn.ghost {
   background: transparent;
-  color: inherit;
+  border-color: #fff;
+  color: #fff;
+}
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
+/* Sections et cartes */
 .section {
-  margin: 2.5rem 0;
+  margin: 3rem 0;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 .card {
-  padding: 1rem;
-  border: 1px solid #333;
-  border-radius: 10px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
 
 /* Footer */
 footer.footer {
-  background: #1a1a1a;
-  color: #888;
+  background: rgba(26, 26, 26, 0.95);
+  color: #bbb;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
-  font-size: 1rem;
-  border-top: 1px solid #646cff;
+  padding: 1.2rem 0;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: auto;
 }
 
-/* Responsive : sous 700px, empiler proprement */
+/* Responsive */
 @media (max-width: 700px) {
   .header {
     flex-wrap: wrap;
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 1.2rem;
   }
   .nav {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
   }
-  .grid {
-    grid-template-columns: 1fr;
+  .container h1 {
+    font-size: 1.8rem;
   }
+}
+/* Supprime les marges et le fond blanc par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: transparent; /* on laisse #root gérer le fond */
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  flex-direction: column;
 }

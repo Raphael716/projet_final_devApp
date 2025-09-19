@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
-
+import "./Signup.css";
 export default function Signup() {
   const nav = useNavigate();
   const { login } = useContext(AuthContext);
@@ -42,54 +42,56 @@ export default function Signup() {
   };
 
   return (
-    <main className="signup-container">
-      <h2>Créer un compte</h2>
+    <main className="auth-container">
+      <div className="auth-card">
+        <h2>Créer un compte</h2>
 
-      <form onSubmit={submit} className="signup-form">
-        <label>
-          <span>Nom d’utilisateur</span>
-          <input
-            type="text"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            autoComplete="username"
-          />
-        </label>
+        <form onSubmit={submit} className="auth-form">
+          <label>
+            <span>Nom d’utilisateur</span>
+            <input
+              type="text"
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              autoComplete="username"
+            />
+          </label>
 
-        <label>
-          <span>Email</span>
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
-          />
-        </label>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+            />
+          </label>
 
-        <label>
-          <span>Mot de passe</span>
-          <input
-            type="password"
-            required
-            minLength={6}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="new-password"
-          />
-        </label>
+          <label>
+            <span>Mot de passe</span>
+            <input
+              type="password"
+              required
+              minLength={6}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
+            />
+          </label>
 
-        {error && <div className="error">{error}</div>}
+          {error && <div className="auth-error">{error}</div>}
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Création..." : "S’inscrire"}
-        </button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Création..." : "S’inscrire"}
+          </button>
 
-        <p className="signup-alt">
-          Déjà un compte ? <Link to="/login">Se connecter</Link>
-        </p>
-      </form>
+          <p className="auth-alt">
+            Déjà un compte ? <Link to="/login">Se connecter</Link>
+          </p>
+        </form>
+      </div>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
-
+import "./Header.css";
 export default function Header() {
   const { user, token, logout } = useContext(AuthContext);
   const isAdmin = (user?.isAdmin ?? 0) === 1;

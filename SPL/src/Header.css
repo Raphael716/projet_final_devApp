@@ -1,0 +1,81 @@
+/* Header global */
+.header {
+  width: 100%;
+  background: rgba(34, 34, 34, 0.95);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Logo */
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+.logo:hover {
+  color: #a5b4fc; /* violet clair */
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Zone utilisateur */
+.user-zone {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-zone span {
+  font-weight: 500;
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* Bouton déconnexion */
+.user-zone button {
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.user-zone button:hover {
+  background: #5563d6;
+  transform: translateY(-2px);
+}
