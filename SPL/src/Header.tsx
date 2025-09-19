@@ -25,6 +25,7 @@ export default function Header() {
               )}
               <span className="user-label">
                 {user?.username ?? user?.email}
+                {isAdmin && <span className="admin-badge">Admin</span>}
               </span>
               <button className="logout-btn" onClick={logout}>Déconnexion</button>
             </>

@@ -9,7 +9,6 @@ module.exports = async function adminOnly(req, res, next) {
       where: { id: Number(req.user.id) },
     });
 
-    // ⚠️ la colonne en DB s'appelle "admin" (0/1)
     if (!me || me.admin !== 1)
       return res.status(403).json({ error: "Réservé aux admins" });
 

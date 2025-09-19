@@ -4,17 +4,11 @@ import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Login from "./Login";
 import { AuthContext } from "./AuthContext";
+import type { AppUser } from "./AuthContext";
 import "./App.css";
 import Signup from "./Signup";
-import AdminUsers from "./EditUser";
+import AdminUsers from "./AdminUsers";
 import EditUser from "./EditUser";
-
-type User = {
-  id: number;
-  email: string;
-  username?: string;
-  isAdmin?: number; // 0/1 côté front
-} | null;
 
 function Home() {
   return (
@@ -28,23 +22,35 @@ function Home() {
   );
 }
 
+// ✅ Mapper toujours vers AppUser avec isAdmin:boolean
+function toAppUser(u: any): AppUser {
+  return {
+    id: Number(u.id ?? 0),
+    username: u.username ?? "",
+    email: u.email ?? "",
+    isAdmin: Number(u.isAdmin ?? u.admin ?? 0) === 1,
+  };
+}
+
 export default function App() {
-  const [user, setUser] = useState<User>(null);
+  const [user, setUser] = useState<AppUser | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
     const t = localStorage.getItem("spl_token");
     const u = localStorage.getItem("spl_user");
     if (t) setToken(t);
-    if (u) setUser(JSON.parse(u));
+    if (u) setUser(toAppUser(JSON.parse(u)));
   }, []);
 
-  const login = (u: User, t: string) => {
-    setUser(u);
+  const login = (u: any, t: string) => {
+    const appUser = toAppUser(u);
+    setUser(appUser);
     setToken(t);
     localStorage.setItem("spl_token", t);
-    localStorage.setItem("spl_user", JSON.stringify(u));
+    localStorage.setItem("spl_user", JSON.stringify(appUser));
   };
+
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -71,8 +77,14 @@ export default function App() {
         />
 
         {/* Admin */}
-        <Route path="/admin/users" element={<AdminUsers />} />
-        <Route path="/admin/users/:id/edit" element={<EditUser />} />
+        <Route
+          path="/admin/users"
+          element={user?.isAdmin ? <AdminUsers /> : <Navigate to="/" replace />}
+        />
+        <Route
+          path="/admin/users/:id/edit"
+          element={user?.isAdmin ? <EditUser /> : <Navigate to="/" replace />}
+        />
 
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export type AppUser = {
   id: number;
-  username: string;
+  username?: string;
   email: string;
   isAdmin: boolean;
 };

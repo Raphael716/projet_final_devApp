@@ -11,7 +11,6 @@ function toString(v: unknown, fb = ""): string {
   return typeof v === "string" ? v : String(v ?? fb);
 }
 
-/** Accepte un user qui peut contenir `admin` (DB) ou `isAdmin`, et normalise vers `isAdmin` */
 function toAppUser(u: unknown): AppUser {
   const o =
     typeof u === "object" && u !== null ? (u as Record<string, unknown>) : {};
@@ -19,10 +18,11 @@ function toAppUser(u: unknown): AppUser {
   const id = Number(o.id ?? 0);
   const username = String(o.username ?? "");
   const email = String(o.email ?? "");
-  const isAdmin = Number(o.admin ?? 0) === 1;
+  const isAdmin = Number(o.admin ?? 0) === 1; // ✅ booléen direct
 
   return { id, username, email, isAdmin };
 }
+
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AppUser | null>(null);
