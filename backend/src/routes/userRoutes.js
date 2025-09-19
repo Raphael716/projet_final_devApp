@@ -1,13 +1,18 @@
+// src/routes/userRoutes.js
 const express = require("express");
 const router = express.Router();
+
 const userController = require("../controllers/userController");
 const protect = require("../middleware/authMiddleware");
 const adminOnly = require("../middleware/adminMiddleware");
 
-// Routes utilisateurs
-router.get("/", protect, userController.getAllUsers); // GET /api/users
+// Admin requis pour LIRE / ÉDITER / SUPPRIMER
+router.get("/", protect, adminOnly, userController.getAllUsers); // GET /api/users
+router.get("/:id", protect, adminOnly, userController.getUserById); // GET /api/users/:id
+router.put("/:id", protect, adminOnly, userController.updateUser); // PUT /api/users/:id
+router.delete("/:id", protect, adminOnly, userController.deleteUser); // DELETE /api/users/:id
+
+// (optionnel) création libre si tu l’utilises côté seed/test
 router.post("/", userController.createUser); // POST /api/users
-router.get("/:id", userController.getUserById); // GET /api/users/:id
-router.delete("/:id", userController.deleteUser); // DELETE /api/users/:id
 
 module.exports = router;

@@ -1,11 +1,20 @@
+// src/App.tsx
 import { useEffect, useMemo, useState } from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Login from "./Login";
 import { AuthContext } from "./AuthContext";
-import type { User } from "./AuthContext";
 import "./App.css";
 import Signup from "./Signup";
+import AdminUsers from "./EditUser";
+import EditUser from "./EditUser";
+
+type User = {
+  id: number;
+  email: string;
+  username?: string;
+  isAdmin?: number; // 0/1 côté front
+} | null;
 
 function Home() {
   return (
@@ -50,6 +59,8 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* Auth */}
         <Route
           path="/login"
           element={!token ? <Login /> : <Navigate to="/" replace />}
@@ -58,6 +69,13 @@ export default function App() {
           path="/signup"
           element={!token ? <Signup /> : <Navigate to="/" replace />}
         />
+
+        {/* Admin */}
+        <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/users/:id/edit" element={<EditUser />} />
+
+        {/* fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <footer className="footer">
         © {new Date().getFullYear()} Software Production Line

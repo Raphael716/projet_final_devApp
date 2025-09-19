@@ -22,7 +22,6 @@ export default function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await res.json();
 
       if (!res.ok) {
@@ -31,7 +30,15 @@ export default function Login() {
         return;
       }
 
-      login(data.user, data.token);
+      login(
+        {
+          id: data.user.id,
+          email: data.user.email,
+          username: data.user.username,
+          isAdmin: data.user.isAdmin ?? data.user.admin ?? 0, // <= clé
+        },
+        data.token
+      );
       nav("/", { replace: true });
     } catch {
       setError("Erreur réseau");
@@ -43,7 +50,6 @@ export default function Login() {
   return (
     <main className="login-container">
       <h2>Connexion</h2>
-
       <form onSubmit={submit} className="login-form">
         <label>
           <span>Email</span>
@@ -52,10 +58,8 @@ export default function Login() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
           />
         </label>
-
         <label>
           <span>Mot de passe</span>
           <input
@@ -63,16 +67,12 @@ export default function Login() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
           />
         </label>
-
         {error && <div className="error">{error}</div>}
-
         <button type="submit" disabled={loading}>
           {loading ? "Connexion..." : "Se connecter"}
         </button>
-
         <p className="login-alt">
           Pas encore de compte ? <Link to="/signup">S’inscrire</Link>
         </p>
