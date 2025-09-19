@@ -1,5 +1,7 @@
-const { PrismaClient } = require("../generated/prisma");
+//const { PrismaClient } = require("../generated/prisma");
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -105,6 +107,25 @@ const loginUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const { username, email, isAdmin } = req.body;
+  try {
+    const updated = await prisma.user.update({
+      where: { id: Number(id) },
+      data: {
+        ...(username !== undefined ? { username } : {}),
+        ...(email !== undefined ? { email } : {}),
+        ...(isAdmin !== undefined ? { admin: Number(isAdmin) } : {}),
+      },
+    });
+    res.json(updated);
+  } catch (error) {
+    console.error("updateUser:", error);
+    res.status(500).json({ error: "Impossible de modifier l'utilisateur" });
+  }
+};
+
 module.exports = {
   getAllUsers,
   createUser,
@@ -112,4 +133,5 @@ module.exports = {
   deleteUser,
   registerUser,
   loginUser,
+  updateUser,
 };
