@@ -101,9 +101,12 @@ const registerUser = async (req, res) => {
       data: { username, email, password: hashedPassword, admin: 0 },
     });
 
-    const token = jwt.sign({ id: newUser.id, admin: user.admin }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { id: newUser.id, admin: newUser.admin },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+
     const { password: _pw, ...safe } = newUser;
     res.status(201).json({ user: safe, token });
   } catch (error) {
@@ -111,6 +114,7 @@ const registerUser = async (req, res) => {
     res.status(500).json({ error: "Impossible de créer l'utilisateur" });
   }
 };
+
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
