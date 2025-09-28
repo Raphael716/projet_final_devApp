@@ -82,4 +82,4 @@ return (
 );
 }
 
-export default EditUser; // ✅ obligatoire pour ton import
+export default EditUser;
