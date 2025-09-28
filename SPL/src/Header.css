@@ -121,3 +121,16 @@
   padding: 2px 6px;
   border-radius: 6px;
 }
+@media (max-width: 700px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 0.8rem 0.7rem;
+  }
+  .nav {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+}

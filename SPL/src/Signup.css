@@ -109,3 +109,13 @@
 .signup-alt a:hover {
   color: #4b56c0;
 }
+@media (max-width: 600px) {
+  .signup-form {
+    padding: 1.2rem;
+    max-width: 98vw;
+  }
+  .signup-form input, .signup-form button {
+    font-size: 0.98rem;
+    padding: 10px;
+  }
+}

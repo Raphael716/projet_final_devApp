@@ -107,3 +107,14 @@
 .auth-alt a:hover {
   color: #4b56c0;
 }
+
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 1.2rem;
+    max-width: 98vw;
+  }
+  .auth-form input, .auth-form button {
+    font-size: 0.98rem;
+    padding: 10px;
+  }
+}
