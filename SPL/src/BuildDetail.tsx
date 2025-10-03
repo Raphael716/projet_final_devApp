@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "./BuildDetail.css";
+import { AuthContext } from "./AuthContext";
 
 type BuildDetailType = {
   id: number;
@@ -8,24 +9,68 @@ type BuildDetailType = {
   description: string;
   fullDescription: string;
   version: string;
-  status: string;
-  proprietaire: string;
+  status?: string;
+  proprietaire?: string;
+  // optional frontend-friendly aliases
+  owner?: string;
+  statusLabel?: string;
   updatedAt: string;
   versions: { version: string; date: string }[];
+  technologies?: string[];
+  wikiUrl?: string;
+  bugs?: { id: number; title: string; status: string }[];
+  usageStats?: { users: number; sessions: number };
 };
 
 export default function BuildDetail() {
   const { id } = useParams();
   const [build, setBuild] = useState<BuildDetailType | null>(null);
   const [loading, setLoading] = useState(true);
+  type Asset = {
+    id: number;
+    filename: string;
+    original: string;
+    mimetype: string;
+    size: number;
+    path: string;
+    buildId: number;
+    createdAt?: string;
+  };
+
+  const [assets, setAssets] = useState<Asset[]>([]);
+  const { user, token } = useContext(AuthContext);
 
   useEffect(() => {
     // Remplace par ton endpoint API
     fetch(`/api/builds/${id}`)
       .then((res) => res.json())
-      .then(setBuild)
+      .then((data) => {
+        // Normalize server fields (fr/back naming mismatch)
+  const normalized: Partial<BuildDetailType> = {
+          id: data.id,
+          name: data.name ?? data.nom ?? '',
+          description: data.description ?? '',
+          fullDescription: data.descriptionComplete ?? data.fullDescription ?? data.description ?? '',
+          version: data.version ?? data.version,
+          status: data.status ?? data.statut ?? '',
+          proprietaire: data.proprietaire ?? data.owner ?? data.ownerName ?? '',
+          owner: data.proprietaire ?? data.owner ?? '',
+          updatedAt: data.updatedAt ?? data.updated_at ?? new Date().toISOString(),
+          versions: data.versions ?? [],
+          technologies: data.technologies ?? [],
+          wikiUrl: data.wikiUrl ?? data.wiki_url,
+          bugs: data.bugs ?? [],
+          usageStats: data.usageStats ?? null,
+        };
+        setBuild(normalized as BuildDetailType);
+      })
       .finally(() => setLoading(false));
-  }, [id]);
+    // fetch assets
+    fetch(`/api/assets/build/${id}`, { headers: token ? { Authorization: `Bearer ${token}` } : {} })
+      .then((r) => r.json())
+      .then(setAssets)
+      .catch((e) => console.error('assets fetch', e));
+  }, [id, token]);
 
   if (loading) return <p>Chargement...</p>;
   if (!build) return <p>Logiciel introuvable</p>;
@@ -75,6 +120,37 @@ export default function BuildDetail() {
         {build.bugs?.map((b) => (
           <li key={b.id}>
             {b.title} ({b.status})
+          </li>
+        ))}
+      </ul>
+      <h3>Fichiers téléchargeables</h3>
+      {assets.length === 0 && <p>Aucun fichier pour cette version.</p>}
+      <ul>
+        {assets.map((a) => (
+          <li key={a.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <a href={`/api/assets/download/${a.id}`} target="_blank" rel="noreferrer">
+              {a.original} ({Math.round(a.size / 1024)} KB)
+            </a>
+            {user?.isAdmin && (
+              <button
+                className="btn-delete"
+                onClick={async () => {
+                  if (!window.confirm('Supprimer ce fichier ?')) return;
+                  try {
+                    await fetch(`/api/assets/${a.id}`, {
+                      method: 'DELETE',
+                      headers: { Authorization: `Bearer ${token}` },
+                    });
+                    setAssets((cur) => cur.filter((x) => x.id !== a.id));
+                  } catch (e) {
+                    console.error('delete asset', e);
+                    alert('Erreur suppression');
+                  }
+                }}
+              >
+                Supprimer
+              </button>
+            )}
           </li>
         ))}
       </ul>
