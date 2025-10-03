@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 import "./Builds.css"; // nouveau fichier CSS
 
 type Build = {
@@ -15,6 +16,7 @@ type Build = {
 export default function Builds() {
   const [builds, setBuilds] = useState<Build[]>([]);
   const [loading, setLoading] = useState(true);
+  const { user, token } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("/api/builds")
@@ -62,10 +64,41 @@ export default function Builds() {
                 <td>{s.proprietaire}</td>
                 <td>{new Date(s.updatedAt).toLocaleDateString()}</td>
                 <td className="builds-actions">
-                  <Link to={`/builds/${s.id}/edit`} className="btn-edit">
-                    Modifier
-                  </Link>
-                  <button className="btn-archive">Archiver</button>
+                  {user?.isAdmin ? (
+                    <>
+                      <Link to={`/builds/${s.id}/edit`} className="btn-edit">
+                        Modifier
+                      </Link>
+                      <button
+                        className="btn-archive"
+                        onClick={async () => {
+                          if (
+                            !window.confirm(
+                              "Voulez-vous vraiment archiver (supprimer) ce logiciel ?"
+                            )
+                          )
+                            return;
+                          try {
+                            const res = await fetch(`/api/builds/${s.id}`, {
+                              method: "DELETE",
+                              headers: token
+                                ? { Authorization: `Bearer ${token}` }
+                                : {},
+                            });
+                            if (!res.ok) throw new Error("Erreur suppression");
+                            setBuilds((cur) =>
+                              cur.filter((b) => b.id !== s.id)
+                            );
+                          } catch (e) {
+                            console.error("delete build", e);
+                            alert("Impossible de supprimer le logiciel");
+                          }
+                        }}
+                      >
+                        Archiver
+                      </button>
+                    </>
+                  ) : null}
                 </td>
               </tr>
             ))}

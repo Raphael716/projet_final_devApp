@@ -12,6 +12,7 @@ import EditUser from "./EditUser";
 import Builds from "./Builds";
 import BuildDetail from "./BuildDetail";
 import NewBuild from "./NewBuild";
+import EditBuild from "./EditBuild";
 
 function Home() {
   return (
@@ -97,6 +98,10 @@ export default function App() {
         {/* Builds */}
         <Route path="/builds" element={<Builds />} />
         <Route path="/builds/new" element={<NewBuild />} />
+        <Route
+          path="/builds/:id/edit"
+          element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
+        />
         <Route path="/builds/:id" element={<BuildDetail />} />
 
         {/* fallback */}

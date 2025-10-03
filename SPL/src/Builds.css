@@ -45,6 +45,35 @@
   background: #f4f6ff;
 }
 
+@media (max-width: 900px) {
+  .builds-table thead {
+    display: none;
+  }
+  .builds-table,
+  .builds-table tbody,
+  .builds-table tr,
+  .builds-table td {
+    display: block;
+    width: 100%;
+  }
+  .builds-table tr {
+    margin-bottom: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.8rem;
+  }
+  .builds-table td {
+    padding: 0.5rem 0.8rem;
+    border: none;
+  }
+  .builds-table td::before {
+    font-weight: 600;
+    display: inline-block;
+    width: 120px;
+    color: #4b56c0;
+  }
+}
+
 .builds-actions {
   display: flex;
   gap: 0.5rem;

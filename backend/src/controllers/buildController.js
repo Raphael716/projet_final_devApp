@@ -17,19 +17,11 @@ exports.getBuilds = async (req, res) => {
 // POST /api/builds
 exports.createBuild = async (req, res) => {
   try {
-    const {
-      nom,
-      description,
-      descriptionComplete,
-      version,
-      statut,
-      proprietaire,
-    } = req.body;
+    const { nom, description, version, statut, proprietaire } = req.body;
     const build = await prisma.builds.create({
       data: {
         nom,
         description,
-        descriptionComplete,
         version,
         statut,
         proprietaire,
@@ -59,9 +51,20 @@ exports.getBuildById = async (req, res) => {
 exports.updateBuild = async (req, res) => {
   try {
     const id = Number(req.params.id);
+    // Only allow these fields to be updated (ignore unknown keys coming from the client)
+    const { nom, description, version, statut, proprietaire } = req.body;
+    const data = {};
+    if (nom !== undefined) data.nom = nom;
+    if (description !== undefined) data.description = description;
+    if (version !== undefined) data.version = version;
+    if (statut !== undefined) data.statut = statut;
+    if (proprietaire !== undefined) data.proprietaire = proprietaire;
+    // refresh updatedAt
+    data.updatedAt = new Date();
+
     const build = await prisma.builds.update({
       where: { id },
-      data: req.body,
+      data,
     });
     res.json(build);
   } catch (err) {

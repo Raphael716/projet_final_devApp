@@ -1,0 +1,57 @@
+/* Styles for the EditBuild form — follow NewBuild visual language */
+.new-build-container {
+  max-width: 680px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(34, 34, 34, 0.08);
+}
+
+.new-build-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.new-build-form input,
+.new-build-form textarea,
+.new-build-form select {
+  padding: 0.7rem 1rem;
+  border: 1px solid #e6eefc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fbfdff;
+}
+
+.new-build-form select {
+  appearance: none;
+}
+
+.new-build-form input:focus,
+.new-build-form textarea:focus,
+.new-build-form select:focus {
+  border-color: #4b56c0;
+  outline: none;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #667eea 0%, #4b56c0 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.btn.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
