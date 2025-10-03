@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import "./BuildDetail.css";
 import { AuthContext } from "./AuthContext";
@@ -39,6 +39,7 @@ export default function BuildDetail() {
 
   const [assets, setAssets] = useState<Asset[]>([]);
   const { user, token } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Remplace par ton endpoint API
@@ -46,16 +47,21 @@ export default function BuildDetail() {
       .then((res) => res.json())
       .then((data) => {
         // Normalize server fields (fr/back naming mismatch)
-  const normalized: Partial<BuildDetailType> = {
+        const normalized: Partial<BuildDetailType> = {
           id: data.id,
-          name: data.name ?? data.nom ?? '',
-          description: data.description ?? '',
-          fullDescription: data.descriptionComplete ?? data.fullDescription ?? data.description ?? '',
+          name: data.name ?? data.nom ?? "",
+          description: data.description ?? "",
+          fullDescription:
+            data.descriptionComplete ??
+            data.fullDescription ??
+            data.description ??
+            "",
           version: data.version ?? data.version,
-          status: data.status ?? data.statut ?? '',
-          proprietaire: data.proprietaire ?? data.owner ?? data.ownerName ?? '',
-          owner: data.proprietaire ?? data.owner ?? '',
-          updatedAt: data.updatedAt ?? data.updated_at ?? new Date().toISOString(),
+          status: data.status ?? data.statut ?? "",
+          proprietaire: data.proprietaire ?? data.owner ?? data.ownerName ?? "",
+          owner: data.proprietaire ?? data.owner ?? "",
+          updatedAt:
+            data.updatedAt ?? data.updated_at ?? new Date().toISOString(),
           versions: data.versions ?? [],
           technologies: data.technologies ?? [],
           wikiUrl: data.wikiUrl ?? data.wiki_url,
@@ -66,10 +72,12 @@ export default function BuildDetail() {
       })
       .finally(() => setLoading(false));
     // fetch assets
-    fetch(`/api/assets/build/${id}`, { headers: token ? { Authorization: `Bearer ${token}` } : {} })
+    fetch(`/api/assets/build/${id}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
       .then((r) => r.json())
       .then(setAssets)
-      .catch((e) => console.error('assets fetch', e));
+      .catch((e) => console.error("assets fetch", e));
   }, [id, token]);
 
   if (loading) return <p>Chargement...</p>;
@@ -127,24 +135,31 @@ export default function BuildDetail() {
       {assets.length === 0 && <p>Aucun fichier pour cette version.</p>}
       <ul>
         {assets.map((a) => (
-          <li key={a.id} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <a href={`/api/assets/download/${a.id}`} target="_blank" rel="noreferrer">
+          <li
+            key={a.id}
+            style={{ display: "flex", alignItems: "center", gap: 8 }}
+          >
+            <a
+              href={`/api/assets/download/${a.id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               {a.original} ({Math.round(a.size / 1024)} KB)
             </a>
             {user?.isAdmin && (
               <button
                 className="btn-delete"
                 onClick={async () => {
-                  if (!window.confirm('Supprimer ce fichier ?')) return;
+                  if (!window.confirm("Supprimer ce fichier ?")) return;
                   try {
                     await fetch(`/api/assets/${a.id}`, {
-                      method: 'DELETE',
+                      method: "DELETE",
                       headers: { Authorization: `Bearer ${token}` },
                     });
                     setAssets((cur) => cur.filter((x) => x.id !== a.id));
                   } catch (e) {
-                    console.error('delete asset', e);
-                    alert('Erreur suppression');
+                    console.error("delete asset", e);
+                    alert("Erreur suppression");
                   }
                 }}
               >
@@ -162,17 +177,40 @@ export default function BuildDetail() {
         </div>
       )}
       <div style={{ marginTop: 24 }}>
-        <Link to={`/builds/${build.id}/edit`} className="btn-edit">
-          Modifier
-        </Link>
-        <button className="btn-archive" style={{ marginLeft: 8 }}>
-          Archiver
-        </button>
+        {user?.isAdmin ? (
+          <>
+            <Link to={`/builds/${build.id}/edit`} className="btn-edit">
+              Modifier
+            </Link>
+            <button
+              className="btn-archive"
+              style={{ marginLeft: 8 }}
+              onClick={async () => {
+                if (
+                  !window.confirm(
+                    "Voulez-vous vraiment archiver (supprimer) ce logiciel ?"
+                  )
+                )
+                  return;
+                try {
+                  const res = await fetch(`/api/builds/${build.id}`, {
+                    method: "DELETE",
+                    headers: token ? { Authorization: `Bearer ${token}` } : {},
+                  });
+                  if (!res.ok) throw new Error("Erreur suppression");
+                  navigate("/builds");
+                } catch (e) {
+                  console.error("delete build", e);
+                  alert("Impossible de supprimer le logiciel");
+                }
+              }}
+            >
+              Archiver
+            </button>
+          </>
+        ) : null}
         <Link to={`/builds/${build.id}/add-version`} className="btn">
           Ajouter une version
-        </Link>
-        <Link to={`/builds/${build.id}/assign`} className="btn">
-          Assigner des utilisateurs/équipes
         </Link>
       </div>
     </main>
