@@ -17,7 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently -n \"BACKEND,SPL\" -c \"green,blue\" \"cd backend && npm run dev\" \"cd SPL && npm run dev\"",
-    "install:all": "npm install && cd SPL && npm install && npm install --save-dev @types/react-router-dom && cd ../backend && npm install"
+    "install:all": "npm install && cd SPL && npm install && npm install --save-dev @types/react-router-dom && cd ../backend && npm install && npx prisma generate"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

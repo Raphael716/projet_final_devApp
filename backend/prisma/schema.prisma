@@ -16,3 +16,13 @@ model User {
   createdAt DateTime @default(now()) @db.DateTime(0)
   admin     Int      @default(0)
 }
+
+model Builds {
+  id                 Int      @id @default(autoincrement())
+  nom                String
+  description String?
+  version            String?
+  statut             String?
+  proprietaire       String?
+  updatedAt          DateTime @default(now()) @map("updatedAt")
+}

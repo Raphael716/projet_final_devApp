@@ -9,15 +9,23 @@ import "./App.css";
 import Signup from "./Signup";
 import AdminUsers from "./AdminUsers";
 import EditUser from "./EditUser";
+import Builds from "./Builds";
+import BuildDetail from "./BuildDetail";
+import NewBuild from "./NewBuild";
 
 function Home() {
   return (
     <main className="container">
       <h1>Software Production Line</h1>
       <p>Base propre et rapide pour votre pipeline logiciel.</p>
-      <Link to="/login" className="btn primary">
-        Se connecter
-      </Link>
+      <div style={{ display: "flex", gap: 16 }}>
+        <Link to="/login" className="btn primary">
+          Se connecter
+        </Link>
+        <Link to="/builds" className="btn">
+          Voir les logiciels
+        </Link>
+      </div>
     </main>
   );
 }
@@ -85,6 +93,11 @@ export default function App() {
           path="/admin/users/:id/edit"
           element={user?.isAdmin ? <EditUser /> : <Navigate to="/" replace />}
         />
+
+        {/* Builds */}
+        <Route path="/builds" element={<Builds />} />
+        <Route path="/builds/new" element={<NewBuild />} />
+        <Route path="/builds/:id" element={<BuildDetail />} />
 
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
