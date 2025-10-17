@@ -1,3 +1,4 @@
+/* Admin container */
 .admin-container {
   max-width: 1000px;
   margin: 2rem auto;
@@ -13,6 +14,7 @@
   font-weight: bold;
 }
 
+/* Table */
 .users-table {
   width: 100%;
   border-collapse: collapse;
@@ -71,4 +73,68 @@
 .error {
   color: #e63946;
   font-weight: 500;
+}
+
+@media (max-width: 700px) {
+  .admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+  }
+
+  .admin-container h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Table en mode cartes */
+  .users-table {
+    border: 0;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .users-table thead {
+    display: none;
+  }
+
+  .users-table,
+  .users-table tbody,
+  .users-table tr,
+  .users-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .users-table tr {
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .users-table td {
+    text-align: left;
+    padding: 0.25rem 0;
+    border: 0;
+    position: relative;
+  }
+
+  .users-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+    display: inline-block;
+    width: 35%; /* label prend seulement 35% de la ligne */
+    max-width: 100px; /* limite maximale pour les labels */
+    vertical-align: top;
+  }
+
+  .actions {
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
 }

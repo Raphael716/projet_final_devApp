@@ -9,6 +9,14 @@ import "./App.css";
 import Signup from "./Signup";
 import AdminUsers from "./AdminUsers";
 import EditUser from "./EditUser";
+<<<<<<< Updated upstream
+=======
+import Builds from "./Builds";
+import BuildDetail from "./BuildDetail";
+import NewBuild from "./NewBuild";
+import EditBuild from "./EditBuild";
+import AddVersion from "./AddVersion";
+>>>>>>> Stashed changes
 
 function Home() {
   return (
@@ -86,6 +94,25 @@ export default function App() {
           element={user?.isAdmin ? <EditUser /> : <Navigate to="/" replace />}
         />
 
+<<<<<<< Updated upstream
+=======
+        {/* Builds */}
+        <Route path="/builds" element={<Builds />} />
+        <Route
+          path="/builds/new"
+          element={user?.isAdmin ? <NewBuild /> : <Navigate to="/" replace />}
+        />
+        <Route
+          path="/builds/:id/edit"
+          element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
+        />
+        <Route path="/builds/:id" element={<BuildDetail />} />
+        <Route
+          path="/builds/:id/add-version"
+          element={user?.isAdmin ? <AddVersion /> : <Navigate to="/" replace />}
+        />
+
+>>>>>>> Stashed changes
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
