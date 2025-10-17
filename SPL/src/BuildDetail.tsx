@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
-import "./BuildDetail.css";
+import "./BuildDetail.css"; // CSS séparé
 
 type BuildDetailType = {
   id: number;
@@ -34,12 +34,9 @@ export default function BuildDetail() {
 
   useEffect(() => {
     fetch(`/api/builds/${id}`)
-      .then((r) => {
-        if (!r.ok) throw new Error("Erreur API");
-        return r.json();
-      })
+      .then((r) => r.json())
       .then((data) => {
-        const normalized: Partial<BuildDetailType> = {
+        setBuild({
           id: data.id,
           nom: data.nom ?? null,
           description: data.description ?? null,
@@ -48,12 +45,7 @@ export default function BuildDetail() {
           proprietaire: data.proprietaire ?? null,
           updatedAt:
             data.updatedAt ?? data.updated_at ?? new Date().toISOString(),
-        };
-        setBuild(normalized as BuildDetailType);
-      })
-      .catch((e) => {
-        console.error("Erreur chargement build", e);
-        alert("Impossible de charger le logiciel.");
+        });
       })
       .finally(() => setLoading(false));
 
@@ -62,17 +54,11 @@ export default function BuildDetail() {
     })
       .then((r) => r.json())
       .then(setAssets)
-      .catch((e) => console.error("Erreur chargement assets", e));
+      .catch((e) => console.error("assets fetch", e));
   }, [id, token]);
 
-  if (loading)
-    return (
-      <div style={{ textAlign: "center", padding: "2rem" }}>
-        <div className="spinner"></div>
-        <p>Chargement des données...</p>
-      </div>
-    );
-  if (!build) return <p>Logiciel introuvable</p>;
+  if (loading) return <p className="loading">Chargement...</p>;
+  if (!build) return <p className="loading">Logiciel introuvable</p>;
 
   return (
     <main className="build-detail-container">
@@ -80,9 +66,9 @@ export default function BuildDetail() {
         <div>
           <h2>{build.nom}</h2>
           <p className="muted">{build.description || ""}</p>
-          <div style={{ marginTop: 8 }}>
+          <div className="status-owner">
             <span className="status-badge">{build.statut || "—"}</span>
-            <span style={{ marginLeft: 12, color: "#555" }}>
+            <span className="owner">
               Responsable: <strong>{build.proprietaire || "—"}</strong>
             </span>
           </div>

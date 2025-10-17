@@ -40,70 +40,73 @@ export default function Builds() {
       {loading ? (
         <p>Chargement...</p>
       ) : (
-        <table className="builds-table">
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Description</th>
-              <th>Version</th>
-              <th>Statut</th>
-              <th>Responsable</th>
-              <th>Dernière MAJ</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {builds.map((s) => (
-              <tr key={s.id}>
-                <td>
-                  <Link to={`/builds/${s.id}`}>{s.nom}</Link>
-                </td>
-                <td>{s.description}</td>
-                <td>{s.version}</td>
-                <td>{s.statut}</td>
-                <td>{s.proprietaire}</td>
-                <td>{new Date(s.updatedAt).toLocaleDateString()}</td>
-                <td className="builds-actions">
-                  {user?.isAdmin ? (
-                    <>
-                      <Link to={`/builds/${s.id}/edit`} className="btn-edit">
-                        Modifier
-                      </Link>
-                      <button
-                        className="btn-archive"
-                        onClick={async () => {
-                          if (
-                            !window.confirm(
-                              "Voulez-vous vraiment archiver (supprimer) ce logiciel ?"
-                            )
-                          )
-                            return;
-                          try {
-                            const res = await fetch(`/api/builds/${s.id}`, {
-                              method: "DELETE",
-                              headers: token
-                                ? { Authorization: `Bearer ${token}` }
-                                : {},
-                            });
-                            if (!res.ok) throw new Error("Erreur suppression");
-                            setBuilds((cur) =>
-                              cur.filter((b) => b.id !== s.id)
-                            );
-                          } catch (e) {
-                            console.error("delete build", e);
-                            alert("Impossible de supprimer le logiciel");
-                          }
-                        }}
-                      >
-                        Archiver
-                      </button>
-                    </>
-                  ) : null}
-                </td>
+        <div className="builds-table-wrapper">
+          <table className="builds-table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Version</th>
+                <th>Statut</th>
+                <th>Responsable</th>
+                <th>Dernière MAJ</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {builds.map((s) => (
+                <tr key={s.id}>
+                  <td>
+                    <Link to={`/builds/${s.id}`}>{s.nom}</Link>
+                  </td>
+                  <td>{s.description}</td>
+                  <td>{s.version}</td>
+                  <td>{s.statut}</td>
+                  <td>{s.proprietaire}</td>
+                  <td>{new Date(s.updatedAt).toLocaleDateString()}</td>
+                  <td className="builds-actions">
+                    {user?.isAdmin ? (
+                      <>
+                        <Link to={`/builds/${s.id}/edit`} className="btn-edit">
+                          Modifier
+                        </Link>
+                        <button
+                          className="btn-archive"
+                          onClick={async () => {
+                            if (
+                              !window.confirm(
+                                "Voulez-vous vraiment archiver (supprimer) ce logiciel ?"
+                              )
+                            )
+                              return;
+                            try {
+                              const res = await fetch(`/api/builds/${s.id}`, {
+                                method: "DELETE",
+                                headers: token
+                                  ? { Authorization: `Bearer ${token}` }
+                                  : {},
+                              });
+                              if (!res.ok)
+                                throw new Error("Erreur suppression");
+                              setBuilds((cur) =>
+                                cur.filter((b) => b.id !== s.id)
+                              );
+                            } catch (e) {
+                              console.error("delete build", e);
+                              alert("Impossible de supprimer le logiciel");
+                            }
+                          }}
+                        >
+                          Archiver
+                        </button>
+                      </>
+                    ) : null}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </main>
   );

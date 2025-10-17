@@ -1,11 +1,12 @@
-/* Container principal */
 .build-detail-container {
-  max-width: 1100px;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 1.5rem auto;
-  padding: 1.5rem;
+  padding: 1rem;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(34, 34, 34, 0.06);
+  overflow-x: hidden;
 }
 
 .build-detail-header {
@@ -26,6 +27,10 @@
   margin: 6px 0;
 }
 
+.status-owner {
+  margin-top: 8px;
+}
+
 .status-badge {
   background: #eef6ff;
   color: #0366d6;
@@ -33,6 +38,11 @@
   border-radius: 16px;
   font-weight: 600;
   font-size: 13px;
+}
+
+.owner {
+  margin-left: 12px;
+  color: #555;
 }
 
 .build-detail-actions {
@@ -122,15 +132,94 @@
   font-size: 12px;
 }
 
+.btn-delete {
+  background: #e63946;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background: #d62828;
+}
+
 .build-detail-list b {
   color: #4b56c0;
 }
 
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
 @media (max-width: 900px) {
+  .build-detail-container {
+    padding: 0.8rem; /* padding plus petit pour voir le fond bleu */
+  }
+
   .build-detail-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
+
+  .build-detail-main,
+  .build-detail-side {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .build-detail-section {
+    margin-bottom: 12px;
+  }
+
+  .build-detail-section h3 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #4b56c0;
+  }
+
+  .asset-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px;
+    border-bottom: 1px dashed #e2e2e2;
+    border-radius: 6px;
+  }
+
+  .asset-download {
+    max-width: 100%;
+    word-break: break-word;
+  }
+
   .build-detail-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
     margin-top: 10px;
+  }
+
+  .build-detail-actions .btn,
+  .build-detail-actions .btn-edit,
+  .build-detail-actions .btn-archive {
+    width: 100%;
+    text-align: center;
+  }
+
+  .status-owner {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .owner {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
