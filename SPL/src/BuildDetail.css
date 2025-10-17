@@ -1,96 +1,136 @@
 /* Container principal */
 .build-detail-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 1100px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 24px rgba(34, 34, 34, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(34, 34, 34, 0.06);
 }
 
 .build-detail-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
 }
 
 .build-detail-header h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
+  margin: 0 0 6px 0;
+  font-size: 1.6rem;
 }
 
-.build-detail-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2rem 0;
-}
-.build-detail-list li {
-  margin-bottom: 0.7rem;
-  font-size: 1.08rem;
-  color: #444;
-}
-.build-detail-list b {
-  color: #4b56c0;
+.muted {
+  color: #555;
+  margin: 6px 0;
 }
 
-.build-detail-section {
-  margin-bottom: 2rem;
-}
-
-.build-detail-section h3 {
-  font-size: 1.2rem;
-  color: #4b56c0;
-  margin-bottom: 0.7rem;
-}
-
-.build-detail-versions ul,
-.build-detail-bugs ul {
-  list-style: disc inside;
-  margin: 0;
-  padding-left: 1.2rem;
-}
-.build-detail-versions li,
-.build-detail-bugs li {
-  margin-bottom: 0.4rem;
+.status-badge {
+  background: #eef6ff;
+  color: #0366d6;
+  padding: 6px 10px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .build-detail-actions {
   display: flex;
-  gap: 0.7rem;
-  margin-top: 2rem;
+  gap: 8px;
+  align-items: center;
 }
+
 .build-detail-actions .btn,
 .build-detail-actions .btn-edit,
 .build-detail-actions .btn-archive {
-  padding: 0.5rem 1.1rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: background 0.2s;
 }
+
 .build-detail-actions .btn-edit {
   background: #667eea;
   color: #fff;
 }
-.build-detail-actions .btn-edit:hover {
-  background: #4e54d4;
-}
+
 .build-detail-actions .btn-archive {
   background: #e63946;
   color: #fff;
 }
-.build-detail-actions .btn-archive:hover {
-  background: #c82333;
-}
+
 .build-detail-actions .btn {
   background: #f1f3fa;
   color: #4b56c0;
   border: 1px solid #dbeafe;
 }
-.build-detail-actions .btn:hover {
-  background: #e0e7ff;
+
+.build-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+}
+
+.build-detail-main {
+  padding-right: 8px;
+}
+
+.build-detail-section {
+  margin-bottom: 18px;
+}
+
+.build-detail-section h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.build-detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+.build-detail-list li {
+  margin-bottom: 6px;
+}
+
+.assets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.asset-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.asset-download {
+  color: #0366d6;
+  text-decoration: none;
+  flex: 1;
+}
+
+.asset-meta {
+  color: #666;
+  font-size: 12px;
+}
+
+.build-detail-list b {
+  color: #4b56c0;
+}
+
+@media (max-width: 900px) {
+  .build-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .build-detail-actions {
+    margin-top: 10px;
+  }
 }

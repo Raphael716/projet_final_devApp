@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, type JSX } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import "./NewBuild.css";
