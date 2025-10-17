@@ -1,0 +1,114 @@
+.add-version-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  align-items: flex-start;
+}
+
+.add-version-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 2rem 2.2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.add-version-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.add-version-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  text-align: center;
+  color: #f1f3fa;
+}
+
+.build-name {
+  font-weight: 700;
+  color: #ffd166;
+}
+
+.add-version-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-version-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #f1f3fa;
+}
+
+.add-version-form input[type="text"],
+.add-version-form input[type="file"] {
+  margin-top: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: all 0.25s ease;
+}
+
+.add-version-form input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-version-form input:focus {
+  border-color: #ffd166;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 209, 102, 0.4);
+}
+
+.btn-submit {
+  background: #667eea;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 0.85rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #5563d6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .add-version-card {
+    padding: 1.8rem 1.5rem;
+  }
+  .add-version-card h2 {
+    font-size: 1.5rem;
+  }
+  .add-version-form {
+    gap: 1.2rem;
+  }
+  .btn-submit {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+}
