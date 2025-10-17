@@ -1,26 +1,19 @@
-/* S'assure que padding et border sont inclus dans la largeur */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* Container */
 .builds-container {
   max-width: 1100px;
-  width: 100%; /* force à 100% au mobile */
+  width: 100%;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 1rem;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 6px 24px rgba(34, 34, 34, 0.1);
-  overflow-x: hidden; /* empêche tout débordement horizontal */
+  overflow-x: hidden;
 }
 
 /* Header */
 .builds-header {
   display: flex;
-  flex-wrap: wrap; /* permet au bouton de passer à la ligne si nécessaire */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
@@ -30,8 +23,8 @@
   font-size: 2rem;
   font-weight: bold;
   color: #333;
-  flex: 1 1 100%; /* titre sur toute la largeur si mobile */
-  margin-bottom: 1rem; /* espace sous le titre sur mobile */
+  flex: 1 1 100%;
+  margin-bottom: 1rem;
 }
 
 /* Table */
@@ -41,7 +34,6 @@
   background: #f8f9fa;
   border-radius: 10px;
   overflow: hidden;
-  word-break: break-word; /* empêche le texte de dépasser */
 }
 
 /* Table cells */
@@ -61,6 +53,12 @@
 
 .builds-table tr:hover {
   background: #f4f6ff;
+}
+
+.builds-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 /* Mobile responsive */
@@ -117,7 +115,7 @@
   /* Styles pour les cellules : plus lisibles */
   .builds-table td {
     display: flex;
-    flex-direction: column; /* valeur verticale pour texte propre */
+    flex-direction: column;
     padding: 0.6rem 0;
     border-bottom: 1px dashed #e0e0e0;
   }
@@ -126,7 +124,6 @@
     border-bottom: none;
   }
 
-  /* Label avant chaque donnée */
   .builds-table td::before {
     content: attr(data-label);
     font-weight: 600;
@@ -146,7 +143,7 @@
   .btn-archive {
     font-size: 0.9rem;
     padding: 0.5rem;
-    flex: 1 1 48%; /* presque moitié-moitié avec gap */
+    flex: 1 1 48%;
     text-align: center;
     border-radius: 8px;
   }

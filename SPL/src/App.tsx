@@ -13,6 +13,7 @@ import Builds from "./Builds";
 import BuildDetail from "./BuildDetail";
 import NewBuild from "./NewBuild";
 import EditBuild from "./EditBuild";
+import AddVersion from "./AddVersion";
 
 function Home() {
   return (
@@ -101,6 +102,10 @@ export default function App() {
         <Route
           path="/builds/:id/edit"
           element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
+        />
+        <Route
+          path="/builds/:id/add-version"
+          element={user?.isAdmin ? <AddVersion /> : <Navigate to="/" replace />}
         />
         <Route path="/builds/:id" element={<BuildDetail />} />
 
