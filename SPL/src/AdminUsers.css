@@ -72,3 +72,109 @@
   color: #e63946;
   font-weight: 500;
 }
+
+@media (max-width: 700px) {
+  .admin-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-container h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #222;
+  }
+
+  /* Table transformée en cartes */
+  .users-table {
+    border: none;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .users-table thead {
+    display: none;
+  }
+
+  .users-table,
+  .users-table tbody,
+  .users-table tr,
+  .users-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .users-table tr {
+    background: #fff;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 0.8rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.1s ease;
+  }
+
+  .users-table tr:hover {
+    transform: translateY(-2px);
+  }
+
+  .users-table td {
+    border: none;
+    text-align: center; /* centre le texte */
+    padding: 0.25rem 0;
+    font-size: 0.85rem;
+    color: #333;
+  }
+
+  .users-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Actions : boutons identiques et centrés */
+  .actions .btn-container {
+    display: flex;
+    gap: 0.3rem;
+    width: 100%;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    flex: 1 1 0; /* prend exactement la même largeur */
+    min-width: 0; /* important pour empêcher le texte long de forcer la largeur */
+    text-align: center;
+    font-size: clamp(0.65rem, 2vw, 0.75rem);
+    padding: 0.3rem 0;
+    border-radius: 6px;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: transform 0.1s ease, background 0.2s ease;
+    white-space: normal; /* permet au texte de s’ajuster si besoin */
+  }
+
+  .btn-edit {
+    background: #646cff;
+    color: #fff;
+  }
+
+  .btn-edit:hover {
+    background: #4e54d4;
+    transform: scale(1.05);
+  }
+
+  .btn-delete {
+    background: #e63946;
+    color: #fff;
+  }
+
+  .btn-delete:hover {
+    background: #c82333;
+    transform: scale(1.05);
+  }
+}

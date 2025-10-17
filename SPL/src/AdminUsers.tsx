@@ -65,15 +65,17 @@ function AdminUsers() {
               <td>{u.email}</td>
               <td>{u.admin === 1 ? "Oui" : "Non"}</td>
               <td className="actions">
-                <Link to={`/admin/users/${u.id}/edit`} className="btn-edit">
-                  Modifier
-                </Link>
-                <button
-                  className="btn-delete"
-                  onClick={() => handleDelete(u.id)}
-                >
-                  Supprimer
-                </button>
+                <div className="btn-container">
+                  <Link to={`/admin/users/${u.id}/edit`} className="btn-edit">
+                    Modifier
+                  </Link>
+                  <button
+                    className="btn-delete"
+                    onClick={() => handleDelete(u.id)}
+                  >
+                    Supprimer
+                  </button>
+                </div>
               </td>
             </tr>
           ))}
