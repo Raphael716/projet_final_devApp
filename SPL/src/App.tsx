@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useEffect, useMemo, useState } from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./Header";
@@ -32,7 +31,6 @@ function Home() {
   );
 }
 
-// ✅ Mapper toujours vers AppUser avec isAdmin:boolean
 function toAppUser(u: any): AppUser {
   return {
     id: Number(u.id ?? 0),
@@ -75,8 +73,6 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-
-        {/* Auth */}
         <Route
           path="/login"
           element={!token ? <Login /> : <Navigate to="/" replace />}
@@ -100,16 +96,15 @@ export default function App() {
         <Route path="/builds" element={<Builds />} />
         <Route path="/builds/new" element={<NewBuild />} />
         <Route
-          path="/builds/:id/edit"
-          element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
-        />
-        <Route
           path="/builds/:id/add-version"
           element={user?.isAdmin ? <AddVersion /> : <Navigate to="/" replace />}
         />
+        <Route
+          path="/builds/:id/edit"
+          element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
+        />
         <Route path="/builds/:id" element={<BuildDetail />} />
 
-        {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <footer className="footer">
