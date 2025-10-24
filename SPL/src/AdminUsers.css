@@ -47,6 +47,12 @@
   cursor: pointer;
   font-size: 0.9rem;
   transition: background 0.2s;
+  /* Make desktop buttons the same exact size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  box-sizing: border-box;
 }
 
 .btn-edit {
@@ -137,6 +143,22 @@
     margin-bottom: 0.2rem;
   }
 
+  /* Links inside table rows should inherit color and be tappable */
+  .users-table td a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+  }
+
+  /* Empty state */
+  .no-users {
+    text-align: center;
+    padding: 1.2rem;
+    color: #555;
+    font-size: 0.95rem;
+  }
+
   /* Actions : boutons identiques et centrés */
   .actions .btn-container {
     display: flex;
@@ -156,6 +178,14 @@
     box-sizing: border-box;
     transition: transform 0.1s ease, background 0.2s ease;
     white-space: normal; /* permet au texte de s’ajuster si besoin */
+    width: auto; /* override fixed desktop width on small screens */
+  }
+
+  /* Make actions easier to tap on small devices */
+  .actions .btn-container {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
   }
 
   .btn-edit {

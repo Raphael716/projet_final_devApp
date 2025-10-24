@@ -60,17 +60,18 @@ function AdminUsers() {
         <tbody>
           {users.map((u) => (
             <tr key={u.id}>
-              <td>{u.id}</td>
-              <td>{u.username}</td>
-              <td>{u.email}</td>
-              <td>{u.admin === 1 ? "Oui" : "Non"}</td>
-              <td className="actions">
+              <td data-label="ID">{u.id}</td>
+              <td data-label="Nom">{u.username}</td>
+              <td data-label="Email">{u.email}</td>
+              <td data-label="Admin">{u.admin === 1 ? "Oui" : "Non"}</td>
+              <td className="actions" data-label="Actions">
                 <div className="btn-container">
                   <Link to={`/admin/users/${u.id}/edit`} className="btn-edit">
                     Modifier
                   </Link>
                   <button
                     className="btn-delete"
+                    aria-label={`Supprimer utilisateur ${u.username}`}
                     onClick={() => handleDelete(u.id)}
                   >
                     Supprimer
