@@ -77,3 +77,16 @@
 .new-build-form .btn.primary:hover {
   background: linear-gradient(90deg, #4b56c0 0%, #667eea 100%);
 }
+
+@media (max-width: 600px) {
+  .new-build-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .new-build-form input,
+  .new-build-form textarea,
+  .new-build-form select {
+    font-size: 1rem;
+  }
+}

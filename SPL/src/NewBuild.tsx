@@ -17,14 +17,15 @@ export default function NewBuild() {
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Create build then upload files (if any)
     setError(null);
     fetch("/api/builds", {
       method: "POST",
@@ -94,12 +95,6 @@ export default function NewBuild() {
           name="version"
           placeholder="Version (ex: v1.0.0)"
           value={form.version}
-          onChange={handleChange}
-        />
-        <input
-          name="statut"
-          placeholder="Statut (ex: En prod / En test)"
-          value={form.statut}
           onChange={handleChange}
         />
         <div className="select-label">Choisir un statut</div>

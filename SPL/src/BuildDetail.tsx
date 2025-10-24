@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
-import "./BuildDetail.css"; // CSS séparé
+import "./BuildDetail.css";
 
 type BuildDetailType = {
   id: number;
@@ -21,6 +21,7 @@ type Asset = {
   size: number;
   path: string;
   buildId: number;
+  version?: string | null;
   createdAt?: string;
 };
 
@@ -31,6 +32,22 @@ export default function BuildDetail() {
   const [assets, setAssets] = useState<Asset[]>([]);
   const { user, token } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const sortVersions = (a: string, b: string) => {
+    const pa = a
+      .replace(/[^\d.]/g, "")
+      .split(".")
+      .map(Number);
+    const pb = b
+      .replace(/[^\d.]/g, "")
+      .split(".")
+      .map(Number);
+    for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+      const diff = (pb[i] || 0) - (pa[i] || 0);
+      if (diff !== 0) return diff;
+    }
+    return 0;
+  };
 
   useEffect(() => {
     fetch(`/api/builds/${id}`)
@@ -53,7 +70,12 @@ export default function BuildDetail() {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     })
       .then((r) => r.json())
-      .then(setAssets)
+      .then((data) => {
+        const sorted = [...data].sort((a, b) =>
+          sortVersions(a.version || "v0.0.0", b.version || "v0.0.0")
+        );
+        setAssets(sorted);
+      })
       .catch((e) => console.error("assets fetch", e));
   }, [id, token]);
 
@@ -69,7 +91,7 @@ export default function BuildDetail() {
           <div className="status-owner">
             <span className="status-badge">{build.statut || "—"}</span>
             <span className="owner">
-              Responsable: <strong>{build.proprietaire || "—"}</strong>
+              Responsable : <strong>{build.proprietaire || "—"}</strong>
             </span>
           </div>
         </div>
@@ -120,10 +142,10 @@ export default function BuildDetail() {
             <h3>Détails</h3>
             <ul className="build-detail-list">
               <li>
-                <b>Version actuelle:</b> {build.version || "—"}
+                <b>Version actuelle :</b> {build.version || "—"}
               </li>
               <li>
-                <b>Dernière mise à jour:</b>{" "}
+                <b>Dernière mise à jour :</b>{" "}
                 {new Date(build.updatedAt).toLocaleDateString()}
               </li>
             </ul>
@@ -132,13 +154,18 @@ export default function BuildDetail() {
 
         <aside className="build-detail-side">
           <div className="build-detail-section">
-            <h3>Fichiers</h3>
+            <h3>Fichiers par version</h3>
             {assets.length === 0 ? (
               <p>Aucun fichier pour cette version.</p>
             ) : (
               <ul className="assets-list">
                 {assets.map((a) => (
                   <li key={a.id} className="asset-item">
+                    {a.version && (
+                      <div className="asset-version">
+                        <strong>{a.version}</strong>
+                      </div>
+                    )}
                     <a
                       className="asset-download"
                       href={`/api/assets/download/${a.id}`}
@@ -147,9 +174,10 @@ export default function BuildDetail() {
                     >
                       {a.original}
                     </a>
-                    <span className="asset-meta">
-                      {Math.round(a.size / 1024)} KB
-                    </span>
+                    <div className="asset-meta">
+                      <span>{Math.round(a.size / 1024)} KB</span>
+                    </div>
+
                     {user?.isAdmin && (
                       <button
                         className="btn-delete"
