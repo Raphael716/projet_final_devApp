@@ -1,57 +1,65 @@
 .add-version {
-  max-width: 600px;
-  margin: 2rem auto;
-  background: #fff;
+  max-width: 500px;
+  margin: 3rem auto;
+  background: #ffffff;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  color: #1e293b;
 }
 
 .add-version h2 {
-  color: #1e293b;
   text-align: center;
-  margin-bottom: 1rem;
-}
-
-.add-version form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
 }
 
 .add-version label {
-  font-weight: 600;
-  color: #333;
+  display: block;
+  font-weight: 500;
+  margin-top: 1rem;
+  color: #1e293b;
 }
 
 .add-version input[type="text"],
 .add-version input[type="file"] {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 8px;
-  width: 100%;
-  background: #fafafa;
+  width: 90%;
+  margin-top: 0.4rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  transition: border-color 0.2s ease;
+}
+
+.add-version input:focus {
+  border-color: #2563eb;
+  outline: none;
 }
 
 .add-version button {
-  background: #2563eb;
-  color: white;
+  margin-top: 1.5rem;
+  width: 100%;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
-  transition: background 0.2s;
+  cursor: pointer;
+  transition: background 0.25s ease;
 }
 
 .add-version button:hover {
-  background: #1d4ed8;
+  background: linear-gradient(90deg, #2563eb, #1e3a8a);
 }
 
 .error {
-  color: #e63946;
+  background: #fee2e2;
+  color: #b91c1c;
   text-align: center;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 import Login from "./Login";
 import { AuthContext } from "./AuthContext";
 import type { AppUser } from "./AuthContext";
@@ -16,17 +17,45 @@ import AddVersion from "./AddVersion";
 
 function Home() {
   return (
-    <main className="container">
+    <main className="home">
       <h1>Software Production Line</h1>
-      <p>Base propre et rapide pour votre pipeline logiciel.</p>
-      <div style={{ display: "flex", gap: 16 }}>
+      <p>
+        Gérez vos logiciels, vos versions et vos fichiers à partir d’une
+        interface claire et centralisée.
+      </p>
+
+      <div className="home-actions">
         <Link to="/login" className="btn primary">
           Se connecter
         </Link>
-        <Link to="/builds" className="btn">
-          Voir les logiciels
+        <Link to="/builds" className="btn secondary">
+          Voir les builds
         </Link>
       </div>
+
+      <section className="features">
+        <div className="feature-card">
+          <h3>Gestion simplifiée</h3>
+          <p>
+            Créez, modifiez et suivez vos builds en quelques clics avec une
+            interface fluide.
+          </p>
+        </div>
+        <div className="feature-card">
+          <h3>Suivi des versions</h3>
+          <p>
+            Gardez une trace claire de l’évolution de vos projets et téléchargez
+            chaque version facilement.
+          </p>
+        </div>
+        <div className="feature-card">
+          <h3>Sécurité intégrée</h3>
+          <p>
+            Profitez d’un accès protégé grâce à l’authentification par jeton et
+            la gestion des rôles.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
@@ -97,7 +126,9 @@ export default function App() {
         <Route path="/builds/new" element={<NewBuild />} />
         <Route
           path="/builds/:id/add-version"
-          element={user?.isAdmin ? <AddVersion /> : <Navigate to="/" replace />}
+          element={
+            user?.isAdmin ? <AddVersion /> : <Navigate to="/login" replace />
+          }
         />
         <Route
           path="/builds/:id/edit"
@@ -107,9 +138,7 @@ export default function App() {
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <footer className="footer">
-        © {new Date().getFullYear()} Software Production Line
-      </footer>
+      <Footer />
     </AuthContext.Provider>
   );
 }

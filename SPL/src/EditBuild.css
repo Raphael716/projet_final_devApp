@@ -1,57 +1,149 @@
-/* Styles for the EditBuild form — follow NewBuild visual language */
-.new-build-container {
-  max-width: 680px;
+/* ===== Conteneur principal ===== */
+.edit-build-container {
+  max-width: 700px;
   margin: 2rem auto;
   padding: 2rem 2.5rem;
-  background: #fff;
+  background: #f9fbff;
   border-radius: 14px;
-  box-shadow: 0 8px 30px rgba(34, 34, 34, 0.08);
+  box-shadow: 0 6px 20px rgba(34, 34, 34, 0.1);
+  color: #0f172a;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-.new-build-form {
+/* ===== Titre ===== */
+.edit-build-container h1,
+.edit-build-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Formulaire ===== */
+.edit-build-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 .field-label {
+  display: block;
   font-weight: 600;
-  color: #334155;
-  margin-bottom: 6px;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: #0f172a !important;
 }
 
-.new-build-form input,
-.new-build-form textarea,
-.new-build-form select {
-  padding: 0.7rem 1rem;
-  border: 1px solid #e6eefc;
+/* ===== Champs ===== */
+.edit-build-form input,
+.edit-build-form textarea,
+.edit-build-form select {
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 1rem;
-  background: #fbfdff;
+  background: #ffffff;
+  color: #0f172a;
+  transition: all 0.25s ease;
 }
 
-.new-build-form select {
-  appearance: none;
-}
-
-.new-build-form input:focus,
-.new-build-form textarea:focus,
-.new-build-form select:focus {
+.edit-build-form input:focus,
+.edit-build-form textarea:focus,
+.edit-build-form select:focus {
   border-color: #4b56c0;
+  background: #f0f4ff;
+  box-shadow: 0 0 6px rgba(75, 86, 192, 0.2);
   outline: none;
 }
 
+/* ===== Boutons ===== */
 .btn.primary {
-  background: linear-gradient(90deg, #667eea 0%, #4b56c0 100%);
+  background: linear-gradient(90deg, #3b82f6 0%, #1e40af 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 0.7rem 1.2rem;
-  font-size: 1.05rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 1rem;
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
 }
 
 .btn.primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* ===== Mode sombre ===== */
+@media (prefers-color-scheme: dark) {
+  .edit-build-container {
+    background: #1e293b;
+    color: #e2e8f0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  }
+
+  .field-label {
+    color: #cbd5e1;
+  }
+
+  .edit-build-form input,
+  .edit-build-form textarea,
+  .edit-build-form select {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f8fafc;
+  }
+
+  .edit-build-form input:focus,
+  .edit-build-form textarea:focus,
+  .edit-build-form select:focus {
+    border-color: #60a5fa;
+    background: #1e3a8a30;
+  }
+
+  .btn.primary {
+    background: linear-gradient(90deg, #2563eb 0%, #1e3a8a 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  }
+
+  .btn.primary:hover {
+    background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+  }
+}
+
+/* ===== Mode mobile ===== */
+@media (max-width: 600px) {
+  .edit-build-container {
+    margin: 1rem;
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .edit-build-container h1,
+  .edit-build-container h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .edit-build-form input,
+  .edit-build-form textarea,
+  .edit-build-form select {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .btn.primary {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
