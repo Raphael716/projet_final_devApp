@@ -37,5 +37,6 @@ model Asset {
   path      String
   buildId   Int
   build     Builds   @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  version   String?
   createdAt DateTime @default(now())
 }
