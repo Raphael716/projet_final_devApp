@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="footer">
       <p>
-        &copy; {new Date().getFullYear()} Software Production Line — Base UI
+        &copy; {new Date().getFullYear()} Software Production Line
       </p>
     </footer>
   );
