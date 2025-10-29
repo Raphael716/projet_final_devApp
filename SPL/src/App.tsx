@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useContext } from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -16,6 +16,7 @@ import EditBuild from "./EditBuild";
 import AddVersion from "./AddVersion";
 
 function Home() {
+  const { user } = useContext(AuthContext);
   return (
     <main className="home">
       <h1>Software Production Line</h1>
@@ -25,9 +26,11 @@ function Home() {
       </p>
 
       <div className="home-actions">
-        <Link to="/login" className="btn primary">
-          Se connecter
-        </Link>
+        {!user && (
+          <Link to="/login" className="btn primary">
+            Se connecter
+          </Link>
+        )}
         <Link to="/builds" className="btn secondary">
           Voir les builds
         </Link>
