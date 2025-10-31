@@ -7,7 +7,57 @@ const prisma = new PrismaClient();
 const UPLOAD_DIR = path.join(__dirname, "..", "..", "uploads");
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
-// --- Configuration de stockage ---
+const EXT_TO_MIME = {
+  ".txt": "text/plain",
+  ".md": "text/markdown",
+  ".json": "application/json",
+  ".js": "application/javascript",
+  ".jsx": "text/javascript",
+  ".ts": "application/typescript",
+  ".tsx": "application/typescript",
+  ".html": "text/html",
+  ".css": "text/css",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".svg": "image/svg+xml",
+  ".pdf": "application/pdf",
+  ".zip": "application/zip",
+  ".rar": "application/vnd.rar",
+  ".7z": "application/x-7z-compressed",
+  ".mp3": "audio/mpeg",
+  ".wav": "audio/wav",
+  ".mp4": "video/mp4",
+  ".mov": "video/quicktime",
+  ".xls": "application/vnd.ms-excel",
+  ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  ".doc": "application/msword",
+  ".docx":
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ".ppt": "application/vnd.ms-powerpoint",
+  ".pptx":
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+};
+
+const EXT_TO_LABEL = {
+  ".txt": "Fichier texte",
+  ".md": "Fichier markdown",
+  ".json": "Fichier JSON",
+  ".js": "Fichier JavaScript",
+  ".ts": "Fichier TypeScript",
+  ".html": "Fichier HTML",
+  ".css": "Fichier CSS",
+  ".png": "Image PNG",
+  ".jpg": "Image JPG",
+  ".jpeg": "Image JPEG",
+  ".gif": "Image GIF",
+  ".svg": "Image SVG",
+  ".pdf": "Fichier PDF",
+  ".zip": "Archive ZIP",
+  ".tsx": "Fichier TypeScript avec JSX",
+};
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, UPLOAD_DIR);
@@ -22,11 +72,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 exports.uploadMiddleware = upload.single("file");
 
-// --- Upload d’un fichier pour une version ---
 exports.uploadFiles = async (req, res) => {
   try {
     const buildId = Number(req.params.buildId) || Number(req.params.id);
     const version = req.body.version || null;
+    const description = req.body.description || null;
 
     if (!req.file) {
       return res.status(400).json({ error: "Aucun fichier envoyé" });
@@ -34,15 +84,21 @@ exports.uploadFiles = async (req, res) => {
 
     const f = req.file;
 
+    const ext = path.extname(f.originalname || "").toLowerCase();
+
+    const detectedMime =
+      EXT_TO_MIME[ext] || f.mimetype || "application/octet-stream";
+
     const asset = await prisma.asset.create({
       data: {
         filename: f.filename,
         original: f.originalname,
-        mimetype: f.mimetype,
+        mimetype: detectedMime,
         size: f.size,
         path: f.path,
         buildId,
         version,
+        description,
       },
     });
 
@@ -60,7 +116,6 @@ exports.uploadFiles = async (req, res) => {
   }
 };
 
-// --- Récupération des fichiers d’un build ---
 exports.getAssetsByBuild = async (req, res) => {
   try {
     const buildId = Number(req.params.id);
@@ -79,24 +134,72 @@ exports.getAssetsByBuild = async (req, res) => {
       },
       orderBy: { createdAt: "desc" },
     });
-    res.json(assets);
+
+    const assetsWithLabel = assets.map((a) => {
+      const ext = path.extname(a.original || "").toLowerCase();
+      return {
+        ...a,
+        displayType: EXT_TO_LABEL[ext] || ext || "Type inconnu",
+      };
+    });
+
+    res.json(assetsWithLabel);
   } catch (err) {
     console.error("getAssetsByBuild", err);
     res.status(500).json({ error: "Erreur chargement fichiers" });
   }
 };
 
-// --- Téléchargement d’un fichier ---
+exports.getAssetById = async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const asset = await prisma.asset.findUnique({
+      where: { id },
+      include: {
+        build: {
+          select: {
+            id: true,
+            nom: true,
+            version: true,
+          },
+        },
+      },
+    });
+
+    if (!asset) {
+      return res.status(404).json({ error: "Asset non trouvé" });
+    }
+
+    const ext = path.extname(asset.original || "").toLowerCase();
+    const assetWithLabel = {
+      ...asset,
+      displayType: EXT_TO_LABEL[ext] || ext || "Type inconnu",
+    };
+
+    res.json(assetWithLabel);
+  } catch (err) {
+    console.error("getAssetById error:", err);
+    res.status(500).json({ error: "Erreur récupération asset" });
+  }
+};
+
 exports.downloadAsset = async (req, res) => {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({ where: { id } });
     if (!asset) return res.status(404).json({ error: "Fichier non trouvé" });
 
-    const filePath = path.join(__dirname, "..", "..", asset.path);
+    const filePath = path.isAbsolute(asset.path)
+      ? asset.path
+      : path.join(__dirname, "..", "..", asset.path);
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: "Fichier manquant sur le serveur" });
     }
+
+    const ext = path.extname(asset.original || "").toLowerCase();
+    const contentType =
+      asset.mimetype || EXT_TO_MIME[ext] || "application/octet-stream";
+    res.setHeader("Content-Type", contentType);
 
     res.download(filePath, asset.original);
   } catch (err) {
@@ -105,7 +208,6 @@ exports.downloadAsset = async (req, res) => {
   }
 };
 
-// --- Suppression d’un fichier ---
 exports.deleteAsset = async (req, res) => {
   try {
     const id = Number(req.params.id);

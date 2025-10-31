@@ -13,12 +13,12 @@ export default function AddVersion() {
   const { id } = useParams();
   const [build, setBuild] = useState<BuildInfo | null>(null);
   const [newVersion, setNewVersion] = useState("");
-  const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState("");
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Charger la version actuelle du build
   useEffect(() => {
     const fetchBuild = async () => {
       try {
@@ -48,7 +48,6 @@ export default function AddVersion() {
 
     const formData = new FormData();
     formData.append("version", newVersion);
-    formData.append("description", description);
     formData.append("file", file);
 
     try {
@@ -83,17 +82,6 @@ export default function AddVersion() {
                 ? `Entrez une version supérieure à ${build.version}`
                 : "Ex: v1.0.2"
             }
-            required
-          />
-        </label>
-
-        <label>
-          Description :
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Décrivez les nouveautés de cette version"
-            rows={3}
             required
           />
         </label>
