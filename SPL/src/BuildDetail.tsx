@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import "./BuildDetail.css";
@@ -31,7 +31,26 @@ export default function BuildDetail() {
   const [loading, setLoading] = useState(true);
   const [assets, setAssets] = useState<Asset[]>([]);
   const { user, token } = useContext(AuthContext);
-  const navigate = useNavigate();
+
+  const statusClass = (s?: string | null) => {
+    if (!s) return "";
+    const k = s.toLowerCase();
+    if (k.includes("prod") || k.includes("production")) return "production";
+    if (
+      k.includes("dépréci") ||
+      k.includes("depréci") ||
+      k.includes("deprecated")
+    )
+      return "deprecated";
+    if (k.includes("test")) return "test";
+    if (
+      k.includes("développement") ||
+      k.includes("dev") ||
+      k.includes("developp")
+    )
+      return "development";
+    return "";
+  };
 
   const sortVersions = (a: string, b: string) => {
     const pa = a
@@ -88,8 +107,22 @@ export default function BuildDetail() {
         <div>
           <h2>{build.nom}</h2>
           <p className="muted">{build.description || ""}</p>
+          <div style={{ marginTop: 8, color: "#475569", fontSize: 13 }}>
+            {assets.length > 0 ? (
+              <>
+                {assets.length} fichier(s) • Dernier upload :{" "}
+                {new Date(
+                  assets[0].createdAt || build.updatedAt
+                ).toLocaleString()}
+              </>
+            ) : (
+              <>Aucun fichier publié pour le moment</>
+            )}
+          </div>
           <div className="status-owner">
-            <span className="status-badge">{build.statut || "—"}</span>
+            <span className={`status-badge ${statusClass(build.statut)}`}>
+              {build.statut || "—"}
+            </span>
             <span className="owner">
               Responsable : <strong>{build.proprietaire || "—"}</strong>
             </span>
@@ -98,38 +131,28 @@ export default function BuildDetail() {
 
         <div className="build-detail-actions">
           {user?.isAdmin && (
-            <>
-              <Link to={`/builds/${build.id}/edit`} className="btn-edit">
-                Modifier
-              </Link>
-              <button
-                className="btn-archive"
-                onClick={async () => {
-                  if (
-                    !window.confirm(
-                      "Voulez-vous vraiment archiver (supprimer) ce logiciel ?"
-                    )
-                  )
-                    return;
-                  try {
-                    const res = await fetch(`/api/builds/${build.id}`, {
-                      method: "DELETE",
-                      headers: token
-                        ? { Authorization: `Bearer ${token}` }
-                        : {},
-                    });
-                    if (!res.ok) throw new Error("Erreur suppression");
-                    navigate("/builds");
-                  } catch (e) {
-                    console.error("delete build", e);
-                    alert("Impossible de supprimer le logiciel");
-                  }
-                }}
-              >
-                Archiver
-              </button>
-            </>
+            <Link to={`/builds/${build.id}/edit`} className="btn-edit">
+              Modifier
+            </Link>
           )}
+
+          {assets &&
+            assets.length > 0 &&
+            (() => {
+              const latest =
+                assets.find((a) => a.version === build.version) || assets[0];
+              return (
+                <a
+                  href={`/api/assets/download/${latest.id}`}
+                  className="btn primary btn-download-large"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Télécharger la dernière version
+                </a>
+              );
+            })()}
+
           <Link to={`/builds/${build.id}/add-version`} className="btn">
             Ajouter une version
           </Link>
@@ -166,14 +189,12 @@ export default function BuildDetail() {
                         <strong>{a.version}</strong>
                       </div>
                     )}
-                    <a
-                      className="asset-download"
-                      href={`/api/assets/download/${a.id}`}
-                      target="_blank"
-                      rel="noreferrer"
+                    <Link
+                      to={`/builds/${build.id}/versions/${a.id}`}
+                      className="asset-version-link"
                     >
                       {a.original}
-                    </a>
+                    </Link>
                     <div className="asset-meta">
                       <span>{Math.round(a.size / 1024)} KB</span>
                     </div>

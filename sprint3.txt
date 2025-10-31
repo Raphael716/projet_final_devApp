@@ -1,0 +1,6 @@
+tests
+1. unitaires 
+2. integration
+3. end to end
+
+sokrates.dev
