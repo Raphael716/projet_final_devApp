@@ -13,6 +13,7 @@ import Builds from "./Builds";
 import BuildDetail from "./BuildDetail";
 import NewBuild from "./NewBuild";
 import EditBuild from "./EditBuild";
+import VersionDetail from "./VersionDetail";
 import AddVersion from "./AddVersion";
 
 function Home() {
@@ -138,6 +139,10 @@ export default function App() {
           element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
         />
         <Route path="/builds/:id" element={<BuildDetail />} />
+        <Route
+          path="/builds/:buildId/versions/:assetId"
+          element={<VersionDetail />}
+        />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

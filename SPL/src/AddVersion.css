@@ -63,3 +63,30 @@
   border-radius: 8px;
   margin-bottom: 1rem;
 }
+
+.add-version textarea {
+  width: 90%;
+  margin-top: 0.4rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s ease;
+}
+
+.add-version textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.add-version label textarea {
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.add-version label span {
+  font-weight: 600;
+}

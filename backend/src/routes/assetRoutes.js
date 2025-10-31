@@ -15,6 +15,8 @@ router.post(
 
 // List files for a build
 router.get("/build/:id", assetController.getAssetsByBuild);
+// Get single asset details
+router.get("/:id", assetController.getAssetById);
 // Download (open to authenticated users)
 router.get("/download/:id", assetController.downloadAsset);
 

@@ -136,6 +136,7 @@ export default function BuildDetail() {
             </Link>
           )}
 
+          {/* Download latest version if available */}
           {assets &&
             assets.length > 0 &&
             (() => {
