@@ -9,6 +9,12 @@ import "./App.css";
 import Signup from "./Signup";
 import AdminUsers from "./AdminUsers";
 import EditUser from "./EditUser";
+import Builds from "./Builds";
+import BuildDetail from "./BuildDetail";
+import NewBuild from "./NewBuild";
+import EditBuild from "./EditBuild";
+import VersionDetail from "./VersionDetail";
+import AddVersion from "./AddVersion";
 
 function Home() {
   const { user } = useContext(AuthContext);
@@ -118,8 +124,24 @@ export default function App() {
           path="/admin/users/:id/edit"
           element={user?.isAdmin ? <EditUser /> : <Navigate to="/" replace />}
         />
-
-        {/* fallback */}
+        {/* Builds */}
+        <Route path="/builds" element={<Builds />} />
+        <Route path="/builds/new" element={<NewBuild />} />
+        <Route
+          path="/builds/:id/add-version"
+          element={
+            user?.isAdmin ? <AddVersion /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="/builds/:id/edit"
+          element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
+        />
+        <Route path="/builds/:id" element={<BuildDetail />} />
+        <Route
+          path="/builds/:buildId/versions/:assetId"
+          element={<VersionDetail />}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
