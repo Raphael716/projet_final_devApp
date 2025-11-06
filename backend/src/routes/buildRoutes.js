@@ -51,6 +51,9 @@ router.post(
   "/:id/add-version",
   protect,
   adminOnly,
+  (req, res, next) => {
+    next();
+  },
   assetController.uploadMiddleware,
   assetController.uploadFiles
 );

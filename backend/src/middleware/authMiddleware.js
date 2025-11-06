@@ -27,7 +27,6 @@ const protect = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    console.error("Erreur middleware protect:", error);
     res.status(401).json({ error: "Token invalide" });
   }
 };

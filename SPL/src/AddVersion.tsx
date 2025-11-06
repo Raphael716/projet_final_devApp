@@ -31,8 +31,11 @@ export default function AddVersion() {
           version: data.version || null,
         });
       } catch (err) {
-        console.error(err);
-        setError("Impossible de charger le logiciel.");
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Impossible de charger le logiciel."
+        );
       }
     };
     fetchBuild();
@@ -52,17 +55,41 @@ export default function AddVersion() {
     formData.append("file", file);
 
     try {
+      setError("");
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 120000);
+
       const res = await fetch(`/api/builds/${id}/add-version`, {
         method: "POST",
         headers: token ? { Authorization: `Bearer ${token}` } : {},
         body: formData,
+        signal: controller.signal,
       });
 
-      if (!res.ok) throw new Error("Erreur ajout version");
-      navigate(`/builds/${id}`);
+      clearTimeout(timeoutId);
+
+      const responseData = await res.json();
+
+      if (!res.ok) {
+        throw new Error(responseData?.error || "Erreur ajout version");
+      }
+
+      if (!responseData?.success) {
+        throw new Error("La création de la version a échoué");
+      }
+
+      // La version a été créée avec succès
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      navigate(`/builds/${id}`, { replace: true });
+      return;
     } catch (err) {
-      console.error(err);
-      setError("Erreur lors de l'ajout de la version");
+      if (err instanceof Error) {
+        setError(err.message);
+      } else if (err instanceof DOMException && err.name === "AbortError") {
+        setError("La requête a pris trop de temps, veuillez réessayer");
+      } else {
+        setError("Erreur lors de l'ajout de la version");
+      }
     }
   };
 

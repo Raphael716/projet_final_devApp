@@ -18,7 +18,7 @@ router.get("/build/:id", assetController.getAssetsByBuild);
 // Get single asset details
 router.get("/:id", assetController.getAssetById);
 // Download (open to authenticated users)
-router.get("/download/:id", assetController.downloadAsset);
+router.get("/download/:id", protect, assetController.downloadAsset);
 
 // Delete asset (admin only)
 router.delete("/:id", protect, adminOnly, assetController.deleteAsset);

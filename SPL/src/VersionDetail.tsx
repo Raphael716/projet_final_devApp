@@ -121,13 +121,45 @@ export default function VersionDetail() {
         </div>
 
         <div className="version-detail-actions">
-          <a
-            href={`/api/assets/download/${asset.id}`}
+          <button
             className="btn-download"
-            download
+            onClick={async () => {
+              try {
+                const response = await fetch(
+                  `/api/assets/download/${asset.id}`,
+                  {
+                    headers: token ? { Authorization: `Bearer ${token}` } : {},
+                  }
+                );
+
+                if (!response.ok) {
+                  throw new Error("Erreur lors du téléchargement");
+                }
+
+                // Créer un blob à partir de la réponse
+                const blob = await response.blob();
+
+                // Créer un URL pour le blob
+                const url = window.URL.createObjectURL(blob);
+
+                // Créer un lien temporaire et cliquer dessus
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = asset.original; // Utiliser le nom original du fichier
+                document.body.appendChild(a);
+                a.click();
+
+                // Nettoyer
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+              } catch (error) {
+                console.error("Erreur de téléchargement:", error);
+                alert("Erreur lors du téléchargement du fichier");
+              }
+            }}
           >
             Télécharger
-          </a>
+          </button>
           {user?.isAdmin && (
             <button
               className="btn-delete"

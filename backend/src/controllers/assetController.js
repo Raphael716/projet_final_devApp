@@ -60,23 +60,105 @@ const EXT_TO_LABEL = {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
+    // Vérifier et créer le dossier si nécessaire
+    if (!fs.existsSync(UPLOAD_DIR)) {
+      try {
+        fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+      } catch (err) {
+        return cb(
+          new Error(`Impossible de créer le dossier d'upload: ${err.message}`)
+        );
+      }
+    }
+
+    // Vérifier les permissions d'écriture
+    try {
+      fs.accessSync(UPLOAD_DIR, fs.constants.W_OK);
+    } catch (err) {
+      return cb(
+        new Error(
+          `Pas de permission d'écriture dans le dossier d'upload: ${err.message}`
+        )
+      );
+    }
+
     cb(null, UPLOAD_DIR);
   },
   filename: function (req, file, cb) {
-    const unique = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const ext = path.extname(file.originalname);
-    cb(null, `${unique}${ext}`);
+    try {
+      const unique = Date.now() + "-" + Math.round(Math.random() * 1e9);
+      const ext = path.extname(file.originalname || "").toLowerCase();
+      if (!ext) {
+        return cb(new Error("Le fichier doit avoir une extension"));
+      }
+      const filename = `${unique}${ext}`;
+      cb(null, filename);
+    } catch (err) {
+      cb(
+        new Error(
+          `Erreur lors de la génération du nom de fichier: ${err.message}`
+        )
+      );
+    }
   },
 });
 
-const upload = multer({ storage });
-exports.uploadMiddleware = upload.single("file");
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB max
+    files: 1,
+  },
+  fileFilter: (req, file, cb) => {
+    // Vérifier que le fichier a une extension
+    const ext = path.extname(file.originalname || "").toLowerCase();
+    if (!ext) {
+      return cb(new Error("Le fichier doit avoir une extension"));
+    }
+    cb(null, true);
+  },
+});
+
+exports.uploadMiddleware = (req, res, next) => {
+  upload.single("file")(req, res, (err) => {
+    if (err instanceof multer.MulterError) {
+      if (err.code === "LIMIT_FILE_SIZE") {
+        return res
+          .status(400)
+          .json({ error: "Le fichier est trop volumineux (max 50MB)" });
+      }
+      return res.status(400).json({ error: `Erreur upload: ${err.message}` });
+    } else if (err) {
+      return res
+        .status(500)
+        .json({ error: `Erreur inattendue: ${err.message}` });
+    }
+    next();
+  });
+};
 
 exports.uploadFiles = async (req, res) => {
   try {
     const buildId = Number(req.params.buildId) || Number(req.params.id);
-    const version = req.body.version || null;
-    const description = req.body.description || null;
+    if (!buildId || isNaN(buildId)) {
+      return res.status(400).json({ error: "ID du build invalide" });
+    }
+
+    // Vérifier si le build existe
+    const buildExists = await prisma.builds.findUnique({
+      where: { id: buildId },
+    });
+    if (!buildExists) {
+      return res.status(404).json({ error: "Build non trouvé" });
+    }
+
+    const version = req.body.version;
+    const description = req.body.description;
+
+    // Validation des champs requis
+    if (!version) {
+      return res.status(400).json({ error: "Le numéro de version est requis" });
+    }
 
     if (!req.file) {
       return res.status(400).json({ error: "Aucun fichier envoyé" });
@@ -84,11 +166,16 @@ exports.uploadFiles = async (req, res) => {
 
     const f = req.file;
 
-    const ext = path.extname(f.originalname || "").toLowerCase();
+    // Vérifier que le dossier uploads existe
+    if (!fs.existsSync(UPLOAD_DIR)) {
+      fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+    }
 
+    const ext = path.extname(f.originalname || "").toLowerCase();
     const detectedMime =
       EXT_TO_MIME[ext] || f.mimetype || "application/octet-stream";
 
+    // Créer l'asset dans la base de données
     const asset = await prisma.asset.create({
       data: {
         filename: f.filename,
@@ -102,17 +189,31 @@ exports.uploadFiles = async (req, res) => {
       },
     });
 
-    if (version) {
-      await prisma.builds.update({
-        where: { id: buildId },
-        data: { version },
-      });
+    // Mettre à jour la version du build
+    await prisma.builds.update({
+      where: { id: buildId },
+      data: { version },
+    });
+
+    res.json({
+      success: true,
+      asset,
+      message: "Version ajoutée avec succès",
+    });
+  } catch (err) {
+    // Nettoyer le fichier uploadé en cas d'erreur
+    if (req.file && req.file.path) {
+      try {
+        fs.unlinkSync(req.file.path);
+      } catch (_unlinkErr) {
+        // Ignore les erreurs de nettoyage
+      }
     }
 
-    res.json({ success: true, asset });
-  } catch (err) {
-    console.error("uploadFiles error:", err);
-    res.status(500).json({ error: "Erreur upload fichier" });
+    res.status(500).json({
+      error: "Erreur lors de l'upload du fichier",
+      details: err.message,
+    });
   }
 };
 
@@ -144,8 +245,7 @@ exports.getAssetsByBuild = async (req, res) => {
     });
 
     res.json(assetsWithLabel);
-  } catch (err) {
-    console.error("getAssetsByBuild", err);
+  } catch (_err) {
     res.status(500).json({ error: "Erreur chargement fichiers" });
   }
 };
@@ -177,8 +277,7 @@ exports.getAssetById = async (req, res) => {
     };
 
     res.json(assetWithLabel);
-  } catch (err) {
-    console.error("getAssetById error:", err);
+  } catch (_err) {
     res.status(500).json({ error: "Erreur récupération asset" });
   }
 };
@@ -189,21 +288,46 @@ exports.downloadAsset = async (req, res) => {
     const asset = await prisma.asset.findUnique({ where: { id } });
     if (!asset) return res.status(404).json({ error: "Fichier non trouvé" });
 
-    const filePath = path.isAbsolute(asset.path)
-      ? asset.path
-      : path.join(__dirname, "..", "..", asset.path);
-    if (!fs.existsSync(filePath)) {
+    let filePath = asset.path;
+    const possiblePaths = [
+      asset.path,
+      path.join(__dirname, "..", "..", asset.path),
+      path.join(__dirname, "..", "..", "uploads", asset.filename),
+      path.join(UPLOAD_DIR, asset.filename),
+    ];
+
+    filePath = possiblePaths.find((p) => fs.existsSync(p));
+
+    if (!filePath) {
       return res.status(404).json({ error: "Fichier manquant sur le serveur" });
+    }
+
+    try {
+      await fs.promises.access(filePath, fs.constants.R_OK);
+    } catch (err) {
+      return res.status(403).json({ error: "Accès au fichier impossible" });
     }
 
     const ext = path.extname(asset.original || "").toLowerCase();
     const contentType =
       asset.mimetype || EXT_TO_MIME[ext] || "application/octet-stream";
-    res.setHeader("Content-Type", contentType);
 
-    res.download(filePath, asset.original);
-  } catch (err) {
-    console.error("downloadAsset", err);
+    res.setHeader("Content-Type", contentType);
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="${encodeURIComponent(asset.original)}"`
+    );
+
+    // Utiliser un stream pour envoyer le fichier
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.on("error", (error) => {
+      if (!res.headersSent) {
+        res.status(500).json({ error: "Erreur lors de la lecture du fichier" });
+      }
+    });
+
+    fileStream.pipe(res);
+  } catch (_err) {
     res.status(500).json({ error: "Erreur téléchargement" });
   }
 };
@@ -217,15 +341,12 @@ exports.deleteAsset = async (req, res) => {
     if (asset.path && fs.existsSync(asset.path)) {
       try {
         fs.unlinkSync(asset.path);
-      } catch (e) {
-        console.error("Erreur suppression fichier disque:", e);
-      }
+      } catch (_e) {}
     }
 
     await prisma.asset.delete({ where: { id } });
     res.json({ success: true });
-  } catch (err) {
-    console.error("deleteAsset error:", err);
+  } catch (_err) {
     res.status(500).json({ error: "Erreur suppression asset" });
   }
 };
