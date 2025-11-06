@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Raphael716/projet_final_devApp.git"
   },
+  "test": "vitest",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
@@ -20,7 +21,9 @@
     "install:all": "npm install && cd SPL && npm install && npm install --save-dev @types/react-router-dom && cd ../backend && npm install && npx prisma generate"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "cypress": "^15.6.0",
+    "vitest": "^4.0.7"
   },
   "dependencies": {
     "react-router-dom": "^7.9.1"

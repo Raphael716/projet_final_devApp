@@ -1,0 +1,18 @@
+Path	Lines of Code
+README.md	63
+SPL/README.md	58
+SPL/package-lock.json	3498
+SPL/package.json	33
+SPL/tsconfig.app.json	25
+SPL/tsconfig.json	7
+SPL/tsconfig.node.json	23
+backend/downloaded-test-file.txt	1
+backend/package-lock.json	2226
+backend/package.json	32
+backend/src/generated/prisma/package.json	183
+backend/test-file.txt	1
+backend/uploads/1759510605850-823177759.txt	1
+backend/uploads/1760984689559-129179215.md	63
+package-lock.json	3818
+package.json	31
+sprint3.txt	5

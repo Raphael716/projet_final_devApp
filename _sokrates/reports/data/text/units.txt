@@ -1,0 +1,180 @@
+id: 1
+unit: function EditUser()
+file: SPL/src/EditUser.tsx
+start line: 7
+end line: 83
+size: 66 LOC
+McCabe index: 5
+number of parameters: 0
+
+id: 2
+unit: function Home()
+file: SPL/src/App.tsx
+start line: 19
+end line: 65
+size: 45 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 3
+unit: export default function Header()
+file: SPL/src/Header.tsx
+start line: 6
+end line: 38
+size: 31 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 4
+unit: export default defineConfig()
+file: SPL/vite.config.ts
+start line: 4
+end line: 25
+size: 22 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 5
+unit: destination: function()
+file: backend/src/controllers/assetController.js
+start line: 62
+end line: 86
+size: 21 LOC
+McCabe index: 4
+number of parameters: 3
+
+id: 6
+unit: export default defineConfig()
+file: backend/uploads/1762455641633-595545837.ts
+start line: 4
+end line: 21
+size: 18 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 7
+unit: filename: function()
+file: backend/src/controllers/assetController.js
+start line: 87
+end line: 103
+size: 17 LOC
+McCabe index: 4
+number of parameters: 3
+
+id: 8
+unit: id: Number()
+file: SPL/src/App.tsx
+start line: 69
+end line: 80
+size: 10 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 9
+unit: function toAppUser()
+file: SPL/src/AuthProvider.tsx
+start line: 14
+end line: 24
+size: 9 LOC
+McCabe index: 3
+number of parameters: 1
+
+id: 10
+unit: export default function Footer()
+file: SPL/src/Footer.tsx
+start line: 3
+end line: 11
+size: 9 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 11
+unit: function toAppUser()
+file: SPL/src/App.tsx
+start line: 67
+end line: 74
+size: 8 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 12
+unit: await fetch()
+file: SPL/src/EditUser.tsx
+start line: 33
+end line: 40
+size: 8 LOC
+McCabe index: 1
+number of parameters: 8
+
+id: 13
+unit: Joindre des fichiers()
+file: SPL/src/NewBuild.tsx
+start line: 116
+end line: 123
+size: 8 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 14
+unit: isAdmin: Number()
+file: SPL/src/App.tsx
+start line: 72
+end line: 80
+size: 7 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 15
+unit: await fetch()
+file: SPL/src/NewBuild.tsx
+start line: 57
+end line: 61
+size: 5 LOC
+McCabe index: 2
+number of parameters: 5
+
+id: 16
+unit: filename: function()
+file: backend/src/controllers/buildController.js
+start line: 16
+end line: 19
+size: 4 LOC
+McCabe index: 1
+number of parameters: 3
+
+id: 17
+unit: await fetch()
+file: SPL/src/AdminUsers.tsx
+start line: 36
+end line: 39
+size: 4 LOC
+McCabe index: 1
+number of parameters: 4
+
+id: 18
+unit: function toNumber()
+file: SPL/src/AuthProvider.tsx
+start line: 6
+end line: 9
+size: 4 LOC
+McCabe index: 3
+number of parameters: 2
+
+id: 19
+unit: destination: function()
+file: backend/src/controllers/buildController.js
+start line: 13
+end line: 15
+size: 3 LOC
+McCabe index: 1
+number of parameters: 3
+
+id: 20
+unit: function toString()
+file: SPL/src/AuthProvider.tsx
+start line: 10
+end line: 12
+size: 3 LOC
+McCabe index: 2
+number of parameters: 2
+

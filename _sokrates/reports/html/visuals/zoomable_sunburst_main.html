@@ -1,0 +1,495 @@
+<head>
+    <style>
+        body {
+            font-family: Sans-serif;
+            font-size: 11px;
+        }
+
+        .slice {
+            cursor: pointer;
+        }
+
+        .slice .main-arc {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+
+        .slice .hidden-arc {
+            fill: none;
+        }
+
+        .slice text {
+            pointer-events: none;
+            dominant-baseline: middle;
+            text-anchor: middle;
+        }
+    </style>
+
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+</head>
+<body>
+<script>
+    const width = window.innerWidth,
+        height = window.innerHeight,
+        maxRadius = (Math.min(width, height) / 2) - 5;
+
+    const formatNumber = d3.format(',d');
+
+    const x = d3.scaleLinear()
+        .range([0, 2 * Math.PI])
+        .clamp(true);
+
+    const y = d3.scaleSqrt()
+        .range([maxRadius * .1, maxRadius]);
+
+    const color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    const partition = d3.partition();
+
+    const arc = d3.arc()
+        .startAngle(d => x(d.x0))
+        .endAngle(d => x(d.x1))
+        .innerRadius(d => Math.max(0, y(d.y0)))
+        .outerRadius(d => Math.max(0, y(d.y1)));
+
+    const middleArcLine = d => {
+        const halfPi = Math.PI / 2;
+        const angles = [x(d.x0) - halfPi, x(d.x1) - halfPi];
+        const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+
+        const middleAngle = (angles[1] + angles[0]) / 2;
+        const invertDirection = middleAngle > 0 && middleAngle < Math.PI; // On lower quadrants write text ccw
+        if (invertDirection) {
+            angles.reverse();
+        }
+
+        const path = d3.path();
+        path.arc(0, 0, r, angles[0], angles[1], invertDirection);
+        return path.toString();
+    };
+
+    const textFits = d => {
+        const CHAR_SPACE = 6;
+
+        const deltaAngle = x(d.x1) - x(d.x0);
+        const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+        const perimeter = r * deltaAngle;
+
+        return d.data.name.length * CHAR_SPACE < perimeter;
+    };
+
+    const svg = d3.select('body').append('svg')
+        .style('width', '100vw')
+        .style('height', '100vh')
+        .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
+        .on('click', () => focusOn()); // Reset zoom on canvas click
+
+    var rootData = {
+        "name": "",
+        "children": [ {
+  "name" : "backend",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "prisma",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "schema.prisma",
+      "color" : "",
+      "size" : 39,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "src",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "config",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "db.js",
+        "color" : "",
+        "size" : 3,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "controllers",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "assetController.js",
+        "color" : "",
+        "size" : 302,
+        "children" : [ ]
+      }, {
+        "name" : "buildController.js",
+        "color" : "",
+        "size" : 113,
+        "children" : [ ]
+      }, {
+        "name" : "userController.js",
+        "color" : "",
+        "size" : 129,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "index.js",
+      "color" : "",
+      "size" : 50,
+      "children" : [ ]
+    }, {
+      "name" : "middleware",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "adminMiddleware.js",
+        "color" : "",
+        "size" : 16,
+        "children" : [ ]
+      }, {
+        "name" : "authMiddleware.js",
+        "color" : "",
+        "size" : 25,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "routes",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "assetRoutes.js",
+        "color" : "",
+        "size" : 17,
+        "children" : [ ]
+      }, {
+        "name" : "authRoutes.js",
+        "color" : "",
+        "size" : 6,
+        "children" : [ ]
+      }, {
+        "name" : "buildRoutes.js",
+        "color" : "",
+        "size" : 47,
+        "children" : [ ]
+      }, {
+        "name" : "userRoutes.js",
+        "color" : "",
+        "size" : 16,
+        "children" : [ ]
+      } ]
+    } ]
+  }, {
+    "name" : "uploads",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "1761261056814-995230287.tsx",
+      "color" : "",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "1761265169126-984135838.tsx",
+      "color" : "",
+      "size" : 89,
+      "children" : [ ]
+    }, {
+      "name" : "1761265231112-624819031.tsx",
+      "color" : "",
+      "size" : 89,
+      "children" : [ ]
+    }, {
+      "name" : "1761328515350-537683809.tsx",
+      "color" : "",
+      "size" : 89,
+      "children" : [ ]
+    }, {
+      "name" : "1761856845660-484720083.tsx",
+      "color" : "",
+      "size" : 196,
+      "children" : [ ]
+    }, {
+      "name" : "1762454458967-378888263.js",
+      "color" : "",
+      "size" : 22,
+      "children" : [ ]
+    }, {
+      "name" : "1762454573094-541774994.js",
+      "color" : "",
+      "size" : 22,
+      "children" : [ ]
+    }, {
+      "name" : "1762454810175-584589586.html",
+      "color" : "",
+      "size" : 13,
+      "children" : [ ]
+    }, {
+      "name" : "1762455641633-595545837.ts",
+      "color" : "",
+      "size" : 20,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "SPL",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "eslint.config.js",
+    "color" : "",
+    "size" : 22,
+    "children" : [ ]
+  }, {
+    "name" : "index.html",
+    "color" : "",
+    "size" : 13,
+    "children" : [ ]
+  }, {
+    "name" : "src",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "AddVersion.css",
+      "color" : "",
+      "size" : 81,
+      "children" : [ ]
+    }, {
+      "name" : "AddVersion.tsx",
+      "color" : "",
+      "size" : 122,
+      "children" : [ ]
+    }, {
+      "name" : "AdminUsers.css",
+      "color" : "",
+      "size" : 67,
+      "children" : [ ]
+    }, {
+      "name" : "AdminUsers.tsx",
+      "color" : "",
+      "size" : 73,
+      "children" : [ ]
+    }, {
+      "name" : "App.css",
+      "color" : "",
+      "size" : 194,
+      "children" : [ ]
+    }, {
+      "name" : "App.tsx",
+      "color" : "",
+      "size" : 134,
+      "children" : [ ]
+    }, {
+      "name" : "AuthContext.ts",
+      "color" : "",
+      "size" : 19,
+      "children" : [ ]
+    }, {
+      "name" : "AuthProvider.tsx",
+      "color" : "",
+      "size" : 55,
+      "children" : [ ]
+    }, {
+      "name" : "BuildDetail.css",
+      "color" : "",
+      "size" : 223,
+      "children" : [ ]
+    }, {
+      "name" : "BuildDetail.tsx",
+      "color" : "",
+      "size" : 195,
+      "children" : [ ]
+    }, {
+      "name" : "Builds.css",
+      "color" : "",
+      "size" : 153,
+      "children" : [ ]
+    }, {
+      "name" : "Builds.tsx",
+      "color" : "",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "EditBuild.css",
+      "color" : "",
+      "size" : 124,
+      "children" : [ ]
+    }, {
+      "name" : "EditBuild.tsx",
+      "color" : "",
+      "size" : 68,
+      "children" : [ ]
+    }, {
+      "name" : "EditUser.css",
+      "color" : "",
+      "size" : 75,
+      "children" : [ ]
+    }, {
+      "name" : "EditUser.tsx",
+      "color" : "",
+      "size" : 80,
+      "children" : [ ]
+    }, {
+      "name" : "Footer.css",
+      "color" : "",
+      "size" : 20,
+      "children" : [ ]
+    }, {
+      "name" : "Footer.tsx",
+      "color" : "",
+      "size" : 10,
+      "children" : [ ]
+    }, {
+      "name" : "Header.css",
+      "color" : "",
+      "size" : 97,
+      "children" : [ ]
+    }, {
+      "name" : "Header.tsx",
+      "color" : "",
+      "size" : 35,
+      "children" : [ ]
+    }, {
+      "name" : "index.css",
+      "color" : "",
+      "size" : 37,
+      "children" : [ ]
+    }, {
+      "name" : "Login.css",
+      "color" : "",
+      "size" : 89,
+      "children" : [ ]
+    }, {
+      "name" : "Login.tsx",
+      "color" : "",
+      "size" : 74,
+      "children" : [ ]
+    }, {
+      "name" : "main.tsx",
+      "color" : "",
+      "size" : 10,
+      "children" : [ ]
+    }, {
+      "name" : "NewBuild.css",
+      "color" : "",
+      "size" : 81,
+      "children" : [ ]
+    }, {
+      "name" : "NewBuild.tsx",
+      "color" : "",
+      "size" : 124,
+      "children" : [ ]
+    }, {
+      "name" : "Signup.css",
+      "color" : "",
+      "size" : 135,
+      "children" : [ ]
+    }, {
+      "name" : "Signup.tsx",
+      "color" : "",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "VersionDetail.css",
+      "color" : "",
+      "size" : 170,
+      "children" : [ ]
+    }, {
+      "name" : "VersionDetail.tsx",
+      "color" : "",
+      "size" : 205,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "vite.config.ts",
+    "color" : "",
+    "size" : 24,
+    "children" : [ ]
+  } ]
+} ]
+    }
+
+
+    root = d3.hierarchy(rootData);
+    root.sum(d => d.size);
+
+    const slice = svg.selectAll('g.slice')
+        .data(partition(root).descendants());
+
+    slice.exit().remove();
+
+    const newSlice = slice.enter()
+        .append('g').attr('class', 'slice')
+        .on('click', d => {
+            d3.event.stopPropagation();
+            focusOn(d);
+        });
+
+    newSlice.append('title')
+        .text(d => d.data.name + '\n' + formatNumber(d.value));
+
+    newSlice.append('path')
+        .attr('class', 'main-arc')
+        .style('fill', d => color((d.children ? d : d.parent).data.name))
+        .attr('d', arc);
+
+    newSlice.append('path')
+        .attr('class', 'hidden-arc')
+        .attr('id', (_, i) => `hiddenArc${i}`)
+        .attr('d', middleArcLine);
+
+    const text = newSlice.append('text')
+        .attr('display', d => textFits(d) ? null : 'none');
+
+    // Add white contour
+    text.append('textPath')
+        .attr('startOffset', '50%')
+        .attr('xlink:href', (_, i) => `#hiddenArc${i}`)
+        .text(d => d.data.name)
+        .style('fill', 'none')
+        .style('stroke', '#fff')
+        .style('stroke-width', 5)
+        .style('stroke-linejoin', 'round');
+
+    text.append('textPath')
+        .attr('startOffset', '50%')
+        .attr('xlink:href', (_, i) => `#hiddenArc${i}`)
+        .text(d => d.data.name);
+
+    function focusOn(d = {x0: 0, x1: 1, y0: 0, y1: 1}) {
+        const transition = svg.transition()
+            .duration(750)
+            .tween('scale', () => {
+                const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                    yd = d3.interpolate(y.domain(), [d.y0, 1]);
+                return t => {
+                    x.domain(xd(t));
+                    y.domain(yd(t));
+                };
+            });
+
+        transition.selectAll('path.main-arc')
+            .attrTween('d', d => () => arc(d));
+
+        transition.selectAll('path.hidden-arc')
+            .attrTween('d', d => () => middleArcLine(d));
+
+        transition.selectAll('text')
+            .attrTween('display', d => () => textFits(d) ? null : 'none');
+
+        moveStackToFront(d);
+
+        //
+
+        function moveStackToFront(elD) {
+            svg.selectAll('.slice').filter(d => d === elD)
+                .each(function (d) {
+                    this.parentNode.appendChild(this);
+                    if (d.parent) {
+                        moveStackToFront(d.parent);
+                    }
+                })
+        }
+    }
+</script>
+</body>

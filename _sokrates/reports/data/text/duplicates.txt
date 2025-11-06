@@ -1,0 +1,234 @@
+duplicated block id: 1
+size: 122 cleaned lines of code
+in 2 files:
+ - SPL/src/BuildDetail.tsx (6:137)
+ - backend/uploads/1761856845660-484720083.tsx (6:137)
+
+duplicated block id: 2
+size: 81 cleaned lines of code
+in 2 files:
+ - backend/uploads/1761265169126-984135838.tsx (6:102)
+ - backend/uploads/1761265231112-624819031.tsx (6:102)
+
+duplicated block id: 3
+size: 81 cleaned lines of code
+in 2 files:
+ - backend/uploads/1761265169126-984135838.tsx (6:102)
+ - backend/uploads/1761328515350-537683809.tsx (6:102)
+
+duplicated block id: 4
+size: 81 cleaned lines of code
+in 2 files:
+ - backend/uploads/1761265231112-624819031.tsx (6:102)
+ - backend/uploads/1761328515350-537683809.tsx (6:102)
+
+duplicated block id: 5
+size: 76 cleaned lines of code
+in 2 files:
+ - SPL/src/Signup.tsx (5:95)
+ - backend/uploads/1761261056814-995230287.tsx (5:95)
+
+duplicated block id: 6
+size: 68 cleaned lines of code
+in 2 files:
+ - SPL/src/BuildDetail.tsx (139:210)
+ - backend/uploads/1761856845660-484720083.tsx (140:211)
+
+duplicated block id: 7
+size: 21 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (91:117)
+ - backend/uploads/1761265169126-984135838.tsx (64:89)
+
+duplicated block id: 8
+size: 21 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (91:117)
+ - backend/uploads/1761265231112-624819031.tsx (64:89)
+
+duplicated block id: 9
+size: 21 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (91:117)
+ - backend/uploads/1761328515350-537683809.tsx (64:89)
+
+duplicated block id: 10
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (17:33)
+ - backend/uploads/1761265231112-624819031.tsx (16:33)
+
+duplicated block id: 11
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (124:141)
+ - backend/uploads/1761265169126-984135838.tsx (85:102)
+
+duplicated block id: 12
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (17:33)
+ - backend/uploads/1761328515350-537683809.tsx (16:33)
+
+duplicated block id: 13
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/vite.config.ts (10:25)
+ - backend/uploads/1762455641633-595545837.ts (6:21)
+
+duplicated block id: 14
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (124:141)
+ - backend/uploads/1761328515350-537683809.tsx (85:102)
+
+duplicated block id: 15
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (17:33)
+ - backend/uploads/1761265169126-984135838.tsx (16:33)
+
+duplicated block id: 16
+size: 16 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (124:141)
+ - backend/uploads/1761265231112-624819031.tsx (85:102)
+
+duplicated block id: 17
+size: 15 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.tsx (57:72)
+ - SPL/src/Signup.tsx (61:76)
+
+duplicated block id: 18
+size: 15 cleaned lines of code
+in 2 files:
+ - SPL/eslint.config.js (8:23)
+ - backend/uploads/1762454458967-378888263.js (8:23)
+
+duplicated block id: 19
+size: 15 cleaned lines of code
+in 2 files:
+ - backend/uploads/1762454458967-378888263.js (8:23)
+ - backend/uploads/1762454573094-541774994.js (8:23)
+
+duplicated block id: 20
+size: 15 cleaned lines of code
+in 2 files:
+ - SPL/eslint.config.js (8:23)
+ - backend/uploads/1762454573094-541774994.js (8:23)
+
+duplicated block id: 21
+size: 15 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.tsx (57:72)
+ - backend/uploads/1761261056814-995230287.tsx (61:76)
+
+duplicated block id: 22
+size: 12 cleaned lines of code
+in 2 files:
+ - SPL/src/App.css (29:40)
+ - SPL/src/Footer.css (1:12)
+
+duplicated block id: 23
+size: 10 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (40:53)
+ - backend/uploads/1761265169126-984135838.tsx (37:50)
+
+duplicated block id: 24
+size: 10 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (40:53)
+ - backend/uploads/1761265231112-624819031.tsx (37:50)
+
+duplicated block id: 25
+size: 10 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (40:53)
+ - backend/uploads/1761328515350-537683809.tsx (37:50)
+
+duplicated block id: 26
+size: 10 cleaned lines of code
+in 2 files:
+ - SPL/index.html (1:11)
+ - backend/uploads/1762454810175-584589586.html (1:11)
+
+duplicated block id: 27
+size: 10 cleaned lines of code
+in 2 files:
+ - SPL/src/Builds.css (78:87)
+ - SPL/src/Builds.css (96:105)
+
+duplicated block id: 28
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.tsx (43:53)
+ - backend/uploads/1761261056814-995230287.tsx (36:46)
+
+duplicated block id: 29
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.tsx (43:53)
+ - SPL/src/Signup.tsx (36:46)
+
+duplicated block id: 30
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.tsx (10:20)
+ - backend/uploads/1761261056814-995230287.tsx (10:20)
+
+duplicated block id: 31
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.tsx (10:20)
+ - SPL/src/Signup.tsx (10:20)
+
+duplicated block id: 32
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (6:15)
+ - backend/uploads/1761328515350-537683809.tsx (6:15)
+
+duplicated block id: 33
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (6:15)
+ - backend/uploads/1761265169126-984135838.tsx (6:15)
+
+duplicated block id: 34
+size: 9 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.tsx (6:15)
+ - backend/uploads/1761265231112-624819031.tsx (6:15)
+
+duplicated block id: 35
+size: 7 cleaned lines of code
+in 2 files:
+ - SPL/src/App.css (224:230)
+ - SPL/src/Footer.css (15:21)
+
+duplicated block id: 36
+size: 6 cleaned lines of code
+in 2 files:
+ - SPL/src/BuildDetail.css (120:125)
+ - SPL/src/BuildDetail.css (142:147)
+
+duplicated block id: 37
+size: 6 cleaned lines of code
+in 2 files:
+ - SPL/src/AddVersion.css (26:31)
+ - SPL/src/AddVersion.css (68:73)
+
+duplicated block id: 38
+size: 6 cleaned lines of code
+in 2 files:
+ - SPL/src/BuildDetail.css (171:176)
+ - SPL/src/BuildDetail.css (191:196)
+
+duplicated block id: 39
+size: 6 cleaned lines of code
+in 2 files:
+ - SPL/src/Login.css (33:40)
+ - SPL/src/Signup.css (43:49)
+

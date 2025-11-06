@@ -1,0 +1,1137 @@
+{
+  "title" : "Duplication",
+  "timestamp" : "2025-11-06 14:29:55",
+  "duplicates" : [ {
+    "blockSize" : 122,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/BuildDetail.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 195,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 190,
+      "startLine" : 6,
+      "endLine" : 137,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 122
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761856845660-484720083.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 196,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 191,
+      "startLine" : 6,
+      "endLine" : 137,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 122
+    } ]
+  }, {
+    "blockSize" : 81,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 102,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 81
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 102,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 81,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 102,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 81
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 102,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 81,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 102,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 81
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 102,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 76,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 5,
+      "endLine" : 95,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 76
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 5,
+      "endLine" : 95,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 76
+    } ]
+  }, {
+    "blockSize" : 68,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/BuildDetail.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 195,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 190,
+      "startLine" : 139,
+      "endLine" : 210,
+      "cleanedStartLine" : 123,
+      "cleanedEndLine" : 190
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761856845660-484720083.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 196,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 191,
+      "startLine" : 140,
+      "endLine" : 211,
+      "cleanedStartLine" : 124,
+      "cleanedEndLine" : 191
+    } ]
+  }, {
+    "blockSize" : 21,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 91,
+      "endLine" : 117,
+      "cleanedStartLine" : 69,
+      "cleanedEndLine" : 89
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 64,
+      "endLine" : 89,
+      "cleanedStartLine" : 49,
+      "cleanedEndLine" : 69
+    } ]
+  }, {
+    "blockSize" : 21,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 91,
+      "endLine" : 117,
+      "cleanedStartLine" : 69,
+      "cleanedEndLine" : 89
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 64,
+      "endLine" : 89,
+      "cleanedStartLine" : 49,
+      "cleanedEndLine" : 69
+    } ]
+  }, {
+    "blockSize" : 21,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 91,
+      "endLine" : 117,
+      "cleanedStartLine" : 69,
+      "cleanedEndLine" : 89
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 64,
+      "endLine" : 89,
+      "cleanedStartLine" : 49,
+      "cleanedEndLine" : 69
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 17,
+      "endLine" : 33,
+      "cleanedStartLine" : 11,
+      "cleanedEndLine" : 26
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 16,
+      "endLine" : 33,
+      "cleanedStartLine" : 10,
+      "cleanedEndLine" : 25
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 124,
+      "endLine" : 141,
+      "cleanedStartLine" : 96,
+      "cleanedEndLine" : 111
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 85,
+      "endLine" : 102,
+      "cleanedStartLine" : 66,
+      "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 17,
+      "endLine" : 33,
+      "cleanedStartLine" : 11,
+      "cleanedEndLine" : 26
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 16,
+      "endLine" : 33,
+      "cleanedStartLine" : 10,
+      "cleanedEndLine" : 25
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/vite.config.ts",
+        "extension" : "ts",
+        "linesOfCode" : 24,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 22,
+      "startLine" : 10,
+      "endLine" : 25,
+      "cleanedStartLine" : 7,
+      "cleanedEndLine" : 22
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1762455641633-595545837.ts",
+        "extension" : "ts",
+        "linesOfCode" : 20,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 18,
+      "startLine" : 6,
+      "endLine" : 21,
+      "cleanedStartLine" : 3,
+      "cleanedEndLine" : 18
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 124,
+      "endLine" : 141,
+      "cleanedStartLine" : 96,
+      "cleanedEndLine" : 111
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 85,
+      "endLine" : 102,
+      "cleanedStartLine" : 66,
+      "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 17,
+      "endLine" : 33,
+      "cleanedStartLine" : 11,
+      "cleanedEndLine" : 26
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 16,
+      "endLine" : 33,
+      "cleanedStartLine" : 10,
+      "cleanedEndLine" : 25
+    } ]
+  }, {
+    "blockSize" : 16,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 124,
+      "endLine" : 141,
+      "cleanedStartLine" : 96,
+      "cleanedEndLine" : 111
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 85,
+      "endLine" : 102,
+      "cleanedStartLine" : 66,
+      "cleanedEndLine" : 81
+    } ]
+  }, {
+    "blockSize" : 15,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 74,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 67,
+      "startLine" : 57,
+      "endLine" : 72,
+      "cleanedStartLine" : 42,
+      "cleanedEndLine" : 56
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 61,
+      "endLine" : 76,
+      "cleanedStartLine" : 46,
+      "cleanedEndLine" : 60
+    } ]
+  }, {
+    "blockSize" : 15,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/eslint.config.js",
+        "extension" : "js",
+        "linesOfCode" : 22,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 15,
+      "startLine" : 8,
+      "endLine" : 23,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 15
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1762454458967-378888263.js",
+        "extension" : "js",
+        "linesOfCode" : 22,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 15,
+      "startLine" : 8,
+      "endLine" : 23,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 15
+    } ]
+  }, {
+    "blockSize" : 15,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "backend/uploads/1762454458967-378888263.js",
+        "extension" : "js",
+        "linesOfCode" : 22,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 15,
+      "startLine" : 8,
+      "endLine" : 23,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 15
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1762454573094-541774994.js",
+        "extension" : "js",
+        "linesOfCode" : 22,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 15,
+      "startLine" : 8,
+      "endLine" : 23,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 15
+    } ]
+  }, {
+    "blockSize" : 15,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/eslint.config.js",
+        "extension" : "js",
+        "linesOfCode" : 22,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 15,
+      "startLine" : 8,
+      "endLine" : 23,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 15
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1762454573094-541774994.js",
+        "extension" : "js",
+        "linesOfCode" : 22,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 15,
+      "startLine" : 8,
+      "endLine" : 23,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 15
+    } ]
+  }, {
+    "blockSize" : 15,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 74,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 67,
+      "startLine" : 57,
+      "endLine" : 72,
+      "cleanedStartLine" : 42,
+      "cleanedEndLine" : 56
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 61,
+      "endLine" : 76,
+      "cleanedStartLine" : 46,
+      "cleanedEndLine" : 60
+    } ]
+  }, {
+    "blockSize" : 12,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/App.css",
+        "extension" : "css",
+        "linesOfCode" : 194,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 194,
+      "startLine" : 29,
+      "endLine" : 40,
+      "cleanedStartLine" : 26,
+      "cleanedEndLine" : 37
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Footer.css",
+        "extension" : "css",
+        "linesOfCode" : 20,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 20,
+      "startLine" : 1,
+      "endLine" : 12,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 12
+    } ]
+  }, {
+    "blockSize" : 10,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 40,
+      "endLine" : 53,
+      "cleanedStartLine" : 32,
+      "cleanedEndLine" : 41
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 37,
+      "endLine" : 50,
+      "cleanedStartLine" : 28,
+      "cleanedEndLine" : 37
+    } ]
+  }, {
+    "blockSize" : 10,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 40,
+      "endLine" : 53,
+      "cleanedStartLine" : 32,
+      "cleanedEndLine" : 41
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 37,
+      "endLine" : 50,
+      "cleanedStartLine" : 28,
+      "cleanedEndLine" : 37
+    } ]
+  }, {
+    "blockSize" : 10,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 40,
+      "endLine" : 53,
+      "cleanedStartLine" : 32,
+      "cleanedEndLine" : 41
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 37,
+      "endLine" : 50,
+      "cleanedStartLine" : 28,
+      "cleanedEndLine" : 37
+    } ]
+  }, {
+    "blockSize" : 10,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/index.html",
+        "extension" : "html",
+        "linesOfCode" : 13,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 10,
+      "startLine" : 1,
+      "endLine" : 11,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 10
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1762454810175-584589586.html",
+        "extension" : "html",
+        "linesOfCode" : 13,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 10,
+      "startLine" : 1,
+      "endLine" : 11,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 10
+    } ]
+  }, {
+    "blockSize" : 10,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Builds.css",
+        "extension" : "css",
+        "linesOfCode" : 153,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 153,
+      "startLine" : 78,
+      "endLine" : 87,
+      "cleanedStartLine" : 63,
+      "cleanedEndLine" : 72
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Builds.css",
+        "extension" : "css",
+        "linesOfCode" : 153,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 153,
+      "startLine" : 96,
+      "endLine" : 105,
+      "cleanedStartLine" : 79,
+      "cleanedEndLine" : 88
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 74,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 67,
+      "startLine" : 43,
+      "endLine" : 53,
+      "cleanedStartLine" : 31,
+      "cleanedEndLine" : 39
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 36,
+      "endLine" : 46,
+      "cleanedStartLine" : 25,
+      "cleanedEndLine" : 33
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 74,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 67,
+      "startLine" : 43,
+      "endLine" : 53,
+      "cleanedStartLine" : 31,
+      "cleanedEndLine" : 39
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 36,
+      "endLine" : 46,
+      "cleanedStartLine" : 25,
+      "cleanedEndLine" : 33
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 74,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 67,
+      "startLine" : 10,
+      "endLine" : 20,
+      "cleanedStartLine" : 4,
+      "cleanedEndLine" : 12
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 10,
+      "endLine" : 20,
+      "cleanedStartLine" : 5,
+      "cleanedEndLine" : 13
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 74,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 67,
+      "startLine" : 10,
+      "endLine" : 20,
+      "cleanedStartLine" : 4,
+      "cleanedEndLine" : 12
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 82,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 76,
+      "startLine" : 10,
+      "endLine" : 20,
+      "cleanedStartLine" : 5,
+      "cleanedEndLine" : 13
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 6,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 9
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 9
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 6,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 9
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 9
+    } ]
+  }, {
+    "blockSize" : 9,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 122,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 111,
+      "startLine" : 6,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 9
+    }, {
+      "file" : {
+        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
+        "extension" : "tsx",
+        "linesOfCode" : 89,
+        "components" : [ "primary::backend" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 6,
+      "endLine" : 15,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 9
+    } ]
+  }, {
+    "blockSize" : 7,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/App.css",
+        "extension" : "css",
+        "linesOfCode" : 194,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 194,
+      "startLine" : 224,
+      "endLine" : 230,
+      "cleanedStartLine" : 188,
+      "cleanedEndLine" : 194
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Footer.css",
+        "extension" : "css",
+        "linesOfCode" : 20,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 20,
+      "startLine" : 15,
+      "endLine" : 21,
+      "cleanedStartLine" : 14,
+      "cleanedEndLine" : 20
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/BuildDetail.css",
+        "extension" : "css",
+        "linesOfCode" : 223,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 223,
+      "startLine" : 120,
+      "endLine" : 125,
+      "cleanedStartLine" : 103,
+      "cleanedEndLine" : 108
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/BuildDetail.css",
+        "extension" : "css",
+        "linesOfCode" : 223,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 223,
+      "startLine" : 142,
+      "endLine" : 147,
+      "cleanedStartLine" : 122,
+      "cleanedEndLine" : 127
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.css",
+        "extension" : "css",
+        "linesOfCode" : 81,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 26,
+      "endLine" : 31,
+      "cleanedStartLine" : 23,
+      "cleanedEndLine" : 28
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/AddVersion.css",
+        "extension" : "css",
+        "linesOfCode" : 81,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 81,
+      "startLine" : 68,
+      "endLine" : 73,
+      "cleanedStartLine" : 60,
+      "cleanedEndLine" : 65
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/BuildDetail.css",
+        "extension" : "css",
+        "linesOfCode" : 223,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 223,
+      "startLine" : 171,
+      "endLine" : 176,
+      "cleanedStartLine" : 147,
+      "cleanedEndLine" : 152
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/BuildDetail.css",
+        "extension" : "css",
+        "linesOfCode" : 223,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 223,
+      "startLine" : 191,
+      "endLine" : 196,
+      "cleanedStartLine" : 164,
+      "cleanedEndLine" : 169
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/src/Login.css",
+        "extension" : "css",
+        "linesOfCode" : 89,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 89,
+      "startLine" : 33,
+      "endLine" : 40,
+      "cleanedStartLine" : 27,
+      "cleanedEndLine" : 32
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.css",
+        "extension" : "css",
+        "linesOfCode" : 135,
+        "components" : [ "primary::SPL" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 135,
+      "startLine" : 43,
+      "endLine" : 49,
+      "cleanedStartLine" : 40,
+      "cleanedEndLine" : 45
+    } ]
+  } ],
+  "overallDuplication" : null
+}

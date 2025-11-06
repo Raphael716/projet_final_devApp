@@ -1,0 +1,85 @@
+[ {
+  "key" : "general",
+  "concerns" : [ {
+    "name" : "TODOs",
+    "filesCount" : 0,
+    "linesOfCode" : 0,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ ],
+    "linesOfCodePerExtension" : [ ]
+  }, {
+    "name" : "Unclassified",
+    "filesCount" : 54,
+    "linesOfCode" : 4358,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 20,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 14,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 14,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.prisma",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 2,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 1894,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 1546,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 790,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 63,
+      "description" : [ ]
+    }, {
+      "name" : "  *.prisma",
+      "value" : 39,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 26,
+      "description" : [ ]
+    } ]
+  } ],
+  "concernsGroup" : null,
+  "fileCountPerConcern" : [ {
+    "name" : "TODOs",
+    "value" : 0,
+    "description" : [ ]
+  }, {
+    "name" : "Unclassified",
+    "value" : 54,
+    "description" : [ ]
+  } ],
+  "linesOfCodePerConcern" : [ {
+    "name" : "TODOs",
+    "value" : 0,
+    "description" : [ ]
+  }, {
+    "name" : "Unclassified",
+    "value" : 4358,
+    "description" : [ ]
+  } ]
+} ]

@@ -1,0 +1,265 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+</head>
+
+<body>
+<div id="3d-graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "[SPL/src/Signup.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[backend/uploads/1762454458967-378888263.js]",
+    "size" : 2
+  }, {
+    "id" : "[backend/uploads/1762454573094-541774994.js]",
+    "size" : 2
+  }, {
+    "id" : "[backend/uploads/1761856845660-484720083.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/index.html]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Login.css]",
+    "size" : 1
+  }, {
+    "id" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[backend/uploads/1762454810175-584589586.html]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Signup.css]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Login.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[SPL/src/BuildDetail.css]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/AddVersion.css]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/eslint.config.js]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/App.css]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/BuildDetail.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Builds.css]",
+    "size" : 2
+  }, {
+    "id" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[SPL/vite.config.ts]",
+    "size" : 1
+  }, {
+    "id" : "[backend/uploads/1761261056814-995230287.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/AddVersion.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[backend/uploads/1762455641633-595545837.ts]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Footer.css]",
+    "size" : 1
+  } ],
+  "links" : [ {
+    "source" : "[SPL/src/BuildDetail.tsx]",
+    "target" : "[backend/uploads/1761856845660-484720083.tsx]",
+    "count" : 380
+  }, {
+    "source" : "[backend/uploads/1761856845660-484720083.tsx]",
+    "target" : "[SPL/src/BuildDetail.tsx]",
+    "count" : 380
+  }, {
+    "source" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "target" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "count" : 162
+  }, {
+    "source" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "target" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "count" : 162
+  }, {
+    "source" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "target" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "count" : 162
+  }, {
+    "source" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "target" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "count" : 162
+  }, {
+    "source" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "target" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "count" : 162
+  }, {
+    "source" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "target" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "count" : 162
+  }, {
+    "source" : "[SPL/src/Signup.tsx]",
+    "target" : "[backend/uploads/1761261056814-995230287.tsx]",
+    "count" : 152
+  }, {
+    "source" : "[backend/uploads/1761261056814-995230287.tsx]",
+    "target" : "[SPL/src/Signup.tsx]",
+    "count" : 152
+  }, {
+    "source" : "[SPL/src/AddVersion.tsx]",
+    "target" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[backend/uploads/1761265169126-984135838.tsx]",
+    "target" : "[SPL/src/AddVersion.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[SPL/src/AddVersion.tsx]",
+    "target" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[backend/uploads/1761265231112-624819031.tsx]",
+    "target" : "[SPL/src/AddVersion.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[SPL/src/AddVersion.tsx]",
+    "target" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[backend/uploads/1761328515350-537683809.tsx]",
+    "target" : "[SPL/src/AddVersion.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[SPL/vite.config.ts]",
+    "target" : "[backend/uploads/1762455641633-595545837.ts]",
+    "count" : 32
+  }, {
+    "source" : "[backend/uploads/1762455641633-595545837.ts]",
+    "target" : "[SPL/vite.config.ts]",
+    "count" : 32
+  }, {
+    "source" : "[SPL/src/Login.tsx]",
+    "target" : "[SPL/src/Signup.tsx]",
+    "count" : 66
+  }, {
+    "source" : "[SPL/src/Signup.tsx]",
+    "target" : "[SPL/src/Login.tsx]",
+    "count" : 66
+  }, {
+    "source" : "[SPL/eslint.config.js]",
+    "target" : "[backend/uploads/1762454458967-378888263.js]",
+    "count" : 30
+  }, {
+    "source" : "[backend/uploads/1762454458967-378888263.js]",
+    "target" : "[SPL/eslint.config.js]",
+    "count" : 30
+  }, {
+    "source" : "[backend/uploads/1762454458967-378888263.js]",
+    "target" : "[backend/uploads/1762454573094-541774994.js]",
+    "count" : 30
+  }, {
+    "source" : "[backend/uploads/1762454573094-541774994.js]",
+    "target" : "[backend/uploads/1762454458967-378888263.js]",
+    "count" : 30
+  }, {
+    "source" : "[SPL/eslint.config.js]",
+    "target" : "[backend/uploads/1762454573094-541774994.js]",
+    "count" : 30
+  }, {
+    "source" : "[backend/uploads/1762454573094-541774994.js]",
+    "target" : "[SPL/eslint.config.js]",
+    "count" : 30
+  }, {
+    "source" : "[SPL/src/Login.tsx]",
+    "target" : "[backend/uploads/1761261056814-995230287.tsx]",
+    "count" : 66
+  }, {
+    "source" : "[backend/uploads/1761261056814-995230287.tsx]",
+    "target" : "[SPL/src/Login.tsx]",
+    "count" : 66
+  }, {
+    "source" : "[SPL/src/App.css]",
+    "target" : "[SPL/src/Footer.css]",
+    "count" : 38
+  }, {
+    "source" : "[SPL/src/Footer.css]",
+    "target" : "[SPL/src/App.css]",
+    "count" : 38
+  }, {
+    "source" : "[SPL/index.html]",
+    "target" : "[backend/uploads/1762454810175-584589586.html]",
+    "count" : 20
+  }, {
+    "source" : "[backend/uploads/1762454810175-584589586.html]",
+    "target" : "[SPL/index.html]",
+    "count" : 20
+  }, {
+    "source" : "[SPL/src/Builds.css]",
+    "target" : "[SPL/src/Builds.css]",
+    "count" : 20
+  }, {
+    "source" : "[SPL/src/Builds.css]",
+    "target" : "[SPL/src/Builds.css]",
+    "count" : 20
+  }, {
+    "source" : "[SPL/src/BuildDetail.css]",
+    "target" : "[SPL/src/BuildDetail.css]",
+    "count" : 24
+  }, {
+    "source" : "[SPL/src/BuildDetail.css]",
+    "target" : "[SPL/src/BuildDetail.css]",
+    "count" : 24
+  }, {
+    "source" : "[SPL/src/AddVersion.css]",
+    "target" : "[SPL/src/AddVersion.css]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/AddVersion.css]",
+    "target" : "[SPL/src/AddVersion.css]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/Login.css]",
+    "target" : "[SPL/src/Signup.css]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/Signup.css]",
+    "target" : "[SPL/src/Login.css]",
+    "count" : 12
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => { return {source: l.target, target: l.source, count: l.count} });
+
+    const Graph = ForceGraph3D()
+    (document.getElementById('3d-graph'))
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => n.id.startsWith("[") ? "skyblue" : "")
+        .linkDirectionalParticles(6)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>
