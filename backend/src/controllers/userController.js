@@ -58,7 +58,7 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { username, email, admin } = req.body; // on manipule 'admin' (0/1)
+  const { username, email, admin } = req.body;
   try {
     const updated = await prisma.user.update({
       where: { id: Number(id) },
@@ -101,9 +101,13 @@ const registerUser = async (req, res) => {
       data: { username, email, password: hashedPassword, admin: 0 },
     });
 
-    const token = jwt.sign({ id: newUser.id, admin: user.admin }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    // ✅ Corrigé : utiliser newUser.admin
+    // ✅ Pas d'expiration de token
+    const token = jwt.sign(
+      { id: newUser.id, admin: newUser.admin },
+      process.env.JWT_SECRET
+    );
+
     const { password: _pw, ...safe } = newUser;
     res.status(201).json({ user: safe, token });
   } catch (error) {
@@ -123,9 +127,12 @@ const loginUser = async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ error: "Email ou mot de passe incorrect" });
 
-    const token = jwt.sign({ id: user.id, admin: user.admin }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    // ✅ Corrigé : pas d'expiration du token
+    const token = jwt.sign(
+      { id: user.id, admin: user.admin },
+      process.env.JWT_SECRET
+    );
+
     const { password: _pw, ...safe } = user;
     res.json({ user: safe, token });
   } catch (error) {
@@ -135,13 +142,11 @@ const loginUser = async (req, res) => {
 };
 
 module.exports = {
-  // CRUD
   getAllUsers,
   createUser,
   getUserById,
   updateUser,
   deleteUser,
-  // Auth
   registerUser,
   loginUser,
 };

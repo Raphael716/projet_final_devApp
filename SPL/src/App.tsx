@@ -1,7 +1,7 @@
-// src/App.tsx
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useContext } from "react";
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 import Login from "./Login";
 import { AuthContext } from "./AuthContext";
 import type { AppUser } from "./AuthContext";
@@ -9,28 +9,55 @@ import "./App.css";
 import Signup from "./Signup";
 import AdminUsers from "./AdminUsers";
 import EditUser from "./EditUser";
-<<<<<<< Updated upstream
-=======
-import Builds from "./Builds";
-import BuildDetail from "./BuildDetail";
-import NewBuild from "./NewBuild";
-import EditBuild from "./EditBuild";
-import AddVersion from "./AddVersion";
->>>>>>> Stashed changes
 
 function Home() {
+  const { user } = useContext(AuthContext);
   return (
-    <main className="container">
+    <main className="home">
       <h1>Software Production Line</h1>
-      <p>Base propre et rapide pour votre pipeline logiciel.</p>
-      <Link to="/login" className="btn primary">
-        Se connecter
-      </Link>
+      <p>
+        Gérez vos logiciels, vos versions et vos fichiers à partir d’une
+        interface claire et centralisée.
+      </p>
+
+      <div className="home-actions">
+        {!user && (
+          <Link to="/login" className="btn primary">
+            Se connecter
+          </Link>
+        )}
+        <Link to="/builds" className="btn secondary">
+          Voir les builds
+        </Link>
+      </div>
+
+      <section className="features">
+        <div className="feature-card">
+          <h3>Gestion simplifiée</h3>
+          <p>
+            Créez, modifiez et suivez vos builds en quelques clics avec une
+            interface fluide.
+          </p>
+        </div>
+        <div className="feature-card">
+          <h3>Suivi des versions</h3>
+          <p>
+            Gardez une trace claire de l’évolution de vos projets et téléchargez
+            chaque version facilement.
+          </p>
+        </div>
+        <div className="feature-card">
+          <h3>Sécurité intégrée</h3>
+          <p>
+            Profitez d’un accès protégé grâce à l’authentification par jeton et
+            la gestion des rôles.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
 
-// ✅ Mapper toujours vers AppUser avec isAdmin:boolean
 function toAppUser(u: any): AppUser {
   return {
     id: Number(u.id ?? 0),
@@ -73,8 +100,6 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-
-        {/* Auth */}
         <Route
           path="/login"
           element={!token ? <Login /> : <Navigate to="/" replace />}
@@ -94,31 +119,10 @@ export default function App() {
           element={user?.isAdmin ? <EditUser /> : <Navigate to="/" replace />}
         />
 
-<<<<<<< Updated upstream
-=======
-        {/* Builds */}
-        <Route path="/builds" element={<Builds />} />
-        <Route
-          path="/builds/new"
-          element={user?.isAdmin ? <NewBuild /> : <Navigate to="/" replace />}
-        />
-        <Route
-          path="/builds/:id/edit"
-          element={user?.isAdmin ? <EditBuild /> : <Navigate to="/" replace />}
-        />
-        <Route path="/builds/:id" element={<BuildDetail />} />
-        <Route
-          path="/builds/:id/add-version"
-          element={user?.isAdmin ? <AddVersion /> : <Navigate to="/" replace />}
-        />
-
->>>>>>> Stashed changes
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <footer className="footer">
-        © {new Date().getFullYear()} Software Production Line
-      </footer>
+      <Footer />
     </AuthContext.Provider>
   );
 }
