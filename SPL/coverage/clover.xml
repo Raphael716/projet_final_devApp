@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1763744413401" clover="3.2.0">
-  <project timestamp="1763744413401" name="All files">
+<coverage generated="1763750509149" clover="3.2.0">
+  <project timestamp="1763750509149" name="All files">
     <metrics statements="54" coveredstatements="54" conditionals="29" coveredconditionals="29" methods="12" coveredmethods="10" elements="95" coveredelements="93" complexity="0" loc="54" ncloc="54" packages="1" files="7" classes="7"/>
     <file name="AuthContext.ts" path="C:\depots\Automne 2025\Developpement Application\projet_final_devApp\SPL\src\AuthContext.ts">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
