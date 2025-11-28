@@ -1,33 +1,64 @@
-SPL/src/Login.tsx [10:20]:
+SPL/src/AddVersion.tsx [91:117]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+        setError("Erreur lors de l'ajout de la version");
+      }
+    }
+  };
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  return (
+    <main className="add-version">
+      <h2>Ajouter une version</h2>
+      {error && <p className="error">{error}</p>}
 
-    try {
+      <form onSubmit={handleSubmit}>
+        <label>
+          Version :
+          <input
+            type="text"
+            value={newVersion}
+            onChange={(e) => setNewVersion(e.target.value)}
+            placeholder={
+              build?.version
+                ? `Entrez une version supérieure à ${build.version}`
+                : "Ex: v1.0.2"
+            }
+            required
+          />
+        </label>
+
+        <label>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-backend/uploads/1761261056814-995230287.tsx [10:20]:
+backend/uploads/1761328515350-537683809.tsx [64:89]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+      setError("Erreur lors de l'ajout de la version");
+    }
+  };
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  return (
+    <main className="add-version">
+      <h2>Ajouter une version</h2>
+      {error && <p className="error">{error}</p>}
 
-    try {
+      <form onSubmit={handleSubmit}>
+        <label>
+          Version :
+          <input
+            type="text"
+            value={newVersion}
+            onChange={(e) => setNewVersion(e.target.value)}
+            placeholder={
+              build?.version
+                ? `Entrez une version supérieure à ${build.version}`
+                : "Ex: v1.0.2"
+            }
+            required
+          />
+        </label>
+
+        <label>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

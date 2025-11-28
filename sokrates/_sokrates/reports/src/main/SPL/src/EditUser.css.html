@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>SPL/src/EditUser.css</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">SPL/src/EditUser.css (<b>75</b> lines of code) (<a href="EditUser.css">raw</a>):</h3>
+<div id="editor">.admin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.edit-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.edit-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edit-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #444;
+}
+
+.edit-form input,
+.edit-form select {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.edit-form input:focus,
+.edit-form select:focus {
+  border-color: #646cff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.25);
+}
+
+.edit-form button {
+  padding: 0.8rem;
+  background: #646cff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.edit-form button:hover {
+  background: #4e56d6;
+}
+
+.edit-form .danger {
+  background: #e63946;
+}
+
+.edit-form .danger:hover {
+  background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .edit-card {
+    padding: 1.5rem;
+  }
+
+  .edit-form button {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/css");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

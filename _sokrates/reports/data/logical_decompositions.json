@@ -49,49 +49,57 @@
     } ]
   }, {
     "name" : "SPL",
-    "filesCount" : 33,
-    "linesOfCode" : 2973,
+    "filesCount" : 47,
+    "linesOfCode" : 6070,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
+      "name" : "  *.html",
+      "value" : 9,
+      "description" : [ ]
+    }, {
       "name" : "  *.css",
-      "value" : 14,
+      "value" : 16,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
       "value" : 15,
       "description" : [ ]
     }, {
-      "name" : "  *.ts",
-      "value" : 2,
-      "description" : [ ]
-    }, {
       "name" : "  *.js",
+      "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.xml",
       "value" : 1,
       "description" : [ ]
     }, {
-      "name" : "  *.html",
-      "value" : 1,
+      "name" : "  *.ts",
+      "value" : 3,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
+      "name" : "  *.html",
+      "value" : 2586,
+      "description" : [ ]
+    }, {
       "name" : "  *.css",
-      "value" : 1546,
+      "value" : 1750,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
       "value" : 1349,
       "description" : [ ]
     }, {
-      "name" : "  *.ts",
-      "value" : 43,
-      "description" : [ ]
-    }, {
       "name" : "  *.js",
-      "value" : 22,
+      "value" : 259,
       "description" : [ ]
     }, {
-      "name" : "  *.html",
-      "value" : 13,
+      "name" : "  *.xml",
+      "value" : 81,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 45,
       "description" : [ ]
     } ]
   } ],
@@ -106,7 +114,7 @@
     "components" : [ {
       "name" : "backend",
       "sourceFileFilters" : [ {
-        "pathPattern" : "./backend/.*",
+        "pathPattern" : "../backend/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -115,7 +123,7 @@
     }, {
       "name" : "SPL",
       "sourceFileFilters" : [ {
-        "pathPattern" : "./SPL/.*",
+        "pathPattern" : "../SPL/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -144,22 +152,22 @@
     "temporalLinkThreshold" : 1,
     "maxSearchDepthLines" : 200
   },
-  "fileCountPerComponent" : [ {
-    "name" : "backend",
-    "value" : 21,
-    "description" : [ ]
-  }, {
-    "name" : "SPL",
-    "value" : 33,
-    "description" : [ ]
-  } ],
   "linesOfCodePerComponent" : [ {
     "name" : "backend",
     "value" : 1385,
     "description" : [ ]
   }, {
     "name" : "SPL",
-    "value" : 2973,
+    "value" : 6070,
+    "description" : [ ]
+  } ],
+  "fileCountPerComponent" : [ {
+    "name" : "backend",
+    "value" : 21,
+    "description" : [ ]
+  }, {
+    "name" : "SPL",
+    "value" : 47,
     "description" : [ ]
   } ]
 } ]

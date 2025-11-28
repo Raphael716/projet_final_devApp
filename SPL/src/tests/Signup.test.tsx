@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach, type Mock } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
@@ -71,7 +72,7 @@ describe("Signup Component", () => {
     const nameInput = screen.getByLabelText(
       /nom d’utilisateur/i
     ) as HTMLInputElement;
-    fillForm(); // Utilise le helper
+    fillForm();
     expect(nameInput.value).toBe("TestUser");
   });
 
@@ -90,7 +91,7 @@ describe("Signup Component", () => {
       json: async () => ({ user: fakeUser, token: fakeToken }),
     });
 
-    fillForm(); // 👈 Remplir le formulaire est nécessaire pour passer le 'required'
+    fillForm();
     fireEvent.click(screen.getByRole("button", { name: /s’inscrire/i }));
 
     await waitFor(() => {
@@ -112,7 +113,7 @@ describe("Signup Component", () => {
       json: async () => ({ error: "Cet email est déjà utilisé" }),
     });
 
-    fillForm(); // 👈 AJOUTÉ : On remplit le formulaire pour que le 'submit' se déclenche
+    fillForm();
     fireEvent.click(screen.getByRole("button", { name: /s’inscrire/i }));
 
     await waitFor(() => {
@@ -132,7 +133,7 @@ describe("Signup Component", () => {
       json: async () => ({}),
     });
 
-    fillForm(); // 👈 AJOUTÉ
+    fillForm();
     fireEvent.click(screen.getByRole("button", { name: /s’inscrire/i }));
 
     await waitFor(() => {
@@ -147,7 +148,7 @@ describe("Signup Component", () => {
 
     (global.fetch as Mock).mockRejectedValue(new Error("Network Error"));
 
-    fillForm(); // 👈 AJOUTÉ
+    fillForm();
     fireEvent.click(screen.getByRole("button", { name: /s’inscrire/i }));
 
     await waitFor(() => {

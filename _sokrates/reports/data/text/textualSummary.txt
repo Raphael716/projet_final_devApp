@@ -1,25 +1,28 @@
 Start of analysis
-Found 19442 files
-54 are in the main's scope  (4358 lines of code)
+Found 28761 files
+68 are in the main's scope  (7455 lines of code)
+  *.html: 10 files, (2599 lines of code)
   *.tsx: 20 files, (1894 lines of code)
-  *.css: 14 files, (1546 lines of code)
-  *.js: 14 files, (790 lines of code)
-  *.ts: 3 files, (63 lines of code)
+  *.css: 16 files, (1750 lines of code)
+  *.js: 16 files, (1027 lines of code)
+  *.xml: 1 files, (81 lines of code)
+  *.ts: 4 files, (65 lines of code)
   *.prisma: 1 files, (39 lines of code)
-  *.html: 2 files, (26 lines of code)
-1 are in the test's scope  (44 lines of code)
-  *.js: 1 files, (44 lines of code)
-11 are in the generated's scope  (10029 lines of code)
-  *.json: 4 files, (9725 lines of code)
+6 are in the test's scope  (576 lines of code)
+  *.tsx: 3 files, (421 lines of code)
+  *.js: 2 files, (142 lines of code)
+  *.ts: 1 files, (13 lines of code)
+11 are in the generated's scope  (16633 lines of code)
+  *.json: 4 files, (16329 lines of code)
   *.js: 4 files, (279 lines of code)
   *.prisma: 1 files, (19 lines of code)
   *.mjs: 2 files, (6 lines of code)
 0 are in the build and deployment's scope  (0 lines of code)
-17 are in the other's scope  (10068 lines of code)
-  *.json: 10 files, (9876 lines of code)
+17 are in the other's scope  (16671 lines of code)
+  *.json: 10 files, (16479 lines of code)
   *.md: 3 files, (184 lines of code)
   *.txt: 4 files, (8 lines of code)
-Excluded from analyses 19363 files
+Excluded from analyses 28663 files
 Analysing dependencies...
 21 are in the DECOMPOSITION_primary\backend's scope  (1385 lines of code)
   *.js: 13 files, (768 lines of code)
@@ -27,50 +30,52 @@ Analysing dependencies...
   *.prisma: 1 files, (39 lines of code)
   *.ts: 1 files, (20 lines of code)
   *.html: 1 files, (13 lines of code)
-33 are in the DECOMPOSITION_primary\SPL's scope  (2973 lines of code)
-  *.css: 14 files, (1546 lines of code)
+47 are in the DECOMPOSITION_primary\SPL's scope  (6070 lines of code)
+  *.html: 9 files, (2586 lines of code)
+  *.css: 16 files, (1750 lines of code)
   *.tsx: 15 files, (1349 lines of code)
-  *.ts: 2 files, (43 lines of code)
-  *.js: 1 files, (22 lines of code)
-  *.html: 1 files, (13 lines of code)
+  *.js: 3 files, (259 lines of code)
+  *.xml: 1 files, (81 lines of code)
+  *.ts: 3 files, (45 lines of code)
   - "primary", found 0 dependencies (0 component dependencies)
 0 are in the CONCERN_general\TODOs's scope  (0 lines of code)
-54 are in the CONCERN_general\Unclassified's scope  (4358 lines of code)
+68 are in the CONCERN_general\Unclassified's scope  (7455 lines of code)
+  *.html: 10 files, (2599 lines of code)
   *.tsx: 20 files, (1894 lines of code)
-  *.css: 14 files, (1546 lines of code)
-  *.js: 14 files, (790 lines of code)
-  *.ts: 3 files, (63 lines of code)
+  *.css: 16 files, (1750 lines of code)
+  *.js: 16 files, (1027 lines of code)
+  *.xml: 1 files, (81 lines of code)
+  *.ts: 4 files, (65 lines of code)
   *.prisma: 1 files, (39 lines of code)
-  *.html: 2 files, (26 lines of code)
 Analysing units...
 Basic unit metrics...
-  - found 20 units (302 lines of code in units)
-Unit size 82 / 35 / 119 / 66 / 0
+  - found 39 units (489 lines of code in units)
+Unit size 160 / 71 / 192 / 66 / 0
 Unit size per component:
 Unit Size Component backend: 7 / 35 / 21 / 0 / 0
-Unit Size Component SPL: 75 / 0 / 98 / 66 / 0
+Unit Size Component SPL: 153 / 36 / 171 / 66 / 0
 Unit size per extension:
-Unit Size Extension js: 7 / 17 / 21 / 0 / 0
-Unit Size Extension ts: 0 / 18 / 22 / 0 / 0
+Unit Size Extension js: 85 / 53 / 93 / 0 / 0
+Unit Size Extension ts: 0 / 18 / 23 / 0 / 0
 Unit Size Extension tsx: 75 / 0 / 76 / 66 / 0
-Conditional complexity: 302 / 0 / 0 / 0 / 0
+Conditional complexity: 489 / 0 / 0 / 0 / 0
 Conditional complexity per component:
 Conditional Complexity Component backend 63 / 0 / 0 / 0 / 0
-Conditional Complexity Component SPL 239 / 0 / 0 / 0 / 0
+Conditional Complexity Component SPL 426 / 0 / 0 / 0 / 0
 Conditional complexity per extension:
-Conditional Complexity Component js: 45 / 0 / 0 / 0 / 0
-Conditional Complexity Component ts: 40 / 0 / 0 / 0 / 0
+Conditional Complexity Component js: 231 / 0 / 0 / 0 / 0
+Conditional Complexity Component ts: 41 / 0 / 0 / 0 / 0
 Conditional Complexity Component tsx: 217 / 0 / 0 / 0 / 0
 Analysing duplication...
-  - found 39 duplicates (1083 duplicated lines vs. 4139 cleaned lines) in 23 files
+  - found 3349 duplicates (3169 duplicated lines vs. 7043 cleaned lines) in 33 files
   - per component:primary
      - "backend": 565 duplicated lines vs. 1284 total lines
-     - "SPL": 518 duplicated lines vs. 2855 total lines
+     - "SPL": 2604 duplicated lines vs. 5759 total lines
   - per extension:
-     - "tsx": 880 duplicated lines vs. 1754 total lines
-     - "js": 45 duplicated lines vs. 722 total lines
-     - "html": 20 duplicated lines vs. 20 total lines
-     - "ts": 32 duplicated lines vs. 58 total lines
-     - "css": 106 duplicated lines vs. 1546 total lines
-Total analysis time: 7.22s
+     - "tsx": 893 duplicated lines vs. 1754 total lines
+     - "html": 1874 duplicated lines vs. 2446 total lines
+     - "css": 319 duplicated lines vs. 1750 total lines
+     - "js": 45 duplicated lines vs. 922 total lines
+     - "ts": 38 duplicated lines vs. 60 total lines
+Total analysis time: 9.64s
 

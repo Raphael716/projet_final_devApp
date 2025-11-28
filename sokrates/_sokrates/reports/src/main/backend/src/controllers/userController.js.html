@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>backend/src/controllers/userController.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/src/controllers/userController.js (<b>129</b> lines of code) (<a href="userController.js">raw</a>):</h3>
+<div id="editor">// backend/src/controllers/userController.js
+const { PrismaClient } = require(&quot;@prisma/client&quot;);
+const prisma = new PrismaClient();
+const bcrypt = require(&quot;bcryptjs&quot;);
+const jwt = require(&quot;jsonwebtoken&quot;);
+
+// ----------------- CRUD utilisateurs (admin) -----------------
+
+const getAllUsers = async (req, res) =&gt; {
+  try {
+    const users = await prisma.user.findMany({
+      select: { id: true, username: true, email: true, admin: true },
+    });
+    res.json(users);
+  } catch (error) {
+    console.error(&quot;getAllUsers:&quot;, error);
+    res.status(500).json({ error: &quot;Impossible de r&eacute;cup&eacute;rer les utilisateurs&quot; });
+  }
+};
+
+const getUserById = async (req, res) =&gt; {
+  const { id } = req.params;
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: Number(id) },
+      select: { id: true, username: true, email: true, admin: true },
+    });
+    if (!user) return res.status(404).json({ error: &quot;Utilisateur non trouv&eacute;&quot; });
+    res.json(user);
+  } catch (error) {
+    console.error(&quot;getUserById:&quot;, error);
+    res.status(500).json({ error: &quot;Impossible de r&eacute;cup&eacute;rer l'utilisateur&quot; });
+  }
+};
+
+const createUser = async (req, res) =&gt; {
+  const { username, email, password, admin } = req.body;
+  try {
+    const exists = await prisma.user.findUnique({ where: { email } });
+    if (exists) return res.status(400).json({ error: &quot;Email d&eacute;j&agrave; utilis&eacute;&quot; });
+
+    const hashed = await bcrypt.hash(password, 10);
+    const user = await prisma.user.create({
+      data: {
+        username,
+        email,
+        password: hashed,
+        admin: admin !== undefined ? Number(admin) : 0,
+      },
+    });
+    const { password: _pw, ...safe } = user;
+    res.status(201).json(safe);
+  } catch (error) {
+    console.error(&quot;createUser:&quot;, error);
+    res.status(500).json({ error: &quot;Impossible de cr&eacute;er l'utilisateur&quot; });
+  }
+};
+
+const updateUser = async (req, res) =&gt; {
+  const { id } = req.params;
+  const { username, email, admin } = req.body;
+  try {
+    const updated = await prisma.user.update({
+      where: { id: Number(id) },
+      data: {
+        ...(username !== undefined ? { username } : {}),
+        ...(email !== undefined ? { email } : {}),
+        ...(admin !== undefined ? { admin: Number(admin) } : {}),
+      },
+    });
+    const { password, ...safe } = updated;
+    res.json(safe);
+  } catch (error) {
+    console.error(&quot;updateUser:&quot;, error);
+    res.status(500).json({ error: &quot;Impossible de modifier l'utilisateur&quot; });
+  }
+};
+
+const deleteUser = async (req, res) =&gt; {
+  const { id } = req.params;
+  try {
+    await prisma.user.delete({ where: { id: Number(id) } });
+    res.json({ message: &quot;Utilisateur supprim&eacute; avec succ&egrave;s&quot; });
+  } catch (error) {
+    console.error(&quot;deleteUser:&quot;, error);
+    res.status(500).json({ error: &quot;Impossible de supprimer l'utilisateur&quot; });
+  }
+};
+
+// ----------------- Auth (register/login) -----------------
+
+const registerUser = async (req, res) =&gt; {
+  const { username, email, password } = req.body;
+  try {
+    const existingUser = await prisma.user.findUnique({ where: { email } });
+    if (existingUser)
+      return res.status(400).json({ error: &quot;Email d&eacute;j&agrave; utilis&eacute;&quot; });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await prisma.user.create({
+      data: { username, email, password: hashedPassword, admin: 0 },
+    });
+
+    // ✅ Corrig&eacute; : utiliser newUser.admin
+    // ✅ Pas d'expiration de token
+    const token = jwt.sign(
+      { id: newUser.id, admin: newUser.admin },
+      process.env.JWT_SECRET
+    );
+
+    const { password: _pw, ...safe } = newUser;
+    res.status(201).json({ user: safe, token });
+  } catch (error) {
+    console.error(&quot;registerUser:&quot;, error);
+    res.status(500).json({ error: &quot;Impossible de cr&eacute;er l'utilisateur&quot; });
+  }
+};
+
+const loginUser = async (req, res) =&gt; {
+  const { email, password } = req.body;
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user)
+      return res.status(400).json({ error: &quot;Email ou mot de passe incorrect&quot; });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
+      return res.status(400).json({ error: &quot;Email ou mot de passe incorrect&quot; });
+
+    // ✅ Corrig&eacute; : pas d'expiration du token
+    const token = jwt.sign(
+      { id: user.id, admin: user.admin },
+      process.env.JWT_SECRET
+    );
+
+    const { password: _pw, ...safe } = user;
+    res.json({ user: safe, token });
+  } catch (error) {
+    console.error(&quot;loginUser:&quot;, error);
+    res.status(500).json({ error: &quot;Erreur lors de la connexion&quot; });
+  }
+};
+
+module.exports = {
+  getAllUsers,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser,
+  registerUser,
+  loginUser,
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

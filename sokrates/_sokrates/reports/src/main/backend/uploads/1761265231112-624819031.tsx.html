@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>backend/uploads/1761265231112-624819031.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/uploads/1761265231112-624819031.tsx (<b>89</b> lines of code) (<a href="1761265231112-624819031.tsx">raw</a>):</h3>
+<div id="editor">import { useParams, useNavigate } from &quot;react-router-dom&quot;;
+import { useState, useContext, useEffect } from &quot;react&quot;;
+import { AuthContext } from &quot;./AuthContext&quot;;
+import &quot;./AddVersion.css&quot;;
+
+type BuildInfo = {
+  id: number;
+  nom: string;
+  version?: string | null;
+};
+
+export default function AddVersion() {
+  const { id } = useParams();
+  const [build, setBuild] = useState&lt;BuildInfo | null&gt;(null);
+  const [newVersion, setNewVersion] = useState(&quot;&quot;);
+  const [file, setFile] = useState&lt;File | null&gt;(null);
+  const [error, setError] = useState(&quot;&quot;);
+  const { token } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // Charger la version actuelle du build
+  useEffect(() =&gt; {
+    const fetchBuild = async () =&gt; {
+      try {
+        const res = await fetch(`/api/builds/${id}`);
+        if (!res.ok) throw new Error(&quot;Erreur lors du chargement du build&quot;);
+        const data = await res.json();
+        setBuild({
+          id: data.id,
+          nom: data.nom,
+          version: data.version || null,
+        });
+      } catch (err) {
+        console.error(err);
+        setError(&quot;Impossible de charger le logiciel.&quot;);
+      }
+    };
+    fetchBuild();
+  }, [id]);
+
+  const handleSubmit = async (e: React.FormEvent) =&gt; {
+    e.preventDefault();
+
+    if (!file || !newVersion) {
+      setError(&quot;Veuillez remplir tous les champs&quot;);
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append(&quot;version&quot;, newVersion);
+    formData.append(&quot;file&quot;, file);
+
+    try {
+      const res = await fetch(`/api/builds/${id}/add-version`, {
+        method: &quot;POST&quot;,
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error(&quot;Erreur ajout version&quot;);
+      navigate(`/builds/${id}`);
+    } catch (err) {
+      console.error(err);
+      setError(&quot;Erreur lors de l'ajout de la version&quot;);
+    }
+  };
+
+  return (
+    &lt;main className=&quot;add-version&quot;&gt;
+      &lt;h2&gt;Ajouter une version&lt;/h2&gt;
+      {error &amp;&amp; &lt;p className=&quot;error&quot;&gt;{error}&lt;/p&gt;}
+
+      &lt;form onSubmit={handleSubmit}&gt;
+        &lt;label&gt;
+          Version :
+          &lt;input
+            type=&quot;text&quot;
+            value={newVersion}
+            onChange={(e) =&gt; setNewVersion(e.target.value)}
+            placeholder={
+              build?.version
+                ? `Entrez une version sup&eacute;rieure &agrave; ${build.version}`
+                : &quot;Ex: v1.0.2&quot;
+            }
+            required
+          /&gt;
+        &lt;/label&gt;
+
+        &lt;label&gt;
+          Fichier :
+          &lt;input
+            type=&quot;file&quot;
+            onChange={(e) =&gt; setFile(e.target.files?.[0] || null)}
+            required
+          /&gt;
+        &lt;/label&gt;
+
+        &lt;button type=&quot;submit&quot; className=&quot;btn primary&quot;&gt;
+          Ajouter
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/main&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

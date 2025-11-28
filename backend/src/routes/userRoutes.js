@@ -1,9 +1,10 @@
 // src/routes/userRoutes.js
-const express = require("express");
+import express from "express";
+import * as userController from "../controllers/userController.js";
+import protect from "../middleware/authMiddleware.js";
+
 const router = express.Router();
 
-const userController = require("../controllers/userController");
-const protect = require("../middleware/authMiddleware");
 const adminOnly = (req, res, next) => {
   if (!req.user || req.user.admin !== 1) {
     return res.status(403).json({ error: "Réservé aux admins" });
@@ -17,7 +18,7 @@ router.get("/:id", protect, adminOnly, userController.getUserById); // GET /api/
 router.put("/:id", protect, adminOnly, userController.updateUser); // PUT /api/users/:id
 router.delete("/:id", protect, adminOnly, userController.deleteUser); // DELETE /api/users/:id
 
-// (optionnel) création libre si tu l’utilises côté seed/test
+// (optionnel) création libre si tu l'utilises côté seed/test
 router.post("/", userController.createUser); // POST /api/users
 
-module.exports = router;
+export default router;

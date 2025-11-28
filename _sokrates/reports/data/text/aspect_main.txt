@@ -1,4 +1,17 @@
 Path	Lines of Code
+SPL/coverage/AuthContext.ts.html	140
+SPL/coverage/Header.css.html	422
+SPL/coverage/Header.tsx.html	185
+SPL/coverage/Login.css.html	398
+SPL/coverage/Login.tsx.html	347
+SPL/coverage/Signup.css.html	533
+SPL/coverage/Signup.tsx.html	362
+SPL/coverage/base.css	203
+SPL/coverage/block-navigation.js	66
+SPL/coverage/clover.xml	81
+SPL/coverage/index.html	186
+SPL/coverage/prettify.css	1
+SPL/coverage/sorter.js	171
 SPL/eslint.config.js	22
 SPL/index.html	13
 SPL/src/AddVersion.css	81
@@ -31,7 +44,8 @@ SPL/src/VersionDetail.css	170
 SPL/src/VersionDetail.tsx	205
 SPL/src/index.css	37
 SPL/src/main.tsx	10
-SPL/vite.config.ts	24
+SPL/src/setupTests.ts	1
+SPL/vite.config.ts	25
 backend/prisma/schema.prisma	39
 backend/src/config/db.js	3
 backend/src/controllers/assetController.js	302

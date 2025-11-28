@@ -3,11 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Header from "../Header";
 
-import {
-  AuthContext,
-  type AuthContextType,
-  type AppUser,
-} from "../AuthContext";
+import { AuthContext } from "../AuthContext";
+import type { AuthContextType, AppUser } from "../AuthContext";
 
 //Définition du Mock pour AuthContext
 const mockLogout = vi.fn();
@@ -104,7 +101,7 @@ describe("Header", () => {
   it("affiche l'email si le nom d'utilisateur n'est pas défini", () => {
     const userNoName = {
       id: 3,
-      username: undefined, // Pas de pseudo
+      username: undefined,
       email: "emailonly@test.com",
       isAdmin: false,
     };

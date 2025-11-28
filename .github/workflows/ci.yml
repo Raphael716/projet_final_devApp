@@ -1,0 +1,69 @@
+name: CI & Quality Check
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupérer le code
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Installer Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 3. Installer toutes les dépendances
+      - name: Install Dependencies
+        run: npm run install:all
+
+      # 4. Préparer la Base de Données (Backend)
+      - name: Setup Database (SQLite)
+        run: |
+          cd backend
+          npx prisma migrate dev --name init
+
+      # 5. Lancer les Tests Backend
+      - name: Test Backend
+        run: |
+          cd backend
+          npm test
+        env:
+          DATABASE_URL: "file:./dev.db"
+
+      # 6. Lancer les Tests Frontend (SPL)
+      - name: Test Frontend
+        run: |
+          cd SPL
+          npm test -- --run
+
+      # 7. Installer Java (pour Sokrates)
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      # 8. Générer le rapport Sokrates
+      - name: Generate Sokrates Report
+        run: |
+          cd sokrates
+          java -jar sokrates-LATEST.jar generateReports -confFile "../_sokrates/config.json" -outputFolder "../_sokrates/reports"
+
+      # 9. Sauvegarder le rapport comme "Artefact"
+      - name: Upload Sokrates Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sokrates-quality-report
+          path: _sokrates/reports/html/
+          retention-days: 7

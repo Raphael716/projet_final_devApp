@@ -9,57 +9,65 @@
     "linesOfCodePerExtension" : [ ]
   }, {
     "name" : "Unclassified",
-    "filesCount" : 54,
-    "linesOfCode" : 4358,
+    "filesCount" : 68,
+    "linesOfCode" : 7455,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
+      "name" : "  *.html",
+      "value" : 10,
+      "description" : [ ]
+    }, {
       "name" : "  *.tsx",
       "value" : 20,
       "description" : [ ]
     }, {
       "name" : "  *.css",
-      "value" : 14,
+      "value" : 16,
       "description" : [ ]
     }, {
       "name" : "  *.js",
-      "value" : 14,
+      "value" : 16,
+      "description" : [ ]
+    }, {
+      "name" : "  *.xml",
+      "value" : 1,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 3,
+      "value" : 4,
       "description" : [ ]
     }, {
       "name" : "  *.prisma",
       "value" : 1,
       "description" : [ ]
-    }, {
-      "name" : "  *.html",
-      "value" : 2,
-      "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
+      "name" : "  *.html",
+      "value" : 2599,
+      "description" : [ ]
+    }, {
       "name" : "  *.tsx",
       "value" : 1894,
       "description" : [ ]
     }, {
       "name" : "  *.css",
-      "value" : 1546,
+      "value" : 1750,
       "description" : [ ]
     }, {
       "name" : "  *.js",
-      "value" : 790,
+      "value" : 1027,
+      "description" : [ ]
+    }, {
+      "name" : "  *.xml",
+      "value" : 81,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 63,
+      "value" : 65,
       "description" : [ ]
     }, {
       "name" : "  *.prisma",
       "value" : 39,
-      "description" : [ ]
-    }, {
-      "name" : "  *.html",
-      "value" : 26,
       "description" : [ ]
     } ]
   } ],
@@ -70,7 +78,7 @@
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 54,
+    "value" : 68,
     "description" : [ ]
   } ],
   "linesOfCodePerConcern" : [ {
@@ -79,7 +87,7 @@
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 4358,
+    "value" : 7455,
     "description" : [ ]
   } ]
 } ]

@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:unit ; npm run test:integration",
+    "test:unit": "vitest --exclude '**/*.integration.test.js'",
+    "test:integration": "vitest -c vitest.integration.config.ts",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@prisma/client": "^6.16.2",
     "bcryptjs": "^3.0.2",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^4.0.13",
+    "dotenv-cli": "^8.0.0",
     "nodemon": "^3.1.10",
     "prisma": "^6.16.2"
   }

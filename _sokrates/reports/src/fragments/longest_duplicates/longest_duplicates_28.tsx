@@ -1,33 +1,64 @@
-SPL/src/Login.tsx [43:53]:
+SPL/src/AddVersion.tsx [91:117]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      nav("/", { replace: true });
-    } catch {
-      setError("Erreur réseau");
-    } finally {
-      setLoading(false);
+        setError("Erreur lors de l'ajout de la version");
+      }
     }
   };
 
   return (
-    <main className="auth-container">
-      <div className="auth-card">
+    <main className="add-version">
+      <h2>Ajouter une version</h2>
+      {error && <p className="error">{error}</p>}
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          Version :
+          <input
+            type="text"
+            value={newVersion}
+            onChange={(e) => setNewVersion(e.target.value)}
+            placeholder={
+              build?.version
+                ? `Entrez une version supérieure à ${build.version}`
+                : "Ex: v1.0.2"
+            }
+            required
+          />
+        </label>
+
+        <label>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 
-backend/uploads/1761261056814-995230287.tsx [36:46]:
+backend/uploads/1761265169126-984135838.tsx [64:89]:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      nav("/", { replace: true });
-    } catch {
-      setError("Erreur réseau");
-    } finally {
-      setLoading(false);
+      setError("Erreur lors de l'ajout de la version");
     }
   };
 
   return (
-    <main className="auth-container">
-      <div className="auth-card">
+    <main className="add-version">
+      <h2>Ajouter une version</h2>
+      {error && <p className="error">{error}</p>}
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          Version :
+          <input
+            type="text"
+            value={newVersion}
+            onChange={(e) => setNewVersion(e.target.value)}
+            placeholder={
+              build?.version
+                ? `Entrez une version supérieure à ${build.version}`
+                : "Ex: v1.0.2"
+            }
+            required
+          />
+        </label>
+
+        <label>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

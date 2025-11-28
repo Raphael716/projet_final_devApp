@@ -1,6 +1,8 @@
-tests
-1. unitaires 
-2. integration
+tests -> 
+1. unitaires -> npm test(frontend)  npm run test:unit(backend)
+2. integration -> npm run test:integration(backend)
 3. end to end
+npm test
 
 sokrates.dev
+// rapport et tests

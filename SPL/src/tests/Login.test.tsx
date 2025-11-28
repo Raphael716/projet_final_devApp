@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { describe, it, expect, vi, beforeEach, type Mock } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
@@ -187,7 +188,7 @@ describe("Login Component", () => {
     // Simulation : Erreur 400 mais corps vide ou sans champ 'error'
     (global.fetch as Mock).mockResolvedValue({
       ok: false,
-      json: async () => ({}), // Pas de champ 'error'
+      json: async () => ({}),
     });
 
     fireEvent.change(screen.getByLabelText(/email/i), {
@@ -207,14 +208,13 @@ describe("Login Component", () => {
   it("gère la compatibilité des champs admin (fallback sur data.user.admin ou 0)", async () => {
     renderLogin();
 
-    // Simulation : User avec le champ 'admin' au lieu de 'isAdmin' (ou aucun)
     const userLegacy = {
       id: 11,
       email: "vieux@test.com",
       username: "Old",
       admin: 1,
     };
-    const userStandard = { id: 12, email: "std@test.com", username: "Std" }; // Ni admin, ni isAdmin
+    const userStandard = { id: 12, email: "std@test.com", username: "Std" };
 
     // Test 1 : Cas 'admin' (legacy)
     (global.fetch as Mock).mockResolvedValueOnce({
@@ -232,7 +232,7 @@ describe("Login Component", () => {
 
     await waitFor(() => {
       expect(mockLogin).toHaveBeenCalledWith(
-        expect.objectContaining({ isAdmin: true }), // admin: 1 -> true
+        expect.objectContaining({ isAdmin: true }),
         "tok1"
       );
     });
@@ -247,7 +247,7 @@ describe("Login Component", () => {
 
     await waitFor(() => {
       expect(mockLogin).toHaveBeenCalledWith(
-        expect.objectContaining({ isAdmin: false }), // undefined -> 0 -> false
+        expect.objectContaining({ isAdmin: false }),
         "tok2"
       );
     });
