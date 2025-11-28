@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd SPL && npm test",
     "dev": "concurrently -n \"BACKEND,SPL\" -c \"green,blue\" \"cd backend && npm run dev\" \"cd SPL && npm run dev\"",
     "install:all": "npm install && cd SPL && npm install && npm install --save-dev @types/react-router-dom && cd ../backend && npm install && npx prisma generate"
   },
