@@ -1,30 +1,39 @@
 <html>
 <head>
-    <title>function goToNext()</title>
+    <title>onBeforeLoad()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function goToNext()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/block-navigation.js [52:63]</i></p>
+<h3 style="margin-bottom: 0">onBeforeLoad()</h3>
+<p style="margin-top: 4px">in <i>cypress/e2e/admin.cy.js [20:40]</i></p>
 <ul>
-    <li><b>10</b> lines of code</li>
+    <li><b>15</b> lines of code</li>
     <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function goToNext() {
-        var nextIndex = 0;
+      onBeforeLoad(win) {
+        // Auth state for both legacy App.tsx and AuthProvider.tsx
+        const token = &quot;admin-token&quot;;
+        win.localStorage.setItem(&quot;spl_token&quot;, token);
+        win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(ADMIN));
+        win.localStorage.setItem(&quot;auth_token&quot;, token);
+        win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(ADMIN));
 
-        if (
-            typeof currentIndex === 'number' &amp;&amp;
-            currentIndex &lt; missingCoverageElements.length - 1
-        ) {
-            nextIndex = currentIndex + 1;
-        }
+        // Stub confirm default to true
+        win.confirm = () =&gt; true;
 
-        makeCurrent(nextIndex);
-    }
+        // Stub fetch behavior for this test
+        const originalFetch = win.fetch.bind(win);
+        const handler = handlerFactory({ originalFetch, win });
+        win.fetch = (input, init = {}) =&gt; {
+          const url = typeof input === &quot;string&quot; ? input : input.url;
+          const method = (init.method || &quot;GET&quot;).toUpperCase();
+
+          return handler({ url, method, input, init });
+        };
+      },
 
 </code>
 </pre>

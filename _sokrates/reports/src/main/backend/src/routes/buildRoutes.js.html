@@ -12,22 +12,22 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">backend/src/routes/buildRoutes.js (<b>47</b> lines of code) (<a href="buildRoutes.js">raw</a>):</h3>
-<div id="editor">const express = require(&quot;express&quot;);
+<h3 style="margin-bottom: 0">backend/src/routes/buildRoutes.js (<b>48</b> lines of code) (<a href="buildRoutes.js">raw</a>):</h3>
+<div id="editor">import express from &quot;express&quot;;
+import { PrismaClient } from &quot;@prisma/client&quot;;
+import * as buildController from &quot;../controllers/buildController.js&quot;;
+import * as assetController from &quot;../controllers/assetController.js&quot;;
+import protect from &quot;../middleware/authMiddleware.js&quot;;
+import adminOnly from &quot;../middleware/adminMiddleware.js&quot;;
+
 const router = express.Router();
-const buildController = require(&quot;../controllers/buildController&quot;);
-const assetController = require(&quot;../controllers/assetController&quot;);
-const protect = require(&quot;../middleware/authMiddleware&quot;);
-const adminOnly = require(&quot;../middleware/adminMiddleware&quot;);
+const prisma = new PrismaClient();
 
 router.get(&quot;/&quot;, async (req, res) =&gt; {
   try {
-    const { PrismaClient } = require(&quot;@prisma/client&quot;);
-    const prisma = new PrismaClient();
-
     const builds = await prisma.builds.findMany({
       include: {
-        assets: {
+        asset: {
           select: {
             id: true,
             original: true,
@@ -40,7 +40,12 @@ router.get(&quot;/&quot;, async (req, res) =&gt; {
       orderBy: { updatedAt: &quot;desc&quot; },
     });
 
-    res.json(builds);
+    const formatted = builds.map(({ asset, ...rest }) =&gt; ({
+      ...rest,
+      assets: asset,
+    }));
+
+    res.json(formatted);
   } catch (err) {
     console.error(&quot;Erreur route GET /api/builds :&quot;, err);
     res
@@ -49,31 +54,20 @@ router.get(&quot;/&quot;, async (req, res) =&gt; {
   }
 });
 
-// Cr&eacute;er un build
-router.post(&quot;/&quot;, buildController.createBuild);
-
-// D&eacute;tail d'un build
+router.post(&quot;/&quot;, buildController.parseBuildFile, buildController.createBuild);
 router.get(&quot;/:id&quot;, buildController.getBuildById);
-
-// Modifier un build
 router.put(&quot;/:id&quot;, buildController.updateBuild);
-
-// Supprimer un build
 router.delete(&quot;/:id&quot;, buildController.deleteBuild);
 
-// upload fichier + version (admin uniquement)
 router.post(
   &quot;/:id/add-version&quot;,
   protect,
   adminOnly,
-  (req, res, next) =&gt; {
-    next();
-  },
   assetController.uploadMiddleware,
   assetController.uploadFiles
 );
 
-module.exports = router;
+export default router;
 </div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>

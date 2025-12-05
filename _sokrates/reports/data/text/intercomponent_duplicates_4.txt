@@ -1,8 +1,0 @@
-6 duplicated lines in:
-  - SPL/coverage/Signup.tsx.html (294:299, 1%)
-  - backend/uploads/1761261056814-995230287.tsx (35:40, 7%)
-
-6 duplicated lines in:
-  - SPL/coverage/Signup.tsx.html (279:284, 1%)
-  - backend/uploads/1761261056814-995230287.tsx (20:25, 7%)
-

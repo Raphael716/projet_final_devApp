@@ -1,6 +1,6 @@
 {
   "title" : "Duplication",
-  "timestamp" : "2025-11-28 14:20:22",
+  "timestamp" : "2025-12-05 14:08:22",
   "duplicates" : [ {
     "blockSize" : 142,
     "duplicatedFileBlocks" : [ {
@@ -87,35 +87,6 @@
       "endLine" : 174,
       "cleanedStartLine" : 18,
       "cleanedEndLine" : 151
-    } ]
-  }, {
-    "blockSize" : 122,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/BuildDetail.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 195,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 190,
-      "startLine" : 6,
-      "endLine" : 137,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 122
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761856845660-484720083.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 196,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 191,
-      "startLine" : 6,
-      "endLine" : 137,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 122
     } ]
   }, {
     "blockSize" : 100,
@@ -321,151 +292,6 @@
       "cleanedEndLine" : 134
     } ]
   }, {
-    "blockSize" : 81,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 102,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 81
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 102,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 81
-    } ]
-  }, {
-    "blockSize" : 81,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 102,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 81
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 102,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 81
-    } ]
-  }, {
-    "blockSize" : 81,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 102,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 81
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 102,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 81
-    } ]
-  }, {
-    "blockSize" : 76,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/Signup.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 5,
-      "endLine" : 95,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 76
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 5,
-      "endLine" : 95,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 76
-    } ]
-  }, {
-    "blockSize" : 68,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/BuildDetail.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 195,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 190,
-      "startLine" : 139,
-      "endLine" : 210,
-      "cleanedStartLine" : 123,
-      "cleanedEndLine" : 190
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761856845660-484720083.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 196,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 191,
-      "startLine" : 140,
-      "endLine" : 211,
-      "cleanedStartLine" : 124,
-      "cleanedEndLine" : 191
-    } ]
-  }, {
     "blockSize" : 46,
     "duplicatedFileBlocks" : [ {
       "file" : {
@@ -783,93 +609,6 @@
       "endLine" : 88,
       "cleanedStartLine" : 42,
       "cleanedEndLine" : 65
-    } ]
-  }, {
-    "blockSize" : 21,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 91,
-      "endLine" : 117,
-      "cleanedStartLine" : 69,
-      "cleanedEndLine" : 89
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 64,
-      "endLine" : 89,
-      "cleanedStartLine" : 49,
-      "cleanedEndLine" : 69
-    } ]
-  }, {
-    "blockSize" : 21,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 91,
-      "endLine" : 117,
-      "cleanedStartLine" : 69,
-      "cleanedEndLine" : 89
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 64,
-      "endLine" : 89,
-      "cleanedStartLine" : 49,
-      "cleanedEndLine" : 69
-    } ]
-  }, {
-    "blockSize" : 21,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 91,
-      "endLine" : 117,
-      "cleanedStartLine" : 69,
-      "cleanedEndLine" : 89
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 64,
-      "endLine" : 89,
-      "cleanedStartLine" : 49,
-      "cleanedEndLine" : 69
     } ]
   }, {
     "blockSize" : 19,
@@ -904,151 +643,6 @@
     "blockSize" : 16,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 17,
-      "endLine" : 33,
-      "cleanedStartLine" : 11,
-      "cleanedEndLine" : 26
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 16,
-      "endLine" : 33,
-      "cleanedStartLine" : 10,
-      "cleanedEndLine" : 25
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/vite.config.ts",
-        "extension" : "ts",
-        "linesOfCode" : 25,
-        "components" : [ "primary::SPL" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 23,
-      "startLine" : 11,
-      "endLine" : 26,
-      "cleanedStartLine" : 8,
-      "cleanedEndLine" : 23
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1762455641633-595545837.ts",
-        "extension" : "ts",
-        "linesOfCode" : 20,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 18,
-      "startLine" : 6,
-      "endLine" : 21,
-      "cleanedStartLine" : 3,
-      "cleanedEndLine" : 18
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 124,
-      "endLine" : 141,
-      "cleanedStartLine" : 96,
-      "cleanedEndLine" : 111
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 85,
-      "endLine" : 102,
-      "cleanedStartLine" : 66,
-      "cleanedEndLine" : 81
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 17,
-      "endLine" : 33,
-      "cleanedStartLine" : 11,
-      "cleanedEndLine" : 26
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 16,
-      "endLine" : 33,
-      "cleanedStartLine" : 10,
-      "cleanedEndLine" : 25
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 17,
-      "endLine" : 33,
-      "cleanedStartLine" : 11,
-      "cleanedEndLine" : 26
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 16,
-      "endLine" : 33,
-      "cleanedStartLine" : 10,
-      "cleanedEndLine" : 25
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -1073,64 +667,6 @@
       "endLine" : 335,
       "cleanedStartLine" : 297,
       "cleanedEndLine" : 312
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 124,
-      "endLine" : 141,
-      "cleanedStartLine" : 96,
-      "cleanedEndLine" : 111
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 85,
-      "endLine" : 102,
-      "cleanedStartLine" : 66,
-      "cleanedEndLine" : 81
-    } ]
-  }, {
-    "blockSize" : 16,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 124,
-      "endLine" : 141,
-      "cleanedStartLine" : 96,
-      "cleanedEndLine" : 111
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 85,
-      "endLine" : 102,
-      "cleanedStartLine" : 66,
-      "cleanedEndLine" : 81
     } ]
   }, {
     "blockSize" : 16,
@@ -1165,64 +701,6 @@
     "blockSize" : 15,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "backend/uploads/1762454458967-378888263.js",
-        "extension" : "js",
-        "linesOfCode" : 22,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 15,
-      "startLine" : 8,
-      "endLine" : 23,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 15
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1762454573094-541774994.js",
-        "extension" : "js",
-        "linesOfCode" : 22,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 15,
-      "startLine" : 8,
-      "endLine" : 23,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 15
-    } ]
-  }, {
-    "blockSize" : 15,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/Login.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 74,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 67,
-      "startLine" : 57,
-      "endLine" : 72,
-      "cleanedStartLine" : 42,
-      "cleanedEndLine" : 56
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 61,
-      "endLine" : 76,
-      "cleanedStartLine" : 46,
-      "cleanedEndLine" : 60
-    } ]
-  }, {
-    "blockSize" : 15,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.tsx.html",
         "extension" : "html",
         "linesOfCode" : 185,
@@ -1247,64 +725,6 @@
       "endLine" : 373,
       "cleanedStartLine" : 332,
       "cleanedEndLine" : 346
-    } ]
-  }, {
-    "blockSize" : 15,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/eslint.config.js",
-        "extension" : "js",
-        "linesOfCode" : 22,
-        "components" : [ "primary::SPL" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 15,
-      "startLine" : 8,
-      "endLine" : 23,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 15
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1762454458967-378888263.js",
-        "extension" : "js",
-        "linesOfCode" : 22,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 15,
-      "startLine" : 8,
-      "endLine" : 23,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 15
-    } ]
-  }, {
-    "blockSize" : 15,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/eslint.config.js",
-        "extension" : "js",
-        "linesOfCode" : 22,
-        "components" : [ "primary::SPL" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 15,
-      "startLine" : 8,
-      "endLine" : 23,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 15
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1762454573094-541774994.js",
-        "extension" : "js",
-        "linesOfCode" : 22,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 15,
-      "startLine" : 8,
-      "endLine" : 23,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 15
     } ]
   }, {
     "blockSize" : 15,
@@ -3224,35 +2644,6 @@
     "blockSize" : 10,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 40,
-      "endLine" : 53,
-      "cleanedStartLine" : 32,
-      "cleanedEndLine" : 41
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 37,
-      "endLine" : 50,
-      "cleanedStartLine" : 28,
-      "cleanedEndLine" : 37
-    } ]
-  }, {
-    "blockSize" : 10,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Signup.css.html",
         "extension" : "html",
         "linesOfCode" : 533,
@@ -3311,64 +2702,6 @@
     "blockSize" : 10,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 40,
-      "endLine" : 53,
-      "cleanedStartLine" : 32,
-      "cleanedEndLine" : 41
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 37,
-      "endLine" : 50,
-      "cleanedStartLine" : 28,
-      "cleanedEndLine" : 37
-    } ]
-  }, {
-    "blockSize" : 10,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 40,
-      "endLine" : 53,
-      "cleanedStartLine" : 32,
-      "cleanedEndLine" : 41
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 37,
-      "endLine" : 50,
-      "cleanedStartLine" : 28,
-      "cleanedEndLine" : 37
-    } ]
-  }, {
-    "blockSize" : 10,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Signup.css.html",
         "extension" : "html",
         "linesOfCode" : 533,
@@ -3393,35 +2726,6 @@
       "endLine" : 35,
       "cleanedStartLine" : 24,
       "cleanedEndLine" : 33
-    } ]
-  }, {
-    "blockSize" : 10,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/index.html",
-        "extension" : "html",
-        "linesOfCode" : 13,
-        "components" : [ "primary::SPL" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 10,
-      "startLine" : 1,
-      "endLine" : 11,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 10
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1762454810175-584589586.html",
-        "extension" : "html",
-        "linesOfCode" : 13,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 10,
-      "startLine" : 1,
-      "endLine" : 11,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 10
     } ]
   }, {
     "blockSize" : 10,
@@ -3572,35 +2876,6 @@
     "blockSize" : 9,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 6,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 9
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265169126-984135838.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 9
-    } ]
-  }, {
-    "blockSize" : 9,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/index.html",
         "extension" : "html",
         "linesOfCode" : 186,
@@ -3659,35 +2934,6 @@
     "blockSize" : 9,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 6,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 9
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761328515350-537683809.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 9
-    } ]
-  }, {
-    "blockSize" : 9,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/index.html",
         "extension" : "html",
         "linesOfCode" : 186,
@@ -3741,64 +2987,6 @@
       "endLine" : 20,
       "cleanedStartLine" : 9,
       "cleanedEndLine" : 17
-    } ]
-  }, {
-    "blockSize" : 9,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/AddVersion.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 122,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 111,
-      "startLine" : 6,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 9
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761265231112-624819031.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 89,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 81,
-      "startLine" : 6,
-      "endLine" : 15,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 9
-    } ]
-  }, {
-    "blockSize" : 9,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/Login.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 74,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 67,
-      "startLine" : 10,
-      "endLine" : 20,
-      "cleanedStartLine" : 4,
-      "cleanedEndLine" : 12
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 10,
-      "endLine" : 20,
-      "cleanedStartLine" : 5,
-      "cleanedEndLine" : 13
     } ]
   }, {
     "blockSize" : 9,
@@ -3879,35 +3067,6 @@
         "extension" : "tsx",
         "linesOfCode" : 82,
         "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 36,
-      "endLine" : 46,
-      "cleanedStartLine" : 25,
-      "cleanedEndLine" : 33
-    } ]
-  }, {
-    "blockSize" : 9,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/src/Login.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 74,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 67,
-      "startLine" : 43,
-      "endLine" : 53,
-      "cleanedStartLine" : 31,
-      "cleanedEndLine" : 39
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::backend/uploads" ],
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 76,
@@ -8125,35 +7284,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 294,
-      "endLine" : 299,
-      "cleanedStartLine" : 271,
-      "cleanedEndLine" : 276
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 35,
-      "endLine" : 40,
-      "cleanedStartLine" : 24,
-      "cleanedEndLine" : 29
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.css.html",
         "extension" : "html",
         "linesOfCode" : 422,
@@ -8415,35 +7545,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 479,
-      "endLine" : 484,
-      "cleanedStartLine" : 456,
-      "cleanedEndLine" : 461
-    }, {
-      "file" : {
-        "relativePath" : "SPL/src/Signup.css",
-        "extension" : "css",
-        "linesOfCode" : 135,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 135,
-      "startLine" : 106,
-      "endLine" : 111,
-      "cleanedStartLine" : 95,
-      "cleanedEndLine" : 100
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Signup.tsx.html",
         "extension" : "html",
         "linesOfCode" : 362,
@@ -8468,6 +7569,35 @@
       "endLine" : 247,
       "cleanedStartLine" : 219,
       "cleanedEndLine" : 224
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 479,
+      "endLine" : 484,
+      "cleanedStartLine" : 456,
+      "cleanedEndLine" : 461
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.css",
+        "extension" : "css",
+        "linesOfCode" : 135,
+        "components" : [ "primary::SPL/src" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 135,
+      "startLine" : 106,
+      "endLine" : 111,
+      "cleanedStartLine" : 95,
+      "cleanedEndLine" : 100
     } ]
   }, {
     "blockSize" : 6,
@@ -11924,35 +11054,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/AuthContext.ts.html",
-        "extension" : "html",
-        "linesOfCode" : 140,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 124,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.css.html",
         "extension" : "html",
         "linesOfCode" : 398,
@@ -11977,6 +11078,35 @@
       "endLine" : 286,
       "cleanedStartLine" : 258,
       "cleanedEndLine" : 263
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/AuthContext.ts.html",
+        "extension" : "html",
+        "linesOfCode" : 140,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 124,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
     } ]
   }, {
     "blockSize" : 6,
@@ -23386,35 +22516,6 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 406,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 185,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 169,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.css.html",
-        "extension" : "html",
-        "linesOfCode" : 422,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 406,
       "startLine" : 208,
       "endLine" : 213,
       "cleanedStartLine" : 185,
@@ -23432,6 +22533,35 @@
       "endLine" : 255,
       "cleanedStartLine" : 227,
       "cleanedEndLine" : 232
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.css.html",
+        "extension" : "html",
+        "linesOfCode" : 422,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 406,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 185,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 169,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
     } ]
   }, {
     "blockSize" : 6,
@@ -36342,35 +35472,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/AuthContext.ts.html",
-        "extension" : "html",
-        "linesOfCode" : 140,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 124,
-      "startLine" : 96,
-      "endLine" : 101,
-      "cleanedStartLine" : 73,
-      "cleanedEndLine" : 78
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 207,
-      "endLine" : 212,
-      "cleanedStartLine" : 184,
-      "cleanedEndLine" : 189
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.css.html",
         "extension" : "html",
         "linesOfCode" : 398,
@@ -36395,6 +35496,35 @@
       "endLine" : 238,
       "cleanedStartLine" : 210,
       "cleanedEndLine" : 215
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/AuthContext.ts.html",
+        "extension" : "html",
+        "linesOfCode" : 140,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 124,
+      "startLine" : 96,
+      "endLine" : 101,
+      "cleanedStartLine" : 73,
+      "cleanedEndLine" : 78
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 362,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 346,
+      "startLine" : 207,
+      "endLine" : 212,
+      "cleanedStartLine" : 184,
+      "cleanedEndLine" : 189
     } ]
   }, {
     "blockSize" : 6,
@@ -36458,35 +35588,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 305,
-      "endLine" : 310,
-      "cleanedStartLine" : 282,
-      "cleanedEndLine" : 287
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 207,
-      "endLine" : 212,
-      "cleanedStartLine" : 184,
-      "cleanedEndLine" : 189
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.tsx.html",
         "extension" : "html",
         "linesOfCode" : 185,
@@ -36511,6 +35612,35 @@
       "endLine" : 199,
       "cleanedStartLine" : 171,
       "cleanedEndLine" : 176
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 305,
+      "endLine" : 310,
+      "cleanedStartLine" : 282,
+      "cleanedEndLine" : 287
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 362,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 346,
+      "startLine" : 207,
+      "endLine" : 212,
+      "cleanedStartLine" : 184,
+      "cleanedEndLine" : 189
     } ]
   }, {
     "blockSize" : 6,
@@ -37386,35 +36516,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Header.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 185,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 169,
-      "startLine" : 114,
-      "endLine" : 119,
-      "cleanedStartLine" : 91,
-      "cleanedEndLine" : 96
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 341,
-      "endLine" : 346,
-      "cleanedStartLine" : 318,
-      "cleanedEndLine" : 323
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.css.html",
         "extension" : "html",
         "linesOfCode" : 398,
@@ -37439,6 +36540,35 @@
       "endLine" : 262,
       "cleanedStartLine" : 234,
       "cleanedEndLine" : 239
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 185,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 169,
+      "startLine" : 114,
+      "endLine" : 119,
+      "cleanedStartLine" : 91,
+      "cleanedEndLine" : 96
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 341,
+      "endLine" : 346,
+      "cleanedStartLine" : 318,
+      "cleanedEndLine" : 323
     } ]
   }, {
     "blockSize" : 6,
@@ -38981,35 +38111,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/AuthContext.ts.html",
-        "extension" : "html",
-        "linesOfCode" : 140,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 124,
-      "startLine" : 114,
-      "endLine" : 119,
-      "cleanedStartLine" : 91,
-      "cleanedEndLine" : 96
-    }, {
-      "file" : {
-        "relativePath" : "SPL/src/AuthContext.ts",
-        "extension" : "ts",
-        "linesOfCode" : 19,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 18,
-      "startLine" : 3,
-      "endLine" : 8,
-      "cleanedStartLine" : 1,
-      "cleanedEndLine" : 6
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.tsx.html",
         "extension" : "html",
         "linesOfCode" : 185,
@@ -39034,6 +38135,35 @@
       "endLine" : 259,
       "cleanedStartLine" : 231,
       "cleanedEndLine" : 236
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/AuthContext.ts.html",
+        "extension" : "html",
+        "linesOfCode" : 140,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 124,
+      "startLine" : 114,
+      "endLine" : 119,
+      "cleanedStartLine" : 91,
+      "cleanedEndLine" : 96
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/AuthContext.ts",
+        "extension" : "ts",
+        "linesOfCode" : 19,
+        "components" : [ "primary::SPL/src" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 18,
+      "startLine" : 3,
+      "endLine" : 8,
+      "cleanedStartLine" : 1,
+      "cleanedEndLine" : 6
     } ]
   }, {
     "blockSize" : 6,
@@ -44317,35 +43447,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/index.html",
-        "extension" : "html",
-        "linesOfCode" : 186,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 151,
-      "startLine" : 134,
-      "endLine" : 141,
-      "cleanedStartLine" : 99,
-      "cleanedEndLine" : 104
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/index.html",
-        "extension" : "html",
-        "linesOfCode" : 186,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 151,
-      "startLine" : 164,
-      "endLine" : 171,
-      "cleanedStartLine" : 123,
-      "cleanedEndLine" : 128
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.css.html",
         "extension" : "html",
         "linesOfCode" : 398,
@@ -44370,6 +43471,35 @@
       "endLine" : 310,
       "cleanedStartLine" : 282,
       "cleanedEndLine" : 287
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/index.html",
+        "extension" : "html",
+        "linesOfCode" : 186,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 151,
+      "startLine" : 134,
+      "endLine" : 141,
+      "cleanedStartLine" : 99,
+      "cleanedEndLine" : 104
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/index.html",
+        "extension" : "html",
+        "linesOfCode" : 186,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 151,
+      "startLine" : 164,
+      "endLine" : 171,
+      "cleanedStartLine" : 123,
+      "cleanedEndLine" : 128
     } ]
   }, {
     "blockSize" : 6,
@@ -46006,35 +45136,6 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 169,
-      "startLine" : 126,
-      "endLine" : 131,
-      "cleanedStartLine" : 103,
-      "cleanedEndLine" : 108
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 207,
-      "endLine" : 212,
-      "cleanedStartLine" : 184,
-      "cleanedEndLine" : 189
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 185,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 169,
       "startLine" : 114,
       "endLine" : 119,
       "cleanedStartLine" : 91,
@@ -46052,6 +45153,35 @@
       "endLine" : 283,
       "cleanedStartLine" : 255,
       "cleanedEndLine" : 260
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 185,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 169,
+      "startLine" : 126,
+      "endLine" : 131,
+      "cleanedStartLine" : 103,
+      "cleanedEndLine" : 108
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 362,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 346,
+      "startLine" : 207,
+      "endLine" : 212,
+      "cleanedStartLine" : 184,
+      "cleanedEndLine" : 189
     } ]
   }, {
     "blockSize" : 6,
@@ -46296,35 +45426,6 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 347,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 331,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
       "startLine" : 266,
       "endLine" : 271,
       "cleanedStartLine" : 243,
@@ -46342,6 +45443,35 @@
       "endLine" : 352,
       "cleanedStartLine" : 324,
       "cleanedEndLine" : 329
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 347,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 331,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
     } ]
   }, {
     "blockSize" : 6,
@@ -47652,35 +46782,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 385,
-      "endLine" : 390,
-      "cleanedStartLine" : 362,
-      "cleanedEndLine" : 367
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 488,
-      "endLine" : 493,
-      "cleanedStartLine" : 465,
-      "cleanedEndLine" : 470
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -47705,6 +46806,35 @@
       "endLine" : 352,
       "cleanedStartLine" : 324,
       "cleanedEndLine" : 329
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 385,
+      "endLine" : 390,
+      "cleanedStartLine" : 362,
+      "cleanedEndLine" : 367
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 488,
+      "endLine" : 493,
+      "cleanedStartLine" : 465,
+      "cleanedEndLine" : 470
     } ]
   }, {
     "blockSize" : 6,
@@ -49329,6 +48459,35 @@
       "endLine" : 328,
       "cleanedStartLine" : 300,
       "cleanedEndLine" : 305
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "cypress/e2e/admin.cy.js",
+        "extension" : "js",
+        "linesOfCode" : 90,
+        "components" : [ "primary::cypress/e2e" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 87,
+      "startLine" : 50,
+      "endLine" : 56,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "cypress/e2e/admin.cy.js",
+        "extension" : "js",
+        "linesOfCode" : 90,
+        "components" : [ "primary::cypress/e2e" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 87,
+      "startLine" : 76,
+      "endLine" : 81,
+      "cleanedStartLine" : 58,
+      "cleanedEndLine" : 63
     } ]
   }, {
     "blockSize" : 6,
@@ -56323,35 +55482,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 230,
-      "endLine" : 235,
-      "cleanedStartLine" : 207,
-      "cleanedEndLine" : 212
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.tsx.html",
         "extension" : "html",
         "linesOfCode" : 185,
@@ -56376,6 +55506,35 @@
       "endLine" : 137,
       "cleanedStartLine" : 109,
       "cleanedEndLine" : 114
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 362,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 346,
+      "startLine" : 230,
+      "endLine" : 235,
+      "cleanedStartLine" : 207,
+      "cleanedEndLine" : 212
     } ]
   }, {
     "blockSize" : 6,
@@ -57316,6 +56475,35 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 406,
+      "startLine" : 286,
+      "endLine" : 291,
+      "cleanedStartLine" : 263,
+      "cleanedEndLine" : 268
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 185,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 169,
+      "startLine" : 114,
+      "endLine" : 119,
+      "cleanedStartLine" : 91,
+      "cleanedEndLine" : 96
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.css.html",
+        "extension" : "html",
+        "linesOfCode" : 422,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 406,
       "startLine" : 274,
       "endLine" : 279,
       "cleanedStartLine" : 251,
@@ -57362,35 +56550,6 @@
       "endLine" : 212,
       "cleanedStartLine" : 184,
       "cleanedEndLine" : 189
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.css.html",
-        "extension" : "html",
-        "linesOfCode" : 422,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 406,
-      "startLine" : 286,
-      "endLine" : 291,
-      "cleanedStartLine" : 263,
-      "cleanedEndLine" : 268
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 185,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 169,
-      "startLine" : 114,
-      "endLine" : 119,
-      "cleanedStartLine" : 91,
-      "cleanedEndLine" : 96
     } ]
   }, {
     "blockSize" : 6,
@@ -57536,6 +56695,35 @@
       "endLine" : 292,
       "cleanedStartLine" : 264,
       "cleanedEndLine" : 269
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 185,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 169,
+      "startLine" : 132,
+      "endLine" : 137,
+      "cleanedStartLine" : 109,
+      "cleanedEndLine" : 114
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 299,
+      "endLine" : 304,
+      "cleanedStartLine" : 276,
+      "cleanedEndLine" : 281
     } ]
   }, {
     "blockSize" : 6,
@@ -57570,35 +56758,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Header.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 185,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 169,
-      "startLine" : 132,
-      "endLine" : 137,
-      "cleanedStartLine" : 109,
-      "cleanedEndLine" : 114
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 299,
-      "endLine" : 304,
-      "cleanedStartLine" : 276,
-      "cleanedEndLine" : 281
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.css.html",
         "extension" : "html",
         "linesOfCode" : 422,
@@ -58592,35 +57751,6 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 169,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 185,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 169,
       "startLine" : 132,
       "endLine" : 137,
       "cleanedStartLine" : 109,
@@ -58638,6 +57768,35 @@
       "endLine" : 256,
       "cleanedStartLine" : 228,
       "cleanedEndLine" : 233
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 185,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 169,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
     } ]
   }, {
     "blockSize" : 6,
@@ -59629,6 +58788,35 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "backend/src/controllers/assetController.js",
+        "extension" : "js",
+        "linesOfCode" : 305,
+        "components" : [ "primary::backend/src" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 275,
+      "startLine" : 107,
+      "endLine" : 113,
+      "cleanedStartLine" : 88,
+      "cleanedEndLine" : 93
+    }, {
+      "file" : {
+        "relativePath" : "backend/src/controllers/buildController.js",
+        "extension" : "js",
+        "linesOfCode" : 194,
+        "components" : [ "primary::backend/src" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 177,
+      "startLine" : 23,
+      "endLine" : 28,
+      "cleanedStartLine" : 13,
+      "cleanedEndLine" : 18
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "SPL/coverage/Header.css.html",
         "extension" : "html",
         "linesOfCode" : 422,
@@ -59803,6 +58991,35 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
+        "relativePath" : "cypress/e2e/admin.cy.js",
+        "extension" : "js",
+        "linesOfCode" : 90,
+        "components" : [ "primary::cypress/e2e" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 87,
+      "startLine" : 6,
+      "endLine" : 11,
+      "cleanedStartLine" : 3,
+      "cleanedEndLine" : 8
+    }, {
+      "file" : {
+        "relativePath" : "cypress/support/commands.js",
+        "extension" : "js",
+        "linesOfCode" : 30,
+        "components" : [ "primary::cypress/support" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 29,
+      "startLine" : 4,
+      "endLine" : 10,
+      "cleanedStartLine" : 2,
+      "cleanedEndLine" : 7
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
         "relativePath" : "SPL/coverage/Login.css.html",
         "extension" : "html",
         "linesOfCode" : 398,
@@ -61891,35 +61108,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Login.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 347,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 331,
-      "startLine" : 192,
-      "endLine" : 197,
-      "cleanedStartLine" : 169,
-      "cleanedEndLine" : 174
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.css.html",
         "extension" : "html",
         "linesOfCode" : 398,
@@ -61944,6 +61132,35 @@
       "endLine" : 223,
       "cleanedStartLine" : 195,
       "cleanedEndLine" : 200
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 347,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 331,
+      "startLine" : 192,
+      "endLine" : 197,
+      "cleanedStartLine" : 169,
+      "cleanedEndLine" : 174
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
     } ]
   }, {
     "blockSize" : 6,
@@ -62297,35 +61514,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.css.html",
         "extension" : "html",
         "linesOfCode" : 422,
@@ -62350,6 +61538,35 @@
       "endLine" : 224,
       "cleanedStartLine" : 196,
       "cleanedEndLine" : 201
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 362,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 346,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
     } ]
   }, {
     "blockSize" : 6,
@@ -64559,35 +63776,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 353,
-      "endLine" : 358,
-      "cleanedStartLine" : 330,
-      "cleanedEndLine" : 335
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.tsx.html",
         "extension" : "html",
         "linesOfCode" : 185,
@@ -64612,6 +63800,35 @@
       "endLine" : 214,
       "cleanedStartLine" : 186,
       "cleanedEndLine" : 191
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 353,
+      "endLine" : 358,
+      "cleanedStartLine" : 330,
+      "cleanedEndLine" : 335
     } ]
   }, {
     "blockSize" : 6,
@@ -72331,35 +71548,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 212,
-      "endLine" : 217,
-      "cleanedStartLine" : 189,
-      "cleanedEndLine" : 194
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 347,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 331,
-      "startLine" : 192,
-      "endLine" : 197,
-      "cleanedStartLine" : 169,
-      "cleanedEndLine" : 174
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Header.tsx.html",
         "extension" : "html",
         "linesOfCode" : 185,
@@ -72384,6 +71572,35 @@
       "endLine" : 259,
       "cleanedStartLine" : 231,
       "cleanedEndLine" : 236
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 212,
+      "endLine" : 217,
+      "cleanedStartLine" : 189,
+      "cleanedEndLine" : 194
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 347,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 331,
+      "startLine" : 192,
+      "endLine" : 197,
+      "cleanedStartLine" : 169,
+      "cleanedEndLine" : 174
     } ]
   }, {
     "blockSize" : 6,
@@ -75760,35 +74977,6 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 406,
-      "startLine" : 292,
-      "endLine" : 297,
-      "cleanedStartLine" : 269,
-      "cleanedEndLine" : 274
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 347,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 331,
-      "startLine" : 192,
-      "endLine" : 197,
-      "cleanedStartLine" : 169,
-      "cleanedEndLine" : 174
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.css.html",
-        "extension" : "html",
-        "linesOfCode" : 422,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 406,
       "startLine" : 190,
       "endLine" : 195,
       "cleanedStartLine" : 167,
@@ -75806,6 +74994,35 @@
       "endLine" : 212,
       "cleanedStartLine" : 184,
       "cleanedEndLine" : 189
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.css.html",
+        "extension" : "html",
+        "linesOfCode" : 422,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 406,
+      "startLine" : 292,
+      "endLine" : 297,
+      "cleanedStartLine" : 269,
+      "cleanedEndLine" : 274
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.tsx.html",
+        "extension" : "html",
+        "linesOfCode" : 347,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 331,
+      "startLine" : 192,
+      "endLine" : 197,
+      "cleanedStartLine" : 169,
+      "cleanedEndLine" : 174
     } ]
   }, {
     "blockSize" : 6,
@@ -77227,6 +76444,35 @@
       "endLine" : 241,
       "cleanedStartLine" : 213,
       "cleanedEndLine" : 218
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Header.css.html",
+        "extension" : "html",
+        "linesOfCode" : 422,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 406,
+      "startLine" : 286,
+      "endLine" : 291,
+      "cleanedStartLine" : 263,
+      "cleanedEndLine" : 268
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 242,
+      "endLine" : 247,
+      "cleanedStartLine" : 219,
+      "cleanedEndLine" : 224
     } ]
   }, {
     "blockSize" : 6,
@@ -77268,35 +76514,6 @@
         "concerns" : [ "::Unclassified" ]
       },
       "sourceFileCleanedLinesOfCode" : 406,
-      "startLine" : 286,
-      "endLine" : 291,
-      "cleanedStartLine" : 263,
-      "cleanedEndLine" : 268
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 242,
-      "endLine" : 247,
-      "cleanedStartLine" : 219,
-      "cleanedEndLine" : 224
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Header.css.html",
-        "extension" : "html",
-        "linesOfCode" : 422,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 406,
       "startLine" : 274,
       "endLine" : 279,
       "cleanedStartLine" : 251,
@@ -77696,35 +76913,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Login.css.html",
-        "extension" : "html",
-        "linesOfCode" : 398,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 382,
-      "startLine" : 248,
-      "endLine" : 253,
-      "cleanedStartLine" : 225,
-      "cleanedEndLine" : 230
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -77749,6 +76937,35 @@
       "endLine" : 238,
       "cleanedStartLine" : 210,
       "cleanedEndLine" : 215
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Login.css.html",
+        "extension" : "html",
+        "linesOfCode" : 398,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 382,
+      "startLine" : 248,
+      "endLine" : 253,
+      "cleanedStartLine" : 225,
+      "cleanedEndLine" : 230
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
     } ]
   }, {
     "blockSize" : 6,
@@ -78247,35 +77464,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 239,
-      "endLine" : 244,
-      "cleanedStartLine" : 216,
-      "cleanedEndLine" : 221
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -78300,6 +77488,35 @@
       "endLine" : 262,
       "cleanedStartLine" : 234,
       "cleanedEndLine" : 239
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 239,
+      "endLine" : 244,
+      "cleanedStartLine" : 216,
+      "cleanedEndLine" : 221
     } ]
   }, {
     "blockSize" : 6,
@@ -78508,35 +77725,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 227,
-      "endLine" : 232,
-      "cleanedStartLine" : 204,
-      "cleanedEndLine" : 209
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -78561,6 +77749,35 @@
       "endLine" : 274,
       "cleanedStartLine" : 246,
       "cleanedEndLine" : 251
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 227,
+      "endLine" : 232,
+      "cleanedStartLine" : 204,
+      "cleanedEndLine" : 209
     } ]
   }, {
     "blockSize" : 6,
@@ -78769,35 +77986,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 257,
-      "endLine" : 262,
-      "cleanedStartLine" : 234,
-      "cleanedEndLine" : 239
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -78822,6 +78010,35 @@
       "endLine" : 280,
       "cleanedStartLine" : 252,
       "cleanedEndLine" : 257
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 257,
+      "endLine" : 262,
+      "cleanedStartLine" : 234,
+      "cleanedEndLine" : 239
     } ]
   }, {
     "blockSize" : 6,
@@ -79291,35 +78508,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 245,
-      "endLine" : 250,
-      "cleanedStartLine" : 222,
-      "cleanedEndLine" : 227
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -79344,6 +78532,35 @@
       "endLine" : 292,
       "cleanedStartLine" : 264,
       "cleanedEndLine" : 269
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 245,
+      "endLine" : 250,
+      "cleanedStartLine" : 222,
+      "cleanedEndLine" : 227
     } ]
   }, {
     "blockSize" : 6,
@@ -79697,35 +78914,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 281,
-      "endLine" : 286,
-      "cleanedStartLine" : 258,
-      "cleanedEndLine" : 263
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -79750,6 +78938,35 @@
       "endLine" : 304,
       "cleanedStartLine" : 276,
       "cleanedEndLine" : 281
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 281,
+      "endLine" : 286,
+      "cleanedStartLine" : 258,
+      "cleanedEndLine" : 263
     } ]
   }, {
     "blockSize" : 6,
@@ -80103,35 +79320,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 221,
-      "endLine" : 226,
-      "cleanedStartLine" : 198,
-      "cleanedEndLine" : 203
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 269,
-      "endLine" : 274,
-      "cleanedStartLine" : 246,
-      "cleanedEndLine" : 251
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -80156,6 +79344,35 @@
       "endLine" : 316,
       "cleanedStartLine" : 288,
       "cleanedEndLine" : 293
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 221,
+      "endLine" : 226,
+      "cleanedStartLine" : 198,
+      "cleanedEndLine" : 203
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 269,
+      "endLine" : 274,
+      "cleanedStartLine" : 246,
+      "cleanedEndLine" : 251
     } ]
   }, {
     "blockSize" : 6,
@@ -81925,35 +81142,6 @@
       "endLine" : 279,
       "cleanedStartLine" : 251,
       "cleanedEndLine" : 256
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.tsx.html",
-        "extension" : "html",
-        "linesOfCode" : 362,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 346,
-      "startLine" : 279,
-      "endLine" : 284,
-      "cleanedStartLine" : 256,
-      "cleanedEndLine" : 261
-    }, {
-      "file" : {
-        "relativePath" : "backend/uploads/1761261056814-995230287.tsx",
-        "extension" : "tsx",
-        "linesOfCode" : 82,
-        "components" : [ "primary::backend/uploads" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 76,
-      "startLine" : 20,
-      "endLine" : 25,
-      "cleanedStartLine" : 13,
-      "cleanedEndLine" : 18
     } ]
   }, {
     "blockSize" : 6,
@@ -84830,35 +84018,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 486,
-      "endLine" : 491,
-      "cleanedStartLine" : 463,
-      "cleanedEndLine" : 468
-    }, {
-      "file" : {
-        "relativePath" : "SPL/src/Signup.css",
-        "extension" : "css",
-        "linesOfCode" : 135,
-        "components" : [ "primary::SPL/src" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 135,
-      "startLine" : 113,
-      "endLine" : 118,
-      "cleanedStartLine" : 101,
-      "cleanedEndLine" : 106
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -84883,6 +84042,35 @@
       "endLine" : 238,
       "cleanedStartLine" : 210,
       "cleanedEndLine" : 215
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 486,
+      "endLine" : 491,
+      "cleanedStartLine" : 463,
+      "cleanedEndLine" : 468
+    }, {
+      "file" : {
+        "relativePath" : "SPL/src/Signup.css",
+        "extension" : "css",
+        "linesOfCode" : 135,
+        "components" : [ "primary::SPL/src" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 135,
+      "startLine" : 113,
+      "endLine" : 118,
+      "cleanedStartLine" : 101,
+      "cleanedEndLine" : 106
     } ]
   }, {
     "blockSize" : 6,
@@ -96343,35 +95531,6 @@
     "blockSize" : 6,
     "duplicatedFileBlocks" : [ {
       "file" : {
-        "relativePath" : "SPL/coverage/AuthContext.ts.html",
-        "extension" : "html",
-        "linesOfCode" : 140,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 124,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    }, {
-      "file" : {
-        "relativePath" : "SPL/coverage/Signup.css.html",
-        "extension" : "html",
-        "linesOfCode" : 533,
-        "components" : [ "primary::SPL/coverage" ],
-        "concerns" : [ "::Unclassified" ]
-      },
-      "sourceFileCleanedLinesOfCode" : 517,
-      "startLine" : 54,
-      "endLine" : 60,
-      "cleanedStartLine" : 35,
-      "cleanedEndLine" : 40
-    } ]
-  }, {
-    "blockSize" : 6,
-    "duplicatedFileBlocks" : [ {
-      "file" : {
         "relativePath" : "SPL/coverage/Login.tsx.html",
         "extension" : "html",
         "linesOfCode" : 347,
@@ -96396,6 +95555,35 @@
       "endLine" : 346,
       "cleanedStartLine" : 318,
       "cleanedEndLine" : 323
+    } ]
+  }, {
+    "blockSize" : 6,
+    "duplicatedFileBlocks" : [ {
+      "file" : {
+        "relativePath" : "SPL/coverage/AuthContext.ts.html",
+        "extension" : "html",
+        "linesOfCode" : 140,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 124,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
+    }, {
+      "file" : {
+        "relativePath" : "SPL/coverage/Signup.css.html",
+        "extension" : "html",
+        "linesOfCode" : 533,
+        "components" : [ "primary::SPL/coverage" ],
+        "concerns" : [ "::Unclassified" ]
+      },
+      "sourceFileCleanedLinesOfCode" : 517,
+      "startLine" : 54,
+      "endLine" : 60,
+      "cleanedStartLine" : 35,
+      "cleanedEndLine" : 40
     } ]
   }, {
     "blockSize" : 6,

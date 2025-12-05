@@ -15,47 +15,49 @@
 <h3 style="margin-bottom: 0">backend/prisma/schema.prisma (<b>39</b> lines of code) (<a href="schema.prisma">raw</a>):</h3>
 <div id="editor">generator client {
   provider = &quot;prisma-client-js&quot;
-  //output   = &quot;../src/generated/prisma&quot;
 }
 
 datasource db {
-  provider = &quot;sqlite&quot;
+  provider = &quot;mysql&quot;
   url      = env(&quot;DATABASE_URL&quot;)
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  username  String   
-  email     String   @unique(map: &quot;email&quot;)
-  password  String   
-  createdAt DateTime @default(now())
-  admin     Int      @default(0)
+model asset {
+  id          Int       @id @default(autoincrement())
+  filename    String    @db.VarChar(255)
+  original    String    @db.VarChar(255)
+  mimetype    String    @db.VarChar(100)
+  size        Int
+  path        String    @db.VarChar(255)
+  buildId     Int
+  version     String?   @db.VarChar(50)
+  description String?   @db.Text
+  createdAt   DateTime? @default(now()) @db.DateTime(0)
+  builds      builds    @relation(fields: [buildId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: &quot;asset_ibfk_1&quot;)
+
+  @@index([buildId], map: &quot;buildId&quot;)
 }
 
-model Builds {
-  id           Int      @id @default(autoincrement())
-  nom          String
-  description  String?
-  version      String?
-  statut       String?
-  proprietaire String?
-  updatedAt    DateTime @default(now()) @map(&quot;updatedAt&quot;)
-  assets       Asset[]
+model builds {
+  id           Int       @id @default(autoincrement())
+  nom          String    @db.VarChar(255)
+  description  String?   @db.Text
+  version      String?   @db.VarChar(50)
+  statut       String?   @db.VarChar(50)
+  proprietaire String?   @db.VarChar(255)
+  updatedAt    DateTime? @default(now()) @db.DateTime(0)
+  asset        asset[]
 }
 
-model Asset {
-  id        Int      @id @default(autoincrement())
-  filename  String
-  original  String
-  mimetype  String
-  size      Int
-  path      String
-  buildId   Int
-  build     Builds   @relation(fields: [buildId], references: [id], onDelete: Cascade)
-  version   String?
-  description String?
-  createdAt DateTime @default(now())
-}</div>
+model user {
+  id        Int       @id @default(autoincrement())
+  username  String    @db.VarChar(255)
+  email     String    @unique(map: &quot;email&quot;) @db.VarChar(255)
+  password  String    @db.VarChar(255)
+  createdAt DateTime? @default(now()) @db.DateTime(0)
+  admin     Int       @default(0) @db.TinyInt
+}
+</div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");

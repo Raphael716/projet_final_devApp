@@ -12,12 +12,16 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">backend/src/controllers/assetController.js (<b>302</b> lines of code) (<a href="assetController.js">raw</a>):</h3>
-<div id="editor">const path = require(&quot;path&quot;);
-const fs = require(&quot;fs&quot;);
-const multer = require(&quot;multer&quot;);
-const { PrismaClient } = require(&quot;@prisma/client&quot;);
+<h3 style="margin-bottom: 0">backend/src/controllers/assetController.js (<b>305</b> lines of code) (<a href="assetController.js">raw</a>):</h3>
+<div id="editor">import path from &quot;path&quot;;
+import fs from &quot;fs&quot;;
+import multer from &quot;multer&quot;;
+import { PrismaClient } from &quot;@prisma/client&quot;;
+import { fileURLToPath } from &quot;url&quot;;
+
 const prisma = new PrismaClient();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const UPLOAD_DIR = path.join(__dirname, &quot;..&quot;, &quot;..&quot;, &quot;uploads&quot;);
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
@@ -134,7 +138,7 @@ const upload = multer({
   },
 });
 
-exports.uploadMiddleware = (req, res, next) =&gt; {
+export const uploadMiddleware = (req, res, next) =&gt; {
   upload.single(&quot;file&quot;)(req, res, (err) =&gt; {
     if (err instanceof multer.MulterError) {
       if (err.code === &quot;LIMIT_FILE_SIZE&quot;) {
@@ -152,7 +156,7 @@ exports.uploadMiddleware = (req, res, next) =&gt; {
   });
 };
 
-exports.uploadFiles = async (req, res) =&gt; {
+export const uploadFiles = async (req, res) =&gt; {
   try {
     const buildId = Number(req.params.buildId) || Number(req.params.id);
     if (!buildId || isNaN(buildId)) {
@@ -232,7 +236,7 @@ exports.uploadFiles = async (req, res) =&gt; {
   }
 };
 
-exports.getAssetsByBuild = async (req, res) =&gt; {
+export const getAssetsByBuild = async (req, res) =&gt; {
   try {
     const buildId = Number(req.params.id);
     const assets = await prisma.asset.findMany({
@@ -265,7 +269,7 @@ exports.getAssetsByBuild = async (req, res) =&gt; {
   }
 };
 
-exports.getAssetById = async (req, res) =&gt; {
+export const getAssetById = async (req, res) =&gt; {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({
@@ -297,7 +301,7 @@ exports.getAssetById = async (req, res) =&gt; {
   }
 };
 
-exports.downloadAsset = async (req, res) =&gt; {
+export const downloadAsset = async (req, res) =&gt; {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({ where: { id } });
@@ -347,7 +351,7 @@ exports.downloadAsset = async (req, res) =&gt; {
   }
 };
 
-exports.deleteAsset = async (req, res) =&gt; {
+export const deleteAsset = async (req, res) =&gt; {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({ where: { id } });

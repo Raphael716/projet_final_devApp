@@ -1,14 +1,14 @@
 [ {
   "relativePath" : "backend/src/tests/authMiddleware.integration.test.js",
   "extension" : "js",
-  "linesOfCode" : 74,
+  "linesOfCode" : 52,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "backend/src/tests/buildController.integration.test.js",
   "extension" : "js",
-  "linesOfCode" : 62,
+  "linesOfCode" : 105,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -36,7 +36,7 @@
 }, {
   "relativePath" : "backend/src/tests/userController.integration.test.js",
   "extension" : "js",
-  "linesOfCode" : 71,
+  "linesOfCode" : 83,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -44,6 +44,13 @@
   "relativePath" : "backend/src/tests/userController.test.js",
   "extension" : "js",
   "linesOfCode" : 96,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "backend/src/tests/utils/integrationDb.js",
+  "extension" : "js",
+  "linesOfCode" : 90,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -76,6 +83,20 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "SPL/src/tests/AdminUsers.integration.test.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 72,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "SPL/src/tests/Builds.integration.test.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 113,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "SPL/src/tests/Header.test.tsx",
   "extension" : "tsx",
   "linesOfCode" : 89,
@@ -90,9 +111,23 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "SPL/src/tests/NewBuild.integration.test.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 122,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "SPL/src/tests/Signup.test.tsx",
   "extension" : "tsx",
   "linesOfCode" : 125,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "SPL/vitest.integration.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 11,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

@@ -6,20 +6,23 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">function toAppUser()</h3>
-<p style="margin-top: 4px">in <i>SPL/src/App.tsx [67:74]</i></p>
+<p style="margin-top: 4px">in <i>SPL/src/AuthProvider.tsx [14:24]</i></p>
 <ul>
-    <li><b>8</b> lines of code</li>
-    <li><b>1</b> McCabe index (conditional complexity)</li>
+    <li><b>9</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function toAppUser(u: any): AppUser {
-  return {
-    id: Number(u.id ?? 0),
-    username: u.username ?? &quot;&quot;,
-    email: u.email ?? &quot;&quot;,
-    isAdmin: Number(u.isAdmin ?? u.admin ?? 0) === 1,
-  };
+function toAppUser(u: unknown): AppUser {
+  const o =
+    typeof u === &quot;object&quot; &amp;&amp; u !== null ? (u as Record&lt;string, unknown&gt;) : {};
+
+  const id = Number(o.id ?? 0);
+  const username = String(o.username ?? &quot;&quot;);
+  const email = String(o.email ?? &quot;&quot;);
+  const isAdmin = Number(o.admin ?? 0) === 1; // ✅ bool&eacute;en direct
+
+  return { id, username, email, isAdmin };
 }
 
 </code>

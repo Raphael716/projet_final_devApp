@@ -34,7 +34,7 @@
   }, {
     "name" : "backend/src",
     "filesCount" : 12,
-    "linesOfCode" : 721,
+    "linesOfCode" : 807,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.js",
@@ -43,46 +43,60 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.js",
-      "value" : 721,
+      "value" : 807,
       "description" : [ ]
     } ]
   }, {
-    "name" : "backend/uploads",
-    "filesCount" : 9,
-    "linesOfCode" : 622,
+    "name" : "cypress/e2e",
+    "filesCount" : 3,
+    "linesOfCode" : 260,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
-      "name" : "  *.tsx",
-      "value" : 5,
+      "name" : "  *.js",
+      "value" : 3,
       "description" : [ ]
-    }, {
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.js",
+      "value" : 260,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "cypress/support",
+    "filesCount" : 2,
+    "linesOfCode" : 31,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
       "name" : "  *.js",
       "value" : 2,
       "description" : [ ]
-    }, {
-      "name" : "  *.ts",
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.js",
+      "value" : 31,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "ROOT",
+    "filesCount" : 2,
+    "linesOfCode" : 152,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ps1",
       "value" : 1,
       "description" : [ ]
     }, {
-      "name" : "  *.html",
+      "name" : "  *.js",
       "value" : 1,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
-      "name" : "  *.tsx",
-      "value" : 545,
+      "name" : "  *.ps1",
+      "value" : 140,
       "description" : [ ]
     }, {
       "name" : "  *.js",
-      "value" : 44,
-      "description" : [ ]
-    }, {
-      "name" : "  *.ts",
-      "value" : 20,
-      "description" : [ ]
-    }, {
-      "name" : "  *.html",
-      "value" : 13,
+      "value" : 12,
       "description" : [ ]
     } ]
   }, {
@@ -158,7 +172,7 @@
   }, {
     "name" : "SPL/src",
     "filesCount" : 31,
-    "linesOfCode" : 2920,
+    "linesOfCode" : 2923,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.css",
@@ -179,7 +193,7 @@
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
-      "value" : 1349,
+      "value" : 1352,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -214,11 +228,64 @@
       } ],
       "files" : [ ]
     }, {
-      "name" : "backend/uploads",
+      "name" : "cypress/e2e",
       "sourceFileFilters" : [ {
-        "pathPattern" : "./backend/uploads/.*",
+        "pathPattern" : "./cypress/e2e/.*",
         "contentPattern" : "",
         "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "cypress/support",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./cypress/support/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "ROOT",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      }, {
+        "pathPattern" : "./backend/prisma/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./backend/src/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./cypress/e2e/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./cypress/support/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/coverage/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/src/.*",
+        "contentPattern" : "",
+        "exception" : true,
         "note" : ""
       } ],
       "files" : [ ]
@@ -282,6 +349,39 @@
     "temporalLinkThreshold" : 1,
     "maxSearchDepthLines" : 1000
   },
+  "linesOfCodePerComponent" : [ {
+    "name" : "backend/prisma",
+    "value" : 73,
+    "description" : [ ]
+  }, {
+    "name" : "backend/src",
+    "value" : 807,
+    "description" : [ ]
+  }, {
+    "name" : "cypress/e2e",
+    "value" : 260,
+    "description" : [ ]
+  }, {
+    "name" : "cypress/support",
+    "value" : 31,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 152,
+    "description" : [ ]
+  }, {
+    "name" : "SPL/coverage",
+    "value" : 3095,
+    "description" : [ ]
+  }, {
+    "name" : "SPL",
+    "value" : 60,
+    "description" : [ ]
+  }, {
+    "name" : "SPL/src",
+    "value" : 2923,
+    "description" : [ ]
+  } ],
   "fileCountPerComponent" : [ {
     "name" : "backend/prisma",
     "value" : 3,
@@ -291,8 +391,16 @@
     "value" : 12,
     "description" : [ ]
   }, {
-    "name" : "backend/uploads",
-    "value" : 9,
+    "name" : "cypress/e2e",
+    "value" : 3,
+    "description" : [ ]
+  }, {
+    "name" : "cypress/support",
+    "value" : 2,
+    "description" : [ ]
+  }, {
+    "name" : "ROOT",
+    "value" : 2,
     "description" : [ ]
   }, {
     "name" : "SPL/coverage",
@@ -305,31 +413,6 @@
   }, {
     "name" : "SPL/src",
     "value" : 31,
-    "description" : [ ]
-  } ],
-  "linesOfCodePerComponent" : [ {
-    "name" : "backend/prisma",
-    "value" : 73,
-    "description" : [ ]
-  }, {
-    "name" : "backend/src",
-    "value" : 721,
-    "description" : [ ]
-  }, {
-    "name" : "backend/uploads",
-    "value" : 622,
-    "description" : [ ]
-  }, {
-    "name" : "SPL/coverage",
-    "value" : 3095,
-    "description" : [ ]
-  }, {
-    "name" : "SPL",
-    "value" : 60,
-    "description" : [ ]
-  }, {
-    "name" : "SPL/src",
-    "value" : 2920,
     "description" : [ ]
   } ]
 } ]

@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">backend/src/controllers/buildController.js (<b>116</b> lines of code) (<a href="buildController.js">raw</a>):</h3>
+<h3 style="margin-bottom: 0">backend/src/controllers/buildController.js (<b>194</b> lines of code) (<a href="buildController.js">raw</a>):</h3>
 <div id="editor">import { PrismaClient } from &quot;@prisma/client&quot;;
 import path from &quot;path&quot;;
 import fs from &quot;fs&quot;;
@@ -37,7 +37,39 @@ const storage = multer.diskStorage({
     cb(null, unique + path.extname(file.originalname));
   },
 });
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB
+  },
+});
+const singleFileUpload = upload.single(&quot;file&quot;);
+
+const cleanString = (value) =&gt; {
+  if (typeof value !== &quot;string&quot;) return null;
+  const trimmed = value.trim();
+  return trimmed.length &gt; 0 ? trimmed : null;
+};
+
+export const parseBuildFile = (req, res, next) =&gt; {
+  const contentType = (req.headers[&quot;content-type&quot;] || &quot;&quot;).toLowerCase();
+
+  if (!contentType.includes(&quot;multipart/form-data&quot;)) {
+    return next();
+  }
+
+  singleFileUpload(req, res, (err) =&gt; {
+    if (!err) return next();
+
+    if (err instanceof multer.MulterError &amp;&amp; err.code === &quot;LIMIT_FILE_SIZE&quot;) {
+      return res
+        .status(400)
+        .json({ error: &quot;Le fichier est trop volumineux (max 50MB)&quot; });
+    }
+
+    return res.status(400).json({ error: err.message || &quot;Erreur upload&quot; });
+  });
+};
 
 // === TES FONCTIONS EXISTANTES ===============================
 export const getBuilds = async (req, res) =&gt; {
@@ -66,11 +98,74 @@ export const getBuildById = async (req, res) =&gt; {
 
 export const createBuild = async (req, res) =&gt; {
   try {
-    const { nom, description, version, statut, proprietaire } = req.body;
-    const newBuild = await prisma.builds.create({
-      data: { nom, description, version, statut, proprietaire },
-    });
-    res.status(201).json(newBuild);
+    const body = req.body || {};
+    const nom = cleanString(body.nom) || &quot;&quot;;
+    const description = cleanString(body.description);
+    const version = cleanString(body.version);
+    const statut = cleanString(body.statut);
+    const proprietaire = cleanString(body.proprietaire);
+    const file = req.file;
+
+    if (!nom) {
+      return res.status(400).json({ error: &quot;Le nom du build est requis&quot; });
+    }
+
+    if (file &amp;&amp; !version) {
+      return res
+        .status(400)
+        .json({ error: &quot;Une version est requise pour joindre un fichier&quot; });
+    }
+
+    const runCreation = async (client) =&gt; {
+      const createdBuild = await client.builds.create({
+        data: {
+          nom,
+          description,
+          version,
+          statut,
+          proprietaire,
+        },
+      });
+
+      if (!file) {
+        return { build: createdBuild, asset: null };
+      }
+
+      const createdAsset = await client.asset.create({
+        data: {
+          filename: file.filename,
+          original: file.originalname,
+          mimetype: file.mimetype,
+          size: file.size,
+          path: file.path,
+          buildId: createdBuild.id,
+          version,
+        },
+      });
+
+      const updatedBuild = await client.builds.update({
+        where: { id: createdBuild.id },
+        data: {
+          version,
+          updatedAt: new Date(),
+        },
+      });
+
+      return { build: updatedBuild, asset: createdAsset };
+    };
+
+    const executeWithClient = async (callback) =&gt; {
+      if (typeof prisma.$transaction === &quot;function&quot;) {
+        return prisma.$transaction((tx) =&gt; callback(tx));
+      }
+      return callback(prisma);
+    };
+
+    const { build, asset } = await executeWithClient(runCreation);
+
+    const payload = asset ? { ...build, assets: [asset] } : build;
+
+    res.status(201).json(payload);
   } catch (err) {
     console.error(&quot;createBuild error:&quot;, err);
     res.status(500).json({ error: &quot;Erreur cr&eacute;ation build&quot; });
@@ -106,7 +201,7 @@ export const deleteBuild = async (req, res) =&gt; {
 
 // === AJOUT NOUVEAUT&Eacute; : addVersion + upload ==================
 export const addVersion = [
-  upload.single(&quot;file&quot;),
+  singleFileUpload,
   async (req, res) =&gt; {
     try {
       const id = Number(req.params.id);

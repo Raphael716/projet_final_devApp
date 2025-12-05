@@ -22,7 +22,39 @@ const storage = multer.diskStorage({
     cb(null, unique + path.extname(file.originalname));
   },
 });
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB
+  },
+});
+const singleFileUpload = upload.single("file");
+
+const cleanString = (value) => {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : null;
+};
+
+export const parseBuildFile = (req, res, next) => {
+  const contentType = (req.headers["content-type"] || "").toLowerCase();
+
+  if (!contentType.includes("multipart/form-data")) {
+    return next();
+  }
+
+  singleFileUpload(req, res, (err) => {
+    if (!err) return next();
+
+    if (err instanceof multer.MulterError && err.code === "LIMIT_FILE_SIZE") {
+      return res
+        .status(400)
+        .json({ error: "Le fichier est trop volumineux (max 50MB)" });
+    }
+
+    return res.status(400).json({ error: err.message || "Erreur upload" });
+  });
+};
 
 // === TES FONCTIONS EXISTANTES ===============================
 export const getBuilds = async (req, res) => {
@@ -51,11 +83,74 @@ export const getBuildById = async (req, res) => {
 
 export const createBuild = async (req, res) => {
   try {
-    const { nom, description, version, statut, proprietaire } = req.body;
-    const newBuild = await prisma.builds.create({
-      data: { nom, description, version, statut, proprietaire },
-    });
-    res.status(201).json(newBuild);
+    const body = req.body || {};
+    const nom = cleanString(body.nom) || "";
+    const description = cleanString(body.description);
+    const version = cleanString(body.version);
+    const statut = cleanString(body.statut);
+    const proprietaire = cleanString(body.proprietaire);
+    const file = req.file;
+
+    if (!nom) {
+      return res.status(400).json({ error: "Le nom du build est requis" });
+    }
+
+    if (file && !version) {
+      return res
+        .status(400)
+        .json({ error: "Une version est requise pour joindre un fichier" });
+    }
+
+    const runCreation = async (client) => {
+      const createdBuild = await client.builds.create({
+        data: {
+          nom,
+          description,
+          version,
+          statut,
+          proprietaire,
+        },
+      });
+
+      if (!file) {
+        return { build: createdBuild, asset: null };
+      }
+
+      const createdAsset = await client.asset.create({
+        data: {
+          filename: file.filename,
+          original: file.originalname,
+          mimetype: file.mimetype,
+          size: file.size,
+          path: file.path,
+          buildId: createdBuild.id,
+          version,
+        },
+      });
+
+      const updatedBuild = await client.builds.update({
+        where: { id: createdBuild.id },
+        data: {
+          version,
+          updatedAt: new Date(),
+        },
+      });
+
+      return { build: updatedBuild, asset: createdAsset };
+    };
+
+    const executeWithClient = async (callback) => {
+      if (typeof prisma.$transaction === "function") {
+        return prisma.$transaction((tx) => callback(tx));
+      }
+      return callback(prisma);
+    };
+
+    const { build, asset } = await executeWithClient(runCreation);
+
+    const payload = asset ? { ...build, assets: [asset] } : build;
+
+    res.status(201).json(payload);
   } catch (err) {
     console.error("createBuild error:", err);
     res.status(500).json({ error: "Erreur création build" });
@@ -91,7 +186,7 @@ export const deleteBuild = async (req, res) => {
 
 // === AJOUT NOUVEAUTÉ : addVersion + upload ==================
 export const addVersion = [
-  upload.single("file"),
+  singleFileUpload,
   async (req, res) => {
     try {
       const id = Number(req.params.id);

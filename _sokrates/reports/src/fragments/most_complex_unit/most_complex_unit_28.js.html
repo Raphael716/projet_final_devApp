@@ -1,21 +1,32 @@
 <html>
 <head>
-    <title>function getTableHeader()</title>
+    <title>onBeforeLoad()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function getTableHeader()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [15:17]</i></p>
+<h3 style="margin-bottom: 0">onBeforeLoad()</h3>
+<p style="margin-top: 4px">in <i>cypress/e2e/admin.cy.js [89:102]</i></p>
 <ul>
-    <li><b>3</b> lines of code</li>
+    <li><b>14</b> lines of code</li>
     <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function getTableHeader() {
-        return getTable().querySelector('thead tr');
-    }
+      onBeforeLoad(win) {
+        const NON_ADMIN = {
+          id: 10,
+          username: &quot;User&quot;,
+          email: &quot;user@test.com&quot;,
+          admin: 0,
+          isAdmin: false,
+        };
+        const token = &quot;user-token&quot;;
+        win.localStorage.setItem(&quot;spl_token&quot;, token);
+        win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(NON_ADMIN));
+        win.localStorage.setItem(&quot;auth_token&quot;, token);
+        win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(NON_ADMIN));
+      },
 
 </code>
 </pre>

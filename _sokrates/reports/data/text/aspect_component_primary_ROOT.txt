@@ -1,0 +1,3 @@
+Path	Lines of Code
+cypress.config.js	12
+generate-sokrates-reports.ps1	140

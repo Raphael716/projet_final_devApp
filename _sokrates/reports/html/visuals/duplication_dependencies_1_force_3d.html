@@ -12,27 +12,19 @@
 <script>
     const gData = {
   "nodes" : [ {
-    "id" : "SPL/src",
-    "size" : 2
+    "id" : "cypress/support",
+    "size" : 1
   }, {
-    "id" : "backend/uploads",
-    "size" : 3
+    "id" : "SPL/src",
+    "size" : 1
+  }, {
+    "id" : "cypress/e2e",
+    "size" : 1
   }, {
     "id" : "SPL/coverage",
-    "size" : 2
-  }, {
-    "id" : "SPL",
     "size" : 1
   } ],
   "links" : [ {
-    "source" : "SPL/src",
-    "target" : "backend/uploads",
-    "count" : 841
-  }, {
-    "source" : "backend/uploads",
-    "target" : "SPL/src",
-    "count" : 841
-  }, {
     "source" : "SPL/coverage",
     "target" : "SPL/src",
     "count" : 524
@@ -41,21 +33,13 @@
     "target" : "SPL/coverage",
     "count" : 524
   }, {
-    "source" : "SPL",
-    "target" : "backend/uploads",
-    "count" : 97
+    "source" : "cypress/e2e",
+    "target" : "cypress/support",
+    "count" : 12
   }, {
-    "source" : "backend/uploads",
-    "target" : "SPL",
-    "count" : 97
-  }, {
-    "source" : "SPL/coverage",
-    "target" : "backend/uploads",
-    "count" : 24
-  }, {
-    "source" : "backend/uploads",
-    "target" : "SPL/coverage",
-    "count" : 24
+    "source" : "cypress/support",
+    "target" : "cypress/e2e",
+    "count" : 12
   } ]
 }
 

@@ -8,14 +8,14 @@
 }, {
   "relativePath" : "backend/package-lock.json",
   "extension" : "json",
-  "linesOfCode" : 3973,
+  "linesOfCode" : 4226,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "backend/package.json",
   "extension" : "json",
-  "linesOfCode" : 36,
+  "linesOfCode" : 38,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -41,16 +41,9 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "backend/uploads/1759510605850-823177759.txt",
-  "extension" : "txt",
-  "linesOfCode" : 1,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "backend/uploads/1760984689559-129179215.md",
-  "extension" : "md",
-  "linesOfCode" : 63,
+  "relativePath" : "cypress/fixtures/example.json",
+  "extension" : "json",
+  "linesOfCode" : 5,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -64,7 +57,7 @@
 }, {
   "relativePath" : "package.json",
   "extension" : "json",
-  "linesOfCode" : 24,
+  "linesOfCode" : 27,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -85,7 +78,7 @@
 }, {
   "relativePath" : "SPL/package.json",
   "extension" : "json",
-  "linesOfCode" : 38,
+  "linesOfCode" : 39,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -120,7 +113,7 @@
 }, {
   "relativePath" : "sprint3.txt",
   "extension" : "txt",
-  "linesOfCode" : 9,
+  "linesOfCode" : 13,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

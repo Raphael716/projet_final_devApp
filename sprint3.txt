@@ -6,6 +6,4 @@ npm test
 
 sokrates.dev
 // rapport
-java -jar .\sokrates\sokrates-LATEST.jar generateReports > sokrates_run.log 2>&1
-Get-Content .\sokrates_run.log -Tail 200
-Start-Process ".\_sokrates\reports\html\Structure.html"
+Start-Process ".\_sokrates\reports\html\index.html"

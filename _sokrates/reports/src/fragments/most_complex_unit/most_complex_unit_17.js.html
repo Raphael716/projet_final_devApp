@@ -1,23 +1,30 @@
 <html>
 <head>
-    <title>function addSortIndicators()</title>
+    <title>onBeforeLoad()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function addSortIndicators()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [159:163]</i></p>
+<h3 style="margin-bottom: 0">onBeforeLoad()</h3>
+<p style="margin-top: 4px">in <i>cypress/support/commands.js [17:28]</i></p>
 <ul>
-    <li><b>5</b> lines of code</li>
+    <li><b>9</b> lines of code</li>
     <li><b>2</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function addSortIndicators() {
-        getNthColumn(currentSort.index).className += currentSort.desc
-            ? ' sorted-desc'
-            : ' sorted';
-    }
+    onBeforeLoad(win) {
+      if (options.visitOptions?.onBeforeLoad) {
+        options.visitOptions.onBeforeLoad(win);
+      }
+      // Legacy keys still used in a few places
+      win.localStorage.setItem(&quot;spl_token&quot;, token);
+      win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(user));
+
+      // Keys actually read by the app's AuthProvider
+      win.localStorage.setItem(&quot;auth_token&quot;, token);
+      win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(user));
+    },
 
 </code>
 </pre>

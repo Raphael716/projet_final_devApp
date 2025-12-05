@@ -1,6 +1,6 @@
 Path	Lines of Code
 SPL/package-lock.json	4849
-backend/package-lock.json	3973
+backend/package-lock.json	4226
 backend/src/generated/prisma/client.js	1
 backend/src/generated/prisma/default.js	1
 backend/src/generated/prisma/index-browser.js	129

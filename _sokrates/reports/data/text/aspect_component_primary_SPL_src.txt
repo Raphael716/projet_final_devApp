@@ -22,7 +22,7 @@ SPL/src/Header.tsx	35
 SPL/src/Login.css	89
 SPL/src/Login.tsx	74
 SPL/src/NewBuild.css	81
-SPL/src/NewBuild.tsx	124
+SPL/src/NewBuild.tsx	127
 SPL/src/Signup.css	135
 SPL/src/Signup.tsx	82
 SPL/src/VersionDetail.css	170
