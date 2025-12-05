@@ -1,0 +1,97 @@
+name: Code Analysis (Sokrates)
+
+on:
+  push:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
+
+jobs:
+  sokrates-analysis:
+    name: Sokrates Code Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for Sokrates analysis
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      
+      - name: Download Sokrates
+        run: |
+          mkdir -p ./sokrates
+          cd ./sokrates
+          curl -L https://github.com/d-fine/Sokrates/releases/download/2.1.7/sokrates-LATEST.jar \
+               -o sokrates-LATEST.jar
+          cd ..
+      
+      - name: Run Sokrates Analysis
+        run: |
+          java -jar ./sokrates/sokrates-LATEST.jar generateReports > sokrates_analysis.log 2>&1 || true
+      
+      - name: Check Analysis Results
+        run: |
+          echo "=== Sokrates Report Generated ===" 
+          if [ -d "./_sokrates/reports/html" ]; then
+            echo "✅ HTML reports generated successfully"
+            ls -la ./_sokrates/reports/html/ | head -20
+          else
+            echo "❌ No HTML reports found"
+          fi
+      
+      - name: Upload Analysis Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: sokrates-analysis
+          path: |
+            ./_sokrates/reports/
+          retention-days: 30
+          if-no-files-found: ignore
+      
+      - name: Comment on PR with Analysis
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              const fs = require('fs');
+              if (fs.existsSync('SOKRATES_REPORT.md')) {
+                const report = fs.readFileSync('SOKRATES_REPORT.md', 'utf8');
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: '## 📊 Code Analysis Report\n\n' + report.substring(0, 30000)
+                });
+              }
+            } catch (error) {
+              console.log('Note: Could not post PR comment - ' + error.message);
+            }
+
+  publish-reports:
+    name: Publish Sokrates Reports
+    runs-on: ubuntu-latest
+    needs: sokrates-analysis
+    if: github.ref == 'refs/heads/main' && always()
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download Analysis
+        uses: actions/download-artifact@v3
+        with:
+          name: sokrates-analysis
+          path: ./sokrates-reports
+      
+      - name: Deploy Reports to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./sokrates-reports/reports/html
+          destination_dir: sokrates
+        continue-on-error: true
