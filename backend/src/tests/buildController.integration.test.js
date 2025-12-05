@@ -1,10 +1,23 @@
-import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+import {
+  describe,
+  it,
+  expect,
+  beforeAll,
+  beforeEach,
+  afterAll,
+  vi,
+} from "vitest";
 import { PrismaClient } from "@prisma/client";
 import * as buildController from "../controllers/buildController.js";
+import { ensureTestDatabase } from "./utils/integrationDb.js";
 
 const prisma = new PrismaClient();
 
 describe("Build Controller - Integration Tests", () => {
+  beforeAll(async () => {
+    await ensureTestDatabase();
+  });
+
   beforeEach(async () => {
     await prisma.asset.deleteMany({});
     await prisma.builds.deleteMany({});
@@ -35,6 +48,42 @@ describe("Build Controller - Integration Tests", () => {
         where: { nom: "Alpha Build" },
       });
       expect(inDb).not.toBeNull();
+    });
+
+    it("associe un fichier initial lorsqu'il est fourni", async () => {
+      const req = {
+        body: {
+          nom: "Build Fichier",
+          description: "Build avec asset initial",
+          version: "1.2.3",
+          statut: "test",
+          proprietaire: "Equipe QA",
+        },
+        file: {
+          filename: "initial.zip",
+          originalname: "release.zip",
+          mimetype: "application/zip",
+          size: 5120,
+          path: "uploads/initial.zip",
+        },
+      };
+      const res = { status: vi.fn().mockReturnThis(), json: vi.fn() };
+
+      await buildController.createBuild(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(201);
+
+      const payload = res.json.mock.calls[0][0];
+      expect(payload.id).toBeDefined();
+      expect(payload.version).toBe("1.2.3");
+      expect(Array.isArray(payload.assets)).toBe(true);
+      expect(payload.assets[0]).toMatchObject({ original: "release.zip" });
+
+      const savedAsset = await prisma.asset.findFirst({
+        where: { buildId: payload.id },
+      });
+      expect(savedAsset).not.toBeNull();
+      expect(savedAsset.version).toBe("1.2.3");
     });
   });
 
