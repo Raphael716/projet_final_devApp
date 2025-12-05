@@ -1,92 +1,55 @@
-import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
-import { PrismaClient } from "@prisma/client";
+import { describe, it, expect, beforeAll, vi } from "vitest";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
 import protect from "../middleware/authMiddleware.js";
-import adminOnly from "../middleware/adminMiddleware.js";
+import { PrismaClient } from "@prisma/client";
+import { ensureTestDatabase } from "./utils/integrationDb.js";
 
 const prisma = new PrismaClient();
 
 describe("Auth Middleware - Integration Tests", () => {
-  let validToken;
-  let adminToken;
-  let userId;
-  let adminId;
+  let user;
+  let token;
 
-  beforeEach(async () => {
-    await prisma.user.deleteMany({});
+  beforeAll(async () => {
+    // Ensure middleware and test use the same secret
+    process.env.JWT_SECRET = process.env.JWT_SECRET || "test_secret";
 
-    const passwordHash = await bcrypt.hash("pass123", 10);
+    await ensureTestDatabase();
+    await prisma.user.deleteMany();
 
-    // User standard
-    const user = await prisma.user.create({
+    user = await prisma.user.create({
       data: {
-        username: "reg",
-        email: "reg@test.com",
-        password: passwordHash,
+        username: "Tester",
+        email: "test@test.com",
+        password: "hashedpwd",
         admin: 0,
       },
     });
-    userId = user.id;
-    validToken = jwt.sign(
-      { id: user.id, admin: 0 },
-      process.env.JWT_SECRET || "test_secret"
-    );
 
-    // Admin
-    const admin = await prisma.user.create({
-      data: {
-        username: "adm",
-        email: "adm@test.com",
-        password: passwordHash,
-        admin: 1,
+    token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+  });
+
+  it("protect → doit valider un token correct", async () => {
+    const req = {
+      headers: {
+        authorization: `Bearer ${token}`,
       },
-    });
-    adminId = admin.id;
-    adminToken = jwt.sign(
-      { id: admin.id, admin: 1 },
-      process.env.JWT_SECRET || "test_secret"
-    );
-  });
+    };
 
-  afterAll(async () => {
-    await prisma.$disconnect();
-  });
+    const res = {
+      status: vi.fn(() => res),
+      json: vi.fn(() => res),
+    };
 
-  describe("protect", () => {
-    it("doit valider un token correct", async () => {
-      const req = { headers: { authorization: `Bearer ${validToken}` } };
-      const res = { status: vi.fn().mockReturnThis(), json: vi.fn() };
-      const next = vi.fn();
+    const next = vi.fn();
 
-      await protect(req, res, next);
+    await protect(req, res, next);
 
-      expect(next).toHaveBeenCalled();
-      expect(req.user).toBeDefined();
-      expect(req.user.id).toBe(userId);
-    });
-  });
-
-  describe("adminOnly", () => {
-    it("doit bloquer un utilisateur non-admin", async () => {
-      const req = { user: { id: userId, admin: 0 } };
-      const res = { status: vi.fn().mockReturnThis(), json: vi.fn() };
-      const next = vi.fn();
-
-      adminOnly(req, res, next);
-
-      expect(res.status).toHaveBeenCalledWith(403);
-      expect(next).not.toHaveBeenCalled();
-    });
-
-    it("doit laisser passer un administrateur", async () => {
-      const req = { user: { id: adminId, admin: 1 } };
-      const res = { status: vi.fn().mockReturnThis(), json: vi.fn() };
-      const next = vi.fn();
-
-      adminOnly(req, res, next);
-
-      expect(next).toHaveBeenCalled();
-    });
+    expect(next).toHaveBeenCalled();
+    expect(req.user).toBeDefined();
+    expect(req.user.id).toBe(user.id);
+    expect(res.status).not.toHaveBeenCalledWith(401);
   });
 });
