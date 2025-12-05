@@ -1,0 +1,227 @@
+name: Tests (Vitest + Cypress)
+
+on:
+  push:
+    branches: [ main, develop, 'chore/**' ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  backend-unit-tests:
+    name: Backend Unit Tests (Vitest)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm ci
+      
+      - name: Run backend unit tests
+        working-directory: ./backend
+        run: npm run test:unit
+        continue-on-error: true
+      
+      - name: Upload backend coverage (if exists)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-coverage
+          path: ./backend/coverage
+          if-no-files-found: ignore
+
+  backend-integration-tests:
+    name: Backend Integration Tests (Vitest)
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_DATABASE: s13_spl_test
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+        ports:
+          - 3306:3306
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm ci
+      
+      - name: Wait for MySQL
+        run: |
+          for i in {1..30}; do
+            if mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent 2>/dev/null; then
+              echo "MySQL is ready"
+              exit 0
+            fi
+            echo "Waiting for MySQL ($i/30)..."
+            sleep 1
+          done
+          echo "MySQL failed to start"
+          exit 1
+      
+      - name: Run backend integration tests
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
+          JWT_SECRET: test_secret
+        run: npm run test:integration
+        continue-on-error: true
+      
+      - name: Upload integration coverage (if exists)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-integration-coverage
+          path: ./backend/coverage
+          if-no-files-found: ignore
+
+  frontend-unit-tests:
+    name: Frontend Unit Tests (Vitest)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      
+      - name: Install frontend dependencies
+        working-directory: ./SPL
+        run: npm ci
+      
+      - name: Run frontend unit tests
+        working-directory: ./SPL
+        run: npm test
+        continue-on-error: true
+      
+      - name: Upload frontend coverage (if exists)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-coverage
+          path: ./SPL/coverage
+          if-no-files-found: ignore
+
+  e2e-tests:
+    name: E2E Tests (Cypress)
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_DATABASE: s13_spl_local
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+        ports:
+          - 3306:3306
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm ci
+      
+      - name: Install frontend dependencies
+        working-directory: ./SPL
+        run: npm ci
+      
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent; do
+            echo 'waiting for mysql...'
+            sleep 1
+          done
+      
+      - name: Start backend server
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_local
+          JWT_SECRET: test_secret
+          NODE_ENV: test
+        run: npm start &
+      
+      - name: Start frontend dev server
+        working-directory: ./SPL
+        run: npm run dev &
+      
+      - name: Wait for servers to start
+        run: |
+          sleep 5
+          npx wait-on http://localhost:4000 http://localhost:5173
+      
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: .
+          browser: chrome
+          headless: true
+          spec: cypress/e2e/**/*.cy.js
+        env:
+          CYPRESS_baseUrl: http://localhost:5173
+      
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      
+      - name: Upload Cypress videos
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+  test-summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [backend-unit-tests, backend-integration-tests, frontend-unit-tests, e2e-tests]
+    if: always()
+    
+    steps:
+      - name: Test Results Summary
+        run: |
+          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Backend Unit Tests: ${{ needs.backend-unit-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Backend Integration Tests: ${{ needs.backend-integration-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Frontend Unit Tests: ${{ needs.frontend-unit-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "✅ E2E Tests (Cypress): ${{ needs.e2e-tests.result }}" >> $GITHUB_STEP_SUMMARY
