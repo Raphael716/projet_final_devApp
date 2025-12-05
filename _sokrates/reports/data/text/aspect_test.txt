@@ -1,7 +1,15 @@
 Path	Lines of Code
-SPL/src/tests/Header.test.tsx	92
+SPL/src/tests/Header.test.tsx	89
 SPL/src/tests/Login.test.tsx	204
 SPL/src/tests/Signup.test.tsx	125
-backend/src/tests/userController.test.js	98
+backend/__mocks__/@prisma/client.js	24
+backend/src/tests/authMiddleware.integration.test.js	74
+backend/src/tests/buildController.integration.test.js	62
+backend/src/tests/buildController.test.js	83
+backend/src/tests/middleware.test.js	60
+backend/src/tests/setup.js	29
+backend/src/tests/userController.integration.test.js	71
+backend/src/tests/userController.test.js	96
 backend/test_upload.js	44
-backend/vitest.config.ts	13
+backend/vitest.config.ts	31
+backend/vitest.integration.config.ts	12

@@ -1,21 +1,63 @@
 [ {
   "key" : "primary",
   "components" : [ {
-    "name" : "backend",
-    "filesCount" : 21,
-    "linesOfCode" : 1385,
+    "name" : "backend/prisma",
+    "filesCount" : 3,
+    "linesOfCode" : 73,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.prisma",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.sql",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.toml",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.prisma",
+      "value" : 39,
+      "description" : [ ]
+    }, {
+      "name" : "  *.sql",
+      "value" : 31,
+      "description" : [ ]
+    }, {
+      "name" : "  *.toml",
+      "value" : 3,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "backend/src",
+    "filesCount" : 12,
+    "linesOfCode" : 721,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.js",
-      "value" : 13,
+      "value" : 12,
       "description" : [ ]
-    }, {
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.js",
+      "value" : 721,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "backend/uploads",
+    "filesCount" : 9,
+    "linesOfCode" : 622,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
       "name" : "  *.tsx",
       "value" : 5,
       "description" : [ ]
     }, {
-      "name" : "  *.prisma",
-      "value" : 1,
+      "name" : "  *.js",
+      "value" : 2,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -27,16 +69,12 @@
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
-      "name" : "  *.js",
-      "value" : 768,
-      "description" : [ ]
-    }, {
       "name" : "  *.tsx",
       "value" : 545,
       "description" : [ ]
     }, {
-      "name" : "  *.prisma",
-      "value" : 39,
+      "name" : "  *.js",
+      "value" : 44,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -48,58 +86,104 @@
       "description" : [ ]
     } ]
   }, {
-    "name" : "SPL",
-    "filesCount" : 47,
-    "linesOfCode" : 6070,
+    "name" : "SPL/coverage",
+    "filesCount" : 13,
+    "linesOfCode" : 3095,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.html",
-      "value" : 9,
+      "value" : 8,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 2,
       "description" : [ ]
     }, {
       "name" : "  *.css",
-      "value" : 16,
+      "value" : 2,
+      "description" : [ ]
+    }, {
+      "name" : "  *.xml",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.html",
+      "value" : 2573,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 237,
+      "description" : [ ]
+    }, {
+      "name" : "  *.css",
+      "value" : 204,
+      "description" : [ ]
+    }, {
+      "name" : "  *.xml",
+      "value" : 81,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "SPL",
+    "filesCount" : 3,
+    "linesOfCode" : 60,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 25,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 22,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 13,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "SPL/src",
+    "filesCount" : 31,
+    "linesOfCode" : 2920,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.css",
+      "value" : 14,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
       "value" : 15,
       "description" : [ ]
     }, {
-      "name" : "  *.js",
-      "value" : 3,
-      "description" : [ ]
-    }, {
-      "name" : "  *.xml",
-      "value" : 1,
-      "description" : [ ]
-    }, {
       "name" : "  *.ts",
-      "value" : 3,
+      "value" : 2,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
-      "name" : "  *.html",
-      "value" : 2586,
-      "description" : [ ]
-    }, {
       "name" : "  *.css",
-      "value" : 1750,
+      "value" : 1546,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
       "value" : 1349,
       "description" : [ ]
     }, {
-      "name" : "  *.js",
-      "value" : 259,
-      "description" : [ ]
-    }, {
-      "name" : "  *.xml",
-      "value" : 81,
-      "description" : [ ]
-    }, {
       "name" : "  *.ts",
-      "value" : 45,
+      "value" : 25,
       "description" : [ ]
     } ]
   } ],
@@ -109,12 +193,39 @@
     "name" : "primary",
     "scope" : "main",
     "filters" : [ ],
-    "componentsFolderDepth" : 1,
+    "componentsFolderDepth" : 2,
     "minComponentsCount" : 0,
     "components" : [ {
-      "name" : "backend",
+      "name" : "backend/prisma",
       "sourceFileFilters" : [ {
-        "pathPattern" : "../backend/.*",
+        "pathPattern" : "./backend/prisma/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "backend/src",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./backend/src/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "backend/uploads",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./backend/uploads/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "SPL/coverage",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./SPL/coverage/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -123,7 +234,26 @@
     }, {
       "name" : "SPL",
       "sourceFileFilters" : [ {
-        "pathPattern" : "../SPL/.*",
+        "pathPattern" : "./SPL/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/coverage/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/src/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "SPL/src",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./SPL/src/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -140,34 +270,66 @@
     },
     "renderingOptions" : {
       "orientation" : "TB",
-      "maxNumberOfDependencies" : 100,
+      "maxNumberOfDependencies" : 1000,
       "renderComponentsWithoutDependencies" : true,
-      "renderIndirectDependencies" : false,
-      "renderInternalIndirectDependencies" : false,
+      "renderIndirectDependencies" : true,
+      "renderInternalIndirectDependencies" : true,
       "reverseDirection" : false
     },
     "includeExternalComponents" : true,
-    "dependencyLinkThreshold" : 1,
-    "duplicationLinkThreshold" : 50,
+    "dependencyLinkThreshold" : 0,
+    "duplicationLinkThreshold" : 1,
     "temporalLinkThreshold" : 1,
-    "maxSearchDepthLines" : 200
+    "maxSearchDepthLines" : 1000
   },
-  "linesOfCodePerComponent" : [ {
-    "name" : "backend",
-    "value" : 1385,
+  "fileCountPerComponent" : [ {
+    "name" : "backend/prisma",
+    "value" : 3,
+    "description" : [ ]
+  }, {
+    "name" : "backend/src",
+    "value" : 12,
+    "description" : [ ]
+  }, {
+    "name" : "backend/uploads",
+    "value" : 9,
+    "description" : [ ]
+  }, {
+    "name" : "SPL/coverage",
+    "value" : 13,
     "description" : [ ]
   }, {
     "name" : "SPL",
-    "value" : 6070,
+    "value" : 3,
+    "description" : [ ]
+  }, {
+    "name" : "SPL/src",
+    "value" : 31,
     "description" : [ ]
   } ],
-  "fileCountPerComponent" : [ {
-    "name" : "backend",
-    "value" : 21,
+  "linesOfCodePerComponent" : [ {
+    "name" : "backend/prisma",
+    "value" : 73,
+    "description" : [ ]
+  }, {
+    "name" : "backend/src",
+    "value" : 721,
+    "description" : [ ]
+  }, {
+    "name" : "backend/uploads",
+    "value" : 622,
+    "description" : [ ]
+  }, {
+    "name" : "SPL/coverage",
+    "value" : 3095,
     "description" : [ ]
   }, {
     "name" : "SPL",
-    "value" : 47,
+    "value" : 60,
+    "description" : [ ]
+  }, {
+    "name" : "SPL/src",
+    "value" : 2920,
     "description" : [ ]
   } ]
 } ]

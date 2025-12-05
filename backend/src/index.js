@@ -1,10 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
+import "dotenv/config";
+import { PrismaClient } from "@prisma/client";
 
 // ----------------- Import Prisma -----------------
-//const prisma = require("./config/db");
-const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const app = express();
@@ -22,10 +21,10 @@ app.use((req, res, next) => {
 });
 
 // Routes
-const authRoutes = require("./routes/authRoutes");
-const userRoutes = require("./routes/userRoutes");
-const buildRoutes = require("./routes/buildRoutes");
-const assetRoutes = require("./routes/assetRoutes");
+import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import buildRoutes from "./routes/buildRoutes.js";
+import assetRoutes from "./routes/assetRoutes.js";
 app.use("/api/builds", buildRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
@@ -42,10 +41,11 @@ app.get("/", (req, res) => {
 // Test DB
 app.get("/test-db", async (req, res) => {
   try {
+    // simple test to ensure Prisma client can connect
+    await prisma.$connect();
     res.json({
       success: true,
       message: "Connexion à la DB OK",
-      sampleUser: result,
     });
   } catch (error) {
     console.error("Erreur DB :", error);
@@ -57,7 +57,7 @@ app.get("/test-db", async (req, res) => {
   }
 });
 
-app.use("/api/assets", require("./routes/assetRoutes"));
+// (routes already mounted above)
 
 // Démarrage serveur
 app.listen(PORT, () => {

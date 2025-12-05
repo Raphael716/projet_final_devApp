@@ -19,16 +19,16 @@
 }
 
 datasource db {
-  provider = &quot;mysql&quot;
+  provider = &quot;sqlite&quot;
   url      = env(&quot;DATABASE_URL&quot;)
 }
 
 model User {
   id        Int      @id @default(autoincrement())
-  username  String   @db.VarChar(255)
-  email     String   @unique(map: &quot;email&quot;) @db.VarChar(255)
-  password  String   @db.VarChar(255)
-  createdAt DateTime @default(now()) @db.DateTime(0)
+  username  String   
+  email     String   @unique(map: &quot;email&quot;)
+  password  String   
+  createdAt DateTime @default(now())
   admin     Int      @default(0)
 }
 
@@ -55,8 +55,7 @@ model Asset {
   version   String?
   description String?
   createdAt DateTime @default(now())
-}
-</div>
+}</div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");

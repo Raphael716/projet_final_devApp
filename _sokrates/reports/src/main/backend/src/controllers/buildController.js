@@ -1,8 +1,12 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
+import path from "path";
+import fs from "fs";
+import multer from "multer";
+import { fileURLToPath } from "url";
+
 const prisma = new PrismaClient();
-const path = require("path");
-const fs = require("fs");
-const multer = require("multer");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // === Dossier d’upload ===
 const UPLOAD_DIR = path.join(__dirname, "..", "..", "uploads");
@@ -21,7 +25,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // === TES FONCTIONS EXISTANTES ===============================
-exports.getBuilds = async (req, res) => {
+export const getBuilds = async (req, res) => {
   try {
     const builds = await prisma.builds.findMany({
       orderBy: { updatedAt: "desc" },
@@ -33,7 +37,7 @@ exports.getBuilds = async (req, res) => {
   }
 };
 
-exports.getBuildById = async (req, res) => {
+export const getBuildById = async (req, res) => {
   try {
     const id = Number(req.params.id);
     const build = await prisma.builds.findUnique({ where: { id } });
@@ -45,7 +49,7 @@ exports.getBuildById = async (req, res) => {
   }
 };
 
-exports.createBuild = async (req, res) => {
+export const createBuild = async (req, res) => {
   try {
     const { nom, description, version, statut, proprietaire } = req.body;
     const newBuild = await prisma.builds.create({
@@ -58,7 +62,7 @@ exports.createBuild = async (req, res) => {
   }
 };
 
-exports.updateBuild = async (req, res) => {
+export const updateBuild = async (req, res) => {
   try {
     const id = Number(req.params.id);
     const { nom, description, version, statut, proprietaire } = req.body;
@@ -73,7 +77,7 @@ exports.updateBuild = async (req, res) => {
   }
 };
 
-exports.deleteBuild = async (req, res) => {
+export const deleteBuild = async (req, res) => {
   try {
     const id = Number(req.params.id);
     await prisma.asset.deleteMany({ where: { buildId: id } });
@@ -86,7 +90,7 @@ exports.deleteBuild = async (req, res) => {
 };
 
 // === AJOUT NOUVEAUTÉ : addVersion + upload ==================
-exports.addVersion = [
+export const addVersion = [
   upload.single("file"),
   async (req, res) => {
     try {

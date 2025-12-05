@@ -1,7 +1,7 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-module.exports = function adminOnly(req, res, next) {
+export default function adminOnly(req, res, next) {
   try {
     if (!req.user) {
       return res.status(401).json({ error: "Non autorisé" });
@@ -16,4 +16,4 @@ module.exports = function adminOnly(req, res, next) {
     console.error("adminOnly:", e);
     res.status(500).json({ error: "Erreur serveur" });
   }
-};
+}

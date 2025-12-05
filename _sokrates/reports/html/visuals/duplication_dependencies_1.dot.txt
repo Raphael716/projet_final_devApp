@@ -1,0 +1,34 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#DC143C"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "SPL/src" -- "backend/uploads" [label=" 841 ", penwidth="10", color="#DC143CFF"];
+    "SPL/coverage" -- "SPL/src" [label=" 524 ", penwidth="6", color="#DC143CB7"];
+    "SPL" -- "backend/uploads" [label=" 97 ", penwidth="1", color="#DC143C5E"];
+    "SPL/coverage" -- "backend/uploads" [label=" 24 ", penwidth="1", color="#DC143C4C"];
+
+}

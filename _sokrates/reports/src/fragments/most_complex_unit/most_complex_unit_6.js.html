@@ -1,28 +1,34 @@
 <html>
 <head>
-    <title>function goToPrevious()</title>
+    <title>export default function adminOnly()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function goToPrevious()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/block-navigation.js [41:50]</i></p>
+<h3 style="margin-bottom: 0">export default function adminOnly()</h3>
+<p style="margin-top: 4px">in <i>backend/src/middleware/adminMiddleware.js [4:19]</i></p>
 <ul>
-    <li><b>9</b> lines of code</li>
+    <li><b>14</b> lines of code</li>
     <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function goToPrevious() {
-        var nextIndex = 0;
-        if (typeof currentIndex !== 'number' || currentIndex === 0) {
-            nextIndex = missingCoverageElements.length - 1;
-        } else if (missingCoverageElements.length &gt; 1) {
-            nextIndex = currentIndex - 1;
-        }
-
-        makeCurrent(nextIndex);
+export default function adminOnly(req, res, next) {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ error: &quot;Non autoris&eacute;&quot; });
     }
+
+    if (req.user.admin !== 1) {
+      return res.status(403).json({ error: &quot;R&eacute;serv&eacute; aux administrateurs&quot; });
+    }
+
+    next();
+  } catch (e) {
+    console.error(&quot;adminOnly:&quot;, e);
+    res.status(500).json({ error: &quot;Erreur serveur&quot; });
+  }
+}
 
 </code>
 </pre>

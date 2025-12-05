@@ -1,8 +1,12 @@
-const path = require("path");
-const fs = require("fs");
-const multer = require("multer");
-const { PrismaClient } = require("@prisma/client");
+import path from "path";
+import fs from "fs";
+import multer from "multer";
+import { PrismaClient } from "@prisma/client";
+import { fileURLToPath } from "url";
+
 const prisma = new PrismaClient();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const UPLOAD_DIR = path.join(__dirname, "..", "..", "uploads");
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
@@ -119,7 +123,7 @@ const upload = multer({
   },
 });
 
-exports.uploadMiddleware = (req, res, next) => {
+export const uploadMiddleware = (req, res, next) => {
   upload.single("file")(req, res, (err) => {
     if (err instanceof multer.MulterError) {
       if (err.code === "LIMIT_FILE_SIZE") {
@@ -137,7 +141,7 @@ exports.uploadMiddleware = (req, res, next) => {
   });
 };
 
-exports.uploadFiles = async (req, res) => {
+export const uploadFiles = async (req, res) => {
   try {
     const buildId = Number(req.params.buildId) || Number(req.params.id);
     if (!buildId || isNaN(buildId)) {
@@ -217,7 +221,7 @@ exports.uploadFiles = async (req, res) => {
   }
 };
 
-exports.getAssetsByBuild = async (req, res) => {
+export const getAssetsByBuild = async (req, res) => {
   try {
     const buildId = Number(req.params.id);
     const assets = await prisma.asset.findMany({
@@ -250,7 +254,7 @@ exports.getAssetsByBuild = async (req, res) => {
   }
 };
 
-exports.getAssetById = async (req, res) => {
+export const getAssetById = async (req, res) => {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({
@@ -282,7 +286,7 @@ exports.getAssetById = async (req, res) => {
   }
 };
 
-exports.downloadAsset = async (req, res) => {
+export const downloadAsset = async (req, res) => {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({ where: { id } });
@@ -332,7 +336,7 @@ exports.downloadAsset = async (req, res) => {
   }
 };
 
-exports.deleteAsset = async (req, res) => {
+export const deleteAsset = async (req, res) => {
   try {
     const id = Number(req.params.id);
     const asset = await prisma.asset.findUnique({ where: { id } });

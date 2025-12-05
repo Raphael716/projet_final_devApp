@@ -1,14 +1,17 @@
 {
   "metadata" : {
     "name" : "Projet_final_devapp",
-    "description" : "",
-    "tooltip" : "",
-    "logoLink" : "",
-    "links" : [ ]
+    "description" : "Sokrates static analysis for Projet_final_devApp (backend + SPL frontend).",
+    "tooltip" : "Sokrates analysis and reports for this project",
+    "logoLink" : "./_sokrates/logo.png",
+    "links" : [ {
+      "label" : "",
+      "href" : ""
+    } ]
   },
   "summary" : [ ],
   "srcRoot" : "..",
-  "extensions" : [ "js", "ts", "json", "md", "cjs", "mjs", "html", "yaml", "txt", "ps1", "cmd", "tsx", "css", "editorconfig", "svg", "npmignore", "xml", "markdown", "jshintrc", "coffee", "babelrc", "prisma", "mdown", "gitattributes", "py", "jscsrc", "applescript", "patch", "nix", "in", "eslintignore", "gitignore", "php" ],
+  "extensions" : [ "js", "ts", "json", "md", "html", "cjs", "mjs", "yaml", "txt", "tsx", "ps1", "cmd", "css", "editorconfig", "svg", "npmignore", "xml", "markdown", "jshintrc", "coffee", "babelrc", "prisma", "mdown", "gitattributes", "py", "jscsrc", "applescript", "patch", "nix", "in", "eslintignore", "sql", "gitignore", "toml", "php" ],
   "ignore" : [ {
     "pathPattern" : ".*/[.][a-zA-Z0-9_]+.*",
     "contentPattern" : "",
@@ -50,16 +53,6 @@
     "exception" : false,
     "note" : "Dependencies"
   }, {
-    "pathPattern" : ".*/git[-]history[.]txt",
-    "contentPattern" : "",
-    "exception" : false,
-    "note" : "Git history"
-  }, {
-    "pathPattern" : ".*/git[-][a-zA-Z0-9_]+[.]txt",
-    "contentPattern" : "",
-    "exception" : false,
-    "note" : "Git data exports for sokrates analyses"
-  }, {
     "pathPattern" : ".*/docs/.*",
     "contentPattern" : "",
     "exception" : false,
@@ -79,6 +72,11 @@
     "contentPattern" : "",
     "exception" : false,
     "note" : "Materialize css"
+  }, {
+    "pathPattern" : ".*/deps/.*",
+    "contentPattern" : "",
+    "exception" : false,
+    "note" : "Dependencies"
   } ],
   "main" : {
     "name" : "main",
@@ -142,6 +140,11 @@
       "contentPattern" : "",
       "exception" : false,
       "note" : "Test files"
+    }, {
+      "pathPattern" : ".*/__mock[a-zA-Z0-9_\\- ]+/.*",
+      "contentPattern" : "",
+      "exception" : false,
+      "note" : "Mock resources"
     }, {
       "pathPattern" : ".*/jest[.][a-zA-Z0-9\\.]+",
       "contentPattern" : "",
@@ -334,7 +337,7 @@
     "components" : [ {
       "name" : "1-30 days old",
       "sourceFileFilters" : [ ],
-      "files" : [ "backend/uploads/1761328515350-537683809.tsx", "backend/uploads/1761856845660-484720083.tsx", "backend/uploads/1762454458967-378888263.js", "backend/uploads/1762454573094-541774994.js", "backend/uploads/1762454810175-584589586.html", "backend/uploads/1762455641633-595545837.ts", "SPL/src/VersionDetail.css", "SPL/src/VersionDetail.tsx" ]
+      "files" : [ "backend/prisma/migrations/20251128162447_init_sqlite/migration.sql", "backend/prisma/migrations/migration_lock.toml", "backend/src/db.js", "backend/uploads/1761328515350-537683809.tsx", "backend/uploads/1761856845660-484720083.tsx", "backend/uploads/1762454458967-378888263.js", "backend/uploads/1762454573094-541774994.js", "backend/uploads/1762454810175-584589586.html", "backend/uploads/1762455641633-595545837.ts", "SPL/coverage/AuthContext.ts.html", "SPL/coverage/base.css", "SPL/coverage/block-navigation.js", "SPL/coverage/clover.xml", "SPL/coverage/Header.css.html", "SPL/coverage/Header.tsx.html", "SPL/coverage/index.html", "SPL/coverage/Login.css.html", "SPL/coverage/Login.tsx.html", "SPL/coverage/prettify.css", "SPL/coverage/Signup.css.html", "SPL/coverage/Signup.tsx.html", "SPL/coverage/sorter.js", "SPL/src/setupTests.ts", "SPL/src/VersionDetail.css", "SPL/src/VersionDetail.tsx" ]
     }, {
       "name" : "31-90 days old",
       "sourceFileFilters" : [ ],

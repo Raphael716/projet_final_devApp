@@ -1,22 +1,22 @@
 <html>
 <head>
-    <title>function toNumber()</title>
+    <title>await fetch()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function toNumber()</h3>
-<p style="margin-top: 4px">in <i>SPL/src/AuthProvider.tsx [6:9]</i></p>
+<h3 style="margin-bottom: 0">await fetch()</h3>
+<p style="margin-top: 4px">in <i>SPL/src/AdminUsers.tsx [36:39]</i></p>
 <ul>
     <li><b>4</b> lines of code</li>
-    <li><b>3</b> McCabe index (conditional complexity)</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function toNumber(v: unknown, fallback = 0): number {
-  const n = typeof v === &quot;number&quot; ? v : Number(v);
-  return Number.isFinite(n) ? n : fallback;
-}
+    await fetch(`/api/users/${id}`, {
+      method: &quot;DELETE&quot;,
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
 </code>
 </pre>

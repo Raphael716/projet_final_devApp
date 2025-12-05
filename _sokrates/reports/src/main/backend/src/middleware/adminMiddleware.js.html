@@ -13,10 +13,10 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">backend/src/middleware/adminMiddleware.js (<b>16</b> lines of code) (<a href="adminMiddleware.js">raw</a>):</h3>
-<div id="editor">const { PrismaClient } = require(&quot;@prisma/client&quot;);
+<div id="editor">import { PrismaClient } from &quot;@prisma/client&quot;;
 const prisma = new PrismaClient();
 
-module.exports = function adminOnly(req, res, next) {
+export default function adminOnly(req, res, next) {
   try {
     if (!req.user) {
       return res.status(401).json({ error: &quot;Non autoris&eacute;&quot; });
@@ -31,7 +31,7 @@ module.exports = function adminOnly(req, res, next) {
     console.error(&quot;adminOnly:&quot;, e);
     res.status(500).json({ error: &quot;Erreur serveur&quot; });
   }
-};
+}
 </div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>

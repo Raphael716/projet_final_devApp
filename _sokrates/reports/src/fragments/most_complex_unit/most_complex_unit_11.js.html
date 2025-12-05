@@ -1,35 +1,29 @@
 <html>
 <head>
-    <title>function loadRowData()</title>
+    <title>function goToNext()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function loadRowData()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [92:109]</i></p>
+<h3 style="margin-bottom: 0">function goToNext()</h3>
+<p style="margin-top: 4px">in <i>SPL/coverage/block-navigation.js [52:63]</i></p>
 <ul>
-    <li><b>18</b> lines of code</li>
+    <li><b>10</b> lines of code</li>
     <li><b>3</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function loadRowData(tableRow) {
-        var tableCols = tableRow.querySelectorAll('td'),
-            colNode,
-            col,
-            data = {},
-            i,
-            val;
-        for (i = 0; i &lt; tableCols.length; i += 1) {
-            colNode = tableCols[i];
-            col = cols[i];
-            val = colNode.getAttribute('data-value');
-            if (col.type === 'number') {
-                val = Number(val);
-            }
-            data[col.key] = val;
+    function goToNext() {
+        var nextIndex = 0;
+
+        if (
+            typeof currentIndex === 'number' &amp;&amp;
+            currentIndex &lt; missingCoverageElements.length - 1
+        ) {
+            nextIndex = currentIndex + 1;
         }
-        return data;
+
+        makeCurrent(nextIndex);
     }
 
 </code>
