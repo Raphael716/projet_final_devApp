@@ -1,12 +1,11 @@
 // backend/src/controllers/userController.js
-const { PrismaClient } = require("@prisma/client");
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import { PrismaClient } from "@prisma/client";
+
 const prisma = new PrismaClient();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 
-// ----------------- CRUD utilisateurs (admin) -----------------
-
-const getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   try {
     const users = await prisma.user.findMany({
       select: { id: true, username: true, email: true, admin: true },
@@ -18,7 +17,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-const getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await prisma.user.findUnique({
@@ -33,7 +32,7 @@ const getUserById = async (req, res) => {
   }
 };
 
-const createUser = async (req, res) => {
+export const createUser = async (req, res) => {
   const { username, email, password, admin } = req.body;
   try {
     const exists = await prisma.user.findUnique({ where: { email } });
@@ -56,7 +55,7 @@ const createUser = async (req, res) => {
   }
 };
 
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
   const { id } = req.params;
   const { username, email, admin } = req.body;
   try {
@@ -76,7 +75,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
   const { id } = req.params;
   try {
     await prisma.user.delete({ where: { id: Number(id) } });
@@ -89,7 +88,7 @@ const deleteUser = async (req, res) => {
 
 // ----------------- Auth (register/login) -----------------
 
-const registerUser = async (req, res) => {
+export const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -116,7 +115,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-const loginUser = async (req, res) => {
+export const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await prisma.user.findUnique({ where: { email } });
@@ -139,14 +138,4 @@ const loginUser = async (req, res) => {
     console.error("loginUser:", error);
     res.status(500).json({ error: "Erreur lors de la connexion" });
   }
-};
-
-module.exports = {
-  getAllUsers,
-  createUser,
-  getUserById,
-  updateUser,
-  deleteUser,
-  registerUser,
-  loginUser,
 };

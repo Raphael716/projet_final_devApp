@@ -22559,7 +22559,7 @@ SPL/src/assets/react.svg
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Hidden files and folders
 path like ".*/[.][a-zA-Z0-9_]+.*"
-278 files:
+289 files:
 
 .gitignore
 backend/node_modules/.bin/bcrypt.cmd
@@ -22607,6 +22607,7 @@ backend/node_modules/.prisma/client/schema.prisma
 backend/node_modules/.prisma/client/wasm-edge-light-loader.mjs
 backend/node_modules/.prisma/client/wasm-worker-loader.mjs
 backend/node_modules/.prisma/client/wasm.d.ts
+backend/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json
 backend/node_modules/append-field/.npmignore
 backend/node_modules/buffer-equal-constant-time/.npmignore
 backend/node_modules/busboy/.eslintrc.js
@@ -22693,6 +22694,7 @@ node_modules/.bin/vitest.ps1
 node_modules/.bin/why-is-node-running.cmd
 node_modules/.bin/why-is-node-running.ps1
 node_modules/.package-lock.json
+node_modules/.vite/vitest/results.json
 node_modules/call-bind/.eslintignore
 node_modules/cypress/node_modules/.bin/semver.cmd
 node_modules/cypress/node_modules/.bin/semver.ps1
@@ -22821,6 +22823,15 @@ SPL/node_modules/.prisma/client/index.d.ts
 SPL/node_modules/.prisma/client/index.js
 SPL/node_modules/.prisma/client/wasm.d.ts
 SPL/node_modules/.prisma/client/wasm.js
+SPL/node_modules/.vite/deps/chunk-2WHLTL63.js
+SPL/node_modules/.vite/deps/chunk-6NCKM4JN.js
+SPL/node_modules/.vite/deps/package.json
+SPL/node_modules/.vite/deps/react-dom.js
+SPL/node_modules/.vite/deps/react.js
+SPL/node_modules/.vite/deps/react_jsx-dev-runtime.js
+SPL/node_modules/.vite/deps/react_jsx-runtime.js
+SPL/node_modules/.vite/deps/_metadata.json
+SPL/node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json
 SPL/node_modules/@typescript-eslint/typescript-estree/node_modules/.bin/semver.cmd
 SPL/node_modules/@typescript-eslint/typescript-estree/node_modules/.bin/semver.ps1
 SPL/node_modules/ajv/.tonic_example.js
@@ -22846,7 +22857,7 @@ SPL/node_modules/stackback/.npmignore
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Too long file (1000000+ bytes)
-53 files:
+54 files:
 
 backend/node_modules/@prisma/client/runtime/query_compiler_bg.cockroachdb.wasm-base64.js
 backend/node_modules/@prisma/client/runtime/query_compiler_bg.cockroachdb.wasm-base64.mjs
@@ -22872,6 +22883,7 @@ backend/node_modules/jiti/dist/babel.cjs
 backend/node_modules/prisma/build/index.js
 backend/node_modules/prisma/build/public/assets/vendor.js
 backend/node_modules/vite/dist/node/chunks/config.js
+git-history.txt
 node_modules/react-dom/cjs/react-dom.development.js
 node_modules/react-dom/umd/react-dom.development.js
 node_modules/vite/dist/node/chunks/config.js
@@ -22908,7 +22920,7 @@ SPL/node_modules/vite/dist/node/chunks/dep-M_KD0XSK.js
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Too many lines (10000)
-50 files:
+52 files:
 
 backend/node_modules/@babel/parser/lib/index.js
 backend/node_modules/@prisma/client/generator-build/index.js
@@ -22944,6 +22956,8 @@ node_modules/psl/dist/psl.mjs
 node_modules/rollup/dist/es/shared/node-entry.js
 node_modules/rollup/dist/shared/rollup.js
 node_modules/vitest/dist/vendor/cli-api.OdDWuB7Y.js
+SPL/node_modules/.vite/deps/react-dom_client.js
+SPL/node_modules/.vite/deps/react-router-dom.js
 SPL/node_modules/@babel/parser/lib/index.js
 SPL/node_modules/@prisma/client/generator-build/index.js
 SPL/node_modules/@testing-library/dom/dist/@testing-library/dom.umd.js
@@ -22977,16 +22991,6 @@ backend/src/generated/prisma/runtime/index-browser.d.ts
 backend/src/generated/prisma/runtime/library.d.ts
 backend/src/generated/prisma/wasm.d.ts
 SPL/src/vite-env.d.ts
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Git history
-path like ".*/git[-]history[.]txt"
-1 files:
-
-git-history.txt
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

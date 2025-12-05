@@ -12,12 +12,16 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">backend/src/controllers/buildController.js (<b>113</b> lines of code) (<a href="buildController.js">raw</a>):</h3>
-<div id="editor">const { PrismaClient } = require(&quot;@prisma/client&quot;);
+<h3 style="margin-bottom: 0">backend/src/controllers/buildController.js (<b>116</b> lines of code) (<a href="buildController.js">raw</a>):</h3>
+<div id="editor">import { PrismaClient } from &quot;@prisma/client&quot;;
+import path from &quot;path&quot;;
+import fs from &quot;fs&quot;;
+import multer from &quot;multer&quot;;
+import { fileURLToPath } from &quot;url&quot;;
+
 const prisma = new PrismaClient();
-const path = require(&quot;path&quot;);
-const fs = require(&quot;fs&quot;);
-const multer = require(&quot;multer&quot;);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // === Dossier d&rsquo;upload ===
 const UPLOAD_DIR = path.join(__dirname, &quot;..&quot;, &quot;..&quot;, &quot;uploads&quot;);
@@ -36,7 +40,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // === TES FONCTIONS EXISTANTES ===============================
-exports.getBuilds = async (req, res) =&gt; {
+export const getBuilds = async (req, res) =&gt; {
   try {
     const builds = await prisma.builds.findMany({
       orderBy: { updatedAt: &quot;desc&quot; },
@@ -48,7 +52,7 @@ exports.getBuilds = async (req, res) =&gt; {
   }
 };
 
-exports.getBuildById = async (req, res) =&gt; {
+export const getBuildById = async (req, res) =&gt; {
   try {
     const id = Number(req.params.id);
     const build = await prisma.builds.findUnique({ where: { id } });
@@ -60,7 +64,7 @@ exports.getBuildById = async (req, res) =&gt; {
   }
 };
 
-exports.createBuild = async (req, res) =&gt; {
+export const createBuild = async (req, res) =&gt; {
   try {
     const { nom, description, version, statut, proprietaire } = req.body;
     const newBuild = await prisma.builds.create({
@@ -73,7 +77,7 @@ exports.createBuild = async (req, res) =&gt; {
   }
 };
 
-exports.updateBuild = async (req, res) =&gt; {
+export const updateBuild = async (req, res) =&gt; {
   try {
     const id = Number(req.params.id);
     const { nom, description, version, statut, proprietaire } = req.body;
@@ -88,7 +92,7 @@ exports.updateBuild = async (req, res) =&gt; {
   }
 };
 
-exports.deleteBuild = async (req, res) =&gt; {
+export const deleteBuild = async (req, res) =&gt; {
   try {
     const id = Number(req.params.id);
     await prisma.asset.deleteMany({ where: { buildId: id } });
@@ -101,7 +105,7 @@ exports.deleteBuild = async (req, res) =&gt; {
 };
 
 // === AJOUT NOUVEAUT&Eacute; : addVersion + upload ==================
-exports.addVersion = [
+export const addVersion = [
   upload.single(&quot;file&quot;),
   async (req, res) =&gt; {
     try {

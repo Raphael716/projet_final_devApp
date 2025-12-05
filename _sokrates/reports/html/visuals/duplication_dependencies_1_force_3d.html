@@ -12,20 +12,50 @@
 <script>
     const gData = {
   "nodes" : [ {
-    "id" : "backend",
-    "size" : 1
+    "id" : "SPL/src",
+    "size" : 2
+  }, {
+    "id" : "backend/uploads",
+    "size" : 3
+  }, {
+    "id" : "SPL/coverage",
+    "size" : 2
   }, {
     "id" : "SPL",
     "size" : 1
   } ],
   "links" : [ {
-    "source" : "SPL",
-    "target" : "backend",
-    "count" : 950
+    "source" : "SPL/src",
+    "target" : "backend/uploads",
+    "count" : 841
   }, {
-    "source" : "backend",
+    "source" : "backend/uploads",
+    "target" : "SPL/src",
+    "count" : 841
+  }, {
+    "source" : "SPL/coverage",
+    "target" : "SPL/src",
+    "count" : 524
+  }, {
+    "source" : "SPL/src",
+    "target" : "SPL/coverage",
+    "count" : 524
+  }, {
+    "source" : "SPL",
+    "target" : "backend/uploads",
+    "count" : 97
+  }, {
+    "source" : "backend/uploads",
     "target" : "SPL",
-    "count" : 950
+    "count" : 97
+  }, {
+    "source" : "SPL/coverage",
+    "target" : "backend/uploads",
+    "count" : 24
+  }, {
+    "source" : "backend/uploads",
+    "target" : "SPL/coverage",
+    "count" : 24
   } ]
 }
 

@@ -12,16 +12,15 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">backend/src/controllers/userController.js (<b>129</b> lines of code) (<a href="userController.js">raw</a>):</h3>
+<h3 style="margin-bottom: 0">backend/src/controllers/userController.js (<b>120</b> lines of code) (<a href="userController.js">raw</a>):</h3>
 <div id="editor">// backend/src/controllers/userController.js
-const { PrismaClient } = require(&quot;@prisma/client&quot;);
+import bcrypt from &quot;bcryptjs&quot;;
+import jwt from &quot;jsonwebtoken&quot;;
+import { PrismaClient } from &quot;@prisma/client&quot;;
+
 const prisma = new PrismaClient();
-const bcrypt = require(&quot;bcryptjs&quot;);
-const jwt = require(&quot;jsonwebtoken&quot;);
 
-// ----------------- CRUD utilisateurs (admin) -----------------
-
-const getAllUsers = async (req, res) =&gt; {
+export const getAllUsers = async (req, res) =&gt; {
   try {
     const users = await prisma.user.findMany({
       select: { id: true, username: true, email: true, admin: true },
@@ -33,7 +32,7 @@ const getAllUsers = async (req, res) =&gt; {
   }
 };
 
-const getUserById = async (req, res) =&gt; {
+export const getUserById = async (req, res) =&gt; {
   const { id } = req.params;
   try {
     const user = await prisma.user.findUnique({
@@ -48,7 +47,7 @@ const getUserById = async (req, res) =&gt; {
   }
 };
 
-const createUser = async (req, res) =&gt; {
+export const createUser = async (req, res) =&gt; {
   const { username, email, password, admin } = req.body;
   try {
     const exists = await prisma.user.findUnique({ where: { email } });
@@ -71,7 +70,7 @@ const createUser = async (req, res) =&gt; {
   }
 };
 
-const updateUser = async (req, res) =&gt; {
+export const updateUser = async (req, res) =&gt; {
   const { id } = req.params;
   const { username, email, admin } = req.body;
   try {
@@ -91,7 +90,7 @@ const updateUser = async (req, res) =&gt; {
   }
 };
 
-const deleteUser = async (req, res) =&gt; {
+export const deleteUser = async (req, res) =&gt; {
   const { id } = req.params;
   try {
     await prisma.user.delete({ where: { id: Number(id) } });
@@ -104,7 +103,7 @@ const deleteUser = async (req, res) =&gt; {
 
 // ----------------- Auth (register/login) -----------------
 
-const registerUser = async (req, res) =&gt; {
+export const registerUser = async (req, res) =&gt; {
   const { username, email, password } = req.body;
   try {
     const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -131,7 +130,7 @@ const registerUser = async (req, res) =&gt; {
   }
 };
 
-const loginUser = async (req, res) =&gt; {
+export const loginUser = async (req, res) =&gt; {
   const { email, password } = req.body;
   try {
     const user = await prisma.user.findUnique({ where: { email } });
@@ -154,16 +153,6 @@ const loginUser = async (req, res) =&gt; {
     console.error(&quot;loginUser:&quot;, error);
     res.status(500).json({ error: &quot;Erreur lors de la connexion&quot; });
   }
-};
-
-module.exports = {
-  getAllUsers,
-  createUser,
-  getUserById,
-  updateUser,
-  deleteUser,
-  registerUser,
-  loginUser,
 };
 </div>
 <script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>

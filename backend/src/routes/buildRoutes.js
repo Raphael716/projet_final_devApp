@@ -1,18 +1,18 @@
-const express = require("express");
+import express from "express";
+import { PrismaClient } from "@prisma/client";
+import * as buildController from "../controllers/buildController.js";
+import * as assetController from "../controllers/assetController.js";
+import protect from "../middleware/authMiddleware.js";
+import adminOnly from "../middleware/adminMiddleware.js";
+
 const router = express.Router();
-const buildController = require("../controllers/buildController");
-const assetController = require("../controllers/assetController");
-const protect = require("../middleware/authMiddleware");
-const adminOnly = require("../middleware/adminMiddleware");
+const prisma = new PrismaClient();
 
 router.get("/", async (req, res) => {
   try {
-    const { PrismaClient } = require("@prisma/client");
-    const prisma = new PrismaClient();
-
     const builds = await prisma.builds.findMany({
       include: {
-        assets: {
+        asset: {
           select: {
             id: true,
             original: true,
@@ -25,7 +25,12 @@ router.get("/", async (req, res) => {
       orderBy: { updatedAt: "desc" },
     });
 
-    res.json(builds);
+    const formatted = builds.map(({ asset, ...rest }) => ({
+      ...rest,
+      assets: asset,
+    }));
+
+    res.json(formatted);
   } catch (err) {
     console.error("Erreur route GET /api/builds :", err);
     res
@@ -34,28 +39,17 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Créer un build
-router.post("/", buildController.createBuild);
-
-// Détail d'un build
+router.post("/", buildController.parseBuildFile, buildController.createBuild);
 router.get("/:id", buildController.getBuildById);
-
-// Modifier un build
 router.put("/:id", buildController.updateBuild);
-
-// Supprimer un build
 router.delete("/:id", buildController.deleteBuild);
 
-// upload fichier + version (admin uniquement)
 router.post(
   "/:id/add-version",
   protect,
   adminOnly,
-  (req, res, next) => {
-    next();
-  },
   assetController.uploadMiddleware,
   assetController.uploadFiles
 );
 
-module.exports = router;
+export default router;

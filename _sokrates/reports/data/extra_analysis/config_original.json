@@ -1,14 +1,17 @@
 {
   "metadata" : {
     "name" : "Projet_final_devapp",
-    "description" : "",
-    "tooltip" : "",
-    "logoLink" : "",
-    "links" : [ ]
+    "description" : "Sokrates static analysis for Projet_final_devApp (backend + SPL frontend).",
+    "tooltip" : "Sokrates analysis and reports for this project",
+    "logoLink" : "./_sokrates/logo.png",
+    "links" : [ {
+      "label" : "",
+      "href" : ""
+    } ]
   },
   "summary" : [ ],
   "srcRoot" : "..",
-  "extensions" : [ "js", "ts", "json", "md", "cjs", "mjs", "html", "yaml", "txt", "ps1", "cmd", "tsx", "css", "editorconfig", "svg", "npmignore", "xml", "markdown", "jshintrc", "coffee", "babelrc", "prisma", "mdown", "gitattributes", "py", "jscsrc", "applescript", "patch", "nix", "in", "eslintignore", "gitignore", "php" ],
+  "extensions" : [ "js", "ts", "json", "md", "html", "cjs", "mjs", "yaml", "txt", "tsx", "ps1", "cmd", "css", "editorconfig", "svg", "npmignore", "xml", "markdown", "jshintrc", "coffee", "babelrc", "prisma", "mdown", "gitattributes", "py", "jscsrc", "applescript", "patch", "nix", "in", "eslintignore", "sql", "gitignore", "toml", "php" ],
   "ignore" : [ {
     "pathPattern" : ".*/[.][a-zA-Z0-9_]+.*",
     "contentPattern" : "",
@@ -50,16 +53,6 @@
     "exception" : false,
     "note" : "Dependencies"
   }, {
-    "pathPattern" : ".*/git[-]history[.]txt",
-    "contentPattern" : "",
-    "exception" : false,
-    "note" : "Git history"
-  }, {
-    "pathPattern" : ".*/git[-][a-zA-Z0-9_]+[.]txt",
-    "contentPattern" : "",
-    "exception" : false,
-    "note" : "Git data exports for sokrates analyses"
-  }, {
     "pathPattern" : ".*/docs/.*",
     "contentPattern" : "",
     "exception" : false,
@@ -79,6 +72,11 @@
     "contentPattern" : "",
     "exception" : false,
     "note" : "Materialize css"
+  }, {
+    "pathPattern" : ".*/deps/.*",
+    "contentPattern" : "",
+    "exception" : false,
+    "note" : "Dependencies"
   } ],
   "main" : {
     "name" : "main",
@@ -142,6 +140,11 @@
       "contentPattern" : "",
       "exception" : false,
       "note" : "Test files"
+    }, {
+      "pathPattern" : ".*/__mock[a-zA-Z0-9_\\- ]+/.*",
+      "contentPattern" : "",
+      "exception" : false,
+      "note" : "Mock resources"
     }, {
       "pathPattern" : ".*/jest[.][a-zA-Z0-9\\.]+",
       "contentPattern" : "",
@@ -329,12 +332,39 @@
     "name" : "primary",
     "scope" : "main",
     "filters" : [ ],
-    "componentsFolderDepth" : 1,
+    "componentsFolderDepth" : 2,
     "minComponentsCount" : 0,
     "components" : [ {
-      "name" : "backend",
+      "name" : "backend/prisma",
       "sourceFileFilters" : [ {
-        "pathPattern" : "../backend/.*",
+        "pathPattern" : "./backend/prisma/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "backend/src",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./backend/src/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "backend/uploads",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./backend/uploads/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "SPL/coverage",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./SPL/coverage/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -343,7 +373,26 @@
     }, {
       "name" : "SPL",
       "sourceFileFilters" : [ {
-        "pathPattern" : "../SPL/.*",
+        "pathPattern" : "./SPL/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/coverage/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./SPL/src/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "SPL/src",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./SPL/src/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -360,17 +409,17 @@
     },
     "renderingOptions" : {
       "orientation" : "TB",
-      "maxNumberOfDependencies" : 100,
+      "maxNumberOfDependencies" : 1000,
       "renderComponentsWithoutDependencies" : true,
-      "renderIndirectDependencies" : false,
-      "renderInternalIndirectDependencies" : false,
+      "renderIndirectDependencies" : true,
+      "renderInternalIndirectDependencies" : true,
       "reverseDirection" : false
     },
     "includeExternalComponents" : true,
-    "dependencyLinkThreshold" : 1,
-    "duplicationLinkThreshold" : 50,
+    "dependencyLinkThreshold" : 0,
+    "duplicationLinkThreshold" : 1,
     "temporalLinkThreshold" : 1,
-    "maxSearchDepthLines" : 200
+    "maxSearchDepthLines" : 1000
   } ],
   "concernGroups" : [ {
     "name" : "general",

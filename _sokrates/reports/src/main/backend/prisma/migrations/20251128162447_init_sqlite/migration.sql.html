@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>backend/prisma/migrations/20251128162447_init_sqlite/migration.sql</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/prisma/migrations/20251128162447_init_sqlite/migration.sql (<b>31</b> lines of code) (<a href="migration.sql">raw</a>):</h3>
+<div id="editor">-- CreateTable
+CREATE TABLE &quot;User&quot; (
+    &quot;id&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    &quot;username&quot; TEXT NOT NULL,
+    &quot;email&quot; TEXT NOT NULL,
+    &quot;password&quot; TEXT NOT NULL,
+    &quot;createdAt&quot; DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    &quot;admin&quot; INTEGER NOT NULL DEFAULT 0
+);
+
+-- CreateTable
+CREATE TABLE &quot;Builds&quot; (
+    &quot;id&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    &quot;nom&quot; TEXT NOT NULL,
+    &quot;description&quot; TEXT,
+    &quot;version&quot; TEXT,
+    &quot;statut&quot; TEXT,
+    &quot;proprietaire&quot; TEXT,
+    &quot;updatedAt&quot; DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateTable
+CREATE TABLE &quot;Asset&quot; (
+    &quot;id&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    &quot;filename&quot; TEXT NOT NULL,
+    &quot;original&quot; TEXT NOT NULL,
+    &quot;mimetype&quot; TEXT NOT NULL,
+    &quot;size&quot; INTEGER NOT NULL,
+    &quot;path&quot; TEXT NOT NULL,
+    &quot;buildId&quot; INTEGER NOT NULL,
+    &quot;version&quot; TEXT,
+    &quot;description&quot; TEXT,
+    &quot;createdAt&quot; DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT &quot;Asset_buildId_fkey&quot; FOREIGN KEY (&quot;buildId&quot;) REFERENCES &quot;Builds&quot; (&quot;id&quot;) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX &quot;email&quot; ON &quot;User&quot;(&quot;email&quot;);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/sql");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

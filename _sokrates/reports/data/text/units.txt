@@ -107,6 +107,15 @@ McCabe index: 4
 number of parameters: 3
 
 id: 13
+unit: export default function adminOnly()
+file: backend/src/middleware/adminMiddleware.js
+start line: 4
+end line: 19
+size: 14 LOC
+McCabe index: 4
+number of parameters: 3
+
+id: 14
 unit: function goToNext()
 file: SPL/coverage/block-navigation.js
 start line: 52
@@ -115,7 +124,7 @@ size: 10 LOC
 McCabe index: 3
 number of parameters: 0
 
-id: 14
+id: 15
 unit: id: Number()
 file: SPL/src/App.tsx
 start line: 69
@@ -124,7 +133,7 @@ size: 10 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 15
+id: 16
 unit: function makeCurrent()
 file: SPL/coverage/block-navigation.js
 start line: 31
@@ -133,7 +142,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 16
+id: 17
 unit: function goToPrevious()
 file: SPL/coverage/block-navigation.js
 start line: 41
@@ -142,7 +151,7 @@ size: 9 LOC
 McCabe index: 4
 number of parameters: 0
 
-id: 17
+id: 18
 unit: function toAppUser()
 file: SPL/src/AuthProvider.tsx
 start line: 14
@@ -151,7 +160,7 @@ size: 9 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 18
+id: 19
 unit: export default function Footer()
 file: SPL/src/Footer.tsx
 start line: 3
@@ -160,7 +169,7 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 19
+id: 20
 unit: function toAppUser()
 file: SPL/src/App.tsx
 start line: 67
@@ -169,7 +178,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 20
+id: 21
 unit: await fetch()
 file: SPL/src/EditUser.tsx
 start line: 33
@@ -178,7 +187,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 8
 
-id: 21
+id: 22
 unit: Joindre des fichiers()
 file: SPL/src/NewBuild.tsx
 start line: 116
@@ -187,7 +196,7 @@ size: 8 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 22
+id: 23
 unit: function loadData()
 file: SPL/coverage/sorter.js
 start line: 111
@@ -196,7 +205,7 @@ size: 7 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 23
+id: 24
 unit: isAdmin: Number()
 file: SPL/src/App.tsx
 start line: 72
@@ -205,7 +214,7 @@ size: 7 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 24
+id: 25
 unit: function toggleClass()
 file: SPL/coverage/block-navigation.js
 start line: 24
@@ -214,7 +223,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 25
+id: 26
 unit: function addSearchBox()
 file: SPL/coverage/sorter.js
 start line: 59
@@ -223,7 +232,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 26
+id: 27
 unit: function removeSortIndicators()
 file: SPL/coverage/sorter.js
 start line: 151
@@ -232,7 +241,7 @@ size: 6 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 27
+id: 28
 unit: sorter = function()
 file: SPL/coverage/sorter.js
 start line: 122
@@ -241,7 +250,7 @@ size: 5 LOC
 McCabe index: 2
 number of parameters: 2
 
-id: 28
+id: 29
 unit: function addSortIndicators()
 file: SPL/coverage/sorter.js
 start line: 159
@@ -250,7 +259,7 @@ size: 5 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 29
+id: 30
 unit: await fetch()
 file: SPL/src/NewBuild.tsx
 start line: 57
@@ -259,16 +268,16 @@ size: 5 LOC
 McCabe index: 2
 number of parameters: 5
 
-id: 30
+id: 31
 unit: filename: function()
 file: backend/src/controllers/buildController.js
-start line: 16
-end line: 19
+start line: 20
+end line: 23
 size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 31
+id: 32
 unit: await fetch()
 file: SPL/src/AdminUsers.tsx
 start line: 36
@@ -277,7 +286,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 4
 
-id: 32
+id: 33
 unit: function toNumber()
 file: SPL/src/AuthProvider.tsx
 start line: 6
@@ -286,16 +295,16 @@ size: 4 LOC
 McCabe index: 3
 number of parameters: 2
 
-id: 33
+id: 34
 unit: destination: function()
 file: backend/src/controllers/buildController.js
-start line: 13
-end line: 15
+start line: 17
+end line: 19
 size: 3 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 34
+id: 35
 unit: function getTable()
 file: SPL/coverage/sorter.js
 start line: 11
@@ -304,7 +313,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 35
+id: 36
 unit: function getTableHeader()
 file: SPL/coverage/sorter.js
 start line: 15
@@ -313,7 +322,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 36
+id: 37
 unit: function getTableBody()
 file: SPL/coverage/sorter.js
 start line: 19
@@ -322,7 +331,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 37
+id: 38
 unit: function getNthColumn()
 file: SPL/coverage/sorter.js
 start line: 23
@@ -331,7 +340,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 38
+id: 39
 unit: finalSorter = function()
 file: SPL/coverage/sorter.js
 start line: 134
@@ -340,7 +349,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 39
+id: 40
 unit: function toString()
 file: SPL/src/AuthProvider.tsx
 start line: 10

@@ -1867,14 +1867,14 @@ in 2 files:
 duplicated block id: 312
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.css.html (280:285)
- - SPL/coverage/Login.tsx.html (192:197)
+ - SPL/coverage/AuthContext.ts.html (90:95)
+ - SPL/coverage/Signup.css.html (239:244)
 
 duplicated block id: 313
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/AuthContext.ts.html (90:95)
- - SPL/coverage/Signup.css.html (239:244)
+ - SPL/coverage/Header.css.html (280:285)
+ - SPL/coverage/Login.tsx.html (192:197)
 
 duplicated block id: 314
 size: 6 cleaned lines of code
@@ -7519,14 +7519,14 @@ in 2 files:
 duplicated block id: 1254
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Login.css.html (176:181)
- - SPL/coverage/Signup.css.html (233:238)
+ - SPL/coverage/AuthContext.ts.html (96:101)
+ - SPL/coverage/Signup.tsx.html (207:212)
 
 duplicated block id: 1255
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/AuthContext.ts.html (96:101)
- - SPL/coverage/Signup.tsx.html (207:212)
+ - SPL/coverage/Login.css.html (176:181)
+ - SPL/coverage/Signup.css.html (233:238)
 
 duplicated block id: 1256
 size: 6 cleaned lines of code
@@ -7543,14 +7543,14 @@ in 2 files:
 duplicated block id: 1258
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.tsx.html (114:119)
- - SPL/coverage/Login.css.html (194:199)
+ - SPL/coverage/Signup.css.html (305:310)
+ - SPL/coverage/Signup.tsx.html (207:212)
 
 duplicated block id: 1259
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Signup.css.html (305:310)
- - SPL/coverage/Signup.tsx.html (207:212)
+ - SPL/coverage/Header.tsx.html (114:119)
+ - SPL/coverage/Login.css.html (194:199)
 
 duplicated block id: 1260
 size: 6 cleaned lines of code
@@ -9517,14 +9517,14 @@ in 2 files:
 duplicated block id: 1587
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.tsx.html (114:119)
- - SPL/coverage/Login.css.html (278:283)
+ - SPL/coverage/Header.tsx.html (126:131)
+ - SPL/coverage/Signup.tsx.html (207:212)
 
 duplicated block id: 1588
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.tsx.html (126:131)
- - SPL/coverage/Signup.tsx.html (207:212)
+ - SPL/coverage/Header.tsx.html (114:119)
+ - SPL/coverage/Login.css.html (278:283)
 
 duplicated block id: 1589
 size: 6 cleaned lines of code
@@ -11857,20 +11857,20 @@ in 2 files:
 duplicated block id: 1977
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.css.html (286:291)
- - SPL/coverage/Header.tsx.html (114:119)
+ - SPL/coverage/Header.css.html (274:279)
+ - SPL/coverage/Signup.tsx.html (207:212)
 
 duplicated block id: 1978
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.css.html (274:279)
+ - SPL/coverage/Signup.css.html (347:352)
  - SPL/coverage/Signup.tsx.html (207:212)
 
 duplicated block id: 1979
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Signup.css.html (347:352)
- - SPL/coverage/Signup.tsx.html (207:212)
+ - SPL/coverage/Header.css.html (286:291)
+ - SPL/coverage/Header.tsx.html (114:119)
 
 duplicated block id: 1980
 size: 6 cleaned lines of code
@@ -13525,14 +13525,14 @@ in 2 files:
 duplicated block id: 2255
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.css.html (244:249)
- - SPL/coverage/Login.tsx.html (192:197)
+ - SPL/coverage/AuthContext.ts.html (90:95)
+ - SPL/coverage/Login.css.html (206:211)
 
 duplicated block id: 2256
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/AuthContext.ts.html (90:95)
- - SPL/coverage/Login.css.html (206:211)
+ - SPL/coverage/Header.css.html (244:249)
+ - SPL/coverage/Login.tsx.html (192:197)
 
 duplicated block id: 2257
 size: 6 cleaned lines of code
@@ -14965,14 +14965,14 @@ in 2 files:
 duplicated block id: 2495
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.tsx.html (114:119)
- - SPL/coverage/Signup.tsx.html (254:259)
+ - SPL/coverage/Login.css.html (212:217)
+ - SPL/coverage/Login.tsx.html (192:197)
 
 duplicated block id: 2496
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Login.css.html (212:217)
- - SPL/coverage/Login.tsx.html (192:197)
+ - SPL/coverage/Header.tsx.html (114:119)
+ - SPL/coverage/Signup.tsx.html (254:259)
 
 duplicated block id: 2497
 size: 6 cleaned lines of code
@@ -15421,14 +15421,14 @@ in 2 files:
 duplicated block id: 2571
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.css.html (184:189)
- - SPL/coverage/Header.css.html (286:291)
+ - SPL/coverage/AuthContext.ts.html (90:95)
+ - SPL/coverage/Signup.tsx.html (242:247)
 
 duplicated block id: 2572
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/AuthContext.ts.html (90:95)
- - SPL/coverage/Signup.tsx.html (242:247)
+ - SPL/coverage/Header.css.html (184:189)
+ - SPL/coverage/Header.css.html (286:291)
 
 duplicated block id: 2573
 size: 6 cleaned lines of code
@@ -16351,14 +16351,14 @@ in 2 files:
 duplicated block id: 2726
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/Header.css.html (184:189)
- - SPL/coverage/Header.css.html (250:255)
+ - SPL/coverage/AuthContext.ts.html (90:95)
+ - SPL/coverage/Header.css.html (220:225)
 
 duplicated block id: 2727
 size: 6 cleaned lines of code
 in 2 files:
- - SPL/coverage/AuthContext.ts.html (90:95)
- - SPL/coverage/Header.css.html (220:225)
+ - SPL/coverage/Header.css.html (184:189)
+ - SPL/coverage/Header.css.html (250:255)
 
 duplicated block id: 2728
 size: 6 cleaned lines of code

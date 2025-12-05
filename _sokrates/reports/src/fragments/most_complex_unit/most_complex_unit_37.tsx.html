@@ -1,26 +1,27 @@
 <html>
 <head>
-    <title>await fetch()</title>
+    <title>isAdmin: Number()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">await fetch()</h3>
-<p style="margin-top: 4px">in <i>SPL/src/EditUser.tsx [33:40]</i></p>
+<h3 style="margin-bottom: 0">isAdmin: Number()</h3>
+<p style="margin-top: 4px">in <i>SPL/src/App.tsx [72:80]</i></p>
 <ul>
-    <li><b>8</b> lines of code</li>
+    <li><b>7</b> lines of code</li>
     <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-    await fetch(`/api/users/${id}`, {
-      method: &quot;PUT&quot;,
-      headers: {
-        &quot;Content-Type&quot;: &quot;application/json&quot;,
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ username, email, admin }),
-    });
+    isAdmin: Number(u.isAdmin ?? u.admin ?? 0) === 1,
+  };
+}
+
+export default function App() {
+  const [user, setUser] = useState&lt;AppUser | null&gt;(null);
+  const [token, setToken] = useState&lt;string | null&gt;(null);
+
+  useEffect(() =&gt; {
 
 </code>
 </pre>

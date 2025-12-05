@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "test:integration": "vitest -c vitest.integration.config.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.16.2",

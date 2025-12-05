@@ -1,0 +1,16 @@
+16 duplicated lines in:
+  - SPL/vite.config.ts (11:26, 69%)
+  - backend/uploads/1762455641633-595545837.ts (6:21, 88%)
+
+15 duplicated lines in:
+  - SPL/eslint.config.js (8:23, 100%)
+  - backend/uploads/1762454458967-378888263.js (8:23, 100%)
+
+15 duplicated lines in:
+  - SPL/eslint.config.js (8:23, 100%)
+  - backend/uploads/1762454573094-541774994.js (8:23, 100%)
+
+10 duplicated lines in:
+  - SPL/index.html (1:11, 100%)
+  - backend/uploads/1762454810175-584589586.html (1:11, 100%)
+

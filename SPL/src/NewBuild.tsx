@@ -24,48 +24,62 @@ export default function NewBuild() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    fetch("/api/builds", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      },
-      body: JSON.stringify({
-        nom: form.nom,
-        description: form.description,
-        version: form.version,
-        statut: form.statut,
-        proprietaire: form.proprietaire,
-      }),
-    })
-      .then((r) => {
-        if (!r.ok) throw new Error("Erreur création");
-        return r.json();
-      })
-      .then(async (created) => {
-        const id = created.id;
-        if (files && files.length) {
-          if (!user?.isAdmin) {
-            console.warn("Upload réservé aux admins");
-            return;
+
+    if (files?.length && !form.version.trim()) {
+      setError("Veuillez indiquer une version pour les fichiers joints.");
+      return;
+    }
+
+    try {
+      const payload = new FormData();
+      const nomValue = form.nom.trim();
+      const descriptionValue = form.description.trim();
+      const versionValue = form.version.trim();
+      const statutValue = form.statut.trim();
+      const proprietaireValue = form.proprietaire.trim();
+
+      payload.append("nom", nomValue);
+      payload.append("description", descriptionValue);
+      if (versionValue) payload.append("version", versionValue);
+      if (statutValue) payload.append("statut", statutValue);
+      payload.append("proprietaire", proprietaireValue);
+
+      if (files?.length) {
+        payload.append("file", files[0]);
+      }
+
+      const response = await fetch("/api/builds", {
+        method: "POST",
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+        body: payload,
+      });
+
+      if (!response.ok) {
+        let message = "Erreur création";
+        try {
+          const details = await response.json();
+          if (details && typeof details === "object" && "error" in details) {
+            message = String(details.error);
           }
-          const formData = new FormData();
-          Array.from(files).forEach((f) => formData.append("files", f));
-          await fetch(`/api/assets/upload/${id}`, {
-            method: "POST",
-            body: formData,
-            headers: token ? { Authorization: `Bearer ${token}` } : {},
-          });
+        } catch (parseError) {
+          console.warn("Unable to parse error response", parseError);
         }
-      })
-      .catch((err) => {
-        console.error("NewBuild create error", err);
-        setError(err instanceof Error ? err.message : String(err));
-      })
-      .finally(() => navigate("/builds"));
+        throw new Error(message);
+      }
+
+      const created = await response.json();
+      if (!created?.id) {
+        throw new Error("Réponse invalide du serveur");
+      }
+
+      navigate(`/builds/${created.id}`);
+    } catch (err) {
+      console.error("NewBuild create error", err);
+      setError(err instanceof Error ? err.message : String(err));
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,6 +118,7 @@ export default function NewBuild() {
           <option value="En test">En test</option>
           <option value="Production">Production</option>
           <option value="Déprécié">Déprécié</option>
+          <option value="Terminé">Terminé</option>
         </select>
         <input
           name="proprietaire"

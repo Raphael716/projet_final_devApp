@@ -1,47 +1,40 @@
 <html>
 <head>
-    <title>function sortByIndex()</title>
+    <title>function loadColumns()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function sortByIndex()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [120:149]</i></p>
+<h3 style="margin-bottom: 0">function loadColumns()</h3>
+<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [67:89]</i></p>
 <ul>
-    <li><b>18</b> lines of code</li>
+    <li><b>22</b> lines of code</li>
     <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function sortByIndex(index, desc) {
-        var key = cols[index].key,
-            sorter = function(a, b) {
-                a = a.data[key];
-                b = b.data[key];
-                return a &lt; b ? -1 : a &gt; b ? 1 : 0;
-            },
-            finalSorter = sorter,
-            tableBody = document.querySelector('.coverage-summary tbody'),
-            rowNodes = tableBody.querySelectorAll('tr'),
-            rows = [],
+    function loadColumns() {
+        var colNodes = getTableHeader().querySelectorAll('th'),
+            colNode,
+            cols = [],
+            col,
             i;
 
-        if (desc) {
-            finalSorter = function(a, b) {
-                return -1 * sorter(a, b);
+        for (i = 0; i &lt; colNodes.length; i += 1) {
+            colNode = colNodes[i];
+            col = {
+                key: colNode.getAttribute('data-col'),
+                sortable: !colNode.getAttribute('data-nosort'),
+                type: colNode.getAttribute('data-type') || 'string'
             };
+            cols.push(col);
+            if (col.sortable) {
+                col.defaultDescSort = col.type === 'number';
+                colNode.innerHTML =
+                    colNode.innerHTML + '&lt;span class=&quot;sorter&quot;&gt;&lt;/span&gt;';
+            }
         }
-
-        for (i = 0; i &lt; rowNodes.length; i += 1) {
-            rows.push(rowNodes[i]);
-            tableBody.removeChild(rowNodes[i]);
-        }
-
-        rows.sort(finalSorter);
-
-        for (i = 0; i &lt; rows.length; i += 1) {
-            tableBody.appendChild(rows[i]);
-        }
+        return cols;
     }
 
 </code>

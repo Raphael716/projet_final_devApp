@@ -1,27 +1,26 @@
 <html>
 <head>
-    <title>function goToPrevious()</title>
+    <title>function makeCurrent()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function goToPrevious()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/block-navigation.js [41:50]</i></p>
+<h3 style="margin-bottom: 0">function makeCurrent()</h3>
+<p style="margin-top: 4px">in <i>SPL/coverage/block-navigation.js [31:39]</i></p>
 <ul>
     <li><b>9</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function goToPrevious() {
-        var nextIndex = 0;
-        if (typeof currentIndex !== 'number' || currentIndex === 0) {
-            nextIndex = missingCoverageElements.length - 1;
-        } else if (missingCoverageElements.length &gt; 1) {
-            nextIndex = currentIndex - 1;
-        }
-
-        makeCurrent(nextIndex);
+    function makeCurrent(index) {
+        toggleClass(index);
+        currentIndex = index;
+        missingCoverageElements.item(index).scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
     }
 
 </code>

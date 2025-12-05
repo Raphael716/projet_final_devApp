@@ -9,8 +9,8 @@
     "linesOfCodePerExtension" : [ ]
   }, {
     "name" : "Unclassified",
-    "filesCount" : 68,
-    "linesOfCode" : 7455,
+    "filesCount" : 71,
+    "linesOfCode" : 7491,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.html",
@@ -26,7 +26,7 @@
       "description" : [ ]
     }, {
       "name" : "  *.js",
-      "value" : 16,
+      "value" : 17,
       "description" : [ ]
     }, {
       "name" : "  *.xml",
@@ -38,6 +38,14 @@
       "description" : [ ]
     }, {
       "name" : "  *.prisma",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.sql",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.toml",
       "value" : 1,
       "description" : [ ]
     } ],
@@ -55,7 +63,7 @@
       "description" : [ ]
     }, {
       "name" : "  *.js",
-      "value" : 1027,
+      "value" : 1024,
       "description" : [ ]
     }, {
       "name" : "  *.xml",
@@ -63,31 +71,39 @@
       "description" : [ ]
     }, {
       "name" : "  *.ts",
-      "value" : 65,
+      "value" : 70,
       "description" : [ ]
     }, {
       "name" : "  *.prisma",
       "value" : 39,
       "description" : [ ]
+    }, {
+      "name" : "  *.sql",
+      "value" : 31,
+      "description" : [ ]
+    }, {
+      "name" : "  *.toml",
+      "value" : 3,
+      "description" : [ ]
     } ]
   } ],
   "concernsGroup" : null,
-  "fileCountPerConcern" : [ {
-    "name" : "TODOs",
-    "value" : 0,
-    "description" : [ ]
-  }, {
-    "name" : "Unclassified",
-    "value" : 68,
-    "description" : [ ]
-  } ],
   "linesOfCodePerConcern" : [ {
     "name" : "TODOs",
     "value" : 0,
     "description" : [ ]
   }, {
     "name" : "Unclassified",
-    "value" : 7455,
+    "value" : 7491,
+    "description" : [ ]
+  } ],
+  "fileCountPerConcern" : [ {
+    "name" : "TODOs",
+    "value" : 0,
+    "description" : [ ]
+  }, {
+    "name" : "Unclassified",
+    "value" : 71,
     "description" : [ ]
   } ]
 } ]

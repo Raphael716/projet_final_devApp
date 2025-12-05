@@ -1,4 +1,18 @@
 [ {
+  "relativePath" : "backend/prisma/migrations/20251128162447_init_sqlite/migration.sql",
+  "extension" : "sql",
+  "linesOfCode" : 31,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "backend/prisma/migrations/migration_lock.toml",
+  "extension" : "toml",
+  "linesOfCode" : 3,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "backend/prisma/schema.prisma",
   "extension" : "prisma",
   "linesOfCode" : 39,
@@ -22,14 +36,21 @@
 }, {
   "relativePath" : "backend/src/controllers/buildController.js",
   "extension" : "js",
-  "linesOfCode" : 113,
+  "linesOfCode" : 116,
   "unitsCount" : 2,
   "unitsMcCabeIndexSum" : 2,
   "linesOfCodeInUnits" : 7
 }, {
   "relativePath" : "backend/src/controllers/userController.js",
   "extension" : "js",
-  "linesOfCode" : 129,
+  "linesOfCode" : 120,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "backend/src/db.js",
+  "extension" : "js",
+  "linesOfCode" : 3,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -44,9 +65,9 @@
   "relativePath" : "backend/src/middleware/adminMiddleware.js",
   "extension" : "js",
   "linesOfCode" : 16,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 14
 }, {
   "relativePath" : "backend/src/middleware/authMiddleware.js",
   "extension" : "js",
@@ -435,7 +456,7 @@
 }, {
   "relativePath" : "SPL/src/setupTests.ts",
   "extension" : "ts",
-  "linesOfCode" : 1,
+  "linesOfCode" : 6,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

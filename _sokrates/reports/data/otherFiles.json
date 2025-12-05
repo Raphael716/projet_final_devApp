@@ -15,7 +15,7 @@
 }, {
   "relativePath" : "backend/package.json",
   "extension" : "json",
-  "linesOfCode" : 33,
+  "linesOfCode" : 36,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -30,6 +30,13 @@
   "relativePath" : "backend/test-file.txt",
   "extension" : "txt",
   "linesOfCode" : 1,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "backend/TESTS_README.md",
+  "extension" : "md",
+  "linesOfCode" : 233,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -113,7 +120,7 @@
 }, {
   "relativePath" : "sprint3.txt",
   "extension" : "txt",
-  "linesOfCode" : 5,
+  "linesOfCode" : 9,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
