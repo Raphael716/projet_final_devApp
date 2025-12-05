@@ -1,12 +1,25 @@
-import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+import {
+  describe,
+  it,
+  expect,
+  beforeAll,
+  beforeEach,
+  afterAll,
+  vi,
+} from "vitest";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import * as userController from "../controllers/userController.js";
+import { ensureTestDatabase } from "./utils/integrationDb.js";
 
 const prisma = new PrismaClient();
 
 describe("User Controller - Integration Tests", () => {
+  beforeAll(async () => {
+    await ensureTestDatabase();
+  });
+
   beforeEach(async () => {
     await prisma.user.deleteMany({});
   });
