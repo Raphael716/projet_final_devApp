@@ -2,7 +2,6 @@ name: CI & Quality Check
 
 on:
   push:
-    # Run CI on main/master and feature/fix branches under fix/**
     branches: ["main", "master", "fix/**"]
   pull_request:
     branches: ["main", "master"]
@@ -11,20 +10,28 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    # 1. AJOUT DU SERVICE MYSQL
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: s13_spl_local
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
-      # 1. Récupérer le code
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. Installer Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # 3. Installer toutes les dépendances séparément (avoid running prisma generate before we set DB)
       - name: Install root dependencies
         run: npm install
 
@@ -36,45 +43,41 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      # 4. Préparer la Base de Données (Backend)
-      - name: Setup Database (SQLite)
+      # 2. CONFIGURATION DE LA BDD (MySQL au lieu de SQLite)
+      - name: Setup Database (MySQL)
         run: |
-          # Ensure Prisma uses a local SQLite file in CI by writing backend/.env
           cd backend
-          echo 'DATABASE_URL="file:./dev.db"' > .env
-          cat .env
-          # Generate Prisma client using the SQLite URL we've just written
+          # On configure l'URL pour pointer vers le service MySQL créé ci-dessus
+          echo 'DATABASE_URL="mysql://root:root@127.0.0.1:3306/s13_spl_local"' > .env
           npx prisma generate
-          npx prisma migrate dev --name init --skip-seed
+          # push est souvent préférable à migrate dev en CI pour éviter les soucis d'historique
+          npx prisma db push 
 
-      # 5. Lancer les Tests Backend
+      # 3. MISE À JOUR DE L'ENVIRONNEMENT DE TEST
       - name: Test Backend
         run: |
           cd backend
           npm test
         env:
-          DATABASE_URL: "file:./dev.db"
+          # Utiliser la même URL MySQL pour les tests
+          DATABASE_URL: "mysql://root:root@127.0.0.1:3306/s13_spl_local"
 
-      # 6. Lancer les Tests Frontend (SPL)
       - name: Test Frontend
         run: |
           cd SPL
           npm test -- --run
 
-      # 7. Installer Java (pour Sokrates)
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "17"
 
-      # 8. Générer le rapport Sokrates
       - name: Generate Sokrates Report
         run: |
           cd sokrates
           java -jar sokrates-LATEST.jar generateReports -confFile "../_sokrates/config.json" -outputFolder "../_sokrates/reports"
 
-      # 9. Sauvegarder le rapport comme "Artefact"
       - name: Upload Sokrates Report
         uses: actions/upload-artifact@v4
         with:
