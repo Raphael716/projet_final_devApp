@@ -23,9 +23,17 @@ jobs:
         with:
           node-version: "20"
 
-      # 3. Installer toutes les dépendances
-      - name: Install Dependencies
-        run: npm run install:all
+      # 3. Installer toutes les dépendances séparément (avoid running prisma generate before we set DB)
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Install frontend (SPL) dependencies
+        working-directory: ./SPL
+        run: npm install
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
 
       # 4. Préparer la Base de Données (Backend)
       - name: Setup Database (SQLite)
@@ -34,6 +42,8 @@ jobs:
           cd backend
           echo 'DATABASE_URL="file:./dev.db"' > .env
           cat .env
+          # Generate Prisma client using the SQLite URL we've just written
+          npx prisma generate
           npx prisma migrate dev --name init --skip-seed
 
       # 5. Lancer les Tests Backend
