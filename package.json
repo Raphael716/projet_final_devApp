@@ -7,7 +7,8 @@
   "scripts": {
     "test": "vitest",
     "dev": "concurrently -n \"BACKEND,SPL\" -c \"green,blue\" \"cd backend && npm run dev\" \"cd SPL && npm run dev\"",
-    "install:all": "npm install && cd SPL && npm install && cd ../backend && npm install && npx prisma generate",
+    "install:all": "npm install && cd SPL && npm install && cd ../backend && npm install",
+    "prisma:generate": "cd backend && npx prisma generate",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:e2e": "cypress run"
