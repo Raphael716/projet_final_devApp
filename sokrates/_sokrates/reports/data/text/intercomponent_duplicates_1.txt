@@ -1,0 +1,108 @@
+122 duplicated lines in:
+  - SPL/src/BuildDetail.tsx (6:137, 64%)
+  - backend/uploads/1761856845660-484720083.tsx (6:137, 63%)
+
+76 duplicated lines in:
+  - SPL/src/Signup.tsx (5:95, 100%)
+  - backend/uploads/1761261056814-995230287.tsx (5:95, 100%)
+
+68 duplicated lines in:
+  - SPL/src/BuildDetail.tsx (139:210, 35%)
+  - backend/uploads/1761856845660-484720083.tsx (140:211, 35%)
+
+21 duplicated lines in:
+  - SPL/src/AddVersion.tsx (91:117, 18%)
+  - backend/uploads/1761265169126-984135838.tsx (64:89, 25%)
+
+21 duplicated lines in:
+  - SPL/src/AddVersion.tsx (91:117, 18%)
+  - backend/uploads/1761265231112-624819031.tsx (64:89, 25%)
+
+21 duplicated lines in:
+  - SPL/src/AddVersion.tsx (91:117, 18%)
+  - backend/uploads/1761328515350-537683809.tsx (64:89, 25%)
+
+16 duplicated lines in:
+  - SPL/src/AddVersion.tsx (17:33, 14%)
+  - backend/uploads/1761265169126-984135838.tsx (16:33, 19%)
+
+16 duplicated lines in:
+  - SPL/vite.config.ts (11:26, 69%)
+  - backend/uploads/1762455641633-595545837.ts (6:21, 88%)
+
+16 duplicated lines in:
+  - SPL/src/AddVersion.tsx (124:141, 14%)
+  - backend/uploads/1761328515350-537683809.tsx (85:102, 19%)
+
+16 duplicated lines in:
+  - SPL/src/AddVersion.tsx (17:33, 14%)
+  - backend/uploads/1761265231112-624819031.tsx (16:33, 19%)
+
+16 duplicated lines in:
+  - SPL/src/AddVersion.tsx (17:33, 14%)
+  - backend/uploads/1761328515350-537683809.tsx (16:33, 19%)
+
+16 duplicated lines in:
+  - SPL/src/AddVersion.tsx (124:141, 14%)
+  - backend/uploads/1761265231112-624819031.tsx (85:102, 19%)
+
+16 duplicated lines in:
+  - SPL/src/AddVersion.tsx (124:141, 14%)
+  - backend/uploads/1761265169126-984135838.tsx (85:102, 19%)
+
+15 duplicated lines in:
+  - SPL/src/Login.tsx (57:72, 22%)
+  - backend/uploads/1761261056814-995230287.tsx (61:76, 19%)
+
+15 duplicated lines in:
+  - SPL/eslint.config.js (8:23, 100%)
+  - backend/uploads/1762454458967-378888263.js (8:23, 100%)
+
+15 duplicated lines in:
+  - SPL/eslint.config.js (8:23, 100%)
+  - backend/uploads/1762454573094-541774994.js (8:23, 100%)
+
+10 duplicated lines in:
+  - SPL/src/AddVersion.tsx (40:53, 9%)
+  - backend/uploads/1761328515350-537683809.tsx (37:50, 12%)
+
+10 duplicated lines in:
+  - SPL/src/AddVersion.tsx (40:53, 9%)
+  - backend/uploads/1761265231112-624819031.tsx (37:50, 12%)
+
+10 duplicated lines in:
+  - SPL/src/AddVersion.tsx (40:53, 9%)
+  - backend/uploads/1761265169126-984135838.tsx (37:50, 12%)
+
+10 duplicated lines in:
+  - SPL/index.html (1:11, 100%)
+  - backend/uploads/1762454810175-584589586.html (1:11, 100%)
+
+9 duplicated lines in:
+  - SPL/src/AddVersion.tsx (6:15, 8%)
+  - backend/uploads/1761265169126-984135838.tsx (6:15, 11%)
+
+9 duplicated lines in:
+  - SPL/src/AddVersion.tsx (6:15, 8%)
+  - backend/uploads/1761328515350-537683809.tsx (6:15, 11%)
+
+9 duplicated lines in:
+  - SPL/src/AddVersion.tsx (6:15, 8%)
+  - backend/uploads/1761265231112-624819031.tsx (6:15, 11%)
+
+9 duplicated lines in:
+  - SPL/src/Login.tsx (10:20, 13%)
+  - backend/uploads/1761261056814-995230287.tsx (10:20, 11%)
+
+9 duplicated lines in:
+  - SPL/src/Login.tsx (43:53, 13%)
+  - backend/uploads/1761261056814-995230287.tsx (36:46, 11%)
+
+6 duplicated lines in:
+  - SPL/coverage/Signup.tsx.html (294:299, 1%)
+  - backend/uploads/1761261056814-995230287.tsx (35:40, 7%)
+
+6 duplicated lines in:
+  - SPL/coverage/Signup.tsx.html (279:284, 1%)
+  - backend/uploads/1761261056814-995230287.tsx (20:25, 7%)
+

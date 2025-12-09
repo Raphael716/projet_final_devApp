@@ -1,0 +1,13 @@
+Path	Lines of Code
+backend/src/config/db.js	3
+backend/src/controllers/assetController.js	305
+backend/src/controllers/buildController.js	194
+backend/src/controllers/userController.js	120
+backend/src/db.js	3
+backend/src/index.js	49
+backend/src/middleware/adminMiddleware.js	16
+backend/src/middleware/authMiddleware.js	30
+backend/src/routes/assetRoutes.js	17
+backend/src/routes/authRoutes.js	6
+backend/src/routes/buildRoutes.js	48
+backend/src/routes/userRoutes.js	16

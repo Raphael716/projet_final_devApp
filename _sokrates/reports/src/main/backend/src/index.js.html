@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>backend/src/index.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/src/index.js (<b>49</b> lines of code) (<a href="index.js">raw</a>):</h3>
+<div id="editor">import express from &quot;express&quot;;
+import cors from &quot;cors&quot;;
+import &quot;dotenv/config&quot;;
+import { PrismaClient } from &quot;@prisma/client&quot;;
+
+// ----------------- Import Prisma -----------------
+const prisma = new PrismaClient();
+
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+// Middleware
+app.use(cors());
+app.use(express.json({ limit: &quot;50mb&quot; }));
+app.use(express.urlencoded({ extended: true, limit: &quot;50mb&quot; }));
+
+// Augmenter les timeouts
+app.use((req, res, next) =&gt; {
+  res.setTimeout(120000);
+  next();
+});
+
+// Routes
+import authRoutes from &quot;./routes/authRoutes.js&quot;;
+import userRoutes from &quot;./routes/userRoutes.js&quot;;
+import buildRoutes from &quot;./routes/buildRoutes.js&quot;;
+import assetRoutes from &quot;./routes/assetRoutes.js&quot;;
+app.use(&quot;/api/builds&quot;, buildRoutes);
+app.use(&quot;/api/users&quot;, userRoutes);
+app.use(&quot;/api/auth&quot;, authRoutes);
+app.use(&quot;/api/assets&quot;, assetRoutes);
+
+// Serve uploads folder (optional, downloads use controlled endpoint)
+app.use(&quot;/uploads&quot;, express.static(&quot;uploads&quot;));
+
+// Route racine
+app.get(&quot;/&quot;, (req, res) =&gt; {
+  res.json({ message: &quot;Backend Express en marche 🚀&quot; });
+});
+
+// Test DB
+app.get(&quot;/test-db&quot;, async (req, res) =&gt; {
+  try {
+    // simple test to ensure Prisma client can connect
+    await prisma.$connect();
+    res.json({
+      success: true,
+      message: &quot;Connexion &agrave; la DB OK&quot;,
+    });
+  } catch (error) {
+    console.error(&quot;Erreur DB :&quot;, error);
+    res.status(500).json({
+      success: false,
+      message: &quot;Impossible de se connecter &agrave; la DB&quot;,
+      error: error.message,
+    });
+  }
+});
+
+// (routes already mounted above)
+
+// D&eacute;marrage serveur
+app.listen(PORT, () =&gt; {
+  console.log(`✅ Serveur d&eacute;marr&eacute; sur http://localhost:${PORT}`);
+});
+
+prisma
+  .$connect()
+  .then(() =&gt; console.log(&quot;✅ Prisma connect&eacute; &agrave; la base&quot;))
+  .catch((err) =&gt; console.error(&quot;❌ Prisma erreur connexion:&quot;, err));
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

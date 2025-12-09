@@ -1,0 +1,132 @@
+<html>
+<head>
+    <title>cypress/e2e/admin.cy.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">cypress/e2e/admin.cy.js (<b>90</b> lines of code) (<a href="admin.cy.js">raw</a>):</h3>
+<div id="editor">/// &lt;reference types=&quot;cypress&quot; /&gt;
+
+// Completely rewritten to avoid network alias timing issues by stubbing window.fetch
+describe(&quot;Admin user management&quot;, () =&gt; {
+  const ADMIN = {
+    id: 1,
+    username: &quot;Admin&quot;,
+    email: &quot;admin@test.com&quot;,
+    admin: 1,
+    isAdmin: true,
+  };
+
+  const users = [
+    ADMIN,
+    { id: 2, username: &quot;Alice&quot;, email: &quot;alice@test.com&quot;, admin: 0 },
+  ];
+
+  function visitPathWithStubbedFetch(path, handlerFactory) {
+    cy.visit(path, {
+      onBeforeLoad(win) {
+        // Auth state for both legacy App.tsx and AuthProvider.tsx
+        const token = &quot;admin-token&quot;;
+        win.localStorage.setItem(&quot;spl_token&quot;, token);
+        win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(ADMIN));
+        win.localStorage.setItem(&quot;auth_token&quot;, token);
+        win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(ADMIN));
+
+        // Stub confirm default to true
+        win.confirm = () =&gt; true;
+
+        // Stub fetch behavior for this test
+        const originalFetch = win.fetch.bind(win);
+        const handler = handlerFactory({ originalFetch, win });
+        win.fetch = (input, init = {}) =&gt; {
+          const url = typeof input === &quot;string&quot; ? input : input.url;
+          const method = (init.method || &quot;GET&quot;).toUpperCase();
+
+          return handler({ url, method, input, init });
+        };
+      },
+    });
+  }
+
+  it(&quot;renders users list for admin&quot;, () =&gt; {
+    visitPathWithStubbedFetch(&quot;/&quot;, () =&gt; ({ url, method }) =&gt; {
+      if (url.includes(&quot;/api/users&quot;) &amp;&amp; method === &quot;GET&quot;) {
+        return Promise.resolve({ ok: true, json: async () =&gt; users });
+      }
+      // Fallback
+      return Promise.resolve({ ok: true, json: async () =&gt; ({}) });
+    });
+    // Navigate after app hydrates auth
+    cy.contains(&quot;a&quot;, &quot;Utilisateurs&quot;, { timeout: 10000 })
+      .should(&quot;be.visible&quot;)
+      .click();
+    cy.location(&quot;pathname&quot;).should(&quot;eq&quot;, &quot;/admin/users&quot;);
+    cy.contains(&quot;h2&quot;, &quot;Gestion des utilisateurs&quot;).should(&quot;be.visible&quot;);
+    cy.contains(&quot;td&quot;, &quot;alice@test.com&quot;, { timeout: 10000 }).should(
+      &quot;be.visible&quot;
+    );
+    cy.contains(&quot;tr&quot;, &quot;Alice&quot;).within(() =&gt; {
+      cy.contains(&quot;button&quot;, &quot;Supprimer&quot;).should(&quot;be.visible&quot;);
+      cy.contains(&quot;a&quot;, &quot;Modifier&quot;).should(&quot;be.visible&quot;);
+    });
+  });
+
+  it(&quot;shows an error message when the API fails&quot;, () =&gt; {
+    visitPathWithStubbedFetch(&quot;/&quot;, () =&gt; ({ url, method }) =&gt; {
+      if (url.includes(&quot;/api/users&quot;) &amp;&amp; method === &quot;GET&quot;) {
+        return Promise.resolve({
+          ok: false,
+          status: 500,
+          json: async () =&gt; ({}),
+        });
+      }
+      return Promise.resolve({ ok: true, json: async () =&gt; ({}) });
+    });
+    cy.contains(&quot;a&quot;, &quot;Utilisateurs&quot;, { timeout: 10000 })
+      .should(&quot;be.visible&quot;)
+      .click();
+    cy.location(&quot;pathname&quot;).should(&quot;eq&quot;, &quot;/admin/users&quot;);
+    cy.contains(&quot;Impossible de charger les utilisateurs&quot;, {
+      timeout: 10000,
+    }).should(&quot;be.visible&quot;);
+  });
+
+  it(&quot;redirects non-admin to home&quot;, () =&gt; {
+    cy.visit(&quot;/admin/users&quot;, {
+      onBeforeLoad(win) {
+        const NON_ADMIN = {
+          id: 10,
+          username: &quot;User&quot;,
+          email: &quot;user@test.com&quot;,
+          admin: 0,
+          isAdmin: false,
+        };
+        const token = &quot;user-token&quot;;
+        win.localStorage.setItem(&quot;spl_token&quot;, token);
+        win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(NON_ADMIN));
+        win.localStorage.setItem(&quot;auth_token&quot;, token);
+        win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(NON_ADMIN));
+      },
+    });
+    cy.location(&quot;pathname&quot;, { timeout: 10000 }).should(&quot;eq&quot;, &quot;/&quot;);
+  });
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

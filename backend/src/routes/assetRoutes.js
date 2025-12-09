@@ -1,8 +1,9 @@
-const express = require("express");
+import express from "express";
+import * as assetController from "../controllers/assetController.js";
+import protect from "../middleware/authMiddleware.js";
+import adminOnly from "../middleware/adminMiddleware.js";
+
 const router = express.Router();
-const assetController = require("../controllers/assetController");
-const protect = require("../middleware/authMiddleware");
-const adminOnly = require("../middleware/adminMiddleware");
 
 // Upload files for a build (admin only)
 router.post(
@@ -23,4 +24,4 @@ router.get("/download/:id", protect, assetController.downloadAsset);
 // Delete asset (admin only)
 router.delete("/:id", protect, adminOnly, assetController.deleteAsset);
 
-module.exports = router;
+export default router;

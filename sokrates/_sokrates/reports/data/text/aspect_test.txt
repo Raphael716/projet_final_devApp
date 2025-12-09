@@ -1,0 +1,7 @@
+Path	Lines of Code
+SPL/src/tests/Header.test.tsx	92
+SPL/src/tests/Login.test.tsx	204
+SPL/src/tests/Signup.test.tsx	125
+backend/src/tests/userController.test.js	98
+backend/test_upload.js	44
+backend/vitest.config.ts	13

@@ -1,0 +1,12 @@
+Path	Lines of Code
+SPL/package-lock.json	4849
+backend/package-lock.json	4226
+backend/src/generated/prisma/client.js	1
+backend/src/generated/prisma/default.js	1
+backend/src/generated/prisma/index-browser.js	129
+backend/src/generated/prisma/package.json	183
+backend/src/generated/prisma/schema.prisma	19
+backend/src/generated/prisma/wasm-edge-light-loader.mjs	3
+backend/src/generated/prisma/wasm-worker-loader.mjs	3
+backend/src/generated/prisma/wasm.js	148
+package-lock.json	7324

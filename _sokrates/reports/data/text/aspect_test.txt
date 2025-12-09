@@ -1,0 +1,20 @@
+Path	Lines of Code
+SPL/src/tests/AdminUsers.integration.test.tsx	72
+SPL/src/tests/Builds.integration.test.tsx	113
+SPL/src/tests/Header.test.tsx	89
+SPL/src/tests/Login.test.tsx	204
+SPL/src/tests/NewBuild.integration.test.tsx	122
+SPL/src/tests/Signup.test.tsx	125
+SPL/vitest.integration.config.ts	11
+backend/__mocks__/@prisma/client.js	24
+backend/src/tests/authMiddleware.integration.test.js	52
+backend/src/tests/buildController.integration.test.js	105
+backend/src/tests/buildController.test.js	83
+backend/src/tests/middleware.test.js	60
+backend/src/tests/setup.js	29
+backend/src/tests/userController.integration.test.js	83
+backend/src/tests/userController.test.js	96
+backend/src/tests/utils/integrationDb.js	90
+backend/test_upload.js	44
+backend/vitest.config.ts	31
+backend/vitest.integration.config.ts	12

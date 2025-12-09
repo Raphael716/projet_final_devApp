@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>generate-sokrates-reports.ps1</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">generate-sokrates-reports.ps1 (<b>140</b> lines of code) (<a href="generate-sokrates-reports.ps1">raw</a>):</h3>
+<div id="editor"># Script PowerShell pour g&eacute;n&eacute;rer les rapports Sokrates complets
+# Usage: .\generate-sokrates-reports.ps1
+
+param(
+    [switch]$NoOpen,  # Ne pas ouvrir les rapports, juste les g&eacute;n&eacute;rer
+    [switch]$Verbose  # Afficher plus de d&eacute;tails
+)
+
+Write-Host &quot;========================================&quot; -ForegroundColor Cyan
+Write-Host &quot;Sokrates Report Generator&quot; -ForegroundColor Cyan
+Write-Host &quot;========================================&quot; -ForegroundColor Cyan
+Write-Host &quot;&quot;
+
+# V&eacute;rifier que Java est disponible
+Write-Host &quot;Verification de Java...&quot; -ForegroundColor Yellow
+$javaCheck = java -version 2&gt;&amp;1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host &quot;Java n'est pas installe ou n'est pas dans le PATH&quot; -ForegroundColor Red
+    exit 1
+}
+Write-Host &quot;Java trouve&quot; -ForegroundColor Green
+
+# V&eacute;rifier que le jar Sokrates existe
+Write-Host &quot;Verification de Sokrates JAR...&quot; -ForegroundColor Yellow
+if (-not (Test-Path &quot;.\sokrates\sokrates-LATEST.jar&quot;)) {
+    Write-Host &quot;sokrates\sokrates-LATEST.jar non trouve&quot; -ForegroundColor Red
+    exit 1
+}
+Write-Host &quot;Sokrates JAR trouve&quot; -ForegroundColor Green
+
+# G&eacute;n&eacute;rer les rapports
+Write-Host &quot;&quot;
+Write-Host &quot;Generation des rapports Sokrates...&quot; -ForegroundColor Cyan
+Write-Host &quot;&quot;
+
+$startTime = Get-Date
+java -jar .\sokrates\sokrates-LATEST.jar generateReports &gt; sokrates_run.log 2&gt;&amp;1
+$endTime = Get-Date
+$duration = ($endTime - $startTime).TotalSeconds
+
+# Afficher les derni&egrave;res lignes du log
+Write-Host &quot;Dernieres lignes du log:&quot; -ForegroundColor Yellow
+Write-Host &quot;---&quot; -ForegroundColor Gray
+Get-Content .\sokrates_run.log -Tail 30
+Write-Host &quot;---&quot; -ForegroundColor Gray
+Write-Host &quot;&quot;
+Write-Host &quot;Rapports generes en ${duration:F2} secondes&quot; -ForegroundColor Green
+Write-Host &quot;&quot;
+
+if (-not $NoOpen) {
+    Write-Host &quot;Ouverture des rapports...&quot; -ForegroundColor Cyan
+    Write-Host &quot;&quot;
+    
+    $reports = @(
+        @{
+            Name = &quot;Dashboard Principal (index.html)&quot;
+            Path = &quot;.\_sokrates\reports\html\index.html&quot;
+        },
+        @{
+            Name = &quot;Rapport Duplication (HTML)&quot;
+            Path = &quot;.\_sokrates\reports\html\Duplication.html&quot;
+        },
+        @{
+            Name = &quot;Structure and Composants&quot;
+            Path = &quot;.\_sokrates\reports\html\Structure.html&quot;
+        },
+        @{
+            Name = &quot;Taille des Fichiers&quot;
+            Path = &quot;.\_sokrates\reports\html\FileSize.html&quot;
+        },
+        @{
+            Name = &quot;Complexite Conditionnelle&quot;
+            Path = &quot;.\_sokrates\reports\html\ConditionalComplexity.html&quot;
+        },
+        @{
+            Name = &quot;Tendances (Trend)&quot;
+            Path = &quot;.\_sokrates\reports\html\Trend.html&quot;
+        },
+        @{
+            Name = &quot;Taille des Unites&quot;
+            Path = &quot;.\_sokrates\reports\html\UnitSize.html&quot;
+        },
+        @{
+            Name = &quot;Metriques Completes (TXT)&quot;
+            Path = &quot;.\_sokrates\reports\data\text\metrics.txt&quot;
+        },
+        @{
+            Name = &quot;Liste Compl&egrave;te des Doublons (TXT - 3349 blocs)&quot;
+            Path = &quot;.\_sokrates\reports\data\text\duplicates.txt&quot;
+        },
+        @{
+            Name = &quot;Unites and Fonctions (TXT)&quot;
+            Path = &quot;.\_sokrates\reports\data\text\units.txt&quot;
+        },
+        @{
+            Name = &quot;Resume Textuel Complet&quot;
+            Path = &quot;.\_sokrates\reports\data\text\textualSummary.txt&quot;
+        },
+        @{
+            Name = &quot;Composants Backend&quot;
+            Path = &quot;.\_sokrates\reports\data\text\aspect_component_primary_backend.txt&quot;
+        },
+        @{
+            Name = &quot;Composants SPL (Frontend)&quot;
+            Path = &quot;.\_sokrates\reports\data\text\aspect_component_primary_SPL.txt&quot;
+        },
+        @{
+            Name = &quot;Dependencies&quot;
+            Path = &quot;.\_sokrates\reports\data\text\dependencies_primary.txt&quot;
+        },
+        @{
+            Name = &quot;Fichiers avec Historique&quot;
+            Path = &quot;.\_sokrates\reports\data\text\mainFilesWithHistory.txt&quot;
+        },
+        @{
+            Name = &quot;Explorateur Fichiers (HTML)&quot;
+            Path = &quot;.\_sokrates\reports\html\files-explorer.html&quot;
+        },
+        @{
+            Name = &quot;Controles and Objectifs&quot;
+            Path = &quot;.\_sokrates\reports\html\Controls.html&quot;
+        }
+    )
+    
+    $openedCount = 0
+    foreach ($report in $reports) {
+        if (Test-Path $report.Path) {
+            Write-Host &quot;  &gt;&gt; Ouverture: $($report.Name)&quot; -ForegroundColor Green
+            Start-Process $report.Path
+            $openedCount++
+            Start-Sleep -Milliseconds 300
+        } else {
+            Write-Host &quot;  X Fichier non trouve: $($report.Path)&quot; -ForegroundColor Red
+        }
+    }
+    
+    Write-Host &quot;&quot;
+    Write-Host &quot;$openedCount rapport(s) ouvert(s)&quot; -ForegroundColor Green
+} else {
+    Write-Host &quot;Mode sans-ouverture active&quot; -ForegroundColor Yellow
+}
+
+Write-Host &quot;&quot;
+Write-Host &quot;========================================&quot; -ForegroundColor Cyan
+Write-Host &quot;Generation terminee avec succes!&quot; -ForegroundColor Green
+Write-Host &quot;========================================&quot; -ForegroundColor Cyan
+Write-Host &quot;&quot;
+Write-Host &quot;Fichiers de rapport disponibles:&quot; -ForegroundColor Yellow
+Write-Host &quot;   HTML:  .\_sokrates\reports\html\&quot; -ForegroundColor Gray
+Write-Host &quot;   Data:  .\_sokrates\reports\data\text\&quot; -ForegroundColor Gray
+Write-Host &quot;   JSON:  .\_sokrates\reports\data\&quot; -ForegroundColor Gray
+Write-Host &quot;&quot;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/ps1");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

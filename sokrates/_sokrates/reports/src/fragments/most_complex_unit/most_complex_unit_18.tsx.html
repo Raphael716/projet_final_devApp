@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>function toString()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">function toString()</h3>
+<p style="margin-top: 4px">in <i>SPL/src/AuthProvider.tsx [10:12]</i></p>
+<ul>
+    <li><b>3</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+function toString(v: unknown, fb = &quot;&quot;): string {
+  return typeof v === &quot;string&quot; ? v : String(v ?? fb);
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

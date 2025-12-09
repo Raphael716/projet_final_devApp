@@ -1,157 +1,69 @@
-name: Build Check
+name: CI & Quality Check
 
 on:
   push:
-    branches: ["main", "develop", "chore/*"]
+    branches: ["main", "master"]
   pull_request:
-    branches: ["main", "develop"]
+    branches: ["main", "master"]
 
 jobs:
-  build-check:
-    name: Build Frontend & Backend
+  build-and-test:
     runs-on: ubuntu-latest
-<<<<<<< Updated upstream
-    
-=======
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: mysql
-          MYSQL_DATABASE: s13_spl_test
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
-        ports:
-          - 3306:3306
-
->>>>>>> Stashed changes
     steps:
-      - uses: actions/checkout@v4
+      # 1. Récupérer le code
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      # 2. Installer Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-<<<<<<< Updated upstream
-          node-version: '22.x'
-          cache: 'npm'
-
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: npm ci
-        continue-on-error: true
-
-      - name: Install frontend dependencies
-        working-directory: ./SPL
-        run: npm ci
-        continue-on-error: true
-
-      - name: Build backend
-        working-directory: ./backend
-        run: npm run build 2>&1 || echo "Backend has no build step"
-        continue-on-error: true
-
-      - name: Build frontend
-        working-directory: ./SPL
-        run: npm run build
-        continue-on-error: true
-        
-      - name: Build Status
-        run: echo "✅ Build check completed"
-=======
-          node-version: "22"
-          cache: 'npm'
+          node-version: "20"
 
       # 3. Installer toutes les dépendances
-      - name: Install All Dependencies
+      - name: Install Dependencies
         run: npm run install:all
 
-      # 4. Attendre MySQL
-      - name: Wait for MySQL
+      # 4. Préparer la Base de Données (Backend)
+      - name: Setup Database (SQLite)
         run: |
-          until mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent; do
-            echo 'Waiting for MySQL...'
-            sleep 2
-          done
-          echo "MySQL is ready!"
+          cd backend
+          npx prisma migrate dev --name init
 
-      # 5. Setup Prisma et migrations
-      - name: Setup Database
-        working-directory: ./backend
-        env:
-          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
+      # 5. Lancer les Tests Backend
+      - name: Test Backend
         run: |
-          npx prisma generate
-          npx prisma db push --accept-data-loss
-
-      # 6. Tests Backend (unit + integration)
-      - name: Run Backend Tests
-        working-directory: ./backend
+          cd backend
+          npm test
         env:
-          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
-          JWT_SECRET: test_secret_key_for_ci
-        run: npm test
+          DATABASE_URL: "file:./dev.db"
 
-      # 7. Tests Frontend
-      - name: Run Frontend Tests
-        working-directory: ./SPL
-        run: npm test -- --run
+      # 6. Lancer les Tests Frontend (SPL)
+      - name: Test Frontend
+        run: |
+          cd SPL
+          npm test -- --run
 
-      # 8. Installer Java (pour Sokrates)
+      # 7. Installer Java (pour Sokrates)
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "17"
 
-      # 9. Télécharger Sokrates
-      - name: Download Sokrates
-        run: |
-          mkdir -p ./sokrates
-          curl -L https://github.com/d-fine/Sokrates/releases/download/2.1.7/sokrates-LATEST.jar \
-               -o ./sokrates/sokrates-LATEST.jar
-
-      # 10. Créer le dossier de configuration Sokrates si nécessaire
-      - name: Setup Sokrates Config
-        run: |
-          mkdir -p ./_sokrates/reports
-          if [ ! -f "./_sokrates/config.json" ]; then
-            echo "Configuration Sokrates non trouvée, génération d'une config par défaut..."
-            java -jar ./sokrates/sokrates-LATEST.jar init
-            if [ -f "./config.json" ]; then
-              mv ./config.json ./_sokrates/config.json
-            fi
-          fi
-
-      # 11. Générer le rapport Sokrates
+      # 8. Générer le rapport Sokrates
       - name: Generate Sokrates Report
         run: |
-          java -jar ./sokrates/sokrates-LATEST.jar generateReports \
-            -confFile "./_sokrates/config.json" \
-            -outputFolder "./_sokrates/reports"
-        continue-on-error: true
+          cd sokrates
+          java -jar sokrates-LATEST.jar generateReports -confFile "../_sokrates/config.json" -outputFolder "../_sokrates/reports"
 
-      # 12. Sauvegarder le rapport comme artefact
+      # 9. Sauvegarder le rapport comme "Artefact"
       - name: Upload Sokrates Report
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: sokrates-quality-report
-          path: _sokrates/reports/
+          path: _sokrates/reports/html/
           retention-days: 7
-
-      # 13. Upload test results si échec
-      - name: Upload Test Results on Failure
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: test-results
-          path: |
-            backend/coverage/
-            SPL/coverage/
-          retention-days: 5
-          if-no-files-found: ignore
->>>>>>> Stashed changes

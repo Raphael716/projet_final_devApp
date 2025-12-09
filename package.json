@@ -2,38 +2,26 @@
   "name": "projet_final_devapp",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/Raphael716/projet_final_devApp#readme",
-  "bugs": {
-    "url": "https://github.com/Raphael716/projet_final_devApp/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Raphael716/projet_final_devApp.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "dev": "concurrently -n \"BACKEND,SPL\" -c \"green,blue\" \"cd backend && npm run dev\" \"cd SPL && npm run dev\"",
-    "install:all": "npm install && cd SPL && npm install && npm install --save-dev @types/react-router-dom && cd ../backend && npm install && npx prisma generate"
-  },
-  "devDependencies": {
-<<<<<<< Updated upstream
-    "concurrently": "^9.2.1"
+    "install:all": "npm install && cd SPL && npm install && cd ../backend && npm install && npx prisma generate",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "cypress run"
   },
   "dependencies": {
-    "react-router-dom": "^7.9.1"
-=======
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/react": "^14.0.0",
     "@vitejs/plugin-react": "^4.2.0",
     "concurrently": "^9.2.1",
     "cypress": "^13.17.0",
     "jsdom": "^23.2.0",
-    "vitest": "^1.6.1"
->>>>>>> Stashed changes
+    "vitest": "^1.0.0"
   }
 }
