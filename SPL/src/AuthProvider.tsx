@@ -3,14 +3,6 @@ import type { ReactNode } from "react";
 import { AuthContext } from "./AuthContext";
 import type { AppUser, AuthContextType } from "./AuthContext";
 
-function toNumber(v: unknown, fallback = 0): number {
-  const n = typeof v === "number" ? v : Number(v);
-  return Number.isFinite(n) ? n : fallback;
-}
-function toString(v: unknown, fb = ""): string {
-  return typeof v === "string" ? v : String(v ?? fb);
-}
-
 function toAppUser(u: unknown): AppUser {
   const o =
     typeof u === "object" && u !== null ? (u as Record<string, unknown>) : {};
@@ -18,7 +10,7 @@ function toAppUser(u: unknown): AppUser {
   const id = Number(o.id ?? 0);
   const username = String(o.username ?? "");
   const email = String(o.email ?? "");
-  const isAdmin = Number(o.admin ?? 0) === 1; // ✅ booléen direct
+  const isAdmin = Number(o.admin ?? 0) === 1;
 
   return { id, username, email, isAdmin };
 }
