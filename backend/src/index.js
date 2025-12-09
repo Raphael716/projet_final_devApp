@@ -22,10 +22,19 @@ app.use((req, res, next) => {
 });
 
 // Routes
+<<<<<<< Updated upstream
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const buildRoutes = require("./routes/buildRoutes");
 const assetRoutes = require("./routes/assetRoutes");
+=======
+import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import buildRoutes from "./routes/buildRoutes.js";
+import assetRoutes from "./routes/assetRoutes.js";
+import healthRoutes from "./routes/healthRoutes.js";
+app.use("/api", healthRoutes);
+>>>>>>> Stashed changes
 app.use("/api/builds", buildRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);

@@ -2,15 +2,22 @@ name: Tests (Vitest + Cypress)
 
 on:
   push:
-    branches: [ main, develop, 'chore/**' ]
+    branches: [ main, master, develop ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, master, develop ]
 
 jobs:
   backend-unit-tests:
     name: Backend Unit Tests (Vitest)
     runs-on: ubuntu-latest
     
+<<<<<<< Updated upstream
+=======
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+    
+>>>>>>> Stashed changes
     steps:
       - uses: actions/checkout@v4
       
@@ -19,19 +26,39 @@ jobs:
         with:
           node-version: '22.x'
           cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
       
       - name: Install backend dependencies
         working-directory: ./backend
         run: npm ci
       
-      - name: Run backend unit tests
+      - name: Generate Prisma Client
         working-directory: ./backend
+<<<<<<< Updated upstream
         run: npm test 2>&1 || true
         continue-on-error: true
       
       - name: Check if coverage exists
         working-directory: ./backend
         run: ls -la coverage/ 2>&1 || echo "No coverage directory"
+=======
+        run: npx prisma generate
+      
+      - name: Run backend unit tests only
+        working-directory: ./backend
+        env:
+          JWT_SECRET: test_secret_key
+        run: npm run test:unit -- --run
+      
+      - name: Upload backend coverage
+        if: matrix.node-version == '22.x'
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./backend/coverage/coverage-final.json
+          flags: backend-unit
+          token: ${{ secrets.CODECOV_TOKEN }}
+        continue-on-error: true
+>>>>>>> Stashed changes
 
   backend-integration-tests:
     name: Backend Integration Tests (Vitest)
@@ -59,6 +86,7 @@ jobs:
         with:
           node-version: '22.x'
           cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
       
       - name: Install backend dependencies
         working-directory: ./backend
@@ -66,6 +94,7 @@ jobs:
       
       - name: Wait for MySQL
         run: |
+<<<<<<< Updated upstream
           for i in {1..30}; do
             if mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent 2>/dev/null; then
               echo "MySQL is ready"
@@ -76,13 +105,40 @@ jobs:
           done
           echo "MySQL failed to start"
           exit 1
+=======
+          until mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent; do
+            echo 'Waiting for MySQL...'
+            sleep 2
+          done
+          echo "MySQL is ready!"
+      
+      - name: Setup Database
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
+        run: |
+          npx prisma generate
+          npx prisma db push --accept-data-loss
+>>>>>>> Stashed changes
       
       - name: Run backend integration tests
         working-directory: ./backend
         env:
           DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
+<<<<<<< Updated upstream
           JWT_SECRET: test_secret
         run: npm test 2>&1 || true
+=======
+          JWT_SECRET: test_secret_key
+        run: npm run test:integration -- --run
+      
+      - name: Upload integration coverage
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./backend/coverage/coverage-final.json
+          flags: backend-integration
+          token: ${{ secrets.CODECOV_TOKEN }}
+>>>>>>> Stashed changes
         continue-on-error: true
 
   frontend-unit-tests:
@@ -97,6 +153,7 @@ jobs:
         with:
           node-version: '22.x'
           cache: 'npm'
+          cache-dependency-path: SPL/package-lock.json
       
       - name: Install frontend dependencies
         working-directory: ./SPL
@@ -104,6 +161,7 @@ jobs:
       
       - name: Run frontend unit tests
         working-directory: ./SPL
+<<<<<<< Updated upstream
         run: npm test
         continue-on-error: true
       
@@ -114,6 +172,17 @@ jobs:
           name: frontend-coverage
           path: ./SPL/coverage
           if-no-files-found: ignore
+=======
+        run: npm test -- --run
+      
+      - name: Upload frontend coverage
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./SPL/coverage/coverage-final.json
+          flags: frontend-unit
+          token: ${{ secrets.CODECOV_TOKEN }}
+        continue-on-error: true
+>>>>>>> Stashed changes
 
   e2e-tests:
     name: E2E Tests (Cypress)
@@ -129,6 +198,7 @@ jobs:
           node-version: '22.x'
           cache: 'npm'
       
+<<<<<<< Updated upstream
       - name: Install dependencies
         run: |
           cd backend && npm ci && cd ..
@@ -142,6 +212,58 @@ jobs:
           headless: true
           spec: cypress/e2e/**/*.cy.js
           record: false
+=======
+      - name: Install all dependencies (root)
+        run: npm install
+      
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm ci
+      
+      - name: Install frontend dependencies
+        working-directory: ./SPL
+        run: npm ci
+      
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent; do
+            echo 'Waiting for MySQL...'
+            sleep 2
+          done
+          echo "MySQL is ready!"
+      
+      - name: Setup Database
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_local
+        run: |
+          npx prisma generate
+          npx prisma db push --accept-data-loss
+      
+      - name: Start backend server
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_local
+          JWT_SECRET: test_secret_key
+          NODE_ENV: test
+          PORT: 4000
+        run: npm start &
+      
+      - name: Start frontend dev server
+        working-directory: ./SPL
+        env:
+          VITE_API_URL: http://localhost:4000
+        run: npm run dev &
+      
+      - name: Wait for servers to start
+        run: |
+          echo "Waiting for frontend..."
+          npx wait-on http://localhost:5173 --timeout 60000
+          echo "Servers are ready!"
+      
+      - name: Run Cypress tests
+        run: npm run cy:run
+>>>>>>> Stashed changes
         env:
           CYPRESS_baseUrl: http://localhost:5173
         continue-on-error: true
@@ -169,11 +291,21 @@ jobs:
     if: always()
     
     steps:
-      - name: Test Results Summary
+      - name: Check test results
         run: |
-          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Test Results Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Backend Unit Tests: ${{ needs.backend-unit-tests.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Backend Integration Tests: ${{ needs.backend-integration-tests.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Frontend Unit Tests: ${{ needs.frontend-unit-tests.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "✅ E2E Tests (Cypress): ${{ needs.e2e-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Suite | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend Unit Tests | ${{ needs.backend-unit-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend Integration Tests | ${{ needs.backend-integration-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Frontend Unit Tests | ${{ needs.frontend-unit-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| E2E Tests (Cypress) | ${{ needs.e2e-tests.result }} |" >> $GITHUB_STEP_SUMMARY
+          
+      - name: Fail if any test failed
+        if: |
+          needs.backend-unit-tests.result == 'failure' ||
+          needs.backend-integration-tests.result == 'failure' ||
+          needs.frontend-unit-tests.result == 'failure' ||
+          needs.e2e-tests.result == 'failure'
+        run: exit 1

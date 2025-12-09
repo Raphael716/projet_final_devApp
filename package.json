@@ -20,9 +20,20 @@
     "install:all": "npm install && cd SPL && npm install && npm install --save-dev @types/react-router-dom && cd ../backend && npm install && npx prisma generate"
   },
   "devDependencies": {
+<<<<<<< Updated upstream
     "concurrently": "^9.2.1"
   },
   "dependencies": {
     "react-router-dom": "^7.9.1"
+=======
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^4.2.0",
+    "concurrently": "^9.2.1",
+    "cypress": "^13.17.0",
+    "jsdom": "^23.2.0",
+    "vitest": "^1.6.1"
+>>>>>>> Stashed changes
   }
 }
