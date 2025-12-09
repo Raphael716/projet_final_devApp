@@ -2,7 +2,8 @@ name: CI & Quality Check
 
 on:
   push:
-    branches: ["main", "master"]
+    # Run CI on main/master and feature/fix branches under fix/**
+    branches: ["main", "master", "fix/**"]
   pull_request:
     branches: ["main", "master"]
 

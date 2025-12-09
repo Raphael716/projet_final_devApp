@@ -2,7 +2,8 @@ name: Tests (Vitest + Cypress)
 
 on:
   push:
-    branches: [ main, develop, 'chore/**' ]
+    # Run tests on main, develop, chore/** and fix/** branches
+    branches: [ main, develop, 'chore/**', 'fix/**' ]
   pull_request:
     branches: [ main, develop ]
 

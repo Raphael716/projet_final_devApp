@@ -2,7 +2,8 @@ name: Code Analysis (Sokrates)
 
 on:
   push:
-    branches: [ main, develop ]
+    # Run Sokrates analysis on main, develop and fix/** branches (for CI testing)
+    branches: [ main, develop, 'fix/**' ]
   schedule:
     - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
 
