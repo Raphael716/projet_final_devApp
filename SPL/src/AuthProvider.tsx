@@ -15,7 +15,6 @@ function toAppUser(u: unknown): AppUser {
   return { id, username, email, isAdmin };
 }
 
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AppUser | null>(null);
   const [token, setToken] = useState<string | null>(null);
