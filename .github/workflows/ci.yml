@@ -30,8 +30,11 @@ jobs:
       # 4. Préparer la Base de Données (Backend)
       - name: Setup Database (SQLite)
         run: |
+          # Ensure Prisma uses a local SQLite file in CI by writing backend/.env
           cd backend
-          npx prisma migrate dev --name init
+          echo 'DATABASE_URL="file:./dev.db"' > .env
+          cat .env
+          npx prisma migrate dev --name init --skip-seed
 
       # 5. Lancer les Tests Backend
       - name: Test Backend
