@@ -116,9 +116,7 @@ jobs:
       
       - name: Install Dependencies
         run: |
-          npm install
-          cd backend && npm install
-          cd ../SPL && npm install
+          npm run install:all
 
       - name: Wait for MySQL
         run: |
@@ -138,7 +136,7 @@ jobs:
       - name: Start Servers & Test
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
+          start: npm run dev
           wait-on: 'http://localhost:4000, http://localhost:5173'
           browser: chrome
           headless: true
