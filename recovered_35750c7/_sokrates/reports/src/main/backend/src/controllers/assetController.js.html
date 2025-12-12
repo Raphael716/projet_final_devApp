@@ -1,0 +1,382 @@
+<html>
+<head>
+    <title>backend/src/controllers/assetController.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/src/controllers/assetController.js (<b>305</b> lines of code) (<a href="assetController.js">raw</a>):</h3>
+<div id="editor">import path from &quot;path&quot;;
+import fs from &quot;fs&quot;;
+import multer from &quot;multer&quot;;
+import { PrismaClient } from &quot;@prisma/client&quot;;
+import { fileURLToPath } from &quot;url&quot;;
+
+const prisma = new PrismaClient();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const UPLOAD_DIR = path.join(__dirname, &quot;..&quot;, &quot;..&quot;, &quot;uploads&quot;);
+if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+
+const EXT_TO_MIME = {
+  &quot;.txt&quot;: &quot;text/plain&quot;,
+  &quot;.md&quot;: &quot;text/markdown&quot;,
+  &quot;.json&quot;: &quot;application/json&quot;,
+  &quot;.js&quot;: &quot;application/javascript&quot;,
+  &quot;.jsx&quot;: &quot;text/javascript&quot;,
+  &quot;.ts&quot;: &quot;application/typescript&quot;,
+  &quot;.tsx&quot;: &quot;application/typescript&quot;,
+  &quot;.html&quot;: &quot;text/html&quot;,
+  &quot;.css&quot;: &quot;text/css&quot;,
+  &quot;.png&quot;: &quot;image/png&quot;,
+  &quot;.jpg&quot;: &quot;image/jpeg&quot;,
+  &quot;.jpeg&quot;: &quot;image/jpeg&quot;,
+  &quot;.gif&quot;: &quot;image/gif&quot;,
+  &quot;.svg&quot;: &quot;image/svg+xml&quot;,
+  &quot;.pdf&quot;: &quot;application/pdf&quot;,
+  &quot;.zip&quot;: &quot;application/zip&quot;,
+  &quot;.rar&quot;: &quot;application/vnd.rar&quot;,
+  &quot;.7z&quot;: &quot;application/x-7z-compressed&quot;,
+  &quot;.mp3&quot;: &quot;audio/mpeg&quot;,
+  &quot;.wav&quot;: &quot;audio/wav&quot;,
+  &quot;.mp4&quot;: &quot;video/mp4&quot;,
+  &quot;.mov&quot;: &quot;video/quicktime&quot;,
+  &quot;.xls&quot;: &quot;application/vnd.ms-excel&quot;,
+  &quot;.xlsx&quot;: &quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;,
+  &quot;.doc&quot;: &quot;application/msword&quot;,
+  &quot;.docx&quot;:
+    &quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot;,
+  &quot;.ppt&quot;: &quot;application/vnd.ms-powerpoint&quot;,
+  &quot;.pptx&quot;:
+    &quot;application/vnd.openxmlformats-officedocument.presentationml.presentation&quot;,
+};
+
+const EXT_TO_LABEL = {
+  &quot;.txt&quot;: &quot;Fichier texte&quot;,
+  &quot;.md&quot;: &quot;Fichier markdown&quot;,
+  &quot;.json&quot;: &quot;Fichier JSON&quot;,
+  &quot;.js&quot;: &quot;Fichier JavaScript&quot;,
+  &quot;.ts&quot;: &quot;Fichier TypeScript&quot;,
+  &quot;.html&quot;: &quot;Fichier HTML&quot;,
+  &quot;.css&quot;: &quot;Fichier CSS&quot;,
+  &quot;.png&quot;: &quot;Image PNG&quot;,
+  &quot;.jpg&quot;: &quot;Image JPG&quot;,
+  &quot;.jpeg&quot;: &quot;Image JPEG&quot;,
+  &quot;.gif&quot;: &quot;Image GIF&quot;,
+  &quot;.svg&quot;: &quot;Image SVG&quot;,
+  &quot;.pdf&quot;: &quot;Fichier PDF&quot;,
+  &quot;.zip&quot;: &quot;Archive ZIP&quot;,
+  &quot;.tsx&quot;: &quot;Fichier TypeScript avec JSX&quot;,
+};
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // V&eacute;rifier et cr&eacute;er le dossier si n&eacute;cessaire
+    if (!fs.existsSync(UPLOAD_DIR)) {
+      try {
+        fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+      } catch (err) {
+        return cb(
+          new Error(`Impossible de cr&eacute;er le dossier d'upload: ${err.message}`)
+        );
+      }
+    }
+
+    // V&eacute;rifier les permissions d'&eacute;criture
+    try {
+      fs.accessSync(UPLOAD_DIR, fs.constants.W_OK);
+    } catch (err) {
+      return cb(
+        new Error(
+          `Pas de permission d'&eacute;criture dans le dossier d'upload: ${err.message}`
+        )
+      );
+    }
+
+    cb(null, UPLOAD_DIR);
+  },
+  filename: function (req, file, cb) {
+    try {
+      const unique = Date.now() + &quot;-&quot; + Math.round(Math.random() * 1e9);
+      const ext = path.extname(file.originalname || &quot;&quot;).toLowerCase();
+      if (!ext) {
+        return cb(new Error(&quot;Le fichier doit avoir une extension&quot;));
+      }
+      const filename = `${unique}${ext}`;
+      cb(null, filename);
+    } catch (err) {
+      cb(
+        new Error(
+          `Erreur lors de la g&eacute;n&eacute;ration du nom de fichier: ${err.message}`
+        )
+      );
+    }
+  },
+});
+
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB max
+    files: 1,
+  },
+  fileFilter: (req, file, cb) =&gt; {
+    // V&eacute;rifier que le fichier a une extension
+    const ext = path.extname(file.originalname || &quot;&quot;).toLowerCase();
+    if (!ext) {
+      return cb(new Error(&quot;Le fichier doit avoir une extension&quot;));
+    }
+    cb(null, true);
+  },
+});
+
+export const uploadMiddleware = (req, res, next) =&gt; {
+  upload.single(&quot;file&quot;)(req, res, (err) =&gt; {
+    if (err instanceof multer.MulterError) {
+      if (err.code === &quot;LIMIT_FILE_SIZE&quot;) {
+        return res
+          .status(400)
+          .json({ error: &quot;Le fichier est trop volumineux (max 50MB)&quot; });
+      }
+      return res.status(400).json({ error: `Erreur upload: ${err.message}` });
+    } else if (err) {
+      return res
+        .status(500)
+        .json({ error: `Erreur inattendue: ${err.message}` });
+    }
+    next();
+  });
+};
+
+export const uploadFiles = async (req, res) =&gt; {
+  try {
+    const buildId = Number(req.params.buildId) || Number(req.params.id);
+    if (!buildId || isNaN(buildId)) {
+      return res.status(400).json({ error: &quot;ID du build invalide&quot; });
+    }
+
+    // V&eacute;rifier si le build existe
+    const buildExists = await prisma.builds.findUnique({
+      where: { id: buildId },
+    });
+    if (!buildExists) {
+      return res.status(404).json({ error: &quot;Build non trouv&eacute;&quot; });
+    }
+
+    const version = req.body.version;
+    const description = req.body.description;
+
+    // Validation des champs requis
+    if (!version) {
+      return res.status(400).json({ error: &quot;Le num&eacute;ro de version est requis&quot; });
+    }
+
+    if (!req.file) {
+      return res.status(400).json({ error: &quot;Aucun fichier envoy&eacute;&quot; });
+    }
+
+    const f = req.file;
+
+    // V&eacute;rifier que le dossier uploads existe
+    if (!fs.existsSync(UPLOAD_DIR)) {
+      fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+    }
+
+    const ext = path.extname(f.originalname || &quot;&quot;).toLowerCase();
+    const detectedMime =
+      EXT_TO_MIME[ext] || f.mimetype || &quot;application/octet-stream&quot;;
+
+    // Cr&eacute;er l'asset dans la base de donn&eacute;es
+    const asset = await prisma.asset.create({
+      data: {
+        filename: f.filename,
+        original: f.originalname,
+        mimetype: detectedMime,
+        size: f.size,
+        path: f.path,
+        buildId,
+        version,
+        description,
+      },
+    });
+
+    // Mettre &agrave; jour la version du build
+    await prisma.builds.update({
+      where: { id: buildId },
+      data: { version },
+    });
+
+    res.json({
+      success: true,
+      asset,
+      message: &quot;Version ajout&eacute;e avec succ&egrave;s&quot;,
+    });
+  } catch (err) {
+    // Nettoyer le fichier upload&eacute; en cas d'erreur
+    if (req.file &amp;&amp; req.file.path) {
+      try {
+        fs.unlinkSync(req.file.path);
+      } catch (_unlinkErr) {
+        // Ignore les erreurs de nettoyage
+      }
+    }
+
+    res.status(500).json({
+      error: &quot;Erreur lors de l'upload du fichier&quot;,
+      details: err.message,
+    });
+  }
+};
+
+export const getAssetsByBuild = async (req, res) =&gt; {
+  try {
+    const buildId = Number(req.params.id);
+    const assets = await prisma.asset.findMany({
+      where: { buildId },
+      select: {
+        id: true,
+        filename: true,
+        original: true,
+        mimetype: true,
+        size: true,
+        path: true,
+        buildId: true,
+        version: true,
+        createdAt: true,
+      },
+      orderBy: { createdAt: &quot;desc&quot; },
+    });
+
+    const assetsWithLabel = assets.map((a) =&gt; {
+      const ext = path.extname(a.original || &quot;&quot;).toLowerCase();
+      return {
+        ...a,
+        displayType: EXT_TO_LABEL[ext] || ext || &quot;Type inconnu&quot;,
+      };
+    });
+
+    res.json(assetsWithLabel);
+  } catch (_err) {
+    res.status(500).json({ error: &quot;Erreur chargement fichiers&quot; });
+  }
+};
+
+export const getAssetById = async (req, res) =&gt; {
+  try {
+    const id = Number(req.params.id);
+    const asset = await prisma.asset.findUnique({
+      where: { id },
+      include: {
+        build: {
+          select: {
+            id: true,
+            nom: true,
+            version: true,
+          },
+        },
+      },
+    });
+
+    if (!asset) {
+      return res.status(404).json({ error: &quot;Asset non trouv&eacute;&quot; });
+    }
+
+    const ext = path.extname(asset.original || &quot;&quot;).toLowerCase();
+    const assetWithLabel = {
+      ...asset,
+      displayType: EXT_TO_LABEL[ext] || ext || &quot;Type inconnu&quot;,
+    };
+
+    res.json(assetWithLabel);
+  } catch (_err) {
+    res.status(500).json({ error: &quot;Erreur r&eacute;cup&eacute;ration asset&quot; });
+  }
+};
+
+export const downloadAsset = async (req, res) =&gt; {
+  try {
+    const id = Number(req.params.id);
+    const asset = await prisma.asset.findUnique({ where: { id } });
+    if (!asset) return res.status(404).json({ error: &quot;Fichier non trouv&eacute;&quot; });
+
+    let filePath = asset.path;
+    const possiblePaths = [
+      asset.path,
+      path.join(__dirname, &quot;..&quot;, &quot;..&quot;, asset.path),
+      path.join(__dirname, &quot;..&quot;, &quot;..&quot;, &quot;uploads&quot;, asset.filename),
+      path.join(UPLOAD_DIR, asset.filename),
+    ];
+
+    filePath = possiblePaths.find((p) =&gt; fs.existsSync(p));
+
+    if (!filePath) {
+      return res.status(404).json({ error: &quot;Fichier manquant sur le serveur&quot; });
+    }
+
+    try {
+      await fs.promises.access(filePath, fs.constants.R_OK);
+    } catch (err) {
+      return res.status(403).json({ error: &quot;Acc&egrave;s au fichier impossible&quot; });
+    }
+
+    const ext = path.extname(asset.original || &quot;&quot;).toLowerCase();
+    const contentType =
+      asset.mimetype || EXT_TO_MIME[ext] || &quot;application/octet-stream&quot;;
+
+    res.setHeader(&quot;Content-Type&quot;, contentType);
+    res.setHeader(
+      &quot;Content-Disposition&quot;,
+      `attachment; filename=&quot;${encodeURIComponent(asset.original)}&quot;`
+    );
+
+    // Utiliser un stream pour envoyer le fichier
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.on(&quot;error&quot;, (error) =&gt; {
+      if (!res.headersSent) {
+        res.status(500).json({ error: &quot;Erreur lors de la lecture du fichier&quot; });
+      }
+    });
+
+    fileStream.pipe(res);
+  } catch (_err) {
+    res.status(500).json({ error: &quot;Erreur t&eacute;l&eacute;chargement&quot; });
+  }
+};
+
+export const deleteAsset = async (req, res) =&gt; {
+  try {
+    const id = Number(req.params.id);
+    const asset = await prisma.asset.findUnique({ where: { id } });
+    if (!asset) return res.status(404).json({ error: &quot;Fichier non trouv&eacute;&quot; });
+
+    if (asset.path &amp;&amp; fs.existsSync(asset.path)) {
+      try {
+        fs.unlinkSync(asset.path);
+      } catch (_e) {}
+    }
+
+    await prisma.asset.delete({ where: { id } });
+    res.json({ success: true });
+  } catch (_err) {
+    res.status(500).json({ error: &quot;Erreur suppression asset&quot; });
+  }
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,257 @@
+<html>
+<head>
+    <title>backend/src/controllers/buildController.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/src/controllers/buildController.js (<b>194</b> lines of code) (<a href="buildController.js">raw</a>):</h3>
+<div id="editor">import { PrismaClient } from &quot;@prisma/client&quot;;
+import path from &quot;path&quot;;
+import fs from &quot;fs&quot;;
+import multer from &quot;multer&quot;;
+import { fileURLToPath } from &quot;url&quot;;
+
+const prisma = new PrismaClient();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// === Dossier d&rsquo;upload ===
+const UPLOAD_DIR = path.join(__dirname, &quot;..&quot;, &quot;..&quot;, &quot;uploads&quot;);
+if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+
+// === Configuration Multer ===
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, UPLOAD_DIR);
+  },
+  filename: function (req, file, cb) {
+    const unique = Date.now() + &quot;-&quot; + Math.round(Math.random() * 1e9);
+    cb(null, unique + path.extname(file.originalname));
+  },
+});
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB
+  },
+});
+const singleFileUpload = upload.single(&quot;file&quot;);
+
+const cleanString = (value) =&gt; {
+  if (typeof value !== &quot;string&quot;) return null;
+  const trimmed = value.trim();
+  return trimmed.length &gt; 0 ? trimmed : null;
+};
+
+export const parseBuildFile = (req, res, next) =&gt; {
+  const contentType = (req.headers[&quot;content-type&quot;] || &quot;&quot;).toLowerCase();
+
+  if (!contentType.includes(&quot;multipart/form-data&quot;)) {
+    return next();
+  }
+
+  singleFileUpload(req, res, (err) =&gt; {
+    if (!err) return next();
+
+    if (err instanceof multer.MulterError &amp;&amp; err.code === &quot;LIMIT_FILE_SIZE&quot;) {
+      return res
+        .status(400)
+        .json({ error: &quot;Le fichier est trop volumineux (max 50MB)&quot; });
+    }
+
+    return res.status(400).json({ error: err.message || &quot;Erreur upload&quot; });
+  });
+};
+
+// === TES FONCTIONS EXISTANTES ===============================
+export const getBuilds = async (req, res) =&gt; {
+  try {
+    const builds = await prisma.builds.findMany({
+      orderBy: { updatedAt: &quot;desc&quot; },
+    });
+    res.json(builds);
+  } catch (err) {
+    console.error(&quot;getBuilds error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur r&eacute;cup&eacute;ration builds&quot; });
+  }
+};
+
+export const getBuildById = async (req, res) =&gt; {
+  try {
+    const id = Number(req.params.id);
+    const build = await prisma.builds.findUnique({ where: { id } });
+    if (!build) return res.status(404).json({ error: &quot;Build non trouv&eacute;&quot; });
+    res.json(build);
+  } catch (err) {
+    console.error(&quot;getBuildById error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur r&eacute;cup&eacute;ration build&quot; });
+  }
+};
+
+export const createBuild = async (req, res) =&gt; {
+  try {
+    const body = req.body || {};
+    const nom = cleanString(body.nom) || &quot;&quot;;
+    const description = cleanString(body.description);
+    const version = cleanString(body.version);
+    const statut = cleanString(body.statut);
+    const proprietaire = cleanString(body.proprietaire);
+    const file = req.file;
+
+    if (!nom) {
+      return res.status(400).json({ error: &quot;Le nom du build est requis&quot; });
+    }
+
+    if (file &amp;&amp; !version) {
+      return res
+        .status(400)
+        .json({ error: &quot;Une version est requise pour joindre un fichier&quot; });
+    }
+
+    const runCreation = async (client) =&gt; {
+      const createdBuild = await client.builds.create({
+        data: {
+          nom,
+          description,
+          version,
+          statut,
+          proprietaire,
+        },
+      });
+
+      if (!file) {
+        return { build: createdBuild, asset: null };
+      }
+
+      const createdAsset = await client.asset.create({
+        data: {
+          filename: file.filename,
+          original: file.originalname,
+          mimetype: file.mimetype,
+          size: file.size,
+          path: file.path,
+          buildId: createdBuild.id,
+          version,
+        },
+      });
+
+      const updatedBuild = await client.builds.update({
+        where: { id: createdBuild.id },
+        data: {
+          version,
+          updatedAt: new Date(),
+        },
+      });
+
+      return { build: updatedBuild, asset: createdAsset };
+    };
+
+    const executeWithClient = async (callback) =&gt; {
+      if (typeof prisma.$transaction === &quot;function&quot;) {
+        return prisma.$transaction((tx) =&gt; callback(tx));
+      }
+      return callback(prisma);
+    };
+
+    const { build, asset } = await executeWithClient(runCreation);
+
+    const payload = asset ? { ...build, assets: [asset] } : build;
+
+    res.status(201).json(payload);
+  } catch (err) {
+    console.error(&quot;createBuild error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur cr&eacute;ation build&quot; });
+  }
+};
+
+export const updateBuild = async (req, res) =&gt; {
+  try {
+    const id = Number(req.params.id);
+    const { nom, description, version, statut, proprietaire } = req.body;
+    const updated = await prisma.builds.update({
+      where: { id },
+      data: { nom, description, version, statut, proprietaire },
+    });
+    res.json(updated);
+  } catch (err) {
+    console.error(&quot;updateBuild error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur mise &agrave; jour build&quot; });
+  }
+};
+
+export const deleteBuild = async (req, res) =&gt; {
+  try {
+    const id = Number(req.params.id);
+    await prisma.asset.deleteMany({ where: { buildId: id } });
+    await prisma.builds.delete({ where: { id } });
+    res.json({ message: &quot;Build supprim&eacute; avec succ&egrave;s&quot; });
+  } catch (err) {
+    console.error(&quot;deleteBuild error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur suppression build&quot; });
+  }
+};
+
+// === AJOUT NOUVEAUT&Eacute; : addVersion + upload ==================
+export const addVersion = [
+  singleFileUpload,
+  async (req, res) =&gt; {
+    try {
+      const id = Number(req.params.id);
+      const { version } = req.body;
+      const file = req.file;
+
+      if (!version) return res.status(400).json({ error: &quot;Version manquante&quot; });
+      if (!file) return res.status(400).json({ error: &quot;Fichier manquant&quot; });
+
+      const build = await prisma.builds.findUnique({ where: { id } });
+      if (!build) return res.status(404).json({ error: &quot;Build non trouv&eacute;&quot; });
+
+      // Met &agrave; jour la version
+      const updated = await prisma.builds.update({
+        where: { id },
+        data: { version, updatedAt: new Date() },
+      });
+
+      // Ajoute le fichier
+      const asset = await prisma.asset.create({
+        data: {
+          filename: file.filename,
+          original: file.originalname,
+          mimetype: file.mimetype,
+          size: file.size,
+          path: `/uploads/${file.filename}`,
+          buildId: id,
+        },
+      });
+
+      res.json({
+        success: true,
+        message: &quot;Version et fichier ajout&eacute;s&quot;,
+        build: updated,
+        asset,
+      });
+    } catch (err) {
+      console.error(&quot;addVersion error:&quot;, err);
+      res.status(500).json({ error: &quot;Erreur lors de l'ajout de la version&quot; });
+    }
+  },
+];
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

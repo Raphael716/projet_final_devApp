@@ -1,0 +1,43 @@
+<svg width="226pt" height="130pt"
+ viewBox="0.00 0.00 226.00 130.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 126.25)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-126.25 222,-126.25 222,4 -4,4"/>
+<!-- SPL/coverage -->
+<g id="node1" class="node">
+<title>SPL/coverage</title>
+<polygon fill="#00b2ee" stroke="white" points="99.25,-122.25 0,-122.25 0,-86.25 99.25,-86.25 99.25,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="49.62" y="-99.58" font-family="Tahoma" font-size="14.00">SPL/coverage</text>
+</g>
+<!-- SPL/src -->
+<g id="node2" class="node">
+<title>SPL/src</title>
+<polygon fill="#00b2ee" stroke="white" points="80.12,-36 19.13,-36 19.13,0 80.12,0 80.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="49.62" y="-13.32" font-family="Tahoma" font-size="14.00">SPL/src</text>
+</g>
+<!-- SPL/coverage&#45;&#45;SPL/src -->
+<g id="edge1" class="edge">
+<title>SPL/coverage&#45;&#45;SPL/src</title>
+<path fill="none" stroke="#dc143c" stroke-width="10" d="M49.62,-85.79C49.62,-71.33 49.62,-50.89 49.62,-36.43"/>
+<text xml:space="preserve" text-anchor="middle" x="62.75" y="-56.85" font-family="Arial" font-size="12.00"> 524 </text>
+</g>
+<!-- cypress/e2e -->
+<g id="node3" class="node">
+<title>cypress/e2e</title>
+<polygon fill="#00b2ee" stroke="white" points="206.38,-122.25 116.88,-122.25 116.88,-86.25 206.38,-86.25 206.38,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="161.62" y="-99.58" font-family="Tahoma" font-size="14.00">cypress/e2e</text>
+</g>
+<!-- cypress/support -->
+<g id="node4" class="node">
+<title>cypress/support</title>
+<polygon fill="#00b2ee" stroke="white" points="218,-36 105.25,-36 105.25,0 218,0 218,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="161.62" y="-13.32" font-family="Tahoma" font-size="14.00">cypress/support</text>
+</g>
+<!-- cypress/e2e&#45;&#45;cypress/support -->
+<g id="edge2" class="edge">
+<title>cypress/e2e&#45;&#45;cypress/support</title>
+<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M161.62,-85.79C161.62,-71.33 161.62,-50.89 161.62,-36.43"/>
+<text xml:space="preserve" text-anchor="middle" x="171.38" y="-56.85" font-family="Arial" font-size="12.00"> 12 </text>
+</g>
+</g>
+</svg>

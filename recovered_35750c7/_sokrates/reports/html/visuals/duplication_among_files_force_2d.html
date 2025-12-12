@@ -1,0 +1,519 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/force-graph"></script>
+</head>
+
+<body>
+<div id="graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "[SPL/src/Signup.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/coverage/AuthContext.ts.html]",
+    "size" : 10
+  }, {
+    "id" : "[backend/src/controllers/assetController.js]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Login.css]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/Signup.css]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/Header.css]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/Login.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/AuthContext.ts]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/src/AddVersion.css]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/src/BuildDetail.css]",
+    "size" : 2
+  }, {
+    "id" : "[SPL/coverage/Header.tsx.html]",
+    "size" : 9
+  }, {
+    "id" : "[SPL/src/App.css]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/coverage/index.html]",
+    "size" : 9
+  }, {
+    "id" : "[SPL/coverage/Login.tsx.html]",
+    "size" : 10
+  }, {
+    "id" : "[SPL/src/Builds.css]",
+    "size" : 2
+  }, {
+    "id" : "[cypress/support/commands.js]",
+    "size" : 1
+  }, {
+    "id" : "[SPL/coverage/Login.css.html]",
+    "size" : 10
+  }, {
+    "id" : "[backend/src/controllers/buildController.js]",
+    "size" : 1
+  }, {
+    "id" : "[cypress/e2e/admin.cy.js]",
+    "size" : 3
+  }, {
+    "id" : "[SPL/coverage/Header.css.html]",
+    "size" : 10
+  }, {
+    "id" : "[SPL/coverage/Signup.tsx.html]",
+    "size" : 10
+  }, {
+    "id" : "[SPL/coverage/Signup.css.html]",
+    "size" : 10
+  }, {
+    "id" : "[SPL/src/Footer.css]",
+    "size" : 1
+  } ],
+  "links" : [ {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 6040
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 6040
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 5732
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 5732
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 4424
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 4424
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 824
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 824
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 1556
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 1556
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 1628
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 1628
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 2060
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 2060
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 2050
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 2050
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 1618
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 1618
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 1546
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 1546
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 482
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 482
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 434
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 434
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 1006
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 1006
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 1054
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 1054
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 1342
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 1342
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 272
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 272
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 270
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 270
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 208
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 208
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 566
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 566
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 542
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 542
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 710
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 710
+  }, {
+    "source" : "[SPL/src/Login.tsx]",
+    "target" : "[SPL/src/Signup.tsx]",
+    "count" : 66
+  }, {
+    "source" : "[SPL/src/Signup.tsx]",
+    "target" : "[SPL/src/Login.tsx]",
+    "count" : 66
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/src/Signup.css]",
+    "count" : 184
+  }, {
+    "source" : "[SPL/src/Signup.css]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 184
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 60
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 60
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 216
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 216
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 60
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 60
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/src/Header.css]",
+    "count" : 136
+  }, {
+    "source" : "[SPL/src/Header.css]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 136
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/src/Login.tsx]",
+    "count" : 38
+  }, {
+    "source" : "[SPL/src/Login.tsx]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 38
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 220
+  }, {
+    "source" : "[SPL/coverage/Login.tsx.html]",
+    "target" : "[SPL/coverage/Login.tsx.html]",
+    "count" : 220
+  }, {
+    "source" : "[SPL/src/App.css]",
+    "target" : "[SPL/src/Footer.css]",
+    "count" : 38
+  }, {
+    "source" : "[SPL/src/Footer.css]",
+    "target" : "[SPL/src/App.css]",
+    "count" : 38
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 62
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 60
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 60
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/src/Login.css]",
+    "count" : 130
+  }, {
+    "source" : "[SPL/src/Login.css]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 130
+  }, {
+    "source" : "[SPL/src/Builds.css]",
+    "target" : "[SPL/src/Builds.css]",
+    "count" : 20
+  }, {
+    "source" : "[SPL/src/Builds.css]",
+    "target" : "[SPL/src/Builds.css]",
+    "count" : 20
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 90
+  }, {
+    "source" : "[SPL/coverage/index.html]",
+    "target" : "[SPL/coverage/index.html]",
+    "count" : 90
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 2052
+  }, {
+    "source" : "[SPL/coverage/Header.css.html]",
+    "target" : "[SPL/coverage/Header.css.html]",
+    "count" : 2052
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 3600
+  }, {
+    "source" : "[SPL/coverage/Signup.css.html]",
+    "target" : "[SPL/coverage/Signup.css.html]",
+    "count" : 3600
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 1836
+  }, {
+    "source" : "[SPL/coverage/Login.css.html]",
+    "target" : "[SPL/coverage/Login.css.html]",
+    "count" : 1836
+  }, {
+    "source" : "[SPL/src/AddVersion.css]",
+    "target" : "[SPL/src/AddVersion.css]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/AddVersion.css]",
+    "target" : "[SPL/src/AddVersion.css]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/BuildDetail.css]",
+    "target" : "[SPL/src/BuildDetail.css]",
+    "count" : 24
+  }, {
+    "source" : "[SPL/src/BuildDetail.css]",
+    "target" : "[SPL/src/BuildDetail.css]",
+    "count" : 24
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 72
+  }, {
+    "source" : "[SPL/coverage/Header.tsx.html]",
+    "target" : "[SPL/coverage/Header.tsx.html]",
+    "count" : 72
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/src/AuthContext.ts]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/AuthContext.ts]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/coverage/Signup.tsx.html]",
+    "target" : "[SPL/src/Signup.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[SPL/src/Signup.tsx]",
+    "target" : "[SPL/coverage/Signup.tsx.html]",
+    "count" : 24
+  }, {
+    "source" : "[cypress/e2e/admin.cy.js]",
+    "target" : "[cypress/e2e/admin.cy.js]",
+    "count" : 12
+  }, {
+    "source" : "[cypress/e2e/admin.cy.js]",
+    "target" : "[cypress/e2e/admin.cy.js]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/Login.css]",
+    "target" : "[SPL/src/Signup.css]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/src/Signup.css]",
+    "target" : "[SPL/src/Login.css]",
+    "count" : 12
+  }, {
+    "source" : "[backend/src/controllers/assetController.js]",
+    "target" : "[backend/src/controllers/buildController.js]",
+    "count" : 12
+  }, {
+    "source" : "[backend/src/controllers/buildController.js]",
+    "target" : "[backend/src/controllers/assetController.js]",
+    "count" : 12
+  }, {
+    "source" : "[cypress/e2e/admin.cy.js]",
+    "target" : "[cypress/support/commands.js]",
+    "count" : 12
+  }, {
+    "source" : "[cypress/support/commands.js]",
+    "target" : "[cypress/e2e/admin.cy.js]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 12
+  }, {
+    "source" : "[SPL/coverage/AuthContext.ts.html]",
+    "target" : "[SPL/coverage/AuthContext.ts.html]",
+    "count" : 12
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => {
+        return {source: l.target, target: l.source, count: l.count}
+    });
+    const colorOf = (node) => {
+        if (!node.id.startsWith("[")) return "rgba(135, 206, 235, 0.6)";
+        return "rgba(100,100,100,0.6)";
+    }
+
+    const elem = document.getElementById('graph');
+    const Graph = ForceGraph()(elem)
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => colorOf(n))
+        .linkDirectionalParticles(1)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

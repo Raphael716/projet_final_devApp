@@ -1,0 +1,415 @@
+[ {
+  "relativePath" : "backend/prisma/migrations/20251128162447_init_sqlite/migration.sql",
+  "extension" : "sql",
+  "linesOfCode" : 31,
+  "components" : [ "primary::backend/prisma" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/prisma/migrations/migration_lock.toml",
+  "extension" : "toml",
+  "linesOfCode" : 3,
+  "components" : [ "primary::backend/prisma" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/prisma/schema.prisma",
+  "extension" : "prisma",
+  "linesOfCode" : 39,
+  "components" : [ "primary::backend/prisma" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/config/db.js",
+  "extension" : "js",
+  "linesOfCode" : 3,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/controllers/assetController.js",
+  "extension" : "js",
+  "linesOfCode" : 305,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/controllers/buildController.js",
+  "extension" : "js",
+  "linesOfCode" : 194,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/controllers/userController.js",
+  "extension" : "js",
+  "linesOfCode" : 120,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/db.js",
+  "extension" : "js",
+  "linesOfCode" : 3,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/index.js",
+  "extension" : "js",
+  "linesOfCode" : 49,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/middleware/adminMiddleware.js",
+  "extension" : "js",
+  "linesOfCode" : 16,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/middleware/authMiddleware.js",
+  "extension" : "js",
+  "linesOfCode" : 30,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/routes/assetRoutes.js",
+  "extension" : "js",
+  "linesOfCode" : 17,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/routes/authRoutes.js",
+  "extension" : "js",
+  "linesOfCode" : 6,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/routes/buildRoutes.js",
+  "extension" : "js",
+  "linesOfCode" : 48,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/src/routes/userRoutes.js",
+  "extension" : "js",
+  "linesOfCode" : 16,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/e2e/admin.cy.js",
+  "extension" : "js",
+  "linesOfCode" : 90,
+  "components" : [ "primary::cypress/e2e" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/e2e/auth.cy.js",
+  "extension" : "js",
+  "linesOfCode" : 52,
+  "components" : [ "primary::cypress/e2e" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/e2e/builds.cy.js",
+  "extension" : "js",
+  "linesOfCode" : 118,
+  "components" : [ "primary::cypress/e2e" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/commands.js",
+  "extension" : "js",
+  "linesOfCode" : 30,
+  "components" : [ "primary::cypress/support" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/e2e.js",
+  "extension" : "js",
+  "linesOfCode" : 1,
+  "components" : [ "primary::cypress/support" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress.config.js",
+  "extension" : "js",
+  "linesOfCode" : 12,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "generate-sokrates-reports.ps1",
+  "extension" : "ps1",
+  "linesOfCode" : 140,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/AuthContext.ts.html",
+  "extension" : "html",
+  "linesOfCode" : 140,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/base.css",
+  "extension" : "css",
+  "linesOfCode" : 203,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/block-navigation.js",
+  "extension" : "js",
+  "linesOfCode" : 66,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/clover.xml",
+  "extension" : "xml",
+  "linesOfCode" : 81,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/Header.css.html",
+  "extension" : "html",
+  "linesOfCode" : 422,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/Header.tsx.html",
+  "extension" : "html",
+  "linesOfCode" : 185,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/index.html",
+  "extension" : "html",
+  "linesOfCode" : 186,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/Login.css.html",
+  "extension" : "html",
+  "linesOfCode" : 398,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/Login.tsx.html",
+  "extension" : "html",
+  "linesOfCode" : 347,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/prettify.css",
+  "extension" : "css",
+  "linesOfCode" : 1,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/Signup.css.html",
+  "extension" : "html",
+  "linesOfCode" : 533,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/Signup.tsx.html",
+  "extension" : "html",
+  "linesOfCode" : 362,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/coverage/sorter.js",
+  "extension" : "js",
+  "linesOfCode" : 171,
+  "components" : [ "primary::SPL/coverage" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/eslint.config.js",
+  "extension" : "js",
+  "linesOfCode" : 22,
+  "components" : [ "primary::SPL" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/index.html",
+  "extension" : "html",
+  "linesOfCode" : 13,
+  "components" : [ "primary::SPL" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/AddVersion.css",
+  "extension" : "css",
+  "linesOfCode" : 81,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/AddVersion.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 122,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/AdminUsers.css",
+  "extension" : "css",
+  "linesOfCode" : 67,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/AdminUsers.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 73,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/App.css",
+  "extension" : "css",
+  "linesOfCode" : 194,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/App.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 134,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/AuthContext.ts",
+  "extension" : "ts",
+  "linesOfCode" : 19,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/AuthProvider.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 55,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/BuildDetail.css",
+  "extension" : "css",
+  "linesOfCode" : 223,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/BuildDetail.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 195,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Builds.css",
+  "extension" : "css",
+  "linesOfCode" : 153,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Builds.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 82,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/EditBuild.css",
+  "extension" : "css",
+  "linesOfCode" : 124,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/EditBuild.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 68,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/EditUser.css",
+  "extension" : "css",
+  "linesOfCode" : 75,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/EditUser.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 80,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Footer.css",
+  "extension" : "css",
+  "linesOfCode" : 20,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Footer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 10,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Header.css",
+  "extension" : "css",
+  "linesOfCode" : 97,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Header.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 35,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/index.css",
+  "extension" : "css",
+  "linesOfCode" : 37,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Login.css",
+  "extension" : "css",
+  "linesOfCode" : 89,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Login.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 74,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/main.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 10,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/NewBuild.css",
+  "extension" : "css",
+  "linesOfCode" : 81,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/NewBuild.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 127,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/setupTests.ts",
+  "extension" : "ts",
+  "linesOfCode" : 6,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Signup.css",
+  "extension" : "css",
+  "linesOfCode" : 135,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/Signup.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 82,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/VersionDetail.css",
+  "extension" : "css",
+  "linesOfCode" : 170,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/src/VersionDetail.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 205,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "SPL/vite.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 25,
+  "components" : [ "primary::SPL" ],
+  "concerns" : [ "::Unclassified" ]
+} ]

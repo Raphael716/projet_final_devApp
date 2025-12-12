@@ -1,0 +1,160 @@
+<html>
+<head>
+    <title>SPL/src/EditBuild.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">SPL/src/EditBuild.tsx (<b>68</b> lines of code) (<a href="EditBuild.tsx">raw</a>):</h3>
+<div id="editor">import { useEffect, useState, useContext, type JSX } from &quot;react&quot;;
+import { useParams, useNavigate } from &quot;react-router-dom&quot;;
+import { AuthContext } from &quot;./AuthContext&quot;;
+import &quot;./NewBuild.css&quot;;
+
+type Form = {
+  nom: string;
+  description?: string;
+  descriptionComplete?: string;
+  version?: string;
+  statut?: string;
+  proprietaire?: string;
+};
+
+export default function EditBuild(): JSX.Element {
+  const { id } = useParams&lt;{ id: string }&gt;();
+  const navigate = useNavigate();
+  const { user, token } = useContext(AuthContext);
+  const [form, setForm] = useState&lt;Form&gt;({
+    nom: &quot;&quot;,
+    description: &quot;&quot;,
+    descriptionComplete: &quot;&quot;,
+    version: &quot;&quot;,
+    statut: &quot;&quot;,
+    proprietaire: &quot;&quot;,
+  });
+  const [loading, setLoading] = useState&lt;boolean&gt;(true);
+  const [saving, setSaving] = useState&lt;boolean&gt;(false);
+  const [error, setError] = useState&lt;string | null&gt;(null);
+
+  useEffect(() =&gt; {
+    if (!id) return;
+    setLoading(true);
+    fetch(`/api/builds/${id}`)
+      .then((res) =&gt; {
+        if (!res.ok) throw new Error(&quot;Erreur r&eacute;cup&eacute;ration&quot;);
+        return res.json();
+      })
+      .then((data) =&gt; {
+        setForm({
+          nom: data.nom ?? &quot;&quot;,
+          description: data.description ?? &quot;&quot;,
+          descriptionComplete: data.descriptionComplete ?? &quot;&quot;,
+          version: data.version ?? &quot;&quot;,
+          statut: data.statut ?? &quot;&quot;,
+          proprietaire: data.proprietaire ?? &quot;&quot;,
+        });
+      })
+      .catch((err: unknown) =&gt;
+        setError(err instanceof Error ? err.message : String(err))
+      )
+      .finally(() =&gt; setLoading(false));
+  }, [id]);
+
+  if (!user || !user.isAdmin) return &lt;p&gt;Acc&egrave;s r&eacute;serv&eacute; aux administrateurs.&lt;/p&gt;;
+
+  const handleChange = (
+    e: React.ChangeEvent&lt;HTMLInputElement | HTMLTextAreaElement&gt;
+  ) =&gt; {
+    const name = e.target.name as keyof Form;
+    const value = e.target.value;
+    setForm((prev) =&gt; ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) =&gt; {
+    e.preventDefault();
+    setSaving(true);
+    setError(null);
+    try {
+      const res = await fetch(`/api/builds/${id}`, {
+        method: &quot;PUT&quot;,
+        headers: {
+          &quot;Content-Type&quot;: &quot;application/json&quot;,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error(&quot;Erreur lors de la mise &agrave; jour&quot;);
+      navigate(&quot;/builds&quot;);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(msg);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) return &lt;p&gt;Chargement...&lt;/p&gt;;
+
+  return (
+    &lt;main className=&quot;new-build-container&quot;&gt;
+      &lt;h2&gt;Modifier le logiciel&lt;/h2&gt;
+      {error &amp;&amp; &lt;div style={{ color: &quot;#c00&quot;, marginBottom: 8 }}&gt;{error}&lt;/div&gt;}
+      &lt;form className=&quot;new-build-form&quot; onSubmit={handleSubmit}&gt;
+        &lt;label className=&quot;field-label&quot;&gt;Nom&lt;/label&gt;
+        &lt;input name=&quot;nom&quot; value={form.nom} onChange={handleChange} required /&gt;
+
+        &lt;label className=&quot;field-label&quot;&gt;Description&lt;/label&gt;
+        &lt;textarea
+          name=&quot;description&quot;
+          value={form.description}
+          onChange={handleChange}
+        /&gt;
+
+        &lt;label className=&quot;field-label&quot;&gt;Version&lt;/label&gt;
+        &lt;input name=&quot;version&quot; value={form.version} onChange={handleChange} /&gt;
+
+        &lt;label className=&quot;field-label&quot;&gt;Statut&lt;/label&gt;
+        &lt;select
+          name=&quot;statut&quot;
+          value={form.statut}
+          onChange={(e) =&gt; setForm((p) =&gt; ({ ...p, statut: e.target.value }))}
+        &gt;
+          &lt;option value=&quot;&quot;&gt;-- Choisir --&lt;/option&gt;
+          &lt;option value=&quot;En d&eacute;veloppement&quot;&gt;En d&eacute;veloppement&lt;/option&gt;
+          &lt;option value=&quot;En test&quot;&gt;En test&lt;/option&gt;
+          &lt;option value=&quot;Production&quot;&gt;Production&lt;/option&gt;
+          &lt;option value=&quot;D&eacute;pr&eacute;ci&eacute;&quot;&gt;D&eacute;pr&eacute;ci&eacute;&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;label className=&quot;field-label&quot;&gt;Propri&eacute;taire&lt;/label&gt;
+        &lt;input
+          name=&quot;proprietaire&quot;
+          value={form.proprietaire}
+          onChange={handleChange}
+        /&gt;
+
+        &lt;button className=&quot;btn primary&quot; type=&quot;submit&quot; disabled={saving}&gt;
+          {saving ? &quot;Enregistrement...&quot; : &quot;Enregistrer&quot;}
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/main&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

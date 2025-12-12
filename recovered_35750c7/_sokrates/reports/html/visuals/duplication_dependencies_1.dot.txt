@@ -1,0 +1,32 @@
+graph G {
+    compound="true"
+    rankdir="TB"
+    bgcolor="white"
+    fontname="Tahoma"
+
+    node [
+        fixedsize="false"
+        fontname="Tahoma"
+        color="white"
+        fillcolor="deepskyblue2"
+        fontcolor="black"
+        shape="box"
+        style="filled"
+        penwidth="1.0"
+    ]
+    edge [
+        fontname="Arial"
+        color="#DC143C"
+        fontcolor="black"
+        fontsize="12"
+        arrowsize="0.5"
+        penwidth="1.0"
+    ]
+
+
+
+
+    "SPL/coverage" -- "SPL/src" [label=" 524 ", penwidth="10", color="#DC143CFF"];
+    "cypress/e2e" -- "cypress/support" [label=" 12 ", penwidth="1", color="#DC143C4C"];
+
+}

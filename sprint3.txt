@@ -7,3 +7,6 @@ npm test
 sokrates.dev
 // rapport
 Start-Process ".\_sokrates\reports\html\index.html"
+
+// coverage unitaires 
+cd /d "C:\depots\Automne 2025\Developpement Application\projet_final_devApp\backend" && npx vitest run --coverage --exclude "**/*.integration.test.js" && cd /d "C:\depots\Automne 2025\Developpement Application\projet_final_devApp\SPL" && npx vitest run --coverage

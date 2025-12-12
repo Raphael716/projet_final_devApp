@@ -1,0 +1,4 @@
+Path	Lines of Code
+backend/prisma/migrations/20251128162447_init_sqlite/migration.sql	31
+backend/prisma/migrations/migration_lock.toml	3
+backend/prisma/schema.prisma	39

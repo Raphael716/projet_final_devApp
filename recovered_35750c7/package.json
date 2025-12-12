@@ -1,0 +1,31 @@
+{
+  "name": "projet_final_devapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "vitest",
+    "dev": "concurrently -n \"BACKEND,SPL\" -c \"green,blue\" \"cd backend && npm run dev\" \"cd SPL && npm run dev\"",
+    "install:all": "npm install && cd SPL && npm install && cd ../backend && npm install",
+    "prisma:generate": "cd backend && npx prisma generate",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "cypress run"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.14.7",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "babel-plugin-istanbul": "^7.0.1",
+    "concurrently": "^9.2.1",
+    "cypress": "^13.17.0",
+    "jsdom": "^23.2.0",
+    "vite-plugin-istanbul": "^7.2.1",
+    "vitest": "^1.0.0"
+  }
+}

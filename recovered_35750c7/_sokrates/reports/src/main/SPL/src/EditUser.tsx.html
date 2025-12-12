@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>SPL/src/EditUser.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">SPL/src/EditUser.tsx (<b>80</b> lines of code) (<a href="EditUser.tsx">raw</a>):</h3>
+<div id="editor">import { useEffect, useState, useContext } from &quot;react&quot;;
+import { useParams, useNavigate } from &quot;react-router-dom&quot;;
+import { AuthContext } from &quot;./AuthContext&quot;;
+import &quot;./EditUser.css&quot;;
+import { Link } from &quot;react-router-dom&quot;;
+
+function EditUser() {
+  const { id } = useParams();
+  const { token } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [username, setUsername] = useState(&quot;&quot;);
+  const [email, setEmail] = useState(&quot;&quot;);
+  const [admin, setAdmin] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() =&gt; {
+    if (!id) return;
+    fetch(`/api/users/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) =&gt; res.json())
+      .then((data) =&gt; {
+        setUsername(data.username ?? &quot;&quot;);
+        setEmail(data.email ?? &quot;&quot;);
+        setAdmin(data.admin ?? 0);
+      });
+  }, [id, token]);
+
+  const handleSubmit = async (e: React.FormEvent) =&gt; {
+    e.preventDefault();
+    if (!id) return;
+    setLoading(true);
+    await fetch(`/api/users/${id}`, {
+      method: &quot;PUT&quot;,
+      headers: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ username, email, admin }),
+    });
+    setLoading(false);
+    navigate(&quot;/admin/users&quot;);
+  };
+
+return (
+  &lt;main className=&quot;admin-container&quot;&gt;
+    &lt;div className=&quot;edit-card&quot;&gt;
+      &lt;h2&gt;Modifier utilisateur&lt;/h2&gt;
+      &lt;form onSubmit={handleSubmit} className=&quot;edit-form&quot;&gt;
+        &lt;label&gt;
+          Nom
+          &lt;input
+            value={username}
+            onChange={(e) =&gt; setUsername(e.target.value)}
+          /&gt;
+        &lt;/label&gt;
+        &lt;label&gt;
+          Email
+          &lt;input
+            value={email}
+            onChange={(e) =&gt; setEmail(e.target.value)}
+          /&gt;
+        &lt;/label&gt;
+        &lt;label&gt;
+          Admin ?
+          &lt;select
+            value={admin}
+            onChange={(e) =&gt; setAdmin(Number(e.target.value))}
+          &gt;
+            &lt;option value={0}&gt;Non&lt;/option&gt;
+            &lt;option value={1}&gt;Oui&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/label&gt;
+        &lt;button type=&quot;submit&quot; disabled={loading}&gt;
+          {loading ? &quot;Enregistrement...&quot; : &quot;Enregistrer&quot;}
+        &lt;/button&gt;
+      &lt;/form&gt;
+      &lt;br/&gt;
+      &lt;Link to=&quot;/admin/users&quot; className=&quot;btn primary&quot;&gt;Retour&lt;/Link&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+);
+}
+
+export default EditUser; // ✅ obligatoire pour ton import
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

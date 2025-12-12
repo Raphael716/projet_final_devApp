@@ -1,0 +1,262 @@
+<html>
+<head>
+    <title>SPL/src/VersionDetail.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">SPL/src/VersionDetail.tsx (<b>205</b> lines of code) (<a href="VersionDetail.tsx">raw</a>):</h3>
+<div id="editor">import { useParams, Link, useNavigate } from &quot;react-router-dom&quot;;
+import { useEffect, useState, useContext } from &quot;react&quot;;
+import { AuthContext } from &quot;./AuthContext&quot;;
+import &quot;./VersionDetail.css&quot;;
+
+type Asset = {
+  id: number;
+  filename: string;
+  original: string;
+  mimetype: string;
+  displayType?: string;
+  size: number;
+  path: string;
+  buildId: number;
+  version: string | null;
+  description?: string | null;
+  createdAt: string;
+};
+
+type Build = {
+  id: number;
+  nom: string;
+  version?: string | null;
+};
+
+export default function VersionDetail() {
+  const { buildId, assetId } = useParams();
+  const [asset, setAsset] = useState&lt;Asset | null&gt;(null);
+  const [build, setBuild] = useState&lt;Build | null&gt;(null);
+  const [preview, setPreview] = useState&lt;string | null&gt;(null);
+  const [previewExpanded, setPreviewExpanded] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const { user, token } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() =&gt; {
+    fetch(`/api/assets/${assetId}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+      .then((r) =&gt; r.json())
+      .then((data) =&gt; {
+        setAsset(data);
+        return fetch(`/api/builds/${buildId}`);
+      })
+      .then((r) =&gt; r.json())
+      .then((data) =&gt; {
+        setBuild(data);
+      })
+      .catch(console.error)
+      .finally(() =&gt; setLoading(false));
+  }, [buildId, assetId, token]);
+
+  useEffect(() =&gt; {
+    if (!asset) return;
+    const isTextType = (a: Asset) =&gt; {
+      if (!a) return false;
+      if (a.mimetype &amp;&amp; a.mimetype.startsWith(&quot;text/&quot;)) return true;
+      if (a.displayType) {
+        const d = a.displayType.toLowerCase();
+        if (
+          d.includes(&quot;fichier&quot;) ||
+          d.includes(&quot;text&quot;) ||
+          d.includes(&quot;markdown&quot;) ||
+          d.includes(&quot;json&quot;)
+        )
+          return true;
+      }
+      return [&quot;.md&quot;, &quot;.txt&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.log&quot;].some((e) =&gt;
+        a.original.toLowerCase().endsWith(e)
+      );
+    };
+
+    if (!isTextType(asset)) {
+      setPreview(null);
+      return;
+    }
+
+    fetch(`/api/assets/download/${asset.id}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+      .then(async (res) =&gt; {
+        const ct = res.headers.get(&quot;content-type&quot;) || &quot;&quot;;
+        if (
+          res.ok &amp;&amp;
+          (ct.startsWith(&quot;text/&quot;) || ct.includes(&quot;json&quot;) || ct.includes(&quot;csv&quot;))
+        ) {
+          return res.text();
+        }
+        return null;
+      })
+      .then((text) =&gt; {
+        if (text) setPreview(text);
+      })
+      .catch((e) =&gt; {
+        console.debug(&quot;preview fetch failed&quot;, e);
+      });
+  }, [asset, token]);
+
+  if (loading) return &lt;p&gt;Chargement...&lt;/p&gt;;
+  if (!asset || !build) return &lt;p&gt;Version introuvable&lt;/p&gt;;
+  const friendlyType = (() =&gt; {
+    if (!asset) return &quot;Type inconnu&quot;;
+    const dt = asset.displayType?.trim();
+    if (dt &amp;&amp; dt.length &gt; 0) return dt;
+    const idx = asset.original.lastIndexOf(&quot;.&quot;);
+    if (idx !== -1) return asset.original.slice(idx).toLowerCase();
+    return &quot;Type inconnu&quot;;
+  })();
+
+  return (
+    &lt;main className=&quot;version-detail-container&quot;&gt;
+      &lt;div className=&quot;version-detail-nav&quot;&gt;
+        &lt;Link to={`/builds/${buildId}`} className=&quot;back-link&quot;&gt;
+          &amp;larr; Retour au logiciel
+        &lt;/Link&gt;
+      &lt;/div&gt;
+
+      &lt;div className=&quot;version-detail-header&quot;&gt;
+        &lt;div className=&quot;version-detail-title&quot;&gt;
+          &lt;h2&gt;Version {asset.version || &quot;non sp&eacute;cifi&eacute;e&quot;}&lt;/h2&gt;
+        &lt;/div&gt;
+
+        &lt;div className=&quot;version-detail-actions&quot;&gt;
+          &lt;button
+            className=&quot;btn-download&quot;
+            onClick={async () =&gt; {
+              try {
+                const response = await fetch(
+                  `/api/assets/download/${asset.id}`,
+                  {
+                    headers: token ? { Authorization: `Bearer ${token}` } : {},
+                  }
+                );
+
+                if (!response.ok) {
+                  throw new Error(&quot;Erreur lors du t&eacute;l&eacute;chargement&quot;);
+                }
+
+                // Cr&eacute;er un blob &agrave; partir de la r&eacute;ponse
+                const blob = await response.blob();
+
+                // Cr&eacute;er un URL pour le blob
+                const url = window.URL.createObjectURL(blob);
+
+                // Cr&eacute;er un lien temporaire et cliquer dessus
+                const a = document.createElement(&quot;a&quot;);
+                a.href = url;
+                a.download = asset.original; // Utiliser le nom original du fichier
+                document.body.appendChild(a);
+                a.click();
+
+                // Nettoyer
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+              } catch (error) {
+                console.error(&quot;Erreur de t&eacute;l&eacute;chargement:&quot;, error);
+                alert(&quot;Erreur lors du t&eacute;l&eacute;chargement du fichier&quot;);
+              }
+            }}
+          &gt;
+            T&eacute;l&eacute;charger
+          &lt;/button&gt;
+          {user?.isAdmin &amp;&amp; (
+            &lt;button
+              className=&quot;btn-delete&quot;
+              onClick={async () =&gt; {
+                if (!window.confirm(&quot;Supprimer cette version ?&quot;)) return;
+                try {
+                  const res = await fetch(`/api/assets/${asset.id}`, {
+                    method: &quot;DELETE&quot;,
+                    headers: { Authorization: `Bearer ${token}` },
+                  });
+                  if (!res.ok) throw new Error(&quot;Erreur suppression&quot;);
+                  navigate(`/builds/${buildId}`);
+                } catch (e) {
+                  console.error(&quot;delete version&quot;, e);
+                  alert(&quot;Impossible de supprimer la version&quot;);
+                }
+              }}
+            &gt;
+              Supprimer
+            &lt;/button&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div className=&quot;version-detail-content&quot;&gt;
+        &lt;div className=&quot;version-detail-section&quot;&gt;
+          &lt;h3&gt;Informations&lt;/h3&gt;
+          &lt;ul className=&quot;version-info-list&quot;&gt;
+            &lt;li&gt;
+              &lt;span&gt;Nom du fichier:&lt;/span&gt;
+              &lt;strong&gt;{asset.original}&lt;/strong&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;span&gt;Type:&lt;/span&gt;
+              &lt;strong&gt;{friendlyType}&lt;/strong&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;span&gt;Description :&lt;/span&gt;
+              &lt;strong&gt;
+                {asset.description || &quot;Aucune description fournie&quot;}
+              &lt;/strong&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;span&gt;Taille:&lt;/span&gt;
+              &lt;strong&gt;{(asset.size / 1024).toFixed(1)} KB&lt;/strong&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;span&gt;Date d'ajout:&lt;/span&gt;
+              &lt;strong&gt;{new Date(asset.createdAt).toLocaleString()}&lt;/strong&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          {preview !== null &amp;&amp; (
+            &lt;div className=&quot;version-preview&quot;&gt;
+              &lt;div className=&quot;version-preview-header&quot;&gt;
+                &lt;strong&gt;Aper&ccedil;u&lt;/strong&gt;
+                &lt;button
+                  className=&quot;preview-toggle&quot;
+                  onClick={() =&gt; setPreviewExpanded((p) =&gt; !p)}
+                &gt;
+                  {previewExpanded ? &quot;R&eacute;duire&quot; : &quot;Voir plus&quot;}
+                &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;pre
+                className={`preview-box ${previewExpanded ? &quot;expanded&quot; : &quot;&quot;}`}
+              &gt;
+                {preview}
+              &lt;/pre&gt;
+            &lt;/div&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

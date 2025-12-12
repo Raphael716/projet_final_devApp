@@ -1,0 +1,152 @@
+name: Tests (Vitest + Cypress)
+
+on:
+  push:
+    branches: [ main, develop, 'chore/**', 'fix/**' ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  # TESTS UNITAIRES BACKEND
+  backend-unit-tests:
+    name: Backend Unit Tests (Vitest)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install backend deps
+        working-directory: ./backend
+        run: npm install
+      - name: Run unit tests
+        working-directory: ./backend
+        run: npm run test:unit
+      - name: Upload backend coverage
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: ./backend/coverage
+
+  # TESTS INTÉGRATION BACKEND (AVEC MYSQL)
+  backend-integration-tests:
+    name: Backend Integration Tests
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_DATABASE: s13_spl_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      - name: Install backend deps
+        working-directory: ./backend
+        run: npm install
+      # On attend que MySQL soit prêt
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent; do
+            echo 'waiting for mysql...'
+            sleep 1
+          done
+      # Setup de la DB pour les tests d'intégration
+      - name: Setup Database
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
+        run: |
+          npx prisma generate
+          npx prisma db push
+      - name: Run integration tests
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_test
+          JWT_SECRET: test_secret
+        run: npm run test:integration
+
+  # TESTS UNITAIRES FRONTEND
+  frontend-unit-tests:
+    name: Frontend Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      - name: Install frontend deps
+        working-directory: ./SPL
+        run: npm install
+      - name: Run frontend tests with coverage
+        working-directory: ./SPL
+        run: npm run test:unit
+
+      - name: Upload frontend coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: ./SPL/coverage
+
+  # TESTS E2E (CYPRESS)
+  e2e-tests:
+    name: E2E Tests (Cypress)
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_DATABASE: s13_spl_local
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+      
+      - name: Install Dependencies
+        run: |
+          npm run install:all
+
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h"127.0.0.1" -u"root" -p"mysql" --silent; do
+            echo 'waiting for mysql...'
+            sleep 1
+          done
+
+      - name: Setup Database (E2E)
+        working-directory: ./backend
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_local
+        run: |
+          npx prisma generate
+          npx prisma db push
+
+      - name: Start Servers & Test
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait-on: 'http://localhost:4000, http://localhost:5173'
+          browser: chrome
+          headless: true
+        env:
+          DATABASE_URL: mysql://root:mysql@127.0.0.1:3306/s13_spl_local
+          JWT_SECRET: test_secret
+          NODE_ENV: test

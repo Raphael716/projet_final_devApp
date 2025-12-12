@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>SPL/src/AdminUsers.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">SPL/src/AdminUsers.tsx (<b>73</b> lines of code) (<a href="AdminUsers.tsx">raw</a>):</h3>
+<div id="editor">import { useEffect, useState, useContext } from &quot;react&quot;;
+import { Link } from &quot;react-router-dom&quot;;
+import { AuthContext } from &quot;./AuthContext&quot;;
+import &quot;./AdminUsers.css&quot;;
+
+type UserRow = {
+  id: number;
+  username: string;
+  email: string;
+  admin: number;
+};
+
+function AdminUsers() {
+  const { token } = useContext(AuthContext);
+  const [users, setUsers] = useState&lt;UserRow[]&gt;([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(&quot;&quot;);
+
+  // Charger la liste des utilisateurs
+  useEffect(() =&gt; {
+    fetch(&quot;/api/users&quot;, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) =&gt; {
+        if (!res.ok) throw new Error(&quot;Erreur API&quot;);
+        return res.json();
+      })
+      .then((data) =&gt; setUsers(data))
+      .catch(() =&gt; setError(&quot;Impossible de charger les utilisateurs&quot;))
+      .finally(() =&gt; setLoading(false));
+  }, [token]);
+
+  const handleDelete = async (id: number) =&gt; {
+    if (!confirm(&quot;Voulez-vous vraiment supprimer cet utilisateur ?&quot;)) return;
+
+    await fetch(`/api/users/${id}`, {
+      method: &quot;DELETE&quot;,
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    setUsers((prev) =&gt; prev.filter((u) =&gt; u.id !== id));
+  };
+
+  if (loading) return &lt;p&gt;Chargement...&lt;/p&gt;;
+  if (error) return &lt;p className=&quot;error&quot;&gt;{error}&lt;/p&gt;;
+
+  return (
+    &lt;main className=&quot;admin-container&quot;&gt;
+      &lt;h2&gt;Gestion des utilisateurs&lt;/h2&gt;
+      &lt;table className=&quot;users-table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;Nom&lt;/th&gt;
+            &lt;th&gt;Email&lt;/th&gt;
+            &lt;th&gt;Admin&lt;/th&gt;
+            &lt;th&gt;Actions&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          {users.map((u) =&gt; (
+            &lt;tr key={u.id}&gt;
+              &lt;td&gt;{u.id}&lt;/td&gt;
+              &lt;td&gt;{u.username}&lt;/td&gt;
+              &lt;td&gt;{u.email}&lt;/td&gt;
+              &lt;td&gt;{u.admin === 1 ? &quot;Oui&quot; : &quot;Non&quot;}&lt;/td&gt;
+              &lt;td className=&quot;actions&quot;&gt;
+                &lt;Link to={`/admin/users/${u.id}/edit`} className=&quot;btn-edit&quot;&gt;
+                  Modifier
+                &lt;/Link&gt;
+                &lt;button
+                  className=&quot;btn-delete&quot;
+                  onClick={() =&gt; handleDelete(u.id)}
+                &gt;
+                  Supprimer
+                &lt;/button&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          ))}
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/main&gt;
+  );
+}
+
+export default AdminUsers;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

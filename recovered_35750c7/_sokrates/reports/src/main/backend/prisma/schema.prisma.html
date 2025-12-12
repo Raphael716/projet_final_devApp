@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>backend/prisma/schema.prisma</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/prisma/schema.prisma (<b>39</b> lines of code) (<a href="schema.prisma">raw</a>):</h3>
+<div id="editor">generator client {
+  provider = &quot;prisma-client-js&quot;
+}
+
+datasource db {
+  provider = &quot;mysql&quot;
+  url      = env(&quot;DATABASE_URL&quot;)
+}
+
+model asset {
+  id          Int       @id @default(autoincrement())
+  filename    String    @db.VarChar(255)
+  original    String    @db.VarChar(255)
+  mimetype    String    @db.VarChar(100)
+  size        Int
+  path        String    @db.VarChar(255)
+  buildId     Int
+  version     String?   @db.VarChar(50)
+  description String?   @db.Text
+  createdAt   DateTime? @default(now()) @db.DateTime(0)
+  builds      builds    @relation(fields: [buildId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: &quot;asset_ibfk_1&quot;)
+
+  @@index([buildId], map: &quot;buildId&quot;)
+}
+
+model builds {
+  id           Int       @id @default(autoincrement())
+  nom          String    @db.VarChar(255)
+  description  String?   @db.Text
+  version      String?   @db.VarChar(50)
+  statut       String?   @db.VarChar(50)
+  proprietaire String?   @db.VarChar(255)
+  updatedAt    DateTime? @default(now()) @db.DateTime(0)
+  asset        asset[]
+}
+
+model user {
+  id        Int       @id @default(autoincrement())
+  username  String    @db.VarChar(255)
+  email     String    @unique(map: &quot;email&quot;) @db.VarChar(255)
+  password  String    @db.VarChar(255)
+  createdAt DateTime? @default(now()) @db.DateTime(0)
+  admin     Int       @default(0) @db.TinyInt
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/prisma");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

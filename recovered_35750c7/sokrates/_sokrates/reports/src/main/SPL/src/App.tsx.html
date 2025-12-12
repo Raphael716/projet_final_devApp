@@ -1,0 +1,176 @@
+<html>
+<head>
+    <title>SPL/src/App.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">SPL/src/App.tsx (<b>134</b> lines of code) (<a href="App.tsx">raw</a>):</h3>
+<div id="editor">import { useEffect, useMemo, useState, useContext } from &quot;react&quot;;
+import { Routes, Route, Link, Navigate } from &quot;react-router-dom&quot;;
+import Header from &quot;./Header&quot;;
+import Footer from &quot;./Footer&quot;;
+import Login from &quot;./Login&quot;;
+import { AuthContext } from &quot;./AuthContext&quot;;
+import type { AppUser } from &quot;./AuthContext&quot;;
+import &quot;./App.css&quot;;
+import Signup from &quot;./Signup&quot;;
+import AdminUsers from &quot;./AdminUsers&quot;;
+import EditUser from &quot;./EditUser&quot;;
+import Builds from &quot;./Builds&quot;;
+import BuildDetail from &quot;./BuildDetail&quot;;
+import NewBuild from &quot;./NewBuild&quot;;
+import EditBuild from &quot;./EditBuild&quot;;
+import VersionDetail from &quot;./VersionDetail&quot;;
+import AddVersion from &quot;./AddVersion&quot;;
+
+function Home() {
+  const { user } = useContext(AuthContext);
+  return (
+    &lt;main className=&quot;home&quot;&gt;
+      &lt;h1&gt;Software Production Line&lt;/h1&gt;
+      &lt;p&gt;
+        G&eacute;rez vos logiciels, vos versions et vos fichiers &agrave; partir d&rsquo;une
+        interface claire et centralis&eacute;e.
+      &lt;/p&gt;
+
+      &lt;div className=&quot;home-actions&quot;&gt;
+        {!user &amp;&amp; (
+          &lt;Link to=&quot;/login&quot; className=&quot;btn primary&quot;&gt;
+            Se connecter
+          &lt;/Link&gt;
+        )}
+        &lt;Link to=&quot;/builds&quot; className=&quot;btn secondary&quot;&gt;
+          Voir les builds
+        &lt;/Link&gt;
+      &lt;/div&gt;
+
+      &lt;section className=&quot;features&quot;&gt;
+        &lt;div className=&quot;feature-card&quot;&gt;
+          &lt;h3&gt;Gestion simplifi&eacute;e&lt;/h3&gt;
+          &lt;p&gt;
+            Cr&eacute;ez, modifiez et suivez vos builds en quelques clics avec une
+            interface fluide.
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;feature-card&quot;&gt;
+          &lt;h3&gt;Suivi des versions&lt;/h3&gt;
+          &lt;p&gt;
+            Gardez une trace claire de l&rsquo;&eacute;volution de vos projets et t&eacute;l&eacute;chargez
+            chaque version facilement.
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;feature-card&quot;&gt;
+          &lt;h3&gt;S&eacute;curit&eacute; int&eacute;gr&eacute;e&lt;/h3&gt;
+          &lt;p&gt;
+            Profitez d&rsquo;un acc&egrave;s prot&eacute;g&eacute; gr&acirc;ce &agrave; l&rsquo;authentification par jeton et
+            la gestion des r&ocirc;les.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
+  );
+}
+
+function toAppUser(u: any): AppUser {
+  return {
+    id: Number(u.id ?? 0),
+    username: u.username ?? &quot;&quot;,
+    email: u.email ?? &quot;&quot;,
+    isAdmin: Number(u.isAdmin ?? u.admin ?? 0) === 1,
+  };
+}
+
+export default function App() {
+  const [user, setUser] = useState&lt;AppUser | null&gt;(null);
+  const [token, setToken] = useState&lt;string | null&gt;(null);
+
+  useEffect(() =&gt; {
+    const t = localStorage.getItem(&quot;spl_token&quot;);
+    const u = localStorage.getItem(&quot;spl_user&quot;);
+    if (t) setToken(t);
+    if (u) setUser(toAppUser(JSON.parse(u)));
+  }, []);
+
+  const login = (u: any, t: string) =&gt; {
+    const appUser = toAppUser(u);
+    setUser(appUser);
+    setToken(t);
+    localStorage.setItem(&quot;spl_token&quot;, t);
+    localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(appUser));
+  };
+
+  const logout = () =&gt; {
+    setUser(null);
+    setToken(null);
+    localStorage.removeItem(&quot;spl_token&quot;);
+    localStorage.removeItem(&quot;spl_user&quot;);
+  };
+
+  const value = useMemo(() =&gt; ({ user, token, login, logout }), [user, token]);
+
+  return (
+    &lt;AuthContext.Provider value={value}&gt;
+      &lt;Header /&gt;
+      &lt;Routes&gt;
+        &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+        &lt;Route
+          path=&quot;/login&quot;
+          element={!token ? &lt;Login /&gt; : &lt;Navigate to=&quot;/&quot; replace /&gt;}
+        /&gt;
+        &lt;Route
+          path=&quot;/signup&quot;
+          element={!token ? &lt;Signup /&gt; : &lt;Navigate to=&quot;/&quot; replace /&gt;}
+        /&gt;
+
+        {/* Admin */}
+        &lt;Route
+          path=&quot;/admin/users&quot;
+          element={user?.isAdmin ? &lt;AdminUsers /&gt; : &lt;Navigate to=&quot;/&quot; replace /&gt;}
+        /&gt;
+        &lt;Route
+          path=&quot;/admin/users/:id/edit&quot;
+          element={user?.isAdmin ? &lt;EditUser /&gt; : &lt;Navigate to=&quot;/&quot; replace /&gt;}
+        /&gt;
+        {/* Builds */}
+        &lt;Route path=&quot;/builds&quot; element={&lt;Builds /&gt;} /&gt;
+        &lt;Route path=&quot;/builds/new&quot; element={&lt;NewBuild /&gt;} /&gt;
+        &lt;Route
+          path=&quot;/builds/:id/add-version&quot;
+          element={
+            user?.isAdmin ? &lt;AddVersion /&gt; : &lt;Navigate to=&quot;/login&quot; replace /&gt;
+          }
+        /&gt;
+        &lt;Route
+          path=&quot;/builds/:id/edit&quot;
+          element={user?.isAdmin ? &lt;EditBuild /&gt; : &lt;Navigate to=&quot;/&quot; replace /&gt;}
+        /&gt;
+        &lt;Route path=&quot;/builds/:id&quot; element={&lt;BuildDetail /&gt;} /&gt;
+        &lt;Route
+          path=&quot;/builds/:buildId/versions/:assetId&quot;
+          element={&lt;VersionDetail /&gt;}
+        /&gt;
+        &lt;Route path=&quot;*&quot; element={&lt;Navigate to=&quot;/&quot; replace /&gt;} /&gt;
+      &lt;/Routes&gt;
+      &lt;Footer /&gt;
+    &lt;/AuthContext.Provider&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>
