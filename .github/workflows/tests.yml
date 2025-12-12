@@ -26,12 +26,12 @@ jobs:
       - name: Run unit tests
         working-directory: ./backend
         run: npm run test:unit
-      - name: Upload backend coverage
-        if: success()
+      - name: Upload coverage
+        if: matrix.node-version == '22.x' && success()
         uses: actions/upload-artifact@v4
         with:
-          name: backend-coverage
-          path: ./backend/coverage
+          name: backend-unit-coverage
+          path: ./backend/coverage/coverage-final.json
 
   # TESTS INTÉGRATION BACKEND (AVEC MYSQL)
   backend-integration-tests:
@@ -90,15 +90,9 @@ jobs:
       - name: Install frontend deps
         working-directory: ./SPL
         run: npm install
-      - name: Run frontend tests with coverage
+      - name: Run frontend tests
         working-directory: ./SPL
-        run: npm run test:unit
-
-      - name: Upload frontend coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-coverage
-          path: ./SPL/coverage
+        run: npm test
 
   # TESTS E2E (CYPRESS)
   e2e-tests:

@@ -1,6 +1,3 @@
-import { defineConfig } from "cypress";
-import codeCoverage from "@cypress/code-coverage/task";
-
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -11,8 +8,7 @@ module.exports = defineConfig({
     viewportHeight: 720,
     video: false,
     setupNodeEvents(on, config) {
-      codeCoverage(on, config);
-      return config;
+      // place node event listeners here when needed
     },
   },
 });
