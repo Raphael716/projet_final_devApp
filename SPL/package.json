@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "test:unit": "vitest run --coverage --coverage-provider=v8 --reporter=json",
     "test:integration": "vitest -c vitest.integration.config.ts"
   },
   "dependencies": {
@@ -25,7 +26,7 @@
     "@types/react-dom": "^19.1.7",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^5.0.0",
-    "@vitest/coverage-v8": "^4.0.12",
+    "@vitest/coverage-v8": "^4.0.15",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

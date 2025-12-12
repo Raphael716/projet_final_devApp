@@ -7,6 +7,17 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/setupTests.ts",
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json-summary", "lcov"],  
+      reportsDirectory: "./coverage",
+      exclude: [
+        "node_modules",
+        "cypress",
+        "**/*.test.*",
+        "**/*.spec.*",
+      ],
+    },
   },
   server: {
     port: 5173,
