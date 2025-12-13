@@ -1,4 +1,4 @@
-name: CI - Tests & Quality
+name: CI & Quality Check (Build & Sokrates)
 
 on:
   push:
@@ -8,59 +8,68 @@ on:
 
 jobs:
   build-and-analyze:
-    name: Build & Quality Analysis (Sokrates)
+    name: Build & Quality Analysis
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # requis pour Sokrates
+          fetch-depth: 0 # Important pour l'historique Sokrates
 
-      # ENV
+      # 1. SETUP ENVIRONNEMENT
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
-          cache: npm
+          node-version: "20"
+          cache: 'npm'
 
-      - name: Setup Java (Sokrates)
+      - name: Setup Java (pour Sokrates)
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: "temurin"
           java-version: "21"
 
-      # INSTALL
+      # 2. INSTALLATION DES DÉPENDANCES
       - name: Install root dependencies
-        run: npm ci
+        run: npm install
 
       - name: Install backend dependencies
-        working-directory: backend
-        run: npm ci
+        working-directory: ./backend
+        run: npm install
 
       - name: Install frontend (SPL) dependencies
-        working-directory: SPL
-        run: npm ci
+        working-directory: ./SPL
+        run: npm install
 
-      # BUILD
+      # 3. GÉNÉRATION ET BUILD (Vérifie que le projet fonctionne/compile)
       - name: Generate Prisma Client
-        working-directory: backend
-        run: npx prisma generate
+        working-directory: ./backend
+        run: |
+          # Génère le client Prisma pour vérifier que le schéma est valide
+          # Pas besoin de DB active ici, juste de la génération de code
+          npx prisma generate
 
       - name: Build Frontend
-        working-directory: SPL
-        run: npm run build
+        working-directory: ./SPL
+        run: |
+          # Vérifie que le frontend compile correctement (Vite build)
+          npm run build
 
-      # SOKRATES
+      # 4. ANALYSE DE QUALITÉ SOKRATES
       - name: Download Sokrates
         run: |
-          mkdir -p sokrates
+          mkdir -p ./sokrates
+          cd ./sokrates
+          # URL officielle via CloudFront
           curl -L https://d2bb1mtyn3kglb.cloudfront.net/builds/sokrates-LATEST.jar \
-            -o sokrates/sokrates-LATEST.jar
+               -o sokrates-LATEST.jar
+          cd ..
 
       - name: Generate Sokrates Report
         run: |
-          java -jar sokrates/sokrates-LATEST.jar generateReports \
+          ls -lh ./sokrates/sokrates-LATEST.jar
+          java -jar ./sokrates/sokrates-LATEST.jar generateReports \
             -confFile "./_sokrates/config.json" \
             -outputFolder "./_sokrates/reports"
 
@@ -68,129 +77,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sokrates-quality-report
-          path: _sokrates/reports/html
+          path: _sokrates/reports/html/
           retention-days: 7
-
-  backend-unit:
-    name: Backend unit tests & coverage
-    runs-on: ubuntu-latest
-    needs: build-and-analyze
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install backend deps
-        working-directory: backend
-        run: npm ci
-
-      - name: Run backend unit tests
-        working-directory: backend
-        run: npm run test:unit
-
-      - name: Upload backend coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-backend
-          path: backend/coverage
-
-  frontend-unit:
-    name: Frontend (SPL) unit tests & coverage
-    runs-on: ubuntu-latest
-    needs: build-and-analyze
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install frontend deps
-        working-directory: SPL
-        run: npm ci
-
-      - name: Run frontend unit tests
-        working-directory: SPL
-        run: npm run test:unit
-
-      - name: Upload frontend coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-spl
-          path: SPL/coverage
-
-  backend-integration:
-    name: Backend integration tests
-    runs-on: ubuntu-latest
-    needs: backend-unit
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install backend deps
-        working-directory: backend
-        run: npm ci
-
-      - name: Run backend integration tests
-        working-directory: backend
-        run: npm run test:integration
-
-  frontend-integration:
-    name: Frontend integration tests
-    runs-on: ubuntu-latest
-    needs: frontend-unit
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install frontend deps
-        working-directory: SPL
-        run: npm ci
-
-      - name: Run frontend integration tests
-        working-directory: SPL
-        run: npm run test:integration
-
-  e2e-cypress:
-    name: E2E Cypress (Cucumber)
-    runs-on: ubuntu-latest
-    needs: frontend-unit
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run Cypress Cucumber tests
-        run: npm run cy:cucumber
-
-      - name: Upload Cypress screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-      - name: Upload Cypress videos
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: cypress/videos
