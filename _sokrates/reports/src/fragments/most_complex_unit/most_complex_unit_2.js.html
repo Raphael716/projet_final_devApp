@@ -1,50 +1,43 @@
 <html>
 <head>
-    <title>function enableUI()</title>
+    <title>destination: function()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function enableUI()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [165:196]</i></p>
+<h3 style="margin-bottom: 0">destination: function()</h3>
+<p style="margin-top: 4px">in <i>backend/src/controllers/assetController.js [66:90]</i></p>
 <ul>
-    <li><b>28</b> lines of code</li>
-    <li><b>5</b> McCabe index (conditional complexity)</li>
+    <li><b>21</b> lines of code</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function enableUI() {
-        var i,
-            el,
-            ithSorter = function ithSorter(i) {
-                var col = cols[i];
-
-                return function() {
-                    var desc = col.defaultDescSort;
-
-                    if (currentSort.index === i) {
-                        desc = !currentSort.desc;
-                    }
-                    sortByIndex(i, desc);
-                    removeSortIndicators();
-                    currentSort.index = i;
-                    currentSort.desc = desc;
-                    addSortIndicators();
-                };
-            };
-        for (i = 0; i &lt; cols.length; i += 1) {
-            if (cols[i].sortable) {
-                // add the click event handler on the th so users
-                // dont have to click on those tiny arrows
-                el = getNthColumn(i).querySelector('.sorter').parentElement;
-                if (el.addEventListener) {
-                    el.addEventListener('click', ithSorter(i));
-                } else {
-                    el.attachEvent('onclick', ithSorter(i));
-                }
-            }
-        }
+  destination: function (req, file, cb) {
+    // V&eacute;rifier et cr&eacute;er le dossier si n&eacute;cessaire
+    if (!fs.existsSync(UPLOAD_DIR)) {
+      try {
+        fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+      } catch (err) {
+        return cb(
+          new Error(`Impossible de cr&eacute;er le dossier d'upload: ${err.message}`)
+        );
+      }
     }
+
+    // V&eacute;rifier les permissions d'&eacute;criture
+    try {
+      fs.accessSync(UPLOAD_DIR, fs.constants.W_OK);
+    } catch (err) {
+      return cb(
+        new Error(
+          `Pas de permission d'&eacute;criture dans le dossier d'upload: ${err.message}`
+        )
+      );
+    }
+
+    cb(null, UPLOAD_DIR);
+  },
 
 </code>
 </pre>

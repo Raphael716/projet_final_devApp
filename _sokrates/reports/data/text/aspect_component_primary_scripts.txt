@@ -1,0 +1,2 @@
+Path	Lines of Code
+scripts/clean-coverage.js	1

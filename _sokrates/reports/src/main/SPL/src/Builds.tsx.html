@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">SPL/src/Builds.tsx (<b>82</b> lines of code) (<a href="Builds.tsx">raw</a>):</h3>
+<h3 style="margin-bottom: 0">SPL/src/Builds.tsx (<b>84</b> lines of code) (<a href="Builds.tsx">raw</a>):</h3>
 <div id="editor">import { useEffect, useState, useContext } from &quot;react&quot;;
 import { Link } from &quot;react-router-dom&quot;;
 import { AuthContext } from &quot;./AuthContext&quot;;
@@ -48,9 +48,11 @@ export default function Builds() {
     &lt;main className=&quot;builds-container&quot;&gt;
       &lt;div className=&quot;builds-header&quot;&gt;
         &lt;h2&gt;Liste des logiciels&lt;/h2&gt;
-        &lt;Link to=&quot;/builds/new&quot; className=&quot;btn primary&quot;&gt;
-          Nouveau logiciel
-        &lt;/Link&gt;
+        {user?.isAdmin ? (
+          &lt;Link to=&quot;/builds/new&quot; className=&quot;btn primary&quot;&gt;
+            Nouveau logiciel
+          &lt;/Link&gt;
+        ) : null}
       &lt;/div&gt;
       {loading ? (
         &lt;p&gt;Chargement...&lt;/p&gt;

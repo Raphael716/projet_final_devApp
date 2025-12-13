@@ -249,8 +249,9 @@ export const getAssetsByBuild = async (req, res) => {
     });
 
     res.json(assetsWithLabel);
-  } catch (_err) {
-    res.status(500).json({ error: "Erreur chargement fichiers" });
+  } catch (err) {
+    console.error("getAssetsByBuild error:", err);
+    res.status(500).json({ error: "Erreur chargement fichiers", details: err.message });
   }
 };
 
@@ -260,7 +261,7 @@ export const getAssetById = async (req, res) => {
     const asset = await prisma.asset.findUnique({
       where: { id },
       include: {
-        build: {
+        builds: {
           select: {
             id: true,
             nom: true,
@@ -281,8 +282,9 @@ export const getAssetById = async (req, res) => {
     };
 
     res.json(assetWithLabel);
-  } catch (_err) {
-    res.status(500).json({ error: "Erreur récupération asset" });
+  } catch (err) {
+    console.error("getAssetById error:", err);
+    res.status(500).json({ error: "Erreur récupération asset", details: err.message });
   }
 };
 
@@ -331,8 +333,9 @@ export const downloadAsset = async (req, res) => {
     });
 
     fileStream.pipe(res);
-  } catch (_err) {
-    res.status(500).json({ error: "Erreur téléchargement" });
+  } catch (err) {
+    console.error("downloadAsset error:", err);
+    res.status(500).json({ error: "Erreur téléchargement", details: err.message });
   }
 };
 
@@ -350,7 +353,8 @@ export const deleteAsset = async (req, res) => {
 
     await prisma.asset.delete({ where: { id } });
     res.json({ success: true });
-  } catch (_err) {
-    res.status(500).json({ error: "Erreur suppression asset" });
+  } catch (err) {
+    console.error("deleteAsset error:", err);
+    res.status(500).json({ error: "Erreur suppression asset", details: err.message });
   }
 };

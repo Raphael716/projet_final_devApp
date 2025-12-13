@@ -1,22 +1,43 @@
 <html>
 <head>
-    <title>function getPrisma()</title>
+    <title>function visitPathWithStubbedFetch()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function getPrisma()</h3>
-<p style="margin-top: 4px">in <i>backend/src/middleware/authMiddleware.js [5:8]</i></p>
+<h3 style="margin-bottom: 0">function visitPathWithStubbedFetch()</h3>
+<p style="margin-top: 4px">in <i>cypress/e2e/admin.cy.js [18:42]</i></p>
 <ul>
     <li><b>4</b> lines of code</li>
-    <li><b>2</b> McCabe index (conditional complexity)</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-function getPrisma() {
-  if (!prismaClient) prismaClient = new PrismaClient();
-  return prismaClient;
-}
+  function visitPathWithStubbedFetch(path, handlerFactory) {
+    cy.visit(path, {
+      onBeforeLoad(win) {
+        // Auth state for both legacy App.tsx and AuthProvider.tsx
+        const token = &quot;admin-token&quot;;
+        win.localStorage.setItem(&quot;spl_token&quot;, token);
+        win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(ADMIN));
+        win.localStorage.setItem(&quot;auth_token&quot;, token);
+        win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(ADMIN));
+
+        // Stub confirm default to true
+        win.confirm = () =&gt; true;
+
+        // Stub fetch behavior for this test
+        const originalFetch = win.fetch.bind(win);
+        const handler = handlerFactory({ originalFetch, win });
+        win.fetch = (input, init = {}) =&gt; {
+          const url = typeof input === &quot;string&quot; ? input : input.url;
+          const method = (init.method || &quot;GET&quot;).toUpperCase();
+
+          return handler({ url, method, input, init });
+        };
+      },
+    });
+  }
 
 </code>
 </pre>

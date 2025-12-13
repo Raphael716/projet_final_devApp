@@ -1,4 +1,13 @@
 id: 1
+unit: export default function Signup()
+file: SPL/src/Signup.tsx
+start line: 7
+end line: 101
+size: 84 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 2
 unit: function EditUser()
 file: SPL/src/EditUser.tsx
 start line: 7
@@ -7,7 +16,7 @@ size: 66 LOC
 McCabe index: 5
 number of parameters: 0
 
-id: 2
+id: 3
 unit: function Home()
 file: SPL/src/App.tsx
 start line: 19
@@ -16,7 +25,16 @@ size: 45 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 3
+id: 4
+unit: export default defineConfig()
+file: SPL/vite.config.ts
+start line: 4
+end line: 36
+size: 33 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 5
 unit: export default function Header()
 file: SPL/src/Header.tsx
 start line: 6
@@ -25,43 +43,7 @@ size: 31 LOC
 McCabe index: 4
 number of parameters: 0
 
-id: 4
-unit: function enableUI()
-file: SPL/coverage/sorter.js
-start line: 165
-end line: 196
-size: 28 LOC
-McCabe index: 5
-number of parameters: 0
-
-id: 5
-unit: export default defineConfig()
-file: SPL/vite.config.ts
-start line: 4
-end line: 26
-size: 23 LOC
-McCabe index: 1
-number of parameters: 1
-
 id: 6
-unit: function onFilterInput()
-file: SPL/coverage/sorter.js
-start line: 27
-end line: 56
-size: 22 LOC
-McCabe index: 5
-number of parameters: 0
-
-id: 7
-unit: function loadColumns()
-file: SPL/coverage/sorter.js
-start line: 67
-end line: 89
-size: 22 LOC
-McCabe index: 4
-number of parameters: 0
-
-id: 8
 unit: destination: function()
 file: backend/src/controllers/assetController.js
 start line: 66
@@ -70,25 +52,7 @@ size: 21 LOC
 McCabe index: 4
 number of parameters: 3
 
-id: 9
-unit: function loadRowData()
-file: SPL/coverage/sorter.js
-start line: 92
-end line: 109
-size: 18 LOC
-McCabe index: 3
-number of parameters: 1
-
-id: 10
-unit: function sortByIndex()
-file: SPL/coverage/sorter.js
-start line: 120
-end line: 149
-size: 18 LOC
-McCabe index: 4
-number of parameters: 2
-
-id: 11
+id: 7
 unit: filename: function()
 file: backend/src/controllers/assetController.js
 start line: 91
@@ -97,7 +61,16 @@ size: 17 LOC
 McCabe index: 4
 number of parameters: 3
 
-id: 12
+id: 8
+unit: export default function AuthFooter()
+file: SPL/src/AuthFooter.tsx
+start line: 11
+end line: 29
+size: 17 LOC
+McCabe index: 3
+number of parameters: 6
+
+id: 9
 unit: onBeforeLoad()
 file: cypress/e2e/admin.cy.js
 start line: 20
@@ -106,7 +79,7 @@ size: 15 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 13
+id: 10
 unit: export default function adminOnly()
 file: backend/src/middleware/adminMiddleware.js
 start line: 4
@@ -115,7 +88,7 @@ size: 14 LOC
 McCabe index: 4
 number of parameters: 3
 
-id: 14
+id: 11
 unit: onBeforeLoad()
 file: cypress/e2e/admin.cy.js
 start line: 89
@@ -124,16 +97,7 @@ size: 14 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 15
-unit: function goToNext()
-file: SPL/coverage/block-navigation.js
-start line: 52
-end line: 63
-size: 10 LOC
-McCabe index: 3
-number of parameters: 0
-
-id: 16
+id: 12
 unit: id: Number()
 file: SPL/src/App.tsx
 start line: 69
@@ -142,7 +106,7 @@ size: 10 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 17
+id: 13
 unit: onBeforeLoad()
 file: cypress/support/commands.js
 start line: 17
@@ -151,34 +115,16 @@ size: 9 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 18
-unit: function makeCurrent()
-file: SPL/coverage/block-navigation.js
-start line: 31
-end line: 39
-size: 9 LOC
-McCabe index: 1
-number of parameters: 1
-
-id: 19
-unit: function goToPrevious()
-file: SPL/coverage/block-navigation.js
-start line: 41
-end line: 50
-size: 9 LOC
-McCabe index: 4
-number of parameters: 0
-
-id: 20
+id: 14
 unit: function toAppUser()
 file: SPL/src/AuthProvider.tsx
-start line: 14
-end line: 24
+start line: 6
+end line: 16
 size: 9 LOC
 McCabe index: 3
 number of parameters: 1
 
-id: 21
+id: 15
 unit: export default function Footer()
 file: SPL/src/Footer.tsx
 start line: 3
@@ -187,7 +133,25 @@ size: 9 LOC
 McCabe index: 1
 number of parameters: 0
 
-id: 22
+id: 16
+unit: onBeforeLoad()
+file: cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js
+start line: 29
+end line: 36
+size: 8 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 17
+unit: onBeforeLoad()
+file: cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js
+start line: 74
+end line: 81
+size: 8 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 18
 unit: function toAppUser()
 file: SPL/src/App.tsx
 start line: 67
@@ -196,7 +160,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 23
+id: 19
 unit: await fetch()
 file: SPL/src/EditUser.tsx
 start line: 33
@@ -205,7 +169,7 @@ size: 8 LOC
 McCabe index: 1
 number of parameters: 8
 
-id: 24
+id: 20
 unit: Joindre des fichiers()
 file: SPL/src/NewBuild.tsx
 start line: 131
@@ -214,16 +178,16 @@ size: 8 LOC
 McCabe index: 2
 number of parameters: 1
 
-id: 25
-unit: function loadData()
-file: SPL/coverage/sorter.js
-start line: 111
-end line: 118
+id: 21
+unit: async setupNodeEvents()
+file: cypress.config.js
+start line: 14
+end line: 20
 size: 7 LOC
-McCabe index: 2
-number of parameters: 0
+McCabe index: 1
+number of parameters: 2
 
-id: 26
+id: 22
 unit: isAdmin: Number()
 file: SPL/src/App.tsx
 start line: 72
@@ -232,52 +196,7 @@ size: 7 LOC
 McCabe index: 1
 number of parameters: 1
 
-id: 27
-unit: function toggleClass()
-file: SPL/coverage/block-navigation.js
-start line: 24
-end line: 29
-size: 6 LOC
-McCabe index: 1
-number of parameters: 1
-
-id: 28
-unit: function addSearchBox()
-file: SPL/coverage/sorter.js
-start line: 59
-end line: 64
-size: 6 LOC
-McCabe index: 1
-number of parameters: 0
-
-id: 29
-unit: function removeSortIndicators()
-file: SPL/coverage/sorter.js
-start line: 151
-end line: 157
-size: 6 LOC
-McCabe index: 1
-number of parameters: 0
-
-id: 30
-unit: sorter = function()
-file: SPL/coverage/sorter.js
-start line: 122
-end line: 126
-size: 5 LOC
-McCabe index: 2
-number of parameters: 2
-
-id: 31
-unit: function addSortIndicators()
-file: SPL/coverage/sorter.js
-start line: 159
-end line: 163
-size: 5 LOC
-McCabe index: 2
-number of parameters: 0
-
-id: 32
+id: 23
 unit: filename: function()
 file: backend/src/controllers/buildController.js
 start line: 20
@@ -286,7 +205,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 33
+id: 24
 unit: function getPrisma()
 file: backend/src/middleware/authMiddleware.js
 start line: 5
@@ -295,7 +214,7 @@ size: 4 LOC
 McCabe index: 2
 number of parameters: 0
 
-id: 34
+id: 25
 unit: function visitPathWithStubbedFetch()
 file: cypress/e2e/admin.cy.js
 start line: 18
@@ -304,7 +223,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 2
 
-id: 35
+id: 26
 unit: await fetch()
 file: SPL/src/AdminUsers.tsx
 start line: 36
@@ -313,16 +232,7 @@ size: 4 LOC
 McCabe index: 1
 number of parameters: 4
 
-id: 36
-unit: function toNumber()
-file: SPL/src/AuthProvider.tsx
-start line: 6
-end line: 9
-size: 4 LOC
-McCabe index: 3
-number of parameters: 2
-
-id: 37
+id: 27
 unit: destination: function()
 file: backend/src/controllers/buildController.js
 start line: 17
@@ -331,70 +241,7 @@ size: 3 LOC
 McCabe index: 1
 number of parameters: 3
 
-id: 38
-unit: function getTable()
-file: SPL/coverage/sorter.js
-start line: 11
-end line: 13
-size: 3 LOC
-McCabe index: 1
-number of parameters: 0
-
-id: 39
-unit: function getTableHeader()
-file: SPL/coverage/sorter.js
-start line: 15
-end line: 17
-size: 3 LOC
-McCabe index: 1
-number of parameters: 0
-
-id: 40
-unit: function getTableBody()
-file: SPL/coverage/sorter.js
-start line: 19
-end line: 21
-size: 3 LOC
-McCabe index: 1
-number of parameters: 0
-
-id: 41
-unit: function getNthColumn()
-file: SPL/coverage/sorter.js
-start line: 23
-end line: 25
-size: 3 LOC
-McCabe index: 1
-number of parameters: 1
-
-id: 42
-unit: finalSorter = function()
-file: SPL/coverage/sorter.js
-start line: 134
-end line: 136
-size: 3 LOC
-McCabe index: 1
-number of parameters: 2
-
-id: 43
-unit: function toString()
-file: SPL/src/AuthProvider.tsx
-start line: 10
-end line: 12
-size: 3 LOC
-McCabe index: 2
-number of parameters: 2
-
-id: 44
-unit: setupNodeEvents()
-file: cypress.config.js
-start line: 10
-end line: 12
-size: 2 LOC
-McCabe index: 1
-number of parameters: 2
-
-id: 45
+id: 28
 unit: json: async()
 file: cypress/e2e/admin.cy.js
 start line: 73

@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">backend/src/controllers/assetController.js (<b>305</b> lines of code) (<a href="assetController.js">raw</a>):</h3>
+<h3 style="margin-bottom: 0">backend/src/controllers/assetController.js (<b>309</b> lines of code) (<a href="assetController.js">raw</a>):</h3>
 <div id="editor">import path from &quot;path&quot;;
 import fs from &quot;fs&quot;;
 import multer from &quot;multer&quot;;
@@ -264,8 +264,9 @@ export const getAssetsByBuild = async (req, res) =&gt; {
     });
 
     res.json(assetsWithLabel);
-  } catch (_err) {
-    res.status(500).json({ error: &quot;Erreur chargement fichiers&quot; });
+  } catch (err) {
+    console.error(&quot;getAssetsByBuild error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur chargement fichiers&quot;, details: err.message });
   }
 };
 
@@ -275,7 +276,7 @@ export const getAssetById = async (req, res) =&gt; {
     const asset = await prisma.asset.findUnique({
       where: { id },
       include: {
-        build: {
+        builds: {
           select: {
             id: true,
             nom: true,
@@ -296,8 +297,9 @@ export const getAssetById = async (req, res) =&gt; {
     };
 
     res.json(assetWithLabel);
-  } catch (_err) {
-    res.status(500).json({ error: &quot;Erreur r&eacute;cup&eacute;ration asset&quot; });
+  } catch (err) {
+    console.error(&quot;getAssetById error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur r&eacute;cup&eacute;ration asset&quot;, details: err.message });
   }
 };
 
@@ -346,8 +348,9 @@ export const downloadAsset = async (req, res) =&gt; {
     });
 
     fileStream.pipe(res);
-  } catch (_err) {
-    res.status(500).json({ error: &quot;Erreur t&eacute;l&eacute;chargement&quot; });
+  } catch (err) {
+    console.error(&quot;downloadAsset error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur t&eacute;l&eacute;chargement&quot;, details: err.message });
   }
 };
 
@@ -365,8 +368,9 @@ export const deleteAsset = async (req, res) =&gt; {
 
     await prisma.asset.delete({ where: { id } });
     res.json({ success: true });
-  } catch (_err) {
-    res.status(500).json({ error: &quot;Erreur suppression asset&quot; });
+  } catch (err) {
+    console.error(&quot;deleteAsset error:&quot;, err);
+    res.status(500).json({ error: &quot;Erreur suppression asset&quot;, details: err.message });
   }
 };
 </div>

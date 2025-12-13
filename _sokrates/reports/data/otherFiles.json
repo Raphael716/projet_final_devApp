@@ -41,6 +41,13 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "backend/uploads/1765570011746-866843048.txt",
+  "extension" : "txt",
+  "linesOfCode" : 7,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "cypress/fixtures/example.json",
   "extension" : "json",
   "linesOfCode" : 5,
@@ -48,16 +55,9 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "package-lock.json",
-  "extension" : "json",
-  "linesOfCode" : 7324,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "package.json",
   "extension" : "json",
-  "linesOfCode" : 27,
+  "linesOfCode" : 33,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -78,7 +78,7 @@
 }, {
   "relativePath" : "SPL/package.json",
   "extension" : "json",
-  "linesOfCode" : 39,
+  "linesOfCode" : 40,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -92,7 +92,7 @@
 }, {
   "relativePath" : "SPL/tsconfig.app.json",
   "extension" : "json",
-  "linesOfCode" : 25,
+  "linesOfCode" : 32,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -113,7 +113,7 @@
 }, {
   "relativePath" : "sprint3.txt",
   "extension" : "txt",
-  "linesOfCode" : 13,
+  "linesOfCode" : 10,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

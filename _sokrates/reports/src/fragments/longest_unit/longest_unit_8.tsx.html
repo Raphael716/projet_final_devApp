@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>export default function AuthFooter()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export default function AuthFooter()</h3>
+<p style="margin-top: 4px">in <i>SPL/src/AuthFooter.tsx [11:29]</i></p>
+<ul>
+    <li><b>17</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+export default function AuthFooter({
+  error,
+  loading,
+  buttonText,
+  loadingText,
+  alt,
+}: Props) {
+  return (
+    &lt;&gt;
+      {error &amp;&amp; &lt;div className=&quot;auth-error&quot;&gt;{error}&lt;/div&gt;}
+
+      &lt;button type=&quot;submit&quot; disabled={loading}&gt;
+        {loading ? loadingText ?? `${buttonText}...` : buttonText}
+      &lt;/button&gt;
+
+      &lt;p className=&quot;auth-alt&quot;&gt;{alt}&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

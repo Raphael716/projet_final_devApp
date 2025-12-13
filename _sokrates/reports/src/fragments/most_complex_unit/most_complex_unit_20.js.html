@@ -1,23 +1,26 @@
 <html>
 <head>
-    <title>function addSortIndicators()</title>
+    <title>onBeforeLoad()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function addSortIndicators()</h3>
-<p style="margin-top: 4px">in <i>SPL/coverage/sorter.js [159:163]</i></p>
+<h3 style="margin-bottom: 0">onBeforeLoad()</h3>
+<p style="margin-top: 4px">in <i>cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js [74:81]</i></p>
 <ul>
-    <li><b>5</b> lines of code</li>
-    <li><b>2</b> McCabe index (conditional complexity)</li>
+    <li><b>8</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
-    function addSortIndicators() {
-        getNthColumn(currentSort.index).className += currentSort.desc
-            ? ' sorted-desc'
-            : ' sorted';
-    }
+    onBeforeLoad(win) {
+      const token = 'admin-token';
+      const ADMIN = { id: 7, email: 'admin@example.com', username: 'Admin', isAdmin: true };
+      win.localStorage.setItem('spl_token', token);
+      win.localStorage.setItem('spl_user', JSON.stringify(ADMIN));
+      win.localStorage.setItem('auth_token', token);
+      win.localStorage.setItem('auth_user', JSON.stringify(ADMIN));
+    },
 
 </code>
 </pre>

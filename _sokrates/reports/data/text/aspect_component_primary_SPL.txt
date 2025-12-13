@@ -1,4 +1,4 @@
 Path	Lines of Code
 SPL/eslint.config.js	22
 SPL/index.html	13
-SPL/vite.config.ts	25
+SPL/vite.config.ts	35

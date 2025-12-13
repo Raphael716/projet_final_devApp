@@ -37,16 +37,24 @@ export default function VersionDetail() {
     fetch(`/api/assets/${assetId}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     })
-      .then((r) => r.json())
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`Asset fetch failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
         setAsset(data);
         return fetch(`/api/builds/${buildId}`);
       })
-      .then((r) => r.json())
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`Build fetch failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
         setBuild(data);
       })
-      .catch(console.error)
+      .catch((err) => {
+        console.error("VersionDetail fetch error:", err);
+      })
       .finally(() => setLoading(false));
   }, [buildId, assetId, token]);
 
@@ -54,8 +62,9 @@ export default function VersionDetail() {
     if (!asset) return;
     const isTextType = (a: Asset) => {
       if (!a) return false;
-      if (a.mimetype && a.mimetype.startsWith("text/")) return true;
-      if (a.displayType) {
+      if (typeof a.mimetype === "string" && a.mimetype.startsWith("text/"))
+        return true;
+      if (typeof a.displayType === "string" && a.displayType) {
         const d = a.displayType.toLowerCase();
         if (
           d.includes("fichier") ||
@@ -65,9 +74,12 @@ export default function VersionDetail() {
         )
           return true;
       }
-      return [".md", ".txt", ".json", ".csv", ".log"].some((e) =>
-        a.original.toLowerCase().endsWith(e)
-      );
+      if (typeof a.original === "string" && a.original) {
+        return [".md", ".txt", ".json", ".csv", ".log"].some((e) =>
+          a.original.toLowerCase().endsWith(e)
+        );
+      }
+      return false;
     };
 
     if (!isTextType(asset)) {
@@ -100,10 +112,12 @@ export default function VersionDetail() {
   if (!asset || !build) return <p>Version introuvable</p>;
   const friendlyType = (() => {
     if (!asset) return "Type inconnu";
-    const dt = asset.displayType?.trim();
+    const dt = typeof asset.displayType === "string" ? asset.displayType.trim() : "";
     if (dt && dt.length > 0) return dt;
-    const idx = asset.original.lastIndexOf(".");
-    if (idx !== -1) return asset.original.slice(idx).toLowerCase();
+    if (typeof asset.original === "string") {
+      const idx = asset.original.lastIndexOf(".");
+      if (idx !== -1) return asset.original.slice(idx).toLowerCase();
+    }
     return "Type inconnu";
   })();
 

@@ -62,13 +62,6 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
-  "relativePath" : "package-lock.json",
-  "extension" : "json",
-  "linesOfCode" : 7324,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
   "relativePath" : "SPL/package-lock.json",
   "extension" : "json",
   "linesOfCode" : 4849,

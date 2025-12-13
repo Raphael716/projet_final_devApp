@@ -12,11 +12,13 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">SPL/src/Signup.tsx (<b>82</b> lines of code) (<a href="Signup.tsx">raw</a>):</h3>
+<h3 style="margin-bottom: 0">SPL/src/Signup.tsx (<b>90</b> lines of code) (<a href="Signup.tsx">raw</a>):</h3>
 <div id="editor">import { useState, useContext } from &quot;react&quot;;
 import { Link, useNavigate } from &quot;react-router-dom&quot;;
 import { AuthContext } from &quot;./AuthContext&quot;;
+import &quot;./Auth.css&quot;;
 import &quot;./Signup.css&quot;;
+import AuthFooter from &quot;./AuthFooter&quot;;
 export default function Signup() {
   const nav = useNavigate();
   const { login } = useContext(AuthContext);
@@ -96,15 +98,17 @@ export default function Signup() {
             /&gt;
           &lt;/label&gt;
 
-          {error &amp;&amp; &lt;div className=&quot;auth-error&quot;&gt;{error}&lt;/div&gt;}
-
-          &lt;button type=&quot;submit&quot; disabled={loading}&gt;
-            {loading ? &quot;Cr&eacute;ation...&quot; : &quot;S&rsquo;inscrire&quot;}
-          &lt;/button&gt;
-
-          &lt;p className=&quot;auth-alt&quot;&gt;
-            D&eacute;j&agrave; un compte ? &lt;Link to=&quot;/login&quot;&gt;Se connecter&lt;/Link&gt;
-          &lt;/p&gt;
+          &lt;AuthFooter
+            error={error}
+            loading={loading}
+            buttonText=&quot;S&rsquo;inscrire&quot;
+            loadingText=&quot;Cr&eacute;ation...&quot;
+            alt={
+              &lt;&gt;
+                D&eacute;j&agrave; un compte ? &lt;Link to=&quot;/login&quot;&gt;Se connecter&lt;/Link&gt;
+              &lt;/&gt;
+            }
+          /&gt;
         &lt;/form&gt;
       &lt;/div&gt;
     &lt;/main&gt;

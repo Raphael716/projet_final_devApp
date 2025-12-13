@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js (<b>88</b> lines of code) (<a href="parcours_critiques.steps.js">raw</a>):</h3>
+<div id="editor">const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor');
+
+Given(&quot;j'ouvre la page de connexion&quot;, () =&gt; {
+  cy.visit('/login');
+});
+
+When(&quot;je me connecte avec l'email {string} et le mot de passe {string}&quot;, (email, password) =&gt; {
+  cy.intercept('POST', '/api/auth/login', {
+    statusCode: 200,
+    body: {
+      token: 'admin-token',
+      user: { id: 7, email, username: 'Admin', isAdmin: 1 },
+    },
+  }).as('loginRequest');
+
+  cy.get('input[type=&quot;email&quot;]').clear().type(email);
+  cy.get('input[type=&quot;password&quot;]').clear().type(password);
+  cy.contains('button', /se connecter/i).click();
+  cy.wait('@loginRequest');
+});
+
+Then('je suis redirig&eacute; vers {string} et je vois {string} dans la navigation', (path, navText) =&gt; {
+  cy.url().should('include', path);
+  cy.contains('nav', navText).should('be.visible');
+});
+
+Given('je suis connect&eacute; en tant qu\'admin', () =&gt; {
+  cy.visit('/', {
+    onBeforeLoad(win) {
+      const token = 'admin-token';
+      const ADMIN = { id: 7, email: 'admin@example.com', username: 'Admin', isAdmin: true };
+      win.localStorage.setItem('spl_token', token);
+      win.localStorage.setItem('spl_user', JSON.stringify(ADMIN));
+      win.localStorage.setItem('auth_token', token);
+      win.localStorage.setItem('auth_user', JSON.stringify(ADMIN));
+    },
+  });
+});
+
+When('je cr&eacute;e un build avec le nom {string} et la version {string}', (name, version) =&gt; {
+  cy.intercept('POST', '/api/builds', {
+    statusCode: 201,
+    body: { id: 99, nom: name },
+  }).as('createBuild');
+
+  cy.intercept('GET', '/api/builds/99', {
+    statusCode: 200,
+    body: { id: 99, nom: name, version, description: 'auto', statut: 'Production', proprietaire: 'PO', updatedAt: new Date().toISOString() },
+  }).as('fetchBuildDetail');
+
+  cy.visit('/builds/new');
+  cy.get('input[name=&quot;nom&quot;]').type(name);
+  cy.get('textarea[name=&quot;description&quot;]').type('Description automatique');
+  cy.get('input[name=&quot;version&quot;]').type(version);
+  cy.get('select[name=&quot;statut&quot;]').select('Production');
+  cy.get('input[name=&quot;proprietaire&quot;]').type('Automated Test');
+  cy.contains('button', 'Cr&eacute;er').click();
+  cy.wait('@createBuild');
+  cy.url().should('include', '/builds/99');
+  cy.wait('@fetchBuildDetail');
+});
+
+Then('je suis redirig&eacute; vers la page du build et je vois le nom {string}', (name) =&gt; {
+  cy.contains('h2', name).should('be.visible');
+});
+
+Given('la liste de builds contient un &eacute;l&eacute;ment appel&eacute; {string}', (label) =&gt; {
+  const sampleBuilds = [
+    { id: 1, nom: 'Logiciel Alpha', version: 'v1.0' },
+    { id: 2, nom: 'Logiciel Beta', version: '0.5' },
+  ];
+  cy.intercept('GET', '/api/builds', { statusCode: 200, body: sampleBuilds }).as('fetchBuilds');
+  cy.visit('/builds', {
+    onBeforeLoad(win) {
+      const token = 'admin-token';
+      const ADMIN = { id: 7, email: 'admin@example.com', username: 'Admin', isAdmin: true };
+      win.localStorage.setItem('spl_token', token);
+      win.localStorage.setItem('spl_user', JSON.stringify(ADMIN));
+      win.localStorage.setItem('auth_token', token);
+      win.localStorage.setItem('auth_user', JSON.stringify(ADMIN));
+    },
+  });
+  cy.wait('@fetchBuilds');
+  cy.contains('td', label).should('be.visible');
+});
+
+When('j\'archive le build nomm&eacute; {string}', (label) =&gt; {
+  cy.intercept('DELETE', '/api/builds/2', { statusCode: 204 }).as('deleteBuild');
+  cy.window().then((win) =&gt; {
+    cy.stub(win, 'confirm').returns(true);
+  });
+  cy.contains('tr', label).within(() =&gt; {
+    cy.contains('button', 'Archiver').click();
+  });
+  cy.wait('@deleteBuild');
+});
+
+Then('le build {string} n\'est plus visible dans la liste', (label) =&gt; {
+  cy.contains(label).should('not.exist');
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

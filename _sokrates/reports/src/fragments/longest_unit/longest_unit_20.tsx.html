@@ -1,29 +1,26 @@
 <html>
 <head>
-    <title>function toAppUser()</title>
+    <title>Joindre des fichiers()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">function toAppUser()</h3>
-<p style="margin-top: 4px">in <i>SPL/src/AuthProvider.tsx [14:24]</i></p>
+<h3 style="margin-bottom: 0">Joindre des fichiers()</h3>
+<p style="margin-top: 4px">in <i>SPL/src/NewBuild.tsx [131:138]</i></p>
 <ul>
-    <li><b>9</b> lines of code</li>
-    <li><b>3</b> McCabe index (conditional complexity)</li>
+    <li><b>8</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-function toAppUser(u: unknown): AppUser {
-  const o =
-    typeof u === &quot;object&quot; &amp;&amp; u !== null ? (u as Record&lt;string, unknown&gt;) : {};
-
-  const id = Number(o.id ?? 0);
-  const username = String(o.username ?? &quot;&quot;);
-  const email = String(o.email ?? &quot;&quot;);
-  const isAdmin = Number(o.admin ?? 0) === 1; // ✅ bool&eacute;en direct
-
-  return { id, username, email, isAdmin };
-}
+          Joindre des fichiers (optionnel)
+          {user?.isAdmin ? (
+            &lt;input type=&quot;file&quot; multiple onChange={handleFileChange} /&gt;
+          ) : (
+            &lt;div style={{ fontSize: 12, color: &quot;#666&quot; }}&gt;
+              Seuls les admins peuvent joindre des fichiers
+            &lt;/div&gt;
+          )}
 
 </code>
 </pre>

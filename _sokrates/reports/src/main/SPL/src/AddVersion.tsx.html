@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">SPL/src/AddVersion.tsx (<b>122</b> lines of code) (<a href="AddVersion.tsx">raw</a>):</h3>
+<h3 style="margin-bottom: 0">SPL/src/AddVersion.tsx (<b>131</b> lines of code) (<a href="AddVersion.tsx">raw</a>):</h3>
 <div id="editor">import { useParams, useNavigate } from &quot;react-router-dom&quot;;
 import { useState, useContext, useEffect } from &quot;react&quot;;
 import { AuthContext } from &quot;./AuthContext&quot;;
@@ -31,8 +31,21 @@ export default function AddVersion() {
   const [description, setDescription] = useState(&quot;&quot;);
   const [file, setFile] = useState&lt;File | null&gt;(null);
   const [error, setError] = useState(&quot;&quot;);
-  const { token } = useContext(AuthContext);
+  const { user, token } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() =&gt; {
+    // If no token and no user, send to login
+    if (!token &amp;&amp; !user) {
+      navigate(&quot;/login&quot;);
+      return;
+    }
+
+    // If user is known and not admin, redirect back to build
+    if (user &amp;&amp; !user.isAdmin) {
+      navigate(`/builds/${id}`);
+    }
+  }, [user, token, id, navigate]);
 
   useEffect(() =&gt; {
     const fetchBuild = async () =&gt; {

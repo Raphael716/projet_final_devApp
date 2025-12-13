@@ -1,451 +1,133 @@
-<svg width="2444pt" height="691pt"
- viewBox="0.00 0.00 2444.00 691.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 687.25)">
+<svg width="1942pt" height="130pt"
+ viewBox="0.00 0.00 1942.00 130.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 126.25)">
 <title>G</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-687.25 2439.5,-687.25 2439.5,4 -4,4"/>
-<!-- [SPL/coverage/Header.css.html] -->
+<polygon fill="white" stroke="none" points="-4,4 -4,-126.25 1937.75,-126.25 1937.75,4 -4,4"/>
+<!-- [SPL/src/Login.tsx] -->
 <g id="node1" class="node">
-<title>[SPL/coverage/Header.css.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="711.88,-597 500.12,-597 500.12,-561 711.88,-561 711.88,-597"/>
-<text xml:space="preserve" text-anchor="middle" x="606" y="-574.33" font-family="Tahoma" font-size="14.00">[SPL/coverage/Header.css.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Header.css.html] -->
-<g id="edge6" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Header.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="3" stroke-opacity="0.509804" d="M712.17,-585.65C722.97,-584.33 729.88,-582.12 729.88,-579 729.88,-575.88 722.97,-573.67 712.17,-572.35"/>
-<text xml:space="preserve" text-anchor="middle" x="746.38" y="-574.73" font-family="Arial" font-size="12.00"> 2052 </text>
-</g>
-<!-- [SPL/coverage/Signup.css.html] -->
-<g id="node2" class="node">
-<title>[SPL/coverage/Signup.css.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="757.12,-230.25 546.88,-230.25 546.88,-194.25 757.12,-194.25 757.12,-230.25"/>
-<text xml:space="preserve" text-anchor="middle" x="652" y="-207.57" font-family="Tahoma" font-size="14.00">[SPL/coverage/Signup.css.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Signup.css.html] -->
-<g id="edge1" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Signup.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="10" d="M690.21,-560.58C717.31,-550.62 744.56,-535.04 761,-510.75 826.64,-413.76 814.75,-336.71 738,-248.25 731.66,-240.94 723.57,-235.14 714.9,-230.54"/>
-<text xml:space="preserve" text-anchor="middle" x="820.19" y="-402.23" font-family="Arial" font-size="12.00"> 6040 </text>
-</g>
-<!-- [SPL/coverage/Login.css.html] -->
-<g id="node3" class="node">
-<title>[SPL/coverage/Login.css.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="658,-424.5 456,-424.5 456,-388.5 658,-388.5 658,-424.5"/>
-<text xml:space="preserve" text-anchor="middle" x="557" y="-401.82" font-family="Tahoma" font-size="14.00">[SPL/coverage/Login.css.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Login.css.html] -->
-<g id="edge3" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Login.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="7" stroke-opacity="0.788235" d="M593.56,-560.66C584.87,-547.59 573.81,-528.88 568,-510.75 558.64,-481.57 556.86,-445.61 556.72,-424.75"/>
-<text xml:space="preserve" text-anchor="middle" x="584.5" y="-488.48" font-family="Arial" font-size="12.00"> 4424 </text>
-</g>
-<!-- [SPL/coverage/Signup.tsx.html] -->
-<g id="node4" class="node">
-<title>[SPL/coverage/Signup.tsx.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="240.38,-122.25 31.62,-122.25 31.62,-86.25 240.38,-86.25 240.38,-122.25"/>
-<text xml:space="preserve" text-anchor="middle" x="136" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/coverage/Signup.tsx.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge9" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M499.67,-561.62C498.1,-561.41 496.55,-561.2 495,-561 382.62,-546.35 339.32,-573.58 245,-510.75 173.76,-463.3 143.83,-450.35 113,-370.5 76.11,-274.96 100.54,-240.39 122,-140.25 123.26,-134.36 125.42,-128.19 127.68,-122.69"/>
-<text xml:space="preserve" text-anchor="middle" x="129.5" y="-359.1" font-family="Arial" font-size="12.00"> 1628 </text>
-</g>
-<!-- [SPL/coverage/Login.tsx.html] -->
-<g id="node5" class="node">
-<title>[SPL/coverage/Login.tsx.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="378.25,-338.25 177.75,-338.25 177.75,-302.25 378.25,-302.25 378.25,-338.25"/>
-<text xml:space="preserve" text-anchor="middle" x="278" y="-315.57" font-family="Tahoma" font-size="14.00">[SPL/coverage/Login.tsx.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Login.tsx.html] -->
-<g id="edge10" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Login.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M501.19,-560.57C404.13,-543.92 273.63,-520.03 266,-510.75 224.67,-460.44 254.25,-374.97 269.93,-338.53"/>
-<text xml:space="preserve" text-anchor="middle" x="262" y="-445.35" font-family="Arial" font-size="12.00"> 1618 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html] -->
-<g id="node6" class="node">
-<title>[SPL/coverage/Header.tsx.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="485.12,-510.75 274.88,-510.75 274.88,-474.75 485.12,-474.75 485.12,-510.75"/>
-<text xml:space="preserve" text-anchor="middle" x="380" y="-488.07" font-family="Tahoma" font-size="14.00">[SPL/coverage/Header.tsx.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Header.tsx.html] -->
-<g id="edge14" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/Header.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M559.14,-560.56C544.09,-554.95 527.34,-548.72 512,-543 483.69,-532.45 451.98,-520.62 426.73,-511.19"/>
-<text xml:space="preserve" text-anchor="middle" x="528.5" y="-531.6" font-family="Arial" font-size="12.00"> 1054 </text>
-</g>
-<!-- [SPL/src/Header.css] -->
-<g id="node9" class="node">
-<title>[SPL/src/Header.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="752,-510.75 610,-510.75 610,-474.75 752,-474.75 752,-510.75"/>
-<text xml:space="preserve" text-anchor="middle" x="681" y="-488.07" font-family="Tahoma" font-size="14.00">[SPL/src/Header.css]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/src/Header.css] -->
-<g id="edge28" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/src/Header.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M621.54,-560.54C634.41,-546.08 652.61,-525.64 665.48,-511.18"/>
-<text xml:space="preserve" text-anchor="middle" x="661.12" y="-531.6" font-family="Arial" font-size="12.00"> 136 </text>
-</g>
-<!-- [SPL/coverage/index.html] -->
-<g id="node11" class="node">
-<title>[SPL/coverage/index.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="598.38,-36 419.62,-36 419.62,0 598.38,0 598.38,-36"/>
-<text xml:space="preserve" text-anchor="middle" x="509" y="-13.32" font-family="Tahoma" font-size="14.00">[SPL/coverage/index.html]</text>
-</g>
-<!-- [SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge38" class="edge">
-<title>[SPL/coverage/Header.css.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M706.42,-560.56C721.5,-555.98 736.5,-550.22 750,-543 808.54,-511.66 820.67,-487.72 841,-424.5 887.03,-281.35 944.49,-201.57 848,-86.25 816.67,-48.8 688.16,-31.79 598.7,-24.36"/>
-<text xml:space="preserve" text-anchor="middle" x="893.03" y="-315.98" font-family="Arial" font-size="12.00"> 60 </text>
-</g>
-<!-- [SPL/coverage/Signup.css.html]&#45;&#45;[SPL/coverage/Signup.css.html] -->
-<g id="edge4" class="edge">
-<title>[SPL/coverage/Signup.css.html]&#45;&#45;[SPL/coverage/Signup.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="5" stroke-opacity="0.647059" d="M757.52,-220.57C768.27,-218.93 775.12,-216.15 775.12,-212.25 775.12,-208.35 768.27,-205.57 757.52,-203.93"/>
-<text xml:space="preserve" text-anchor="middle" x="791.62" y="-207.97" font-family="Arial" font-size="12.00"> 3600 </text>
-</g>
-<!-- [SPL/coverage/Signup.css.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge5" class="edge">
-<title>[SPL/coverage/Signup.css.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="3" stroke-opacity="0.509804" d="M596.69,-193.8C544.59,-177.91 464.15,-154.78 393,-140.25 343.26,-130.09 287.48,-122.09 240.63,-116.32"/>
-<text xml:space="preserve" text-anchor="middle" x="551.19" y="-153.97" font-family="Arial" font-size="12.00"> 2060 </text>
-</g>
-<!-- [SPL/src/Signup.css] -->
-<g id="node8" class="node">
-<title>[SPL/src/Signup.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="839.25,-122.25 698.75,-122.25 698.75,-86.25 839.25,-86.25 839.25,-122.25"/>
-<text xml:space="preserve" text-anchor="middle" x="769" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/src/Signup.css]</text>
-</g>
-<!-- [SPL/coverage/Signup.css.html]&#45;&#45;[SPL/src/Signup.css] -->
-<g id="edge27" class="edge">
-<title>[SPL/coverage/Signup.css.html]&#45;&#45;[SPL/src/Signup.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M671.06,-193.98C692.82,-174.27 728.2,-142.22 749.95,-122.51"/>
-<text xml:space="preserve" text-anchor="middle" x="740.94" y="-153.97" font-family="Arial" font-size="12.00"> 184 </text>
-</g>
-<!-- [SPL/coverage/Signup.css.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge37" class="edge">
-<title>[SPL/coverage/Signup.css.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M639.06,-193.85C611.9,-157.34 549.24,-73.1 522.02,-36.5"/>
-<text xml:space="preserve" text-anchor="middle" x="595.01" y="-99.97" font-family="Arial" font-size="12.00"> 60 </text>
-</g>
-<!-- [SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Signup.css.html] -->
-<g id="edge2" class="edge">
-<title>[SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Signup.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="9" stroke-opacity="0.929412" d="M555.55,-388.37C553.85,-357.14 554.6,-290.3 587,-248.25 592.48,-241.14 599.82,-235.31 607.59,-230.58"/>
-<text xml:space="preserve" text-anchor="middle" x="578.96" y="-315.98" font-family="Arial" font-size="12.00"> 5732 </text>
-</g>
-<!-- [SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Login.css.html] -->
-<g id="edge8" class="edge">
-<title>[SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Login.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="3" stroke-opacity="0.509804" d="M658.14,-413.25C669.01,-411.95 676,-409.7 676,-406.5 676,-403.3 669.01,-401.05 658.14,-399.75"/>
-<text xml:space="preserve" text-anchor="middle" x="692.5" y="-402.23" font-family="Arial" font-size="12.00"> 1836 </text>
-</g>
-<!-- [SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge11" class="edge">
-<title>[SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M534.99,-388.15C527.94,-382.55 520.12,-376.29 513,-370.5 476.22,-340.57 467.9,-332.03 431,-302.25 420.9,-294.1 416.73,-293.86 408,-284.25 395.23,-270.2 399.46,-260.55 385,-248.25 323.42,-195.89 283.88,-223.08 218,-176.25 200.31,-163.67 201.25,-154.64 185,-140.25 178.03,-134.08 169.99,-127.97 162.46,-122.63"/>
-<text xml:space="preserve" text-anchor="middle" x="424.5" y="-261.98" font-family="Arial" font-size="12.00"> 1556 </text>
-</g>
-<!-- [SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Login.tsx.html] -->
-<g id="edge12" class="edge">
-<title>[SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/Login.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M499.19,-388.04C451.31,-373.58 383.6,-353.14 335.73,-338.68"/>
-<text xml:space="preserve" text-anchor="middle" x="450.7" y="-359.1" font-family="Arial" font-size="12.00"> 1546 </text>
-</g>
-<!-- [SPL/src/Login.css] -->
-<g id="node10" class="node">
-<title>[SPL/src/Login.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="720.12,-284.25 587.88,-284.25 587.88,-248.25 720.12,-248.25 720.12,-284.25"/>
-<text xml:space="preserve" text-anchor="middle" x="654" y="-261.57" font-family="Tahoma" font-size="14.00">[SPL/src/Login.css]</text>
-</g>
-<!-- [SPL/coverage/Login.css.html]&#45;&#45;[SPL/src/Login.css] -->
-<g id="edge29" class="edge">
-<title>[SPL/coverage/Login.css.html]&#45;&#45;[SPL/src/Login.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M572.27,-388.31C577.09,-382.72 582.36,-376.42 587,-370.5 609.39,-341.89 631.59,-305.75 643.98,-284.69"/>
-<text xml:space="preserve" text-anchor="middle" x="610.19" y="-359.1" font-family="Arial" font-size="12.00"> 130 </text>
-</g>
-<!-- [SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge39" class="edge">
-<title>[SPL/coverage/Login.css.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M552.18,-388.26C543.68,-357.04 526.21,-288.93 518.5,-230.25 509.11,-158.72 508.54,-72.54 508.78,-36.34"/>
-<text xml:space="preserve" text-anchor="middle" x="528.25" y="-207.97" font-family="Arial" font-size="12.00"> 60 </text>
-</g>
-<!-- [SPL/coverage/Signup.tsx.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge25" class="edge">
-<title>[SPL/coverage/Signup.tsx.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M240.45,-110.95C251.37,-109.64 258.38,-107.41 258.38,-104.25 258.38,-101.09 251.37,-98.86 240.45,-97.55"/>
-<text xml:space="preserve" text-anchor="middle" x="271.5" y="-99.97" font-family="Arial" font-size="12.00"> 216 </text>
-</g>
-<!-- [SPL/coverage/Signup.tsx.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge35" class="edge">
-<title>[SPL/coverage/Signup.tsx.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M205.21,-85.76C244.27,-76.06 294.02,-63.97 338.5,-54 365.18,-48.02 394.31,-41.89 420.82,-36.47"/>
-<text xml:space="preserve" text-anchor="middle" x="348.25" y="-56.85" font-family="Arial" font-size="12.00"> 62 </text>
+<title>[SPL/src/Login.tsx]</title>
+<polygon fill="#00b2ee" stroke="white" points="134.88,-122.25 4.12,-122.25 4.12,-86.25 134.88,-86.25 134.88,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="69.5" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/src/Login.tsx]</text>
 </g>
 <!-- [SPL/src/Signup.tsx] -->
-<g id="node13" class="node">
+<g id="node2" class="node">
 <title>[SPL/src/Signup.tsx]</title>
-<polygon fill="#00b2ee" stroke="white" points="325.5,-36 186.5,-36 186.5,0 325.5,0 325.5,-36"/>
-<text xml:space="preserve" text-anchor="middle" x="256" y="-13.32" font-family="Tahoma" font-size="14.00">[SPL/src/Signup.tsx]</text>
-</g>
-<!-- [SPL/coverage/Signup.tsx.html]&#45;&#45;[SPL/src/Signup.tsx] -->
-<g id="edge43" class="edge">
-<title>[SPL/coverage/Signup.tsx.html]&#45;&#45;[SPL/src/Signup.tsx]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M153.13,-86.19C163.69,-76.16 177.79,-63.61 191.5,-54 200.47,-47.71 210.69,-41.7 220.32,-36.48"/>
-<text xml:space="preserve" text-anchor="middle" x="201.25" y="-56.85" font-family="Arial" font-size="12.00"> 24 </text>
-</g>
-<!-- [SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/Signup.css.html] -->
-<g id="edge7" class="edge">
-<title>[SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/Signup.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="3" stroke-opacity="0.509804" d="M307.64,-301.86C315.08,-296.73 322.73,-290.73 329,-284.25 342.2,-270.61 335.82,-258.19 352,-248.25 386.25,-227.2 492.09,-235.07 532,-230.25 536.8,-229.67 541.71,-229.06 546.67,-228.42"/>
-<text xml:space="preserve" text-anchor="middle" x="368.5" y="-261.98" font-family="Arial" font-size="12.00"> 2050 </text>
-</g>
-<!-- [SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge16" class="edge">
-<title>[SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M266.62,-302.1C240.03,-262.03 174.08,-162.63 147.43,-122.48"/>
-<text xml:space="preserve" text-anchor="middle" x="231.91" y="-207.97" font-family="Arial" font-size="12.00"> 824 </text>
-</g>
-<!-- [SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/Login.tsx.html] -->
-<g id="edge24" class="edge">
-<title>[SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/Login.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M378.5,-327C389.3,-325.7 396.25,-323.45 396.25,-320.25 396.25,-317.05 389.3,-314.8 378.5,-313.5"/>
-<text xml:space="preserve" text-anchor="middle" x="409.38" y="-315.98" font-family="Arial" font-size="12.00"> 220 </text>
-</g>
-<!-- [SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge34" class="edge">
-<title>[SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M291.98,-301.95C296.11,-296.46 300.46,-290.25 304,-284.25 321.86,-253.97 350.06,-169.54 369.5,-140.25 398.32,-96.81 408.37,-86.66 449,-54 456.99,-47.58 466.29,-41.56 475.15,-36.39"/>
-<text xml:space="preserve" text-anchor="middle" x="379.25" y="-153.97" font-family="Arial" font-size="12.00"> 62 </text>
-</g>
-<!-- [SPL/src/Login.tsx] -->
-<g id="node12" class="node">
-<title>[SPL/src/Login.tsx]</title>
-<polygon fill="#00b2ee" stroke="white" points="349.38,-176.25 218.62,-176.25 218.62,-140.25 349.38,-140.25 349.38,-176.25"/>
-<text xml:space="preserve" text-anchor="middle" x="284" y="-153.57" font-family="Tahoma" font-size="14.00">[SPL/src/Login.tsx]</text>
-</g>
-<!-- [SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/src/Login.tsx] -->
-<g id="edge40" class="edge">
-<title>[SPL/coverage/Login.tsx.html]&#45;&#45;[SPL/src/Login.tsx]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M278.65,-301.82C279.81,-271.05 282.19,-207.42 283.35,-176.66"/>
-<text xml:space="preserve" text-anchor="middle" x="290.37" y="-261.98" font-family="Arial" font-size="12.00"> 38 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Signup.css.html] -->
-<g id="edge13" class="edge">
-<title>[SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Signup.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M485.33,-477.49C578.81,-463.78 702.89,-442.52 718,-424.5 730.59,-409.49 731.25,-264.94 721,-248.25 716.57,-241.04 710.14,-235.26 702.97,-230.64"/>
-<text xml:space="preserve" text-anchor="middle" x="744.08" y="-359.1" font-family="Arial" font-size="12.00"> 1342 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Login.css.html] -->
-<g id="edge15" class="edge">
-<title>[SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Login.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M416.67,-474.29C447.05,-459.83 490.01,-439.39 520.37,-424.93"/>
-<text xml:space="preserve" text-anchor="middle" x="495.6" y="-445.35" font-family="Arial" font-size="12.00"> 1006 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge20" class="edge">
-<title>[SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M278.54,-474.28C265.36,-469.72 252.47,-463.98 241,-456.75 183.13,-420.26 166.89,-402.26 142.75,-338.25 114.12,-262.33 126.2,-162.41 132.78,-122.65"/>
-<text xml:space="preserve" text-anchor="middle" x="155.88" y="-315.98" font-family="Arial" font-size="12.00"> 482 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Login.tsx.html] -->
-<g id="edge21" class="edge">
-<title>[SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Login.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M369.66,-474.46C350.11,-441.78 307.94,-371.3 288.37,-338.58"/>
-<text xml:space="preserve" text-anchor="middle" x="352.26" y="-402.23" font-family="Arial" font-size="12.00"> 434 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Header.tsx.html] -->
-<g id="edge31" class="edge">
-<title>[SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/Header.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M485.52,-499.4C496.27,-498.08 503.12,-495.87 503.12,-492.75 503.12,-489.63 496.27,-487.42 485.52,-486.1"/>
-<text xml:space="preserve" text-anchor="middle" x="512.88" y="-488.48" font-family="Arial" font-size="12.00"> 72 </text>
-</g>
-<!-- [SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge36" class="edge">
-<title>[SPL/coverage/Header.tsx.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M387.44,-474.33C397.2,-451 414.46,-408.17 426,-370.5 464.66,-244.3 495.86,-87.98 505.73,-36.4"/>
-<text xml:space="preserve" text-anchor="middle" x="468.84" y="-261.98" font-family="Arial" font-size="12.00"> 62 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html] -->
-<g id="node7" class="node">
-<title>[SPL/coverage/AuthContext.ts.html]</title>
-<polygon fill="#00b2ee" stroke="white" points="935.88,-683.25 700.12,-683.25 700.12,-647.25 935.88,-647.25 935.88,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="818" y="-660.58" font-family="Tahoma" font-size="14.00">[SPL/coverage/AuthContext.ts.html]</text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Header.css.html] -->
-<g id="edge18" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Header.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M774.07,-646.79C737.69,-632.33 686.24,-611.89 649.87,-597.43"/>
-<text xml:space="preserve" text-anchor="middle" x="737.82" y="-617.85" font-family="Arial" font-size="12.00"> 566 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Signup.css.html] -->
-<g id="edge17" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Signup.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M848.04,-646.88C869.28,-632.12 894,-608.76 894,-580 894,-580 894,-580 894,-448.62 894,-342.95 850.12,-312.21 766,-248.25 756.52,-241.04 745.55,-235.31 734.24,-230.75"/>
-<text xml:space="preserve" text-anchor="middle" x="907.12" y="-445.35" font-family="Arial" font-size="12.00"> 710 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Login.css.html] -->
-<g id="edge19" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Login.css.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M817.86,-646.98C816.61,-610.19 808.46,-523.48 761,-474.75 733.87,-446.9 695.01,-430.58 658.47,-421.02"/>
-<text xml:space="preserve" text-anchor="middle" x="812.84" y="-531.6" font-family="Arial" font-size="12.00"> 542 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Signup.tsx.html] -->
-<g id="edge23" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Signup.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M699.93,-664.03C473.4,-662.02 0,-649.51 0,-580 0,-580 0,-580 0,-211.25 0,-167.24 44.84,-138.83 83.03,-122.6"/>
-<text xml:space="preserve" text-anchor="middle" x="13.12" y="-402.23" font-family="Arial" font-size="12.00"> 270 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Login.tsx.html] -->
-<g id="edge22" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Login.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M699.88,-663.12C485.43,-659.48 54,-644.18 54,-580 54,-580 54,-580 54,-405.5 54,-382.74 51.04,-371.42 68,-356.25 68.57,-355.74 123.75,-346.56 177.4,-337.72"/>
-<text xml:space="preserve" text-anchor="middle" x="67.12" y="-488.48" font-family="Arial" font-size="12.00"> 272 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Header.tsx.html] -->
-<g id="edge26" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/Header.tsx.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M699.94,-661.85C627.66,-655.7 535.74,-639.15 464.75,-597 429.46,-576.04 402.45,-534.71 389.15,-511.19"/>
-<text xml:space="preserve" text-anchor="middle" x="477.88" y="-574.73" font-family="Arial" font-size="12.00"> 208 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/AuthContext.ts.html] -->
-<g id="edge51" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/AuthContext.ts.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M936.33,-671.68C947.1,-670.34 953.88,-668.2 953.88,-665.25 953.88,-662.3 947.1,-660.16 936.33,-658.82"/>
-<text xml:space="preserve" text-anchor="middle" x="963.62" y="-660.98" font-family="Arial" font-size="12.00"> 12 </text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge33" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M875.62,-646.89C905.57,-633.94 936,-612.72 936,-580 936,-580 936,-580 936,-103.25 936,-35.1 724.02,-21.16 598.77,-18.87"/>
-<text xml:space="preserve" text-anchor="middle" x="945.75" y="-359.1" font-family="Arial" font-size="12.00"> 62 </text>
-</g>
-<!-- [SPL/src/AuthContext.ts] -->
-<g id="node19" class="node">
-<title>[SPL/src/AuthContext.ts]</title>
-<polygon fill="#00b2ee" stroke="white" points="1130,-597 964,-597 964,-561 1130,-561 1130,-597"/>
-<text xml:space="preserve" text-anchor="middle" x="1047" y="-574.33" font-family="Tahoma" font-size="14.00">[SPL/src/AuthContext.ts]</text>
-</g>
-<!-- [SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/src/AuthContext.ts] -->
-<g id="edge46" class="edge">
-<title>[SPL/coverage/AuthContext.ts.html]&#45;&#45;[SPL/src/AuthContext.ts]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M894.95,-646.77C913.23,-641.82 932.5,-635.93 950,-629.25 973.12,-620.43 997.97,-607.74 1016.74,-597.45"/>
-<text xml:space="preserve" text-anchor="middle" x="989.91" y="-617.85" font-family="Arial" font-size="12.00"> 12 </text>
-</g>
-<!-- [SPL/src/Login.css]&#45;&#45;[SPL/src/Signup.css] -->
-<g id="edge48" class="edge">
-<title>[SPL/src/Login.css]&#45;&#45;[SPL/src/Signup.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M720.59,-259.37C760.06,-254.35 804.72,-245.45 817,-230.25 843.45,-197.52 808.5,-148.59 785.76,-122.72"/>
-<text xml:space="preserve" text-anchor="middle" x="836.22" y="-207.97" font-family="Arial" font-size="12.00"> 12 </text>
-</g>
-<!-- [SPL/coverage/index.html]&#45;&#45;[SPL/coverage/index.html] -->
-<g id="edge30" class="edge">
-<title>[SPL/coverage/index.html]&#45;&#45;[SPL/coverage/index.html]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M598.68,-24.95C609.38,-23.69 616.38,-21.37 616.38,-18 616.38,-14.63 609.38,-12.31 598.68,-11.05"/>
-<text xml:space="preserve" text-anchor="middle" x="626.12" y="-13.72" font-family="Arial" font-size="12.00"> 90 </text>
+<polygon fill="#00b2ee" stroke="white" points="139,-36 0,-36 0,0 139,0 139,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="69.5" y="-13.32" font-family="Tahoma" font-size="14.00">[SPL/src/Signup.tsx]</text>
 </g>
 <!-- [SPL/src/Login.tsx]&#45;&#45;[SPL/src/Signup.tsx] -->
-<g id="edge32" class="edge">
+<g id="edge1" class="edge">
 <title>[SPL/src/Login.tsx]&#45;&#45;[SPL/src/Signup.tsx]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M294.76,-139.85C306.45,-118.52 321.63,-81.79 307,-54 303.35,-47.06 297.63,-41.24 291.32,-36.45"/>
-<text xml:space="preserve" text-anchor="middle" x="322.49" y="-99.97" font-family="Arial" font-size="12.00"> 66 </text>
-</g>
-<!-- [SPL/src/App.css] -->
-<g id="node14" class="node">
-<title>[SPL/src/App.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="1277.62,-683.25 1154.38,-683.25 1154.38,-647.25 1277.62,-647.25 1277.62,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="1216" y="-660.58" font-family="Tahoma" font-size="14.00">[SPL/src/App.css]</text>
-</g>
-<!-- [SPL/src/Footer.css] -->
-<g id="node15" class="node">
-<title>[SPL/src/Footer.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="1284.38,-597 1147.62,-597 1147.62,-561 1284.38,-561 1284.38,-597"/>
-<text xml:space="preserve" text-anchor="middle" x="1216" y="-574.33" font-family="Tahoma" font-size="14.00">[SPL/src/Footer.css]</text>
-</g>
-<!-- [SPL/src/App.css]&#45;&#45;[SPL/src/Footer.css] -->
-<g id="edge41" class="edge">
-<title>[SPL/src/App.css]&#45;&#45;[SPL/src/Footer.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M1216,-646.79C1216,-632.33 1216,-611.89 1216,-597.43"/>
-<text xml:space="preserve" text-anchor="middle" x="1225.75" y="-617.85" font-family="Arial" font-size="12.00"> 38 </text>
+<path fill="none" stroke="#dc143c" stroke-width="10" d="M69.5,-85.79C69.5,-71.33 69.5,-50.89 69.5,-36.43"/>
+<text xml:space="preserve" text-anchor="middle" x="79.25" y="-56.85" font-family="Arial" font-size="12.00"> 66 </text>
 </g>
 <!-- [SPL/src/BuildDetail.css] -->
-<g id="node16" class="node">
+<g id="node3" class="node">
 <title>[SPL/src/BuildDetail.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="1460.25,-683.25 1295.75,-683.25 1295.75,-647.25 1460.25,-647.25 1460.25,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="1378" y="-660.58" font-family="Tahoma" font-size="14.00">[SPL/src/BuildDetail.css]</text>
+<polygon fill="#00b2ee" stroke="white" points="317.75,-122.25 153.25,-122.25 153.25,-86.25 317.75,-86.25 317.75,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="235.5" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/src/BuildDetail.css]</text>
 </g>
 <!-- [SPL/src/BuildDetail.css]&#45;&#45;[SPL/src/BuildDetail.css] -->
-<g id="edge42" class="edge">
+<g id="edge2" class="edge">
 <title>[SPL/src/BuildDetail.css]&#45;&#45;[SPL/src/BuildDetail.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M1460.59,-672.34C1471.22,-671.11 1478.25,-668.75 1478.25,-665.25 1478.25,-661.75 1471.22,-659.39 1460.59,-658.16"/>
-<text xml:space="preserve" text-anchor="middle" x="1488" y="-660.98" font-family="Arial" font-size="12.00"> 24 </text>
+<path fill="none" stroke="#dc143c" stroke-width="3" stroke-opacity="0.509804" d="M318.09,-111.34C328.72,-110.11 335.75,-107.75 335.75,-104.25 335.75,-100.75 328.72,-98.39 318.09,-97.16"/>
+<text xml:space="preserve" text-anchor="middle" x="345.5" y="-99.97" font-family="Arial" font-size="12.00"> 24 </text>
 </g>
 <!-- [SPL/src/Builds.css] -->
-<g id="node17" class="node">
+<g id="node4" class="node">
 <title>[SPL/src/Builds.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="1650.62,-683.25 1515.38,-683.25 1515.38,-647.25 1650.62,-647.25 1650.62,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="1583" y="-660.58" font-family="Tahoma" font-size="14.00">[SPL/src/Builds.css]</text>
+<polygon fill="#00b2ee" stroke="white" points="508.12,-122.25 372.88,-122.25 372.88,-86.25 508.12,-86.25 508.12,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="440.5" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/src/Builds.css]</text>
 </g>
 <!-- [SPL/src/Builds.css]&#45;&#45;[SPL/src/Builds.css] -->
-<g id="edge44" class="edge">
+<g id="edge3" class="edge">
 <title>[SPL/src/Builds.css]&#45;&#45;[SPL/src/Builds.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M1650.83,-672.66C1661.41,-671.55 1668.62,-669.08 1668.62,-665.25 1668.62,-661.42 1661.41,-658.95 1650.83,-657.84"/>
-<text xml:space="preserve" text-anchor="middle" x="1678.38" y="-660.98" font-family="Arial" font-size="12.00"> 20 </text>
+<path fill="none" stroke="#dc143c" stroke-width="3" stroke-opacity="0.509804" d="M508.33,-111.66C518.91,-110.55 526.12,-108.08 526.12,-104.25 526.12,-100.42 518.91,-97.95 508.33,-96.84"/>
+<text xml:space="preserve" text-anchor="middle" x="535.88" y="-99.97" font-family="Arial" font-size="12.00"> 20 </text>
 </g>
-<!-- [SPL/src/AddVersion.css] -->
-<g id="node18" class="node">
-<title>[SPL/src/AddVersion.css]</title>
-<polygon fill="#00b2ee" stroke="white" points="1873.75,-683.25 1706.25,-683.25 1706.25,-647.25 1873.75,-647.25 1873.75,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="1790" y="-660.58" font-family="Tahoma" font-size="14.00">[SPL/src/AddVersion.css]</text>
+<!-- [cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js] -->
+<g id="node5" class="node">
+<title>[cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js]</title>
+<polygon fill="#00b2ee" stroke="white" points="1003.38,-122.25 563.62,-122.25 563.62,-86.25 1003.38,-86.25 1003.38,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="783.5" y="-99.58" font-family="Tahoma" font-size="14.00">[cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js]</text>
 </g>
-<!-- [SPL/src/AddVersion.css]&#45;&#45;[SPL/src/AddVersion.css] -->
-<g id="edge45" class="edge">
-<title>[SPL/src/AddVersion.css]&#45;&#45;[SPL/src/AddVersion.css]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M1874.21,-672.29C1884.79,-671.05 1891.75,-668.7 1891.75,-665.25 1891.75,-661.8 1884.79,-659.45 1874.21,-658.21"/>
-<text xml:space="preserve" text-anchor="middle" x="1901.5" y="-660.98" font-family="Arial" font-size="12.00"> 12 </text>
+<!-- [cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js]&#45;&#45;[cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js] -->
+<g id="edge4" class="edge">
+<title>[cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js]&#45;&#45;[cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js]</title>
+<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M1003.74,-109.49C1014.83,-108.19 1021.38,-106.44 1021.38,-104.25 1021.38,-102.06 1014.83,-100.31 1003.74,-99.01"/>
+<text xml:space="preserve" text-anchor="middle" x="1031.12" y="-99.97" font-family="Arial" font-size="12.00"> 18 </text>
 </g>
-<!-- [cypress/e2e/admin.cy.js] -->
-<g id="node20" class="node">
-<title>[cypress/e2e/admin.cy.js]</title>
-<polygon fill="#00b2ee" stroke="white" points="2102.75,-683.25 1929.25,-683.25 1929.25,-647.25 2102.75,-647.25 2102.75,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="2016" y="-660.58" font-family="Tahoma" font-size="14.00">[cypress/e2e/admin.cy.js]</text>
+<!-- [SPL/src/App.css] -->
+<g id="node6" class="node">
+<title>[SPL/src/App.css]</title>
+<polygon fill="#00b2ee" stroke="white" points="1182.12,-122.25 1058.88,-122.25 1058.88,-86.25 1182.12,-86.25 1182.12,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1120.5" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/src/App.css]</text>
 </g>
-<!-- [cypress/e2e/admin.cy.js]&#45;&#45;[cypress/e2e/admin.cy.js] -->
-<g id="edge47" class="edge">
-<title>[cypress/e2e/admin.cy.js]&#45;&#45;[cypress/e2e/admin.cy.js]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M2103.09,-672.25C2113.76,-670.99 2120.75,-668.66 2120.75,-665.25 2120.75,-661.84 2113.76,-659.51 2103.09,-658.25"/>
-<text xml:space="preserve" text-anchor="middle" x="2130.5" y="-660.98" font-family="Arial" font-size="12.00"> 12 </text>
+<!-- [SPL/src/Footer.css] -->
+<g id="node7" class="node">
+<title>[SPL/src/Footer.css]</title>
+<polygon fill="#00b2ee" stroke="white" points="1188.88,-36 1052.12,-36 1052.12,0 1188.88,0 1188.88,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="1120.5" y="-13.32" font-family="Tahoma" font-size="14.00">[SPL/src/Footer.css]</text>
 </g>
-<!-- [cypress/support/commands.js] -->
-<g id="node23" class="node">
-<title>[cypress/support/commands.js]</title>
-<polygon fill="#00b2ee" stroke="white" points="2120.75,-597 1911.25,-597 1911.25,-561 2120.75,-561 2120.75,-597"/>
-<text xml:space="preserve" text-anchor="middle" x="2016" y="-574.33" font-family="Tahoma" font-size="14.00">[cypress/support/commands.js]</text>
-</g>
-<!-- [cypress/e2e/admin.cy.js]&#45;&#45;[cypress/support/commands.js] -->
-<g id="edge50" class="edge">
-<title>[cypress/e2e/admin.cy.js]&#45;&#45;[cypress/support/commands.js]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M2016,-646.79C2016,-632.33 2016,-611.89 2016,-597.43"/>
-<text xml:space="preserve" text-anchor="middle" x="2025.75" y="-617.85" font-family="Arial" font-size="12.00"> 12 </text>
+<!-- [SPL/src/App.css]&#45;&#45;[SPL/src/Footer.css] -->
+<g id="edge5" class="edge">
+<title>[SPL/src/App.css]&#45;&#45;[SPL/src/Footer.css]</title>
+<path fill="none" stroke="#dc143c" stroke-width="2" stroke-opacity="0.439216" d="M1120.5,-85.79C1120.5,-71.33 1120.5,-50.89 1120.5,-36.43"/>
+<text xml:space="preserve" text-anchor="middle" x="1130.25" y="-56.85" font-family="Arial" font-size="12.00"> 14 </text>
 </g>
 <!-- [backend/src/controllers/assetController.js] -->
-<g id="node21" class="node">
+<g id="node8" class="node">
 <title>[backend/src/controllers/assetController.js]</title>
-<polygon fill="#00b2ee" stroke="white" points="2435.5,-683.25 2158.5,-683.25 2158.5,-647.25 2435.5,-647.25 2435.5,-683.25"/>
-<text xml:space="preserve" text-anchor="middle" x="2297" y="-660.58" font-family="Tahoma" font-size="14.00">[backend/src/controllers/assetController.js]</text>
+<polygon fill="#00b2ee" stroke="white" points="1482,-122.25 1205,-122.25 1205,-86.25 1482,-86.25 1482,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1343.5" y="-99.58" font-family="Tahoma" font-size="14.00">[backend/src/controllers/assetController.js]</text>
 </g>
 <!-- [backend/src/controllers/buildController.js] -->
-<g id="node22" class="node">
+<g id="node9" class="node">
 <title>[backend/src/controllers/buildController.js]</title>
-<polygon fill="#00b2ee" stroke="white" points="2434,-597 2160,-597 2160,-561 2434,-561 2434,-597"/>
-<text xml:space="preserve" text-anchor="middle" x="2297" y="-574.33" font-family="Tahoma" font-size="14.00">[backend/src/controllers/buildController.js]</text>
+<polygon fill="#00b2ee" stroke="white" points="1480.5,-36 1206.5,-36 1206.5,0 1480.5,0 1480.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="1343.5" y="-13.32" font-family="Tahoma" font-size="14.00">[backend/src/controllers/buildController.js]</text>
 </g>
 <!-- [backend/src/controllers/assetController.js]&#45;&#45;[backend/src/controllers/buildController.js] -->
-<g id="edge49" class="edge">
+<g id="edge6" class="edge">
 <title>[backend/src/controllers/assetController.js]&#45;&#45;[backend/src/controllers/buildController.js]</title>
-<path fill="none" stroke="#dc143c" stroke-opacity="0.298039" d="M2297,-646.79C2297,-632.33 2297,-611.89 2297,-597.43"/>
-<text xml:space="preserve" text-anchor="middle" x="2306.75" y="-617.85" font-family="Arial" font-size="12.00"> 12 </text>
+<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M1343.5,-85.79C1343.5,-71.33 1343.5,-50.89 1343.5,-36.43"/>
+<text xml:space="preserve" text-anchor="middle" x="1353.25" y="-56.85" font-family="Arial" font-size="12.00"> 12 </text>
+</g>
+<!-- [SPL/src/AddVersion.css] -->
+<g id="node10" class="node">
+<title>[SPL/src/AddVersion.css]</title>
+<polygon fill="#00b2ee" stroke="white" points="1667.25,-122.25 1499.75,-122.25 1499.75,-86.25 1667.25,-86.25 1667.25,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1583.5" y="-99.58" font-family="Tahoma" font-size="14.00">[SPL/src/AddVersion.css]</text>
+</g>
+<!-- [SPL/src/AddVersion.css]&#45;&#45;[SPL/src/AddVersion.css] -->
+<g id="edge7" class="edge">
+<title>[SPL/src/AddVersion.css]&#45;&#45;[SPL/src/AddVersion.css]</title>
+<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M1667.71,-111.29C1678.29,-110.05 1685.25,-107.7 1685.25,-104.25 1685.25,-100.8 1678.29,-98.45 1667.71,-97.21"/>
+<text xml:space="preserve" text-anchor="middle" x="1695" y="-99.97" font-family="Arial" font-size="12.00"> 12 </text>
+</g>
+<!-- [cypress/e2e/admin.cy.js] -->
+<g id="node11" class="node">
+<title>[cypress/e2e/admin.cy.js]</title>
+<polygon fill="#00b2ee" stroke="white" points="1896.25,-122.25 1722.75,-122.25 1722.75,-86.25 1896.25,-86.25 1896.25,-122.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1809.5" y="-99.58" font-family="Tahoma" font-size="14.00">[cypress/e2e/admin.cy.js]</text>
+</g>
+<!-- [cypress/e2e/admin.cy.js]&#45;&#45;[cypress/e2e/admin.cy.js] -->
+<g id="edge8" class="edge">
+<title>[cypress/e2e/admin.cy.js]&#45;&#45;[cypress/e2e/admin.cy.js]</title>
+<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M1896.59,-111.25C1907.26,-109.99 1914.25,-107.66 1914.25,-104.25 1914.25,-100.84 1907.26,-98.51 1896.59,-97.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1924" y="-99.97" font-family="Arial" font-size="12.00"> 12 </text>
+</g>
+<!-- [cypress/support/commands.js] -->
+<g id="node12" class="node">
+<title>[cypress/support/commands.js]</title>
+<polygon fill="#00b2ee" stroke="white" points="1914.25,-36 1704.75,-36 1704.75,0 1914.25,0 1914.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="1809.5" y="-13.32" font-family="Tahoma" font-size="14.00">[cypress/support/commands.js]</text>
+</g>
+<!-- [cypress/e2e/admin.cy.js]&#45;&#45;[cypress/support/commands.js] -->
+<g id="edge9" class="edge">
+<title>[cypress/e2e/admin.cy.js]&#45;&#45;[cypress/support/commands.js]</title>
+<path fill="none" stroke="#dc143c" stroke-opacity="0.368627" d="M1809.5,-85.79C1809.5,-71.33 1809.5,-50.89 1809.5,-36.43"/>
+<text xml:space="preserve" text-anchor="middle" x="1819.25" y="-56.85" font-family="Arial" font-size="12.00"> 12 </text>
 </g>
 </g>
 </svg>
