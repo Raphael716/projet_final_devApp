@@ -7,6 +7,17 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/setupTests.ts",
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "lcov", "html", "clover"],
+      reportsDirectory: "coverage/SPL",
+      exclude: ["**/*.integration.test.js", "**/*.css", "node_modules/**", "dist/**"],
+      all: true,
+      lines: 75,
+      branches: 75,
+      functions: 75,
+      statements: 75,
+    },
   },
   server: {
     port: 5173,

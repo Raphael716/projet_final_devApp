@@ -1,9 +1,0 @@
-tests -> 
-1. unitaires -> npm test(frontend)  npm run test:unit(backend)
-2. integration -> npm run test:integration
-3. end to end -> npx cypress run
-npm test
-
-sokrates.dev
-// rapport
-Start-Process ".\_sokrates\reports\html\index.html"

@@ -1,4 +1,0 @@
-Path	Lines of Code
-cypress/e2e/admin.cy.js	90
-cypress/e2e/auth.cy.js	52
-cypress/e2e/builds.cy.js	118

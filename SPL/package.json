@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "test:unit": "vitest run --coverage --exclude '**/*.integration.test.js'",
     "test:integration": "vitest -c vitest.integration.config.ts"
   },
   "dependencies": {

@@ -11,17 +11,22 @@
     "prisma:generate": "cd backend && npx prisma generate",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "cy:cucumber": "cypress run --spec \"cypress/e2e/features/**/*.feature\"",
+    "cy:open:cucumber": "cypress open --config \"specPattern=cypress/e2e/features/**/*.feature\"",
     "test:e2e": "cypress run"
   },
   "dependencies": {
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^24.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@vitejs/plugin-react": "^4.2.0",
     "concurrently": "^9.2.1",
     "cypress": "^13.17.0",
+    "esbuild": "^0.27.1",
     "jsdom": "^23.2.0",
     "vitest": "^1.0.0"
   }

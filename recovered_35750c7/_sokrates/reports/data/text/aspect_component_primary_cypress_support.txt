@@ -1,3 +1,0 @@
-Path	Lines of Code
-cypress/support/commands.js	30
-cypress/support/e2e.js	1

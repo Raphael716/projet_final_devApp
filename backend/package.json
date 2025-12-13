@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npm run test:unit ; npm run test:integration",
-    "test:unit": "vitest --exclude '**/*.integration.test.js' --coverage --reporter=json",
+    "test:unit": "vitest --exclude '**/*.integration.test.js' --coverage",
     "test:integration": "vitest -c vitest.integration.config.ts",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
