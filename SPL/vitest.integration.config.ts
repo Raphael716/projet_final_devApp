@@ -9,4 +9,7 @@ export default defineConfig({
     reporters: ["verbose"],
     setupFiles: ["src/setupTests.ts"],
   },
+  esbuild: {
+    jsxInject: "import React from 'react'",
+  },
 });
