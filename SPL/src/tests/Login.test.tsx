@@ -210,7 +210,34 @@ describe("Login Component", () => {
     });
   });
 
-  it("gère la compatibilité des champs admin (fallback sur data.user.admin ou 0)", async () => {
-    // Removed legacy admin compatibility test to avoid covering extra branches
+  it("traduit le rôle admin même si la propriété isAdmin est absente", async () => {
+    renderLogin();
+
+    const fakeUser = {
+      id: 9,
+      email: "admin@test.com",
+      username: "Admin",
+      admin: 1,
+    };
+
+    (global.fetch as Mock).mockResolvedValue({
+      ok: true,
+      json: async () => ({ user: fakeUser, token: "tok" }),
+    });
+
+    fireEvent.change(screen.getByLabelText(/email/i), {
+      target: { value: "admin@test.com" },
+    });
+    fireEvent.change(screen.getByLabelText(/mot de passe/i), {
+      target: { value: "secret" },
+    });
+    fireEvent.submit(screen.getByRole("button", { name: /se connecter/i }));
+
+    await waitFor(() => {
+      expect(mockLogin).toHaveBeenCalledWith(
+        expect.objectContaining({ isAdmin: true }),
+        "tok"
+      );
+    });
   });
 });
