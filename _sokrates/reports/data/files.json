@@ -25,7 +25,7 @@
 }, {
   "relativePath" : "backend/src/controllers/assetController.js",
   "extension" : "js",
-  "linesOfCode" : 305,
+  "linesOfCode" : 309,
   "components" : [ "primary::backend/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -83,6 +83,12 @@
   "components" : [ "primary::backend/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "backend/src/routes/healthRoutes.js",
+  "extension" : "js",
+  "linesOfCode" : 24,
+  "components" : [ "primary::backend/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "backend/src/routes/userRoutes.js",
   "extension" : "js",
   "linesOfCode" : 16,
@@ -107,6 +113,12 @@
   "components" : [ "primary::cypress/e2e" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js",
+  "extension" : "js",
+  "linesOfCode" : 88,
+  "components" : [ "primary::cypress/e2e" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "cypress/support/commands.js",
   "extension" : "js",
   "linesOfCode" : 30,
@@ -121,92 +133,14 @@
 }, {
   "relativePath" : "cypress.config.js",
   "extension" : "js",
-  "linesOfCode" : 12,
+  "linesOfCode" : 21,
   "components" : [ "primary::ROOT" ],
   "concerns" : [ "::Unclassified" ]
 }, {
-  "relativePath" : "generate-sokrates-reports.ps1",
-  "extension" : "ps1",
-  "linesOfCode" : 140,
-  "components" : [ "primary::ROOT" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/AuthContext.ts.html",
-  "extension" : "html",
-  "linesOfCode" : 140,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/base.css",
-  "extension" : "css",
-  "linesOfCode" : 203,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/block-navigation.js",
+  "relativePath" : "scripts/clean-coverage.js",
   "extension" : "js",
-  "linesOfCode" : 66,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/clover.xml",
-  "extension" : "xml",
-  "linesOfCode" : 81,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/Header.css.html",
-  "extension" : "html",
-  "linesOfCode" : 422,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/Header.tsx.html",
-  "extension" : "html",
-  "linesOfCode" : 185,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/index.html",
-  "extension" : "html",
-  "linesOfCode" : 186,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/Login.css.html",
-  "extension" : "html",
-  "linesOfCode" : 398,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/Login.tsx.html",
-  "extension" : "html",
-  "linesOfCode" : 347,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/prettify.css",
-  "extension" : "css",
   "linesOfCode" : 1,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/Signup.css.html",
-  "extension" : "html",
-  "linesOfCode" : 533,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/Signup.tsx.html",
-  "extension" : "html",
-  "linesOfCode" : 362,
-  "components" : [ "primary::SPL/coverage" ],
-  "concerns" : [ "::Unclassified" ]
-}, {
-  "relativePath" : "SPL/coverage/sorter.js",
-  "extension" : "js",
-  "linesOfCode" : 171,
-  "components" : [ "primary::SPL/coverage" ],
+  "components" : [ "primary::scripts" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "SPL/eslint.config.js",
@@ -229,7 +163,7 @@
 }, {
   "relativePath" : "SPL/src/AddVersion.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 122,
+  "linesOfCode" : 131,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -247,7 +181,7 @@
 }, {
   "relativePath" : "SPL/src/App.css",
   "extension" : "css",
-  "linesOfCode" : 194,
+  "linesOfCode" : 182,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -257,15 +191,27 @@
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "SPL/src/Auth.css",
+  "extension" : "css",
+  "linesOfCode" : 104,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "SPL/src/AuthContext.ts",
   "extension" : "ts",
   "linesOfCode" : 19,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
+  "relativePath" : "SPL/src/AuthFooter.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 25,
+  "components" : [ "primary::SPL/src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
   "relativePath" : "SPL/src/AuthProvider.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 55,
+  "linesOfCode" : 48,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -283,13 +229,13 @@
 }, {
   "relativePath" : "SPL/src/Builds.css",
   "extension" : "css",
-  "linesOfCode" : 153,
+  "linesOfCode" : 189,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "SPL/src/Builds.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 82,
+  "linesOfCode" : 84,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -349,13 +295,13 @@
 }, {
   "relativePath" : "SPL/src/Login.css",
   "extension" : "css",
-  "linesOfCode" : 89,
+  "linesOfCode" : 10,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "SPL/src/Login.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 74,
+  "linesOfCode" : 78,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -385,13 +331,13 @@
 }, {
   "relativePath" : "SPL/src/Signup.css",
   "extension" : "css",
-  "linesOfCode" : 135,
+  "linesOfCode" : 29,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "SPL/src/Signup.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 82,
+  "linesOfCode" : 90,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
@@ -403,13 +349,13 @@
 }, {
   "relativePath" : "SPL/src/VersionDetail.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 205,
+  "linesOfCode" : 219,
   "components" : [ "primary::SPL/src" ],
   "concerns" : [ "::Unclassified" ]
 }, {
   "relativePath" : "SPL/vite.config.ts",
   "extension" : "ts",
-  "linesOfCode" : 25,
+  "linesOfCode" : 35,
   "components" : [ "primary::SPL" ],
   "concerns" : [ "::Unclassified" ]
 } ]

@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>backend/src/routes/assetRoutes.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/src/routes/assetRoutes.js (<b>17</b> lines of code) (<a href="assetRoutes.js">raw</a>):</h3>
+<div id="editor">import express from &quot;express&quot;;
+import * as assetController from &quot;../controllers/assetController.js&quot;;
+import protect from &quot;../middleware/authMiddleware.js&quot;;
+import adminOnly from &quot;../middleware/adminMiddleware.js&quot;;
+
+const router = express.Router();
+
+// Upload files for a build (admin only)
+router.post(
+  &quot;/upload/:buildId&quot;,
+  protect,
+  adminOnly,
+  assetController.uploadMiddleware,
+  assetController.uploadFiles
+);
+
+// List files for a build
+router.get(&quot;/build/:id&quot;, assetController.getAssetsByBuild);
+// Get single asset details
+router.get(&quot;/:id&quot;, assetController.getAssetById);
+// Download (public)
+router.get(&quot;/download/:id&quot;, assetController.downloadAsset);
+
+// Delete asset (admin only)
+router.delete(&quot;/:id&quot;, protect, adminOnly, assetController.deleteAsset);
+
+export default router;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

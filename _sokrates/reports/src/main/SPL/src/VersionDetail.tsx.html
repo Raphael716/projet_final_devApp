@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">SPL/src/VersionDetail.tsx (<b>205</b> lines of code) (<a href="VersionDetail.tsx">raw</a>):</h3>
+<h3 style="margin-bottom: 0">SPL/src/VersionDetail.tsx (<b>219</b> lines of code) (<a href="VersionDetail.tsx">raw</a>):</h3>
 <div id="editor">import { useParams, Link, useNavigate } from &quot;react-router-dom&quot;;
 import { useEffect, useState, useContext } from &quot;react&quot;;
 import { AuthContext } from &quot;./AuthContext&quot;;
@@ -52,16 +52,24 @@ export default function VersionDetail() {
     fetch(`/api/assets/${assetId}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     })
-      .then((r) =&gt; r.json())
+      .then(async (r) =&gt; {
+        if (!r.ok) throw new Error(`Asset fetch failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) =&gt; {
         setAsset(data);
         return fetch(`/api/builds/${buildId}`);
       })
-      .then((r) =&gt; r.json())
+      .then(async (r) =&gt; {
+        if (!r.ok) throw new Error(`Build fetch failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) =&gt; {
         setBuild(data);
       })
-      .catch(console.error)
+      .catch((err) =&gt; {
+        console.error(&quot;VersionDetail fetch error:&quot;, err);
+      })
       .finally(() =&gt; setLoading(false));
   }, [buildId, assetId, token]);
 
@@ -69,8 +77,9 @@ export default function VersionDetail() {
     if (!asset) return;
     const isTextType = (a: Asset) =&gt; {
       if (!a) return false;
-      if (a.mimetype &amp;&amp; a.mimetype.startsWith(&quot;text/&quot;)) return true;
-      if (a.displayType) {
+      if (typeof a.mimetype === &quot;string&quot; &amp;&amp; a.mimetype.startsWith(&quot;text/&quot;))
+        return true;
+      if (typeof a.displayType === &quot;string&quot; &amp;&amp; a.displayType) {
         const d = a.displayType.toLowerCase();
         if (
           d.includes(&quot;fichier&quot;) ||
@@ -80,9 +89,12 @@ export default function VersionDetail() {
         )
           return true;
       }
-      return [&quot;.md&quot;, &quot;.txt&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.log&quot;].some((e) =&gt;
-        a.original.toLowerCase().endsWith(e)
-      );
+      if (typeof a.original === &quot;string&quot; &amp;&amp; a.original) {
+        return [&quot;.md&quot;, &quot;.txt&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.log&quot;].some((e) =&gt;
+          a.original.toLowerCase().endsWith(e)
+        );
+      }
+      return false;
     };
 
     if (!isTextType(asset)) {
@@ -115,10 +127,12 @@ export default function VersionDetail() {
   if (!asset || !build) return &lt;p&gt;Version introuvable&lt;/p&gt;;
   const friendlyType = (() =&gt; {
     if (!asset) return &quot;Type inconnu&quot;;
-    const dt = asset.displayType?.trim();
+    const dt = typeof asset.displayType === &quot;string&quot; ? asset.displayType.trim() : &quot;&quot;;
     if (dt &amp;&amp; dt.length &gt; 0) return dt;
-    const idx = asset.original.lastIndexOf(&quot;.&quot;);
-    if (idx !== -1) return asset.original.slice(idx).toLowerCase();
+    if (typeof asset.original === &quot;string&quot;) {
+      const idx = asset.original.lastIndexOf(&quot;.&quot;);
+      if (idx !== -1) return asset.original.slice(idx).toLowerCase();
+    }
     return &quot;Type inconnu&quot;;
   })();
 

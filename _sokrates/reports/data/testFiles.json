@@ -15,14 +15,21 @@
 }, {
   "relativePath" : "backend/src/tests/buildController.test.js",
   "extension" : "js",
-  "linesOfCode" : 83,
+  "linesOfCode" : 172,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "backend/src/tests/middleware.test.js",
   "extension" : "js",
-  "linesOfCode" : 60,
+  "linesOfCode" : 98,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "backend/src/tests/parseBuildFile.test.js",
+  "extension" : "js",
+  "linesOfCode" : 66,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -43,7 +50,7 @@
 }, {
   "relativePath" : "backend/src/tests/userController.test.js",
   "extension" : "js",
-  "linesOfCode" : 96,
+  "linesOfCode" : 156,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -64,7 +71,7 @@
 }, {
   "relativePath" : "backend/vitest.config.ts",
   "extension" : "ts",
-  "linesOfCode" : 31,
+  "linesOfCode" : 42,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -90,6 +97,13 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "SPL/src/tests/AdminUsers.test.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 42,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "SPL/src/tests/Builds.integration.test.tsx",
   "extension" : "tsx",
   "linesOfCode" : 113,
@@ -97,16 +111,23 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "SPL/src/tests/Builds.test.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 64,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "SPL/src/tests/Header.test.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 89,
+  "linesOfCode" : 88,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "SPL/src/tests/Login.test.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 204,
+  "linesOfCode" : 172,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -118,16 +139,23 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "SPL/src/tests/NewBuild.test.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 123,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "SPL/src/tests/Signup.test.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 125,
+  "linesOfCode" : 126,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "SPL/vitest.integration.config.ts",
   "extension" : "ts",
-  "linesOfCode" : 11,
+  "linesOfCode" : 14,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0

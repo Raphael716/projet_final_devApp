@@ -33,9 +33,11 @@ export default function Builds() {
     <main className="builds-container">
       <div className="builds-header">
         <h2>Liste des logiciels</h2>
-        <Link to="/builds/new" className="btn primary">
-          Nouveau logiciel
-        </Link>
+        {user?.isAdmin ? (
+          <Link to="/builds/new" className="btn primary">
+            Nouveau logiciel
+          </Link>
+        ) : null}
       </div>
       {loading ? (
         <p>Chargement...</p>

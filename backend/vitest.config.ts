@@ -31,5 +31,16 @@ export default defineConfig({
         inline: ["@prisma/client"],
       },
     },
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "lcov", "html", "clover"],
+      reportsDirectory: "coverage/backend",
+      exclude: ["**/*.integration.test.js", "**/*.css", "node_modules/**", "dist/**"],
+      all: true,
+      lines: 75,
+      branches: 75,
+      functions: 75,
+      statements: 75,
+    },
   },
 });

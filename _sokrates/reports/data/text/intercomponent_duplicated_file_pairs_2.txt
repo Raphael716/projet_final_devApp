@@ -1,2 +1,0 @@
-cypress/e2e/admin.cy.js
-cypress/support/commands.js

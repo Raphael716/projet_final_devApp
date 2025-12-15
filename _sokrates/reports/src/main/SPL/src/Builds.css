@@ -1,4 +1,16 @@
-/* ====== CONTAINER ====== */
+/*  RESET / SAFETY  */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/*  CONTAINER  */
 .builds-container {
   max-width: 1100px;
   width: 100%;
@@ -8,9 +20,16 @@
   border-radius: 14px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
   color: #1e293b;
+  overflow-x: hidden;
 }
 
-/* ====== HEADER ====== */
+.builds-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/*  HEADER  */
 .builds-header {
   display: flex;
   flex-wrap: wrap;
@@ -30,17 +49,29 @@
   text-align: center;
 }
 
-/* ====== TABLE ====== */
+/*  TABLE  */
 .builds-table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   background: #f9fafc;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  table-layout: fixed;
 }
 
-/* ====== TABLE CELLS ====== */
+/* Cells safety */
+.builds-table th,
+.builds-table td {
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/*  TABLE CELLS  */
 .builds-table th,
 .builds-table td {
   padding: 1rem 1.2rem;
@@ -65,14 +96,14 @@
   background: #f1f5ff;
 }
 
-/* ====== ACTION BUTTONS ====== */
+/*  ACTION BUTTONS  */
 .builds-actions {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-/* ====== BUTTONS ====== */
+/*  BUTTONS  */
 .btn-edit {
   background: linear-gradient(90deg, #2563eb, #1e40af);
   color: #fff;
@@ -109,10 +140,10 @@
   transform: translateY(-1px);
 }
 
-/* ====== RESPONSIVE ====== */
+/*  RESPONSIVE  */
 @media (max-width: 850px) {
   .builds-container {
-    width: 80%;
+    width: 95%;
     padding: 1rem;
   }
 
@@ -136,18 +167,20 @@
     display: none;
   }
 
+  /* Hide actions column on small screens */
+  .builds-table th:last-child,
+  .builds-table td:last-child {
+    display: none;
+  }
+
   .builds-table tr {
     background: #ffffff;
     border-radius: 12px;
     padding: 1rem;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     margin-bottom: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .builds-table tr:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 100%;
   }
 
   .builds-table td {
@@ -180,5 +213,18 @@
     text-align: center;
     font-size: 0.9rem;
     padding: 0.7rem;
+  }
+}
+
+/* LANDSCAPE MOBILE FIX */
+@media (max-width: 900px) and (orientation: landscape) {
+  .builds-container {
+    padding: 0.8rem;
+  }
+
+  .builds-table th,
+  .builds-table td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.85rem;
   }
 }

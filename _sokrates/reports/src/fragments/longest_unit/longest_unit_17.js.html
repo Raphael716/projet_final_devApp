@@ -6,24 +6,20 @@
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
 <h3 style="margin-bottom: 0">onBeforeLoad()</h3>
-<p style="margin-top: 4px">in <i>cypress/support/commands.js [17:28]</i></p>
+<p style="margin-top: 4px">in <i>cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js [74:81]</i></p>
 <ul>
-    <li><b>9</b> lines of code</li>
-    <li><b>2</b> McCabe index (conditional complexity)</li>
+    <li><b>8</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="js">
     onBeforeLoad(win) {
-      if (options.visitOptions?.onBeforeLoad) {
-        options.visitOptions.onBeforeLoad(win);
-      }
-      // Legacy keys still used in a few places
-      win.localStorage.setItem(&quot;spl_token&quot;, token);
-      win.localStorage.setItem(&quot;spl_user&quot;, JSON.stringify(user));
-
-      // Keys actually read by the app's AuthProvider
-      win.localStorage.setItem(&quot;auth_token&quot;, token);
-      win.localStorage.setItem(&quot;auth_user&quot;, JSON.stringify(user));
+      const token = 'admin-token';
+      const ADMIN = { id: 7, email: 'admin@example.com', username: 'Admin', isAdmin: true };
+      win.localStorage.setItem('spl_token', token);
+      win.localStorage.setItem('spl_user', JSON.stringify(ADMIN));
+      win.localStorage.setItem('auth_token', token);
+      win.localStorage.setItem('auth_user', JSON.stringify(ADMIN));
     },
 
 </code>

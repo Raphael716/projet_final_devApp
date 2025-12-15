@@ -26,7 +26,6 @@ graph G {
 
 
 
-    "SPL/coverage" -- "SPL/src" [label=" 524 ", penwidth="10", color="#DC143CFF"];
-    "cypress/e2e" -- "cypress/support" [label=" 12 ", penwidth="1", color="#DC143C4C"];
+    "cypress/e2e" -- "cypress/support" [label=" 12 ", penwidth="10", color="#DC143CFF"];
 
 }

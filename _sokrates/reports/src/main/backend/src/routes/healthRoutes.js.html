@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>backend/src/routes/healthRoutes.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/src/routes/healthRoutes.js (<b>24</b> lines of code) (<a href="healthRoutes.js">raw</a>):</h3>
+<div id="editor">// backend/src/routes/healthRoutes.js
+import express from &quot;express&quot;;
+
+const router = express.Router();
+
+// Health check endpoint pour CI/CD et monitoring
+router.get(&quot;/health&quot;, (req, res) =&gt; {
+  res.status(200).json({
+    status: &quot;ok&quot;,
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || &quot;development&quot;
+  });
+});
+
+// Readiness check - v&eacute;rifie que l'app est pr&ecirc;te
+router.get(&quot;/ready&quot;, async (req, res) =&gt; {
+  try {
+    res.status(200).json({
+      status: &quot;ready&quot;,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: &quot;not ready&quot;,
+      error: error.message
+    });
+  }
+});
+
+export default router;</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

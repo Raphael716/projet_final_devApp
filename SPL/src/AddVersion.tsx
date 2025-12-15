@@ -16,8 +16,21 @@ export default function AddVersion() {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState("");
-  const { token } = useContext(AuthContext);
+  const { user, token } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // If no token and no user, send to login
+    if (!token && !user) {
+      navigate("/login");
+      return;
+    }
+
+    // If user is known and not admin, redirect back to build
+    if (user && !user.isAdmin) {
+      navigate(`/builds/${id}`);
+    }
+  }, [user, token, id, navigate]);
 
   useEffect(() => {
     const fetchBuild = async () => {

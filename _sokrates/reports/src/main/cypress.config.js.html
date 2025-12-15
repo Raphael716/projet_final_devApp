@@ -12,18 +12,26 @@
     </style>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">cypress.config.js (<b>12</b> lines of code) (<a href="cypress.config.js">raw</a>):</h3>
-<div id="editor">const { defineConfig } = require(&quot;cypress&quot;);
+<h3 style="margin-bottom: 0">cypress.config.js (<b>21</b> lines of code) (<a href="cypress.config.js">raw</a>):</h3>
+<div id="editor">const { defineConfig } = require('cypress');
+const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
+const addCucumberPreprocessorPlugin = require('@badeball/cypress-cucumber-preprocessor').addCucumberPreprocessorPlugin;
+const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild').createEsbuildPlugin;
 
 module.exports = defineConfig({
   projectId: '2dfztd',
   e2e: {
-    baseUrl: &quot;http://localhost:5173&quot;,
+    baseUrl: 'http://localhost:5173',
     viewportWidth: 1280,
     viewportHeight: 720,
     video: false,
-    setupNodeEvents(on, config) {
-      // place node event listeners here when needed
+    specPattern: 'cypress/e2e/features/**/*.feature',
+    async setupNodeEvents(on, config) {
+      await addCucumberPreprocessorPlugin(on, config);
+      on('file:preprocessor', createBundler({
+        plugins: [createEsbuildPlugin(config)],
+      }));
+      return config;
     },
   },
 });

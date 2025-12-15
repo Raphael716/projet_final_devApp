@@ -1,49 +1,63 @@
 <html>
 <head>
-    <title>export default function Header()</title>
+    <title>function Home()</title>
     <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
     <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
 </head>
 <body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
-<h3 style="margin-bottom: 0">export default function Header()</h3>
-<p style="margin-top: 4px">in <i>SPL/src/Header.tsx [6:38]</i></p>
+<h3 style="margin-bottom: 0">function Home()</h3>
+<p style="margin-top: 4px">in <i>SPL/src/App.tsx [19:65]</i></p>
 <ul>
-    <li><b>31</b> lines of code</li>
-    <li><b>4</b> McCabe index (conditional complexity)</li>
+    <li><b>45</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
 </ul>
 <pre>
 <code class="tsx">
-export default function Header() {
-  const { user, token, logout } = useContext(AuthContext);
-  const isAdmin = user?.isAdmin ?? false;
-
+function Home() {
+  const { user } = useContext(AuthContext);
   return (
-    &lt;header className=&quot;header&quot;&gt;
-      &lt;Link to=&quot;/&quot; className=&quot;logo&quot;&gt;
-        Software Production Line
-      &lt;/Link&gt;
+    &lt;main className=&quot;home&quot;&gt;
+      &lt;h1&gt;Software Production Line&lt;/h1&gt;
+      &lt;p&gt;
+        G&eacute;rez vos logiciels, vos versions et vos fichiers &agrave; partir d&rsquo;une
+        interface claire et centralis&eacute;e.
+      &lt;/p&gt;
 
-      &lt;nav className=&quot;nav&quot;&gt;
-        {token ? (
-          &lt;&gt;
-            &lt;Link to=&quot;/builds&quot;&gt;Builds&lt;/Link&gt;
-            {isAdmin &amp;&amp; &lt;Link to=&quot;/admin/users&quot;&gt;Utilisateurs&lt;/Link&gt;}
-            &lt;span className=&quot;user-label&quot;&gt;
-              {user?.username ?? user?.email}
-              {isAdmin &amp;&amp; &lt;span className=&quot;admin-badge&quot;&gt;Admin&lt;/span&gt;}
-            &lt;/span&gt;
-            &lt;button className=&quot;logout-btn&quot; onClick={logout}&gt;
-              D&eacute;connexion
-            &lt;/button&gt;
-          &lt;/&gt;
-        ) : (
-          &lt;&gt;
-            &lt;Link to=&quot;/login&quot;&gt;Connexion&lt;/Link&gt;
-            &lt;Link to=&quot;/signup&quot;&gt;Inscription&lt;/Link&gt;
-          &lt;/&gt;
+      &lt;div className=&quot;home-actions&quot;&gt;
+        {!user &amp;&amp; (
+          &lt;Link to=&quot;/login&quot; className=&quot;btn primary&quot;&gt;
+            Se connecter
+          &lt;/Link&gt;
         )}
-      &lt;/nav&gt;
-    &lt;/header&gt;
+        &lt;Link to=&quot;/builds&quot; className=&quot;btn secondary&quot;&gt;
+          Voir les builds
+        &lt;/Link&gt;
+      &lt;/div&gt;
+
+      &lt;section className=&quot;features&quot;&gt;
+        &lt;div className=&quot;feature-card&quot;&gt;
+          &lt;h3&gt;Gestion simplifi&eacute;e&lt;/h3&gt;
+          &lt;p&gt;
+            Cr&eacute;ez, modifiez et suivez vos builds en quelques clics avec une
+            interface fluide.
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;feature-card&quot;&gt;
+          &lt;h3&gt;Suivi des versions&lt;/h3&gt;
+          &lt;p&gt;
+            Gardez une trace claire de l&rsquo;&eacute;volution de vos projets et t&eacute;l&eacute;chargez
+            chaque version facilement.
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;feature-card&quot;&gt;
+          &lt;h3&gt;S&eacute;curit&eacute; int&eacute;gr&eacute;e&lt;/h3&gt;
+          &lt;p&gt;
+            Profitez d&rsquo;un acc&egrave;s prot&eacute;g&eacute; gr&acirc;ce &agrave; l&rsquo;authentification par jeton et
+            la gestion des r&ocirc;les.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
   );
 }
 

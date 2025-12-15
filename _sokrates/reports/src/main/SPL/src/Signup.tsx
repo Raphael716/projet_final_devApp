@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
+import "./Auth.css";
 import "./Signup.css";
+import AuthFooter from "./AuthFooter";
 export default function Signup() {
   const nav = useNavigate();
   const { login } = useContext(AuthContext);
@@ -81,15 +83,17 @@ export default function Signup() {
             />
           </label>
 
-          {error && <div className="auth-error">{error}</div>}
-
-          <button type="submit" disabled={loading}>
-            {loading ? "Création..." : "S’inscrire"}
-          </button>
-
-          <p className="auth-alt">
-            Déjà un compte ? <Link to="/login">Se connecter</Link>
-          </p>
+          <AuthFooter
+            error={error}
+            loading={loading}
+            buttonText="S’inscrire"
+            loadingText="Création..."
+            alt={
+              <>
+                Déjà un compte ? <Link to="/login">Se connecter</Link>
+              </>
+            }
+          />
         </form>
       </div>
     </main>

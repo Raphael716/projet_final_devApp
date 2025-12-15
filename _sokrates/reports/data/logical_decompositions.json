@@ -33,32 +33,32 @@
     } ]
   }, {
     "name" : "backend/src",
-    "filesCount" : 12,
-    "linesOfCode" : 807,
+    "filesCount" : 13,
+    "linesOfCode" : 835,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.js",
-      "value" : 12,
+      "value" : 13,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.js",
-      "value" : 807,
+      "value" : 835,
       "description" : [ ]
     } ]
   }, {
     "name" : "cypress/e2e",
-    "filesCount" : 3,
-    "linesOfCode" : 260,
+    "filesCount" : 4,
+    "linesOfCode" : 348,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.js",
-      "value" : 3,
+      "value" : 4,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.js",
-      "value" : 260,
+      "value" : 348,
       "description" : [ ]
     } ]
   }, {
@@ -78,70 +78,38 @@
     } ]
   }, {
     "name" : "ROOT",
-    "filesCount" : 2,
-    "linesOfCode" : 152,
+    "filesCount" : 1,
+    "linesOfCode" : 21,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
-      "name" : "  *.ps1",
-      "value" : 1,
-      "description" : [ ]
-    }, {
       "name" : "  *.js",
       "value" : 1,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
-      "name" : "  *.ps1",
-      "value" : 140,
-      "description" : [ ]
-    }, {
       "name" : "  *.js",
-      "value" : 12,
+      "value" : 21,
       "description" : [ ]
     } ]
   }, {
-    "name" : "SPL/coverage",
-    "filesCount" : 13,
-    "linesOfCode" : 3095,
+    "name" : "scripts",
+    "filesCount" : 1,
+    "linesOfCode" : 1,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
-      "name" : "  *.html",
-      "value" : 8,
-      "description" : [ ]
-    }, {
       "name" : "  *.js",
-      "value" : 2,
-      "description" : [ ]
-    }, {
-      "name" : "  *.css",
-      "value" : 2,
-      "description" : [ ]
-    }, {
-      "name" : "  *.xml",
       "value" : 1,
       "description" : [ ]
     } ],
     "linesOfCodePerExtension" : [ {
-      "name" : "  *.html",
-      "value" : 2573,
-      "description" : [ ]
-    }, {
       "name" : "  *.js",
-      "value" : 237,
-      "description" : [ ]
-    }, {
-      "name" : "  *.css",
-      "value" : 204,
-      "description" : [ ]
-    }, {
-      "name" : "  *.xml",
-      "value" : 81,
+      "value" : 1,
       "description" : [ ]
     } ]
   }, {
     "name" : "SPL",
     "filesCount" : 3,
-    "linesOfCode" : 60,
+    "linesOfCode" : 70,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.ts",
@@ -158,7 +126,7 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.ts",
-      "value" : 25,
+      "value" : 35,
       "description" : [ ]
     }, {
       "name" : "  *.js",
@@ -171,16 +139,16 @@
     } ]
   }, {
     "name" : "SPL/src",
-    "filesCount" : 31,
-    "linesOfCode" : 2923,
+    "filesCount" : 33,
+    "linesOfCode" : 2921,
     "numberOfRegexLineMatches" : 0,
     "fileCountPerExtension" : [ {
       "name" : "  *.css",
-      "value" : 14,
+      "value" : 15,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
-      "value" : 15,
+      "value" : 16,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -189,11 +157,11 @@
     } ],
     "linesOfCodePerExtension" : [ {
       "name" : "  *.css",
-      "value" : 1546,
+      "value" : 1489,
       "description" : [ ]
     }, {
       "name" : "  *.tsx",
-      "value" : 1352,
+      "value" : 1407,
       "description" : [ ]
     }, {
       "name" : "  *.ts",
@@ -273,7 +241,7 @@
         "exception" : true,
         "note" : ""
       }, {
-        "pathPattern" : "./SPL/coverage/.*",
+        "pathPattern" : "./scripts/.*",
         "contentPattern" : "",
         "exception" : true,
         "note" : ""
@@ -290,9 +258,9 @@
       } ],
       "files" : [ ]
     }, {
-      "name" : "SPL/coverage",
+      "name" : "scripts",
       "sourceFileFilters" : [ {
-        "pathPattern" : "./SPL/coverage/.*",
+        "pathPattern" : "./scripts/.*",
         "contentPattern" : "",
         "exception" : false,
         "note" : ""
@@ -304,11 +272,6 @@
         "pathPattern" : "./SPL/.*",
         "contentPattern" : "",
         "exception" : false,
-        "note" : ""
-      }, {
-        "pathPattern" : "./SPL/coverage/.*",
-        "contentPattern" : "",
-        "exception" : true,
         "note" : ""
       }, {
         "pathPattern" : "./SPL/src/.*",
@@ -355,11 +318,11 @@
     "description" : [ ]
   }, {
     "name" : "backend/src",
-    "value" : 807,
+    "value" : 835,
     "description" : [ ]
   }, {
     "name" : "cypress/e2e",
-    "value" : 260,
+    "value" : 348,
     "description" : [ ]
   }, {
     "name" : "cypress/support",
@@ -367,19 +330,19 @@
     "description" : [ ]
   }, {
     "name" : "ROOT",
-    "value" : 152,
+    "value" : 21,
     "description" : [ ]
   }, {
-    "name" : "SPL/coverage",
-    "value" : 3095,
+    "name" : "scripts",
+    "value" : 1,
     "description" : [ ]
   }, {
     "name" : "SPL",
-    "value" : 60,
+    "value" : 70,
     "description" : [ ]
   }, {
     "name" : "SPL/src",
-    "value" : 2923,
+    "value" : 2921,
     "description" : [ ]
   } ],
   "fileCountPerComponent" : [ {
@@ -388,11 +351,11 @@
     "description" : [ ]
   }, {
     "name" : "backend/src",
-    "value" : 12,
+    "value" : 13,
     "description" : [ ]
   }, {
     "name" : "cypress/e2e",
-    "value" : 3,
+    "value" : 4,
     "description" : [ ]
   }, {
     "name" : "cypress/support",
@@ -400,11 +363,11 @@
     "description" : [ ]
   }, {
     "name" : "ROOT",
-    "value" : 2,
+    "value" : 1,
     "description" : [ ]
   }, {
-    "name" : "SPL/coverage",
-    "value" : 13,
+    "name" : "scripts",
+    "value" : 1,
     "description" : [ ]
   }, {
     "name" : "SPL",
@@ -412,7 +375,7 @@
     "description" : [ ]
   }, {
     "name" : "SPL/src",
-    "value" : 31,
+    "value" : 33,
     "description" : [ ]
   } ]
 } ]

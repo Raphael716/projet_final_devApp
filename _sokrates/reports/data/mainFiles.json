@@ -29,7 +29,7 @@
 }, {
   "relativePath" : "backend/src/controllers/assetController.js",
   "extension" : "js",
-  "linesOfCode" : 305,
+  "linesOfCode" : 309,
   "unitsCount" : 2,
   "unitsMcCabeIndexSum" : 8,
   "linesOfCodeInUnits" : 38
@@ -97,6 +97,13 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "backend/src/routes/healthRoutes.js",
+  "extension" : "js",
+  "linesOfCode" : 24,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "backend/src/routes/userRoutes.js",
   "extension" : "js",
   "linesOfCode" : 16,
@@ -125,6 +132,13 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "cypress/e2e/features/parcours_critiques/parcours_critiques.steps.js",
+  "extension" : "js",
+  "linesOfCode" : 88,
+  "unitsCount" : 2,
+  "unitsMcCabeIndexSum" : 2,
+  "linesOfCodeInUnits" : 16
+}, {
   "relativePath" : "cypress/support/commands.js",
   "extension" : "js",
   "linesOfCode" : 30,
@@ -141,108 +155,17 @@
 }, {
   "relativePath" : "cypress.config.js",
   "extension" : "js",
-  "linesOfCode" : 12,
+  "linesOfCode" : 21,
   "unitsCount" : 1,
   "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 2
+  "linesOfCodeInUnits" : 7
 }, {
-  "relativePath" : "generate-sokrates-reports.ps1",
-  "extension" : "ps1",
-  "linesOfCode" : 140,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/AuthContext.ts.html",
-  "extension" : "html",
-  "linesOfCode" : 140,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/base.css",
-  "extension" : "css",
-  "linesOfCode" : 203,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/block-navigation.js",
+  "relativePath" : "scripts/clean-coverage.js",
   "extension" : "js",
-  "linesOfCode" : 66,
-  "unitsCount" : 4,
-  "unitsMcCabeIndexSum" : 9,
-  "linesOfCodeInUnits" : 34
-}, {
-  "relativePath" : "SPL/coverage/clover.xml",
-  "extension" : "xml",
-  "linesOfCode" : 81,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/Header.css.html",
-  "extension" : "html",
-  "linesOfCode" : 422,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/Header.tsx.html",
-  "extension" : "html",
-  "linesOfCode" : 185,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/index.html",
-  "extension" : "html",
-  "linesOfCode" : 186,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/Login.css.html",
-  "extension" : "html",
-  "linesOfCode" : 398,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/Login.tsx.html",
-  "extension" : "html",
-  "linesOfCode" : 347,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/prettify.css",
-  "extension" : "css",
   "linesOfCode" : 1,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/Signup.css.html",
-  "extension" : "html",
-  "linesOfCode" : 533,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/Signup.tsx.html",
-  "extension" : "html",
-  "linesOfCode" : 362,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
-}, {
-  "relativePath" : "SPL/coverage/sorter.js",
-  "extension" : "js",
-  "linesOfCode" : 171,
-  "unitsCount" : 15,
-  "unitsMcCabeIndexSum" : 34,
-  "linesOfCodeInUnits" : 152
 }, {
   "relativePath" : "SPL/eslint.config.js",
   "extension" : "js",
@@ -267,7 +190,7 @@
 }, {
   "relativePath" : "SPL/src/AddVersion.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 122,
+  "linesOfCode" : 131,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -288,7 +211,7 @@
 }, {
   "relativePath" : "SPL/src/App.css",
   "extension" : "css",
-  "linesOfCode" : 194,
+  "linesOfCode" : 182,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -300,6 +223,13 @@
   "unitsMcCabeIndexSum" : 5,
   "linesOfCodeInUnits" : 70
 }, {
+  "relativePath" : "SPL/src/Auth.css",
+  "extension" : "css",
+  "linesOfCode" : 104,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
   "relativePath" : "SPL/src/AuthContext.ts",
   "extension" : "ts",
   "linesOfCode" : 19,
@@ -307,12 +237,19 @@
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
+  "relativePath" : "SPL/src/AuthFooter.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 25,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 3,
+  "linesOfCodeInUnits" : 17
+}, {
   "relativePath" : "SPL/src/AuthProvider.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 55,
-  "unitsCount" : 3,
-  "unitsMcCabeIndexSum" : 8,
-  "linesOfCodeInUnits" : 16
+  "linesOfCode" : 48,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 3,
+  "linesOfCodeInUnits" : 9
 }, {
   "relativePath" : "SPL/src/BuildDetail.css",
   "extension" : "css",
@@ -330,14 +267,14 @@
 }, {
   "relativePath" : "SPL/src/Builds.css",
   "extension" : "css",
-  "linesOfCode" : 153,
+  "linesOfCode" : 189,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "SPL/src/Builds.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 82,
+  "linesOfCode" : 84,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -407,14 +344,14 @@
 }, {
   "relativePath" : "SPL/src/Login.css",
   "extension" : "css",
-  "linesOfCode" : 89,
+  "linesOfCode" : 10,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "SPL/src/Login.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 74,
+  "linesOfCode" : 78,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
@@ -449,17 +386,17 @@
 }, {
   "relativePath" : "SPL/src/Signup.css",
   "extension" : "css",
-  "linesOfCode" : 135,
+  "linesOfCode" : 29,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "SPL/src/Signup.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 82,
-  "unitsCount" : 0,
-  "unitsMcCabeIndexSum" : 0,
-  "linesOfCodeInUnits" : 0
+  "linesOfCode" : 90,
+  "unitsCount" : 1,
+  "unitsMcCabeIndexSum" : 4,
+  "linesOfCodeInUnits" : 84
 }, {
   "relativePath" : "SPL/src/VersionDetail.css",
   "extension" : "css",
@@ -470,15 +407,15 @@
 }, {
   "relativePath" : "SPL/src/VersionDetail.tsx",
   "extension" : "tsx",
-  "linesOfCode" : 205,
+  "linesOfCode" : 219,
   "unitsCount" : 0,
   "unitsMcCabeIndexSum" : 0,
   "linesOfCodeInUnits" : 0
 }, {
   "relativePath" : "SPL/vite.config.ts",
   "extension" : "ts",
-  "linesOfCode" : 25,
+  "linesOfCode" : 35,
   "unitsCount" : 1,
   "unitsMcCabeIndexSum" : 1,
-  "linesOfCodeInUnits" : 23
+  "linesOfCodeInUnits" : 33
 } ]
