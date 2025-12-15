@@ -13,6 +13,7 @@
     "cy:run": "cypress run",
     "cy:cucumber": "cypress run --spec \"cypress/e2e/features/**/*.feature\"",
     "cy:open:cucumber": "cypress open --config \"specPattern=cypress/e2e/features/**/*.feature\"",
+    "test:unit": "npm --prefix SPL run test:unit",
     "test:e2e": "cypress run"
   },
   "dependencies": {
